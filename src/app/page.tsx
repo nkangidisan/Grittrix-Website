@@ -1,7 +1,7 @@
 import { HeroSection } from '@/components/sections/HeroSection';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, HeartPulse, Leaf, BookOpen, ShoppingCart, Cpu, Lightbulb, Users } from 'lucide-react';
+import { Briefcase, HeartPulse, Leaf, BookOpen, ShoppingCart, Cpu, Lightbulb, Users, Phone, Mail, Globe, Layers, Server, ShoppingBag, Tv } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -16,6 +16,18 @@ const coreValues = [
   { name: 'Innovation', icon: Lightbulb, description: 'Driving progress with cutting-edge AI solutions tailored for real-world impact.' },
   { name: 'Integrity', icon: Users, description: 'Building trust through transparent, ethical, and responsible AI practices.' },
   { name: 'Impact', icon: Cpu, description: 'Creating sustainable growth and development in emerging markets through technology.' },
+];
+
+const quickAccessLinks = [
+  { href: '/about', label: 'About Us', icon: Users },
+  { href: '/services', label: 'Services', icon: Briefcase },
+  { href: '/industries', label: 'Industries', icon: Layers },
+  { href: '/careers', label: 'Careers', icon: Briefcase },
+  { href: '/blog', label: 'Blog', icon: BookOpen },
+  { href: '/merch', label: 'Grittrix Merch', icon: ShoppingBag },
+  { href: '/products', label: 'Products', icon: Cpu },
+  { href: '/hosting', label: 'Hosting', icon: Server },
+  { href: '/design-services', label: 'Need a Website / Web App?', icon: Tv },
 ];
 
 
@@ -88,6 +100,47 @@ export default function Home() {
             <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link href="/about">Discover Our Mission</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Access Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Quick Access</h2>
+            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
+              Easily navigate to key areas of our site or get in touch.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {quickAccessLinks.map((item) => (
+              <Link key={item.href} href={item.href} className="block p-6 bg-card rounded-lg shadow-md hover:shadow-primary/20 transition-shadow group">
+                <div className="flex items-center mb-3">
+                  <div className="p-2 bg-primary/10 rounded-md mr-3 group-hover:bg-primary/20 transition-colors">
+                    <item.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="font-headline text-lg font-semibold text-primary group-hover:text-primary/90 transition-colors">{item.label}</h3>
+                </div>
+                <p className="text-sm text-accent group-hover:underline">Explore &rarr;</p>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center bg-card p-8 rounded-lg shadow-md">
+            <h3 className="text-2xl font-headline font-bold text-primary mb-4">Contact Us Directly</h3>
+            <div className="space-y-3 text-foreground/80">
+              <p className="flex items-center justify-center space-x-2">
+                <Phone className="h-5 w-5 text-accent" />
+                <span><a href="tel:+919714688324" className="hover:text-primary">+91 9714688324</a> / <a href="tel:+256756693840" className="hover:text-primary">+256 756693840</a></span>
+              </p>
+              <p className="flex items-center justify-center space-x-2">
+                <Mail className="h-5 w-5 text-accent" />
+                <a href="mailto:info@grittrix.com" className="hover:text-primary">info@grittrix.com</a>
+              </p>
+            </div>
+             <Button variant="outline" asChild className="mt-6 text-accent hover:text-accent hover:bg-accent/10 border-accent/50">
+                <Link href="/contact">Send a Message</Link>
+             </Button>
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
-import { Linkedin, Twitter, Facebook, Instagram, Youtube, Mail, Phone, MessageCircle } from 'lucide-react';
+import { Linkedin, Twitter, Facebook, Instagram, Youtube, Mail, Phone, MessageCircle, Building, Users, Briefcase, Cpu, Server, Tv, ShoppingBag, BookOpen, Layers } from 'lucide-react';
 
 const socialLinks = [
   { href: '#', label: 'LinkedIn', icon: Linkedin },
@@ -13,27 +13,31 @@ const socialLinks = [
 const footerNavs = [
   {
     label: 'Company',
+    icon: Building,
     items: [
-      { href: '/about', name: 'About Us' },
-      { href: '/careers', name: 'Careers' },
-      { href: '/blog', name: 'Blog' },
+      { href: '/about', name: 'About Us', icon: Users },
+      { href: '/careers', name: 'Careers', icon: Briefcase },
+      { href: '/blog', name: 'Blog', icon: BookOpen },
     ],
   },
   {
-    label: 'Services',
+    label: 'Offerings',
+    icon: Cpu,
     items: [
-      { href: '/services', name: 'AI Solutions' },
-      { href: '/products', name: 'Products' },
-      { href: '/design-services', name: 'Web/App Design' },
-      { href: '/hosting', name: 'Hosting' },
+      { href: '/services', name: 'AI Services', icon: Briefcase },
+      { href: '/products', name: 'Products', icon: Cpu },
+      { href: '/industries', name: 'Industries', icon: Layers },
+      { href: '/design-services', name: 'Web/App Design', icon: Tv },
+      { href: '/hosting', name: 'Hosting', icon: Server },
     ],
   },
   {
     label: 'Resources',
+    icon: BookOpen,
     items: [
-      { href: '/contact', name: 'Contact Us' },
-      { href: '/faq', name: 'FAQ' }, // Example, can be created later
-      { href: '/privacy', name: 'Privacy Policy' }, // Example
+      { href: '/merch', name: 'Grittrix Merch', icon: ShoppingBag },
+      { href: '/faq', name: 'FAQ', icon: Users }, // Example, can be created later
+      { href: '/privacy', name: 'Privacy Policy', icon: Users }, // Example
     ],
   },
 ];
@@ -43,8 +47,8 @@ export function Footer() {
   return (
     <footer className="bg-background border-t border-border/50 mt-auto">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <div className="md:col-span-2 lg:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+          <div className="md:col-span-2 lg:col-span-2">
             <Link href="/" aria-label="Grittrix Home">
               <GrittrixLogo className="h-10 w-auto mb-4" />
             </Link>
@@ -69,14 +73,18 @@ export function Footer() {
 
           {footerNavs.map((nav) => (
             <div key={nav.label}>
-              <h3 className="text-md font-semibold font-headline text-primary mb-4">{nav.label}</h3>
+              <h3 className="text-md font-semibold font-headline text-primary mb-4 flex items-center">
+                <nav.icon className="h-5 w-5 mr-2" />
+                {nav.label}
+              </h3>
               <ul className="space-y-3">
                 {nav.items.map((item) => (
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="text-sm text-foreground/70 hover:text-primary transition-colors"
+                      className="text-sm text-foreground/70 hover:text-primary transition-colors flex items-center group"
                     >
+                      <item.icon className="h-4 w-4 mr-2 text-primary/70 group-hover:text-primary transition-colors" />
                       {item.name}
                     </Link>
                   </li>
@@ -86,19 +94,22 @@ export function Footer() {
           ))}
           
           <div>
-            <h3 className="text-md font-semibold font-headline text-primary mb-4">Contact Us</h3>
+            <h3 className="text-md font-semibold font-headline text-primary mb-4 flex items-center"><Phone className="h-5 w-5 mr-2" />Contact Us</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
-                <Mail className="h-5 w-5 text-primary/80"/>
-                <a href="mailto:info@grittrix.com" className="text-sm text-foreground/70 hover:text-primary">info@grittrix.com</a>
+                <Mail className="h-5 w-5 text-primary/80 shrink-0"/>
+                <a href="mailto:info@grittrix.com" className="text-sm text-foreground/70 hover:text-primary break-all">info@grittrix.com</a>
               </li>
               <li className="flex items-center space-x-2">
-                <Phone className="h-5 w-5 text-primary/80"/>
-                <a href="tel:+1234567890" className="text-sm text-foreground/70 hover:text-primary">+1 (234) 567-890</a>
+                <Phone className="h-5 w-5 text-primary/80 shrink-0"/>
+                <div className="text-sm text-foreground/70">
+                    <a href="tel:+919714688324" className="hover:text-primary block">+91 9714688324</a>
+                    <a href="tel:+256756693840" className="hover:text-primary block">+256 756693840</a>
+                </div>
               </li>
                <li className="flex items-center space-x-2">
-                <MessageCircle className="h-5 w-5 text-primary/80"/>
-                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="text-sm text-foreground/70 hover:text-primary">WhatsApp</a>
+                <MessageCircle className="h-5 w-5 text-primary/80 shrink-0"/>
+                <a href="https://wa.me/256756693840" target="_blank" rel="noopener noreferrer" className="text-sm text-foreground/70 hover:text-primary">WhatsApp (+256)</a>
               </li>
             </ul>
           </div>

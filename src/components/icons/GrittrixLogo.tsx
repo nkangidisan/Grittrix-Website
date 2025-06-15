@@ -1,37 +1,22 @@
 import type { SVGProps } from 'react';
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
-export function GrittrixLogo(props: SVGProps<SVGSVGElement>) {
+// Note: Ensure you have your logo image placed at /public/grittrix-logo-with-tagline.png
+// The intrinsic size of the logo image is assumed to be 200x50 here for example.
+// Adjust width and height props below to match your actual image dimensions for optimal display.
+
+export function GrittrixLogo({ className, ...props }: SVGProps<SVGSVGElement> & { className?: string }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 200 50"
-      width="150"
-      height="37.5"
-      aria-labelledby="grittrixLogoTitle"
-      role="img"
-      {...props}
-    >
-      <title id="grittrixLogoTitle">Grittrix AI Solutions Logo</title>
-      <text
-        x="10"
-        y="35"
-        fontFamily="'Space Grotesk', sans-serif"
-        fontSize="30"
-        fontWeight="bold"
-        fill="hsl(var(--primary))"
-      >
-        GRITTRIX
-      </text>
-      <text
-        x="125"
-        y="35"
-        fontFamily="'Inter', sans-serif"
-        fontSize="18"
-        fill="hsl(var(--foreground))"
-        opacity="0.8"
-      >
-        AI
-      </text>
-    </svg>
+    <div className={cn("relative", className)} {...props}>
+      <Image
+        src="/grittrix-logo-with-tagline.png" // Path relative to the /public directory
+        alt="Grittrix - Redefining Industries with Technology"
+        width={200} // Intrinsic width of the image
+        height={50} // Intrinsic height of the image
+        priority // If the logo is critical for LCP
+        className="object-contain" // Ensures the image scales nicely within the given dimensions
+      />
+    </div>
   );
 }
