@@ -1,9 +1,10 @@
+
 import { PageHeader } from '@/components/PageHeader';
 import { ProductCard } from '@/components/sections/ProductCard';
 import type { Product } from '@/lib/types';
 import { Cpu, Stethoscope, Store, Sprout, GraduationCap } from 'lucide-react';
 
-const productsList: Product[] = [
+export const productsList: Product[] = [
   { 
     id: 'CORE', 
     name: 'Grittrix CORE™', 
