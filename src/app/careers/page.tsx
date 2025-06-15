@@ -3,7 +3,7 @@ import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import type { JobListing } from '@/lib/types';
-import { Briefcase, MapPin, ArrowRight, Mail, Sparkles, Brain, Palette, TrendingUp, Handshake } from 'lucide-react';
+import { Briefcase, MapPin, ArrowRight, Mail, Sparkles, Brain, Palette, TrendingUp, Handshake, Users, Building } from 'lucide-react';
 import Link from 'next/link';
 
 // Updated job listings to be more general roles
@@ -157,5 +157,3 @@ export default function CareersPage() {
     </>
   );
 }
-
-    
