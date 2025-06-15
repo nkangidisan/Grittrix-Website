@@ -7,7 +7,7 @@ import { Lightbulb, UsersRound, ShieldCheck, Mountain, Eye } from 'lucide-react'
 import Image from 'next/image';
 
 const teamMembers: TeamMember[] = [
-  { id: '1', name: 'Nkangi Disan', role: 'Founder & CEO', bio: 'Visionary leader with 15+ years in AI and emerging markets. Passionate about leveraging technology for social good.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/disan-nkangi-7ab2b62a9/' } },
+  { id: '1', name: 'Nkangi Disan', role: 'Founder & CEO', bio: 'Visionary leader passionate about leveraging technology for social good.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/disan-nkangi-7ab2b62a9/' } },
   { id: '2', name: 'Lubega Mahad', role: 'Chief Technology Officer', bio: 'Expert in AI/ML development and scalable cloud architectures. Driving Grittrix\'s innovation engine.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/lubega-mahad-ishaaq-021540322/' } },
   { id: '3', name: 'Ashumbusha Emmanuel', role: 'Head of Operations - Africa', bio: 'Strategic operator ensuring seamless delivery and impact across African markets.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/ashumbusha-emmanuel-124059335/' } },
   { id: '4', name: 'Juma Bakari', role: 'Lead AI Researcher', bio: 'Pioneering new algorithms and models to solve complex industry challenges.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/juma-bakari-4712ab152/' } },
@@ -35,13 +35,13 @@ export default async function AboutUsPage() {
     console.error("Failed to fetch optimized content for About Us:", error);
     optimizedData = {
         title: "About Grittrix: Redefining Industries with Technology",
-        content: "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology. Born from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education. We believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive."
+        content: "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology.\n\nBorn from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education.\n\nWe believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive."
     }
   }
 
   const breadcrumbs = [{ name: 'About Us' }];
 
-  const storyContent = optimizedData?.content || "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology.\n\nBorn from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education. We believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive.";
+  const storyContent = optimizedData?.content || "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology.\n\nBorn from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education.\n\nWe believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive.";
 
   return (
     <>
@@ -58,7 +58,7 @@ export default async function AboutUsPage() {
               <h2 className="text-3xl font-bold font-headline text-primary mb-6">Our Story & Mission</h2>
               <div className="prose prose-lg prose-invert text-foreground/80 max-w-none space-y-4">
                  {storyContent.split('\n\n').map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
+                    <p key={index}>{paragraph.trim()}</p>
                  ))}
                  <p className="mt-4">We are engineers, designers, educators, analysts, and doers — united by one goal: creating systems that change lives.</p>
               </div>
@@ -76,7 +76,7 @@ export default async function AboutUsPage() {
                 <Eye className="mr-3 h-10 w-10 text-accent" />
                 Our Vision
             </h2>
-            <p className="text-xl text-foreground/80 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed max-w-3xl mx-auto">
                 To be the engine that powers data-driven transformation in Africa and beyond.
             </p>
         </div>

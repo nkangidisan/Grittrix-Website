@@ -33,17 +33,19 @@ export default async function ServicesPage() {
     console.error("Failed to fetch optimized content for Services:", error);
     optimizedData = {
         title: "Our AI-Powered Services & Platforms",
-        content: "Grittrix delivers a comprehensive suite of ready-to-use, AI-powered platforms and services designed to modernize your operations and drive growth. We specialize in making advanced technology accessible and impactful for businesses in emerging markets."
+        content: "Grittrix delivers a comprehensive suite of ready-to-use, AI-powered platforms and services designed to modernize your operations and drive growth.\n\nWe specialize in making advanced technology accessible and impactful for businesses in emerging markets."
     }
   }
 
   const breadcrumbs = [{ name: 'Services' }];
 
+  const serviceIntroContent = optimizedData?.content || "Grittrix delivers a comprehensive suite of ready-to-use, AI-powered platforms and services designed to modernize your operations and drive growth.\n\nWe specialize in making advanced technology accessible and impactful for businesses in emerging markets.";
+
   return (
     <>
       <PageHeader
         title={optimizedData?.title || "AI-Powered Services to Modernize Your Operations"}
-        description={optimizedData?.content.substring(0, optimizedData.content.lastIndexOf('.') + 1) || "Explore our comprehensive suite of AI solutions designed to empower your business and drive innovation in emerging markets."}
+        description={serviceIntroContent.split('\n\n')[0] || "Explore our comprehensive suite of AI solutions designed to empower your business and drive innovation in emerging markets."}
         breadcrumbs={breadcrumbs}
       />
 
@@ -51,9 +53,9 @@ export default async function ServicesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-6">What We Deliver</h2>
-             <div className="prose prose-lg prose-invert text-foreground/80 max-w-3xl mx-auto">
-                 {optimizedData?.content.split('\n\n').map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
+             <div className="prose prose-lg prose-invert text-foreground/80 max-w-3xl mx-auto space-y-4">
+                 {serviceIntroContent.split('\n\n').map((paragraph, index) => (
+                    <p key={index}>{paragraph.trim()}</p>
                  ))}
                  {!optimizedData && <p>We specialize in transforming businesses through a diverse range of AI-driven services. Our expertise spans data analytics, machine learning, custom software development, and strategic AI integration, helping you navigate the complexities of the digital age and achieve sustainable success.</p>}
             </div>
