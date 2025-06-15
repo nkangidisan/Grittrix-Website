@@ -1,0 +1,42 @@
+import Image from 'next/image';
+import type { MerchandiseItem } from '@/lib/types';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { ShoppingCart } from 'lucide-react';
+
+interface MerchandiseItemProps {
+  item: MerchandiseItem;
+}
+
+export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
+  return (
+    <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group overflow-hidden">
+      <CardHeader className="p-0">
+        <div className="relative aspect-square w-full">
+          <Image
+            src={item.imageUrl}
+            alt={item.name}
+            layout="fill"
+            objectFit="cover"
+            className="group-hover:scale-105 transition-transform duration-300"
+            data-ai-hint={item.imageHint}
+          />
+           <div className="absolute top-2 right-2 bg-primary/80 text-primary-foreground px-2 py-1 text-xs font-semibold rounded">
+            GRITTRIX
+          </div>
+        </div>
+      </CardHeader>
+      <CardContent className="p-4 flex-grow">
+        <CardTitle className="font-headline text-lg text-primary mb-1 group-hover:text-primary/90 transition-colors">{item.name}</CardTitle>
+        {item.description && <CardDescription className="text-xs text-foreground/70 mb-2">{item.description}</CardDescription>}
+        {item.price && <p className="text-md font-semibold text-accent">{item.price}</p>}
+      </CardContent>
+      <CardFooter className="p-4 pt-0">
+        <Button variant="outline" className="w-full hover:bg-accent/10 hover:text-accent border-accent/50 text-accent">
+          <ShoppingCart className="mr-2 h-4 w-4" />
+          View Item
+        </Button>
+      </CardFooter>
+    </Card>
+  );
+}
