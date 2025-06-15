@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -45,11 +46,11 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" aria-label="Grittrix Home">
-            <GrittrixLogo className="h-10 w-auto" />
+            <GrittrixLogo className="h-10 w-auto" /> {/* Logo height set to 40px, width scales */}
           </Link>
 
           <nav className="hidden lg:flex items-center space-x-1">
-            {navItems.slice(0, 6).map((item) => ( // Show first 6 items, rest can be in a dropdown or footer
+            {navItems.slice(0, 6).map((item) => ( // Show first 6 items for desktop
               <NavLink key={item.href} href={item.href}>
                 {item.label}
               </NavLink>
@@ -74,7 +75,7 @@ export function Header() {
               </SheetTrigger>
               <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
                 <div className="flex justify-between items-center mb-6">
-                  <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="/" onClick={() => setIsMobileMenuOpen(false)} aria-label="Grittrix Home">
                     <GrittrixLogo className="h-8 w-auto" />
                   </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)} aria-label="Close mobile menu">
