@@ -1,3 +1,4 @@
+
 // src/lib/firebaseAdmin.ts
 import admin from 'firebase-admin';
 
@@ -8,24 +9,41 @@ import admin from 'firebase-admin';
 if (!admin.apps.length) {
   if (process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
     // For environments where the service account key is passed as a JSON string
-    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
-    admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
-      // databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL, // If using Realtime Database
-    });
+    try {
+      const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
+      admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+        // databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL, // If using Realtime Database
+      });
+    } catch (e) {
+      console.error("Failed to parse FIREBASE_SERVICE_ACCOUNT_KEY. Ensure it's a valid JSON string.", e);
+      // Attempt default initialization as a fallback
+      console.warn("Falling back to default Firebase Admin SDK initialization due to parsing error.");
+      admin.initializeApp();
+    }
   } else if (process.env.GOOGLE_CLOUD_PROJECT) {
-    // For Google Cloud environments like Cloud Functions, App Engine, App Hosting
+    // For Google Cloud environments (like App Hosting, Cloud Functions, App Engine)
+    // where credentials are automatically discovered.
     admin.initializeApp();
   } else {
-    // Fallback for local development if GOOGLE_APPLICATION_CREDENTIALS is set
-    // Or if you want to provide a default local setup
-    // console.warn("Firebase Admin SDK not fully configured. Ensure FIREBASE_SERVICE_ACCOUNT_KEY or GOOGLE_CLOUD_PROJECT (with ADC) is set.");
-    // admin.initializeApp(); // This might work if Application Default Credentials are set up locally
+    // For other environments (e.g., local development relying on ADC via gcloud)
+    // or if no specific credentials environment variables are set.
+    console.warn(
+      "Firebase Admin SDK initializing with default configuration. " +
+      "This relies on Application Default Credentials (ADC) if available, or an emulated environment. " +
+      "For local development, ensure ADC are set up (e.g., `gcloud auth application-default login`) " +
+      "or provide FIREBASE_SERVICE_ACCOUNT_KEY for explicit configuration."
+    );
+    admin.initializeApp(); // Initialize using ADC or environment defaults
   }
 }
 
+// After the block above, admin.initializeApp() should have been called if no apps existed.
+// So, we can directly export the services.
 export const firestoreAdmin = admin.firestore();
 export const authAdmin = admin.auth();
 // export const storageAdmin = admin.storage(); // If using Firebase Storage
 
 export default admin;
+
+    
