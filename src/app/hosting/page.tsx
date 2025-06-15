@@ -1,7 +1,8 @@
+
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Zap, ShieldCheck, Database, BarChart } from 'lucide-react';
+import { CheckCircle, Zap, ShieldCheck, Database, BarChart, Gift } from 'lucide-react';
 import Link from 'next/link';
 
 const hostingFeatures = [
@@ -13,9 +14,39 @@ const hostingFeatures = [
 ];
 
 const pricingPlans = [
-  { name: "Starter AI", price: "$49", period: "/month", features: ["Basic AI Model Hosting", "10GB SSD Storage", "1TB Bandwidth", "Shared CPU & RAM", "Email Support"], recommended: false, cta: "Get Started" },
-  { name: "Pro AI", price: "$149", period: "/month", features: ["Advanced AI Model Hosting", "50GB NVMe Storage", "5TB Bandwidth", "Dedicated CPU & RAM options", "Priority Support", "Automated Backups"], recommended: true, cta: "Choose Pro" },
-  { name: "Enterprise AI", price: "Custom", period: "", features: ["Fully Managed Hosting", "Custom AI Infrastructure", "Scalable High-Performance Clusters", "Dedicated Security Team", "SLA Guarantees", "24/7 Premium Support"], recommended: false, cta: "Contact Sales" },
+  { 
+    name: "Free Trial", 
+    price: "$0", 
+    period: "/ 30 Days", 
+    features: ["Test Basic AI Models", "1GB SSD Storage", "100GB Bandwidth", "Shared Resources", "Community Support"], 
+    recommended: false, 
+    cta: "Start Free Trial",
+    icon: Gift 
+  },
+  { 
+    name: "Starter AI", 
+    price: "$10", 
+    period: "/month", 
+    features: ["Basic AI Model Hosting", "10GB SSD Storage", "1TB Bandwidth", "Shared CPU & RAM", "Email Support"], 
+    recommended: false, 
+    cta: "Get Started" 
+  },
+  { 
+    name: "Pro AI", 
+    price: "$30", 
+    period: "/month", 
+    features: ["Advanced AI Model Hosting", "50GB NVMe Storage", "5TB Bandwidth", "Dedicated CPU & RAM options", "Priority Support", "Automated Backups"], 
+    recommended: true, 
+    cta: "Choose Pro" 
+  },
+  { 
+    name: "Enterprise AI", 
+    price: "Custom", 
+    period: "", 
+    features: ["Fully Managed Hosting", "Custom AI Infrastructure", "Scalable High-Performance Clusters", "Dedicated Security Team", "SLA Guarantees", "24/7 Premium Support"], 
+    recommended: false, 
+    cta: "Contact Sales" 
+  },
 ];
 
 export default function HostingPage() {
@@ -61,37 +92,47 @@ export default function HostingPage() {
               Choose the plan that best fits your needs. All plans come with our commitment to excellence and support.
             </p>
           </div>
-          <div className="grid lg:grid-cols-3 gap-8 items-stretch">
-            {pricingPlans.map((plan) => (
-              <Card key={plan.name} className={`flex flex-col ${plan.recommended ? 'border-2 border-accent shadow-accent/30 shadow-lg' : 'bg-card'}`}>
-                {plan.recommended && <div className="py-1 px-4 bg-accent text-accent-foreground text-xs font-bold uppercase tracking-wider text-center rounded-t-lg -mb-px">Most Popular</div>}
-                <CardHeader className="text-center">
-                  <CardTitle className="font-headline text-2xl text-primary">{plan.name}</CardTitle>
-                  <p className="text-4xl font-bold text-foreground my-2">
-                    {plan.price}
-                    {plan.period && <span className="text-sm font-normal text-foreground/70">{plan.period}</span>}
-                  </p>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <ul className="space-y-3">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start text-sm">
-                        <CheckCircle className="h-4 w-4 text-accent mr-2 mt-0.5 shrink-0" />
-                        <span className="text-foreground/80">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button 
-                    asChild 
-                    className={`w-full ${plan.recommended ? 'bg-accent hover:bg-accent/90 text-accent-foreground' : 'bg-primary hover:bg-primary/90 text-primary-foreground'}`}
-                  >
-                    <Link href={`/contact?subject=Hosting Plan: ${plan.name}`}>{plan.cta}</Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+            {pricingPlans.map((plan) => {
+              const PlanIcon = plan.icon;
+              return (
+                <Card key={plan.name} className={`flex flex-col ${plan.recommended ? 'border-2 border-accent shadow-accent/30 shadow-lg' : 'bg-card'}`}>
+                  {plan.recommended && <div className="py-1 px-4 bg-accent text-accent-foreground text-xs font-bold uppercase tracking-wider text-center rounded-t-lg -mb-px">Most Popular</div>}
+                  <CardHeader className="text-center">
+                    {PlanIcon && (
+                        <div className="flex justify-center mb-3">
+                            <div className="p-3 bg-primary/10 rounded-full">
+                                <PlanIcon className="h-8 w-8 text-primary" />
+                            </div>
+                        </div>
+                    )}
+                    <CardTitle className="font-headline text-2xl text-primary">{plan.name}</CardTitle>
+                    <p className="text-4xl font-bold text-foreground my-2">
+                      {plan.price}
+                      {plan.period && <span className="text-sm font-normal text-foreground/70">{plan.period}</span>}
+                    </p>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <ul className="space-y-3">
+                      {plan.features.map((feature) => (
+                        <li key={feature} className="flex items-start text-sm">
+                          <CheckCircle className="h-4 w-4 text-accent mr-2 mt-0.5 shrink-0" />
+                          <span className="text-foreground/80">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter>
+                    <Button 
+                      asChild 
+                      className={`w-full ${plan.recommended ? 'bg-accent hover:bg-accent/90 text-accent-foreground' : plan.name === "Free Trial" ? 'bg-primary hover:bg-primary/90 text-primary-foreground' : 'bg-primary hover:bg-primary/90 text-primary-foreground'}`}
+                    >
+                      <Link href={`/contact?subject=Hosting Plan: ${plan.name}`}>{plan.cta}</Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              );
+            })}
           </div>
            <p className="text-center mt-12 text-sm text-foreground/70">
             Need a custom solution? <Link href="/contact?subject=Custom Hosting Inquiry" className="text-accent hover:underline">Contact us</Link> for enterprise and tailored hosting packages.
