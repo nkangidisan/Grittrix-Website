@@ -5,55 +5,95 @@ import type { Product } from '@/lib/types';
 import { Cpu, Stethoscope, Store, Sprout, GraduationCap } from 'lucide-react';
 
 export const productsList: Product[] = [
-  { 
-    id: 'CORE', 
-    name: 'Grittrix CORE™', 
-    tagline: 'The Central AI Engine for Your Enterprise.',
-    description: 'A robust and scalable AI platform that serves as the foundation for developing and deploying custom AI solutions across your organization. Integrates seamlessly with existing systems.',
-    icon: Cpu, 
-    imageUrl: 'https://placehold.co/400x300.png', 
-    imageHint: 'AI core processor',
-    features: ['Modular Architecture', 'Scalable Processing', 'Advanced Data Security', 'Multi-Model Support', 'API Integrations']
-  },
-  { 
-    id: 'Health', 
-    name: 'Grittrix Health™', 
-    tagline: 'AI-Powered Insights for Better Healthcare Outcomes.',
-    description: 'A suite of AI tools for the healthcare industry, including diagnostic support, patient risk stratification, personalized treatment planning, and hospital operations optimization.',
-    icon: Stethoscope, 
+  {
+    id: 'CORE',
+    name: 'Grittrix CORE™',
+    tagline: 'AI Operating System for Industry.',
+    description: 'The foundational AI engine powering Grittrix solutions. CORE provides a robust, scalable, and secure platform for developing, deploying, and managing AI models and applications across diverse industrial use cases. It enables seamless data integration, advanced analytics, and intelligent automation for transformative business outcomes.',
+    icon: Cpu,
     imageUrl: 'https://placehold.co/400x300.png',
-    imageHint: 'medical AI analysis',
-    features: ['Medical Image Analysis', 'Predictive Diagnostics', 'Patient Outcome Prediction', 'Resource Optimization', 'Telehealth Integration']
+    imageHint: 'abstract AI core network',
+    features: [
+      'Unified AI Development Environment',
+      'Scalable Model Deployment & Management',
+      'Advanced Data Ingestion & Processing Pipelines',
+      'Enterprise-Grade Security & Compliance Frameworks',
+      'Modular Microservices Architecture for Flexibility',
+      'Real-time Analytics & Reporting APIs',
+      'Multi-Cloud & On-Premise Compatibility',
+    ]
   },
-  { 
-    id: 'Retail', 
-    name: 'Grittrix Retail™', 
-    tagline: 'Intelligent Solutions for Smarter Retail Operations.',
-    description: 'AI-driven platform for retailers to enhance customer experiences, optimize inventory, personalize marketing, and streamline supply chain management.',
-    icon: Store, 
+  {
+    id: 'Health',
+    name: 'Grittrix Health™',
+    tagline: 'For clinics and pharmacies.',
+    description: 'Empowering healthcare providers with intelligent tools. Grittrix Health™ streamlines clinic workflows, optimizes pharmacy inventory, enhances diagnostic support through AI-assisted image analysis, and enables personalized patient care via predictive analytics for improved health outcomes.',
+    icon: Stethoscope,
     imageUrl: 'https://placehold.co/400x300.png',
-    imageHint: 'retail analytics dashboard',
-    features: ['Personalized Recommendations', 'Demand Forecasting', 'Inventory Optimization', 'Customer Segmentation', 'Automated Customer Service']
+    imageHint: 'doctor AI tablet diagnostics',
+    features: [
+      'AI-Assisted Medical Image Analysis (X-rays, Scans)',
+      'Predictive Patient Triage & Risk Stratification',
+      'Smart Pharmacy Inventory & Expiry Management',
+      'Personalized Treatment Plan Adherence Monitoring',
+      'Automated Health Record Summarization & Insights',
+      'Telemedicine Platform Integration & AI Chatbots',
+      'Disease Outbreak Prediction & Monitoring',
+    ]
   },
-  { 
-    id: 'Agro', 
-    name: 'Grittrix Agro™', 
-    tagline: 'Precision AI for Sustainable and Productive Agriculture.',
-    description: 'AI solutions for modern farming, including crop monitoring, yield prediction, pest and disease detection, and resource management for sustainable agriculture.',
-    icon: Sprout, 
+  {
+    id: 'Retail',
+    name: 'Grittrix Retail™',
+    tagline: 'For retail shops and FMCG.',
+    description: 'Transforming retail operations and customer experiences with AI. Grittrix Retail™ offers solutions for intelligent demand forecasting, dynamic inventory optimization, hyper-personalized customer engagement, and streamlined supply chain management, helping businesses boost sales and operational efficiency.',
+    icon: Store,
     imageUrl: 'https://placehold.co/400x300.png',
-    imageHint: 'agritech farm data',
-    features: ['Crop Health Monitoring', 'Yield Prediction', 'Precision Irrigation', 'Pest & Disease Detection', 'Market Linkage Tools']
+    imageHint: 'retail AI analytics dashboard',
+    features: [
+      'AI-Powered Demand & Sales Forecasting',
+      'Automated Inventory Replenishment & Optimization',
+      'Personalized Product Recommendations & Marketing',
+      'Dynamic Pricing & Promotion Strategies',
+      'Supply Chain Visibility & Logistics Optimization',
+      'Customer Sentiment Analysis & Churn Prediction',
+      'Smart Store Layout & Shelf Management Insights',
+    ]
   },
-  { 
-    id: 'Learn', 
-    name: 'Grittrix Learn™', 
-    tagline: 'Adaptive AI for Personalized Education and Skill Development.',
-    description: 'An AI-powered learning platform that offers personalized learning paths, adaptive assessments, and intelligent tutoring to enhance educational experiences for students and professionals.',
-    icon: GraduationCap, 
+  {
+    id: 'Agro',
+    name: 'Grittrix Agro™',
+    tagline: 'Smart agriculture insights.',
+    description: 'Revolutionizing agriculture with data-driven intelligence. Grittrix Agro™ provides advanced tools for real-time crop monitoring, precise yield prediction, early pest and disease detection, and optimized resource management, promoting sustainable and highly productive farming practices.',
+    icon: Sprout,
     imageUrl: 'https://placehold.co/400x300.png',
-    imageHint: 'e-learning platform interface',
-    features: ['Adaptive Learning Paths', 'Personalized Content', 'Automated Assessment', 'Skill Gap Analysis', 'Corporate Training Modules']
+    imageHint: 'drone smart farm analysis',
+    features: [
+      'AI-Driven Crop Health Monitoring (Satellite/Drone Imagery)',
+      'Precision Irrigation & Fertilization Recommendations',
+      'Automated Pest & Plant Disease Detection',
+      'Accurate Yield Prediction & Harvest Planning',
+      'Soil Data Analysis & Nutrient Management',
+      'Weather Pattern Analysis & Climate Adaptation Strategies',
+      'Market Linkage & Price Trend Forecasting',
+    ]
+  },
+  {
+    id: 'Learn',
+    name: 'Grittrix Learn™',
+    tagline: 'Education analytics & AI tutors.',
+    description: 'Personalizing education and empowering learners with AI. Grittrix Learn™ offers adaptive learning platforms, intelligent AI tutoring systems, and comprehensive analytics to enhance student engagement, improve learning outcomes, and support educators in creating impactful educational experiences.',
+    icon: GraduationCap,
+    imageUrl: 'https://placehold.co/400x300.png',
+    imageHint: 'student AI tutor interface',
+    features: [
+      'Adaptive Learning Paths & Personalized Content Delivery',
+      'AI-Powered Intelligent Tutoring System (24/7 Support)',
+      'Student Performance Analytics & Progress Dashboards',
+      'Automated Assessment Generation & Grading Assistance',
+      'Personalized Skill Gap Analysis & Learning Recommendations',
+      'Teacher Support Tools & Resource Optimization',
+      'Corporate Training & Upskilling Modules',
+    ]
   },
 ];
 
@@ -63,8 +103,8 @@ export default function ProductsPage() {
   return (
     <>
       <PageHeader
-        title="Our Flagship Products"
-        description="Discover Grittrix's suite of AI-powered products, meticulously designed to address specific industry needs and drive transformative results."
+        title="Explore Our Tech Suite"
+        description="Discover Grittrix's industry-leading AI-powered products, meticulously engineered to address complex challenges and drive transformative results across key sectors."
         breadcrumbs={breadcrumbs}
       />
 
@@ -73,7 +113,7 @@ export default function ProductsPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-headline text-primary mb-4">Innovate with Grittrix</h2>
             <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-              Each Grittrix product is built on our core AI engine, tailored to deliver specialized capabilities and unlock new value in your sector.
+              Each Grittrix product is built on our powerful CORE™ AI engine, tailored to deliver specialized capabilities and unlock unparalleled value in your sector. We provide solutions that are not just intelligent, but also accessible and impactful.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
