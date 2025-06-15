@@ -2,7 +2,7 @@
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Zap, ShieldCheck, Database, BarChart, Gift } from 'lucide-react';
+import { CheckCircle, Zap, ShieldCheck, Database, BarChart, Gift, Server, Globe, Lock, RotateCcw, Users } from 'lucide-react';
 import Link from 'next/link';
 
 const hostingFeatures = [
@@ -10,7 +10,7 @@ const hostingFeatures = [
   { title: "Rock-Solid Security", description: "State-of-the-art security measures to protect your data and applications, ensuring compliance and peace of mind.", icon: ShieldCheck },
   { title: "Scalable Resources", description: "Easily scale your hosting resources up or down based on demand, ensuring your applications always perform optimally.", icon: BarChart },
   { title: "Reliable Infrastructure", description: "High uptime guarantees and robust infrastructure built for the demands of modern AI and web applications.", icon: Database },
-  { title: "Expert Support", description: "Access to our team of hosting experts for any assistance you may need, 24/7.", icon: CheckCircle },
+  { title: "Expert Support", description: "Access to our team of hosting experts for any assistance you may need, 24/7.", icon: Users },
 ];
 
 const pricingPlans = [
@@ -18,7 +18,15 @@ const pricingPlans = [
     name: "Free Trial", 
     price: "$0", 
     period: "/ 30 Days", 
-    features: ["Test Basic AI Models", "1GB SSD Storage", "100GB Bandwidth", "Shared Resources", "Community Support"], 
+    features: [
+        "Test Basic AI Models", 
+        "1GB SSD Storage", 
+        "100GB Bandwidth", 
+        "Shared Resources", 
+        "Web and app hosting (Basic)",
+        "SSL encryption",
+        "Community Support"
+    ], 
     recommended: false, 
     cta: "Start Free Trial",
     icon: Gift 
@@ -27,25 +35,58 @@ const pricingPlans = [
     name: "Starter AI", 
     price: "$10", 
     period: "/month", 
-    features: ["Basic AI Model Hosting", "10GB SSD Storage", "1TB Bandwidth", "Shared CPU & RAM", "Email Support"], 
+    features: [
+        "Basic AI Model Hosting", 
+        "10GB SSD Storage", 
+        "1TB Bandwidth", 
+        "Shared CPU & RAM", 
+        "Web and app hosting",
+        "Custom domains",
+        "SSL encryption",
+        "Daily backups",
+        "Local support (Email)"
+    ], 
     recommended: false, 
-    cta: "Get Started" 
+    cta: "Get Started",
+    icon: Server
   },
   { 
     name: "Pro AI", 
     price: "$30", 
     period: "/month", 
-    features: ["Advanced AI Model Hosting", "50GB NVMe Storage", "5TB Bandwidth", "Dedicated CPU & RAM options", "Priority Support", "Automated Backups"], 
+    features: [
+        "Advanced AI Model Hosting", 
+        "50GB NVMe Storage", 
+        "5TB Bandwidth", 
+        "Dedicated CPU & RAM options", 
+        "Web and app hosting",
+        "Custom domains",
+        "SSL encryption",
+        "Daily backups",
+        "Local support (Priority)"
+    ], 
     recommended: true, 
-    cta: "Choose Pro" 
+    cta: "Choose Pro",
+    icon: Zap 
   },
   { 
     name: "Enterprise AI", 
     price: "Custom", 
     period: "", 
-    features: ["Fully Managed Hosting", "Custom AI Infrastructure", "Scalable High-Performance Clusters", "Dedicated Security Team", "SLA Guarantees", "24/7 Premium Support"], 
+    features: [
+        "Fully Managed Hosting", 
+        "Custom AI Infrastructure", 
+        "Scalable High-Performance Clusters", 
+        "Web and app hosting (Dedicated)",
+        "Custom domains & Advanced DNS",
+        "SSL encryption (Premium)",
+        "Daily backups & Disaster Recovery",
+        "Local support (24/7 Premium)",
+        "SLA Guarantees"
+    ], 
     recommended: false, 
-    cta: "Contact Sales" 
+    cta: "Contact Sales",
+    icon: Globe
   },
 ];
 

@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -22,7 +23,7 @@ export type OptimizeContentInput = z.infer<typeof OptimizeContentInputSchema>;
 
 const OptimizeContentOutputSchema = z.object({
   title: z.string().describe('The optimized title for the page.'),
-  content: z.string().describe('The optimized content for the page.'),
+  content: z.string().describe("The optimized content for the page. This content should be plain text, suitable for rendering directly within HTML paragraph tags. Use double newlines (\\n\\n) to separate distinct paragraphs. Do not include any HTML tags (e.g., <h1>, <p>, <strong>) in this content string."),
 });
 export type OptimizeContentOutput = z.infer<typeof OptimizeContentOutputSchema>;
 
@@ -42,7 +43,11 @@ Optimize the content for the following keywords: {{keywords}}.
 
 Use the following information about the company to provide context and build trust: {{companyInfo}}.
 
-Ensure the content is engaging, informative, and optimized for search engines. Your output should be a JSON object matching the defined schema, containing a 'title' and 'content'.`,
+Ensure the content is engaging, informative, and optimized for search engines.
+The 'content' field in your output should be formatted as plain text suitable for direct rendering in HTML paragraph tags.
+Use double newlines (\\n\\n) to separate distinct paragraphs.
+IMPORTANT: Do NOT include any HTML tags (e.g., <h1>, <p>, <strong>, <ul>, <li>) in the content string itself.
+Your output must be a JSON object matching the defined schema, containing a 'title' and 'content'.`,
 });
 
 const optimizeContentFlow = ai.defineFlow(
