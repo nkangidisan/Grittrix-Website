@@ -10,14 +10,15 @@ export function HeroSection() {
         {/* Subtle background pattern or animation can go here */}
       </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left animate-slide-in-up">
             <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-              Empowering Africa with
-              <span className="block text-primary">AI-Driven Solutions</span>
+              Transforming Industries in 
+              <span className="block text-primary">Africa and Beyond with</span>
+              Smart AI Infrastructure
             </h1>
             <p className="text-lg sm:text-xl text-foreground/80 mb-10 max-w-xl mx-auto md:mx-0">
-              Grittrix pioneers transformative AI technologies for healthcare, retail, agriculture, and education across emerging markets. Discover the future, today.
+              At Grittrix, we build powerful, affordable AI and data solutions tailored for healthcare, retail, agriculture, and education — helping businesses and institutions unlock smarter decisions, automate operations, and scale with confidence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transform transition-transform hover:scale-105">
@@ -35,12 +36,12 @@ export function HeroSection() {
             <div className="aspect-video rounded-xl overflow-hidden shadow-2xl">
                <Image
                 src="https://placehold.co/600x400.png"
-                alt="AI Technology Showcase"
+                alt="AI Powered Infrastructure"
                 width={600}
                 height={400}
                 className="object-cover w-full h-full transform transition-transform duration-500 hover:scale-105"
                 priority
-                data-ai-hint="abstract technology"
+                data-ai-hint="futuristic AI infrastructure" 
               />
             </div>
             <div className="absolute -top-8 -right-8 w-32 h-32 bg-primary/20 rounded-full filter blur-2xl animate-pulse"></div>

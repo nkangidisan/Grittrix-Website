@@ -1,33 +1,90 @@
 import { HeroSection } from '@/components/sections/HeroSection';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, HeartPulse, Leaf, BookOpen, ShoppingCart, Cpu, Lightbulb, Users, Phone, Mail, Globe, Layers, Server, ShoppingBag, Tv } from 'lucide-react';
+import { 
+  HeartPulse, Leaf, BookOpen, ShoppingCart, Cpu, Lightbulb, Users, ShieldCheck, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Briefcase, Building, GitFork, Tv, Server, ShoppingBag, Phone, Mail, ArrowRight
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const featuredIndustries = [
-  { name: 'Healthcare', icon: HeartPulse, description: 'AI-powered diagnostics and patient management.', link: '/industries/healthcare', imageHint: 'modern hospital' },
-  { name: 'Retail', icon: ShoppingCart, description: 'Optimized supply chains and personalized customer experiences.', link: '/industries/retail', imageHint: 'retail tech' },
-  { name: 'Agriculture', icon: Leaf, description: 'Precision farming and crop yield optimization.', link: '/industries/agriculture', imageHint: 'agritech' },
-  { name: 'Education', icon: BookOpen, description: 'Personalized learning paths and adaptive educational tools.', link: '/industries/education', imageHint: 'digital classroom' },
+const keyFeatures = [
+  { name: 'Insight Dashboards', description: 'Get real-time analytics and forecasts tailored to your sector.', icon: BarChartBig },
+  { name: 'AI Modules', description: 'Plug in smart tools to predict sales, manage stock, or detect diseases.', icon: BrainCircuit },
+  { name: 'Modular Design', description: 'Only pay for the features you need — scale as you grow.', icon: Puzzle },
+  { name: 'Data-Driven Decisions', description: 'Stop guessing. Start acting with data-backed intelligence.', icon: DatabaseZap },
+  { name: 'Secure & Private', description: 'Your data is encrypted and securely hosted.', icon: ShieldCheck },
 ];
 
-const coreValues = [
-  { name: 'Innovation', icon: Lightbulb, description: 'Driving progress with cutting-edge AI solutions tailored for real-world impact.' },
-  { name: 'Integrity', icon: Users, description: 'Building trust through transparent, ethical, and responsible AI practices.' },
-  { name: 'Impact', icon: Cpu, description: 'Creating sustainable growth and development in emerging markets through technology.' },
+const industriesServed = [
+  { 
+    name: 'Healthcare', 
+    icon: HeartPulse, 
+    link: '/industries/healthcare', 
+    imageHint: 'modern hospital AI',
+    points: [
+      'Smart patient triage',
+      'AI-assisted diagnostics',
+      'Drug inventory forecasting',
+      'Digital health records'
+    ] 
+  },
+  { 
+    name: 'Retail', 
+    icon: ShoppingCart, 
+    link: '/industries/retail', 
+    imageHint: 'retail tech analytics',
+    points: [
+      'Inventory optimization',
+      'Sales prediction',
+      'Low-stock alerts',
+      'Customer insights'
+    ] 
+  },
+  { 
+    name: 'Agriculture', 
+    icon: Leaf, 
+    link: '/industries/agriculture', 
+    imageHint: 'agritech smart farm',
+    points: [
+      'AI crop disease detection',
+      'Weather-based yield prediction',
+      'Market price forecasting',
+      'Smart farm planning tools'
+    ] 
+  },
+  { 
+    name: 'Education', 
+    icon: BookOpen, 
+    link: '/industries/education', 
+    imageHint: 'digital classroom AI',
+    points: [
+      'AI-powered tutoring',
+      'Student performance analytics',
+      'Lesson planning assistance',
+      'Risk alerts for at-risk students'
+    ] 
+  },
 ];
 
-const quickAccessLinks = [
-  { href: '/about', label: 'About Us', icon: Users },
-  { href: '/services', label: 'Services', icon: Briefcase },
-  { href: '/industries', label: 'Industries', icon: Layers },
-  { href: '/careers', label: 'Careers', icon: Briefcase },
-  { href: '/blog', label: 'Blog', icon: BookOpen },
-  { href: '/merch', label: 'Grittrix Merch', icon: ShoppingBag },
-  { href: '/products', label: 'Products', icon: Cpu },
-  { href: '/hosting', label: 'Hosting', icon: Server },
-  { href: '/design-services', label: 'Need a Website / Web App?', icon: Tv },
+const whoWeWorkWith = [
+  { name: 'Clinics and pharmacies', icon: HeartPulse },
+  { name: 'Small-to-medium retail businesses', icon: ShoppingCart },
+  { name: 'Farmer cooperatives and agri-entrepreneurs', icon: Leaf },
+  { name: 'Schools and educational NGOs', icon: BookOpen },
+  { name: 'Local governments and development partners', icon: Building },
+];
+
+const whyGrittrixPoints = [
+  { name: 'Fast Setup', description: 'No need for coding or deep tech knowledge. Start using our tools in minutes.', icon: Zap },
+  { name: 'Local Context', description: 'Built specifically for Africa and emerging markets — we understand your challenges.', icon: Globe },
+  { name: 'Affordable Pricing', description: 'Enterprise-grade AI at prices made for small and growing businesses.', icon: DollarSign },
+  { name: 'Expert Support', description: 'We don’t just sell tools. We walk with you. Real humans. Real impact.', icon: LifeBuoy },
+];
+
+const testimonials = [
+    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageHint: "happy pharmacist" },
+    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageHint: "farmer using tablet" },
+    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageHint: "teacher students classroom" }
 ];
 
 
@@ -36,37 +93,35 @@ export default function Home() {
     <>
       <HeroSection />
 
-      {/* Featured Industries Section */}
+      {/* What We Do Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Industries We Serve</h2>
-            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-              Tailored AI solutions to address unique challenges and unlock opportunities across diverse sectors.
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-6 animate-fade-in">What We Do</h2>
+            <p className="text-lg text-foreground/80 leading-relaxed animate-fade-in animation-delay-200">
+              Grittrix is a plug-and-play AI platform for businesses and institutions in emerging markets. We provide industry-specific tools powered by AI, data science, and machine learning — designed to deliver real-time insights, automate workflows, and enhance performance without requiring a full tech team.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {featuredIndustries.map((industry) => (
-              <Card key={industry.name} className="bg-card hover:shadow-xl transition-shadow duration-300 group">
+        </div>
+      </section>
+
+      {/* Key Features Section */}
+      <section className="py-16 md:py-24 bg-secondary/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Key Features</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {keyFeatures.map((feature, index) => (
+              <Card key={feature.name} className="bg-card hover:shadow-xl transition-shadow duration-300 group animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
                 <CardHeader className="items-center text-center">
-                  <div className="p-4 bg-primary/10 rounded-full mb-4 group-hover:bg-primary/20 transition-colors">
-                    <industry.icon className="h-10 w-10 text-primary" />
+                  <div className="p-4 bg-accent/10 rounded-full mb-3 group-hover:bg-accent/20 transition-colors">
+                    <feature.icon className="h-10 w-10 text-accent" />
                   </div>
-                  <CardTitle className="font-headline text-xl text-primary group-hover:text-primary/90 transition-colors">{industry.name}</CardTitle>
+                  <CardTitle className="font-headline text-xl text-primary group-hover:text-primary/90 transition-colors">{feature.name}</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <p className="text-foreground/70 mb-4 text-sm">{industry.description}</p>
-                   <Image 
-                    src={`https://placehold.co/300x200.png`}
-                    alt={industry.name}
-                    width={300}
-                    height={200}
-                    className="rounded-md mb-4 object-cover aspect-[3/2] mx-auto"
-                    data-ai-hint={industry.imageHint}
-                  />
-                  <Button variant="link" asChild className="text-accent group-hover:underline">
-                    <Link href={industry.link}>Learn More &rarr;</Link>
-                  </Button>
+                  <p className="text-foreground/70 text-sm">{feature.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -74,87 +129,150 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Grittrix Section */}
-      <section className="py-16 md:py-24 bg-secondary/10">
+      {/* Industries We Serve Section */}
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Why Grittrix?</h2>
-            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-              We combine deep industry expertise with cutting-edge AI to deliver solutions that drive real-world impact and foster sustainable growth.
-            </p>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Industries We Serve</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {coreValues.map((value) => (
-              <div key={value.name} className="text-center p-6 bg-card rounded-lg shadow-md hover:shadow-primary/20 transition-shadow">
-                <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-accent/10 rounded-full">
-                    <value.icon className="h-8 w-8 text-accent" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+            {industriesServed.map((industry, index) => (
+              <Card key={industry.name} className="bg-card hover:shadow-2xl transition-all duration-300 group flex flex-col md:flex-row overflow-hidden animate-slide-in-up" style={{ animationDelay: `${index * 150}ms`}}>
+                <div className="md:w-1/3 relative">
+                  <Image 
+                    src={`https://placehold.co/400x500.png`} // Taller image for card layout
+                    alt={industry.name}
+                    width={400}
+                    height={500}
+                    className="object-cover w-full h-48 md:h-full group-hover:scale-105 transition-transform duration-300"
+                    data-ai-hint={industry.imageHint}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent md:bg-gradient-to-r"></div>
+                  <div className="absolute bottom-4 left-4 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:transform p-2 bg-primary/20 rounded-full">
+                     <industry.icon className="h-10 w-10 text-primary" />
                   </div>
                 </div>
-                <h3 className="font-headline text-xl font-semibold text-primary mb-2">{value.name}</h3>
-                <p className="text-foreground/70 text-sm">{value.description}</p>
-              </div>
+                <div className="md:w-2/3 p-6 flex flex-col justify-center">
+                  <CardTitle className="font-headline text-2xl text-primary mb-4 group-hover:text-primary/90 transition-colors">{industry.name}</CardTitle>
+                  <ul className="space-y-2 mb-6">
+                    {industry.points.map(point => (
+                      <li key={point} className="flex items-center text-sm text-foreground/70">
+                        <CheckCircle className="h-4 w-4 text-accent mr-2 shrink-0" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button variant="link" asChild className="text-accent group-hover:underline self-start p-0">
+                    <Link href={industry.link}>Learn More <ArrowRight className="ml-1 h-4 w-4" /></Link>
+                  </Button>
+                </div>
+              </Card>
             ))}
-          </div>
-           <div className="text-center mt-12">
-            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link href="/about">Discover Our Mission</Link>
-            </Button>
           </div>
         </div>
       </section>
 
-      {/* Quick Access Section */}
-      <section className="py-16 md:py-24 bg-background">
+      {/* Who We Work With Section */}
+      <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Quick Access</h2>
-            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-              Easily navigate to key areas of our site or get in touch.
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Who We Work With</h2>
+            <p className="text-lg text-foreground/80 max-w-2xl mx-auto animate-fade-in animation-delay-200">
+              We partner with a diverse range of organizations committed to innovation and growth in emerging markets.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {quickAccessLinks.map((item) => (
-              <Link key={item.href} href={item.href} className="block p-6 bg-card rounded-lg shadow-md hover:shadow-primary/20 transition-shadow group">
-                <div className="flex items-center mb-3">
-                  <div className="p-2 bg-primary/10 rounded-md mr-3 group-hover:bg-primary/20 transition-colors">
-                    <item.icon className="h-6 w-6 text-primary" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            {whoWeWorkWith.map((partner, index) => (
+              <div key={partner.name} className="text-center p-6 bg-card rounded-lg shadow-md hover:shadow-primary/20 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
+                <div className="flex justify-center mb-4">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <partner.icon className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="font-headline text-lg font-semibold text-primary group-hover:text-primary/90 transition-colors">{item.label}</h3>
                 </div>
-                <p className="text-sm text-accent group-hover:underline">Explore &rarr;</p>
-              </Link>
+                <h3 className="font-headline text-md font-semibold text-primary">{partner.name}</h3>
+              </div>
             ))}
-          </div>
-          <div className="text-center bg-card p-8 rounded-lg shadow-md">
-            <h3 className="text-2xl font-headline font-bold text-primary mb-4">Contact Us Directly</h3>
-            <div className="space-y-3 text-foreground/80">
-              <p className="flex items-center justify-center space-x-2">
-                <Phone className="h-5 w-5 text-accent" />
-                <span><a href="tel:+919714688324" className="hover:text-primary">+91 9714688324</a> / <a href="tel:+256756693840" className="hover:text-primary">+256 756693840</a></span>
-              </p>
-              <p className="flex items-center justify-center space-x-2">
-                <Mail className="h-5 w-5 text-accent" />
-                <a href="mailto:info@grittrix.com" className="hover:text-primary">info@grittrix.com</a>
-              </p>
-            </div>
-             <Button variant="outline" asChild className="mt-6 text-accent hover:text-accent hover:bg-accent/10 border-accent/50">
-                <Link href="/contact">Send a Message</Link>
-             </Button>
           </div>
         </div>
       </section>
       
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-primary/80 to-accent/80 text-primary-foreground">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold mb-6">Ready to Transform Your Business?</h2>
-          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-            Let Grittrix be your partner in navigating the complexities of AI and unlocking new potentials.
+      {/* Why Grittrix Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Why Grittrix?</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyGrittrixPoints.map((point, index) => (
+              <Card key={point.name} className="text-center p-6 bg-card rounded-lg shadow-lg hover:shadow-accent/30 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
+                <CardHeader className="items-center p-0 mb-4">
+                  <div className="p-4 bg-accent/10 rounded-full mb-3">
+                    <point.icon className="h-10 w-10 text-accent" />
+                  </div>
+                  <CardTitle className="font-headline text-xl text-primary">{point.name}</CardTitle>
+                </CardHeader>
+                <CardContent className="p-0">
+                  <p className="text-foreground/70 text-sm">{point.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Proven Impact Section */}
+      <section className="py-16 md:py-24 bg-secondary/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Proven Impact</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-card p-6 rounded-lg shadow-xl animate-slide-in-up" style={{ animationDelay: `${index * 150}ms`}}>
+                <CardContent className="p-0">
+                  <blockquote className="text-lg text-foreground/80 italic mb-4">"{testimonial.quote}"</blockquote>
+                  <p className="text-sm font-semibold text-accent">- {testimonial.source}</p>
+                  <div className="mt-4 relative aspect-[4/3] rounded overflow-hidden">
+                    <Image src={`https://placehold.co/300x225.png`} alt={testimonial.source} layout="fill" objectFit="cover" data-ai-hint={testimonial.imageHint} />
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Promise Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-xl shadow-2xl animate-fade-in">
+            <ShieldCheck className="h-16 w-16 text-primary mx-auto mb-6" />
+            <h2 className="text-3xl font-headline font-bold text-primary mb-4">Our Promise</h2>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              We believe in technology with trust. Your data stays yours. Our platform is secure, compliant, and constantly improving.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      {/* Final CTA Section */}
+      <section className="py-20 md:py-32 bg-gradient-to-r from-primary to-accent text-primary-foreground">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-headline font-bold mb-6">Ready to Build Smarter Operations?</h2>
+          <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+            Let’s show you how Grittrix can transform your clinic, shop, farm, or school — starting today.
           </p>
-          <Button size="lg" variant="outline" className="bg-background/90 hover:bg-background text-foreground border-transparent hover:border-foreground/50" asChild>
-            <Link href="/contact">Get in Touch</Link>
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" variant="outline" className="bg-background/90 hover:bg-background text-foreground border-transparent hover:border-foreground/50 transform transition-transform hover:scale-105" asChild>
+              <Link href="/contact?subject=Free Consultation">Book a Free Consultation</Link>
+            </Button>
+            <Button size="lg" variant="outline" className="bg-transparent hover:bg-background/20 text-primary-foreground border-primary-foreground hover:border-primary-foreground/80 transform transition-transform hover:scale-105" asChild>
+              <Link href="/hosting#pricing">See Pricing Plans</Link>
+            </Button>
+            <Button size="lg" variant="ghost" className="hover:bg-background/20 text-primary-foreground transform transition-transform hover:scale-105" asChild>
+              <Link href="/contact?subject=Join Grittrix Network">Join the Grittrix Network</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </>
