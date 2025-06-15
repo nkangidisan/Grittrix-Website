@@ -2,10 +2,11 @@
 import { PageHeader } from '@/components/PageHeader';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import type { BlogPost } from '@/lib/types';
-import { CalendarDays, UserCircle, Tag } from 'lucide-react';
+import { CalendarDays, UserCircle, Tag, Youtube } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 
 // Placeholder blog posts data
 export const blogPosts: BlogPost[] = [
@@ -13,6 +14,14 @@ export const blogPosts: BlogPost[] = [
   { id: '2', slug: 'future-of-retail-ai', title: 'The Future of Retail: Personalized Experiences with AI', excerpt: 'Explore how AI-driven personalization, supply chain optimization, and smart analytics are reshaping the retail industry in emerging markets.', author: 'Ken Njoroge', date: '2024-07-08', imageUrl: 'https://placehold.co/400x250.png', imageHint: 'retail vector', category: 'Retail' },
   { id: '3', slug: 'precision-agriculture-africa', title: 'Precision Agriculture: AI for Sustainable Farming in Africa', excerpt: 'Learn about the role of AI in optimizing crop yields, managing resources efficiently, and promoting sustainable agricultural practices.', author: 'Fatima Diallo', date: '2024-06-28', imageUrl: 'https://placehold.co/400x250.png', imageHint: 'agritech vector', category: 'Agriculture' },
   { id: '4', slug: 'ai-edtech-emerging-markets', title: 'AI in EdTech: Bridging Educational Gaps in Emerging Markets', excerpt: 'How adaptive learning platforms and AI-powered tools are personalizing education and improving learning outcomes.', author: 'Rajesh Kumar', date: '2024-06-15', imageUrl: 'https://placehold.co/400x250.png', imageHint: 'edtech vector', category: 'Education' },
+];
+
+// Placeholder video data - replace with actual data or API fetch
+const youtubeVideos = [
+  { id: 'VIDEO_ID_1', title: 'Latest AI Breakthroughs Explained', description: 'Understanding the newest advancements in AI.'},
+  { id: 'VIDEO_ID_2', title: 'Building Your First AI Model', description: 'A step-by-step tutorial for beginners.'},
+  { id: 'VIDEO_ID_3', title: 'The Ethics of AI in Africa', description: 'A deep dive into responsible AI development.'},
+  // Add a fourth if needed, ensure the grid handles it well.
 ];
 
 
@@ -30,8 +39,8 @@ export default function BlogPage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <Card key={post.id} className="flex flex-col h-full bg-card overflow-hidden group hover:shadow-xl transition-shadow">
+            {blogPosts.map((post, index) => (
+              <Card key={post.id} className="flex flex-col h-full bg-card overflow-hidden group hover:shadow-xl transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                 <CardHeader className="p-0">
                   <Link href={`/blog/${post.slug}`} className="block relative aspect-video w-full">
                     <Image
@@ -67,9 +76,79 @@ export default function BlogPage() {
               </Card>
             ))}
           </div>
-          {/* Placeholder for pagination or load more */}
+          
           <div className="mt-16 text-center">
             <Button variant="ghost" className="text-accent hover:text-accent/90 hover:bg-accent/10">Load More Articles</Button>
+          </div>
+        </div>
+      </section>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 my-8 md:my-12">
+        <Separator />
+      </div>
+
+      {/* AI in White Coats YouTube Section */}
+      <section className="py-16 md:py-24 bg-card"> {/* Darker background for contrast */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 animate-fade-in">
+            <div className="inline-block p-3 bg-primary/10 rounded-full mb-4">
+                 <Youtube className="h-10 w-10 text-primary" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">
+              🎥 AI in White Coats — Learn, Build & Stay Ahead in Tech
+            </h2>
+            <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
+              Explore expert-led tutorials, explainers, and thought leadership content from our YouTube channel. We simplify how to use powerful AI tools and break down the latest changes in the tech world — tailored for professionals, students, and innovators in Africa and beyond.
+            </p>
+          </div>
+
+          {/* Placeholder for YouTube API integration or manual update of video IDs */}
+          {/* 
+            To dynamically fetch videos, you would typically:
+            1. Set up Google API client and YouTube Data API v3.
+            2. Fetch channel uploads (e.g., using a server component or a client component with useEffect).
+            3. Map through the fetched videos to display them.
+            This requires API keys and additional logic not implemented here.
+            For now, manually update the VIDEO_ID_X placeholders below.
+          */}
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {youtubeVideos.map((video, index) => (
+              <div 
+                key={video.id} 
+                className="group bg-background/50 p-1 rounded-lg shadow-lg hover:shadow-primary/30 transition-all duration-300 animate-slide-in-up" 
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <div className="aspect-video overflow-hidden rounded-md group-hover:scale-105 transition-transform duration-300">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={`https://www.youtube.com/embed/${video.id}`} // Replace VIDEO_ID_X with actual IDs
+                    title={video.title || "YouTube video player"}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    className="rounded-md"
+                  ></iframe>
+                </div>
+                {/* Titles and captions are usually pulled by the YouTube embed itself if using actual video IDs */}
+                {/* If you want manual titles/captions displayed below the iframe, you can add them here using video.title and video.description */}
+                 <div className="p-4">
+                    <h3 className="text-md font-semibold text-primary mb-1 truncate group-hover:text-primary/90">{video.title}</h3>
+                    <p className="text-xs text-foreground/70 line-clamp-2">{video.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center animate-fade-in animation-delay-300">
+            <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+              <Link href="https://www.youtube.com/@AI_in_White_Coats" target="_blank" rel="noopener noreferrer">
+                Visit Channel on YouTube
+                <Youtube className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

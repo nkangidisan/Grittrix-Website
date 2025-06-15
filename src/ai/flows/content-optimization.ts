@@ -62,7 +62,9 @@ const optimizeContentFlow = ai.defineFlow(
     if (!output) {
       throw new Error("Content optimization failed: No output received from the AI model.");
     }
-    
+    // Ensure content is plain text as per the prompt instructions.
+    // The schema ensures title and content fields.
+    // Additional cleaning might be needed if the model still includes HTML, but the prompt is quite specific.
     return output;
   }
 );
