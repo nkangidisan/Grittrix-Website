@@ -1,8 +1,10 @@
+
 import { HeroSection } from '@/components/sections/HeroSection';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
 import { 
-  HeartPulse, Leaf, BookOpen, ShoppingCart, Cpu, Lightbulb, Users, ShieldCheck, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Briefcase, Building, GitFork, Tv, Server, ShoppingBag, Phone, Mail, ArrowRight
+  HeartPulse, Leaf, BookOpen, ShoppingCart, Cpu, Lightbulb, Users, ShieldCheck, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Briefcase, Building, GitFork, Tv, Server, ShoppingBag, Phone, Mail, ArrowRight, Home as HomeIcon, Info, Settings, MessageSquare, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay, ExternalLink
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -87,6 +89,18 @@ const testimonials = [
     { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageHint: "teacher students classroom" }
 ];
 
+const quickNavLinks = [
+  { href: '/about', label: 'About Us', icon: Info },
+  { href: '/services', label: 'Services', icon: Settings },
+  { href: '/industries', label: 'Industries', icon: Building },
+  { href: '/careers', label: 'Careers', icon: BriefcaseBusiness },
+  { href: '/blog', label: 'Blog', icon: PencilLine },
+  { href: '/merch', label: 'Grittrix Merch', icon: Tag },
+  { href: '/products', label: 'Products', icon: ShoppingBag },
+  { href: '/hosting', label: 'Hosting', icon: ServerCog },
+  { href: '/design-services', label: 'Need a Website / Web App?', icon: MonitorPlay },
+];
+
 
 export default function Home() {
   return (
@@ -140,7 +154,7 @@ export default function Home() {
               <Card key={industry.name} className="bg-card hover:shadow-2xl transition-all duration-300 group flex flex-col md:flex-row overflow-hidden animate-slide-in-up" style={{ animationDelay: `${index * 150}ms`}}>
                 <div className="md:w-1/3 relative">
                   <Image 
-                    src={`https://placehold.co/400x500.png`} // Taller image for card layout
+                    src="https://placehold.co/400x500.png"
                     alt={industry.name}
                     width={400}
                     height={500}
@@ -233,7 +247,7 @@ export default function Home() {
                   <blockquote className="text-lg text-foreground/80 italic mb-4">"{testimonial.quote}"</blockquote>
                   <p className="text-sm font-semibold text-accent">- {testimonial.source}</p>
                   <div className="mt-4 relative aspect-[4/3] rounded overflow-hidden">
-                    <Image src={`https://placehold.co/300x225.png`} alt={testimonial.source} layout="fill" objectFit="cover" data-ai-hint={testimonial.imageHint} />
+                    <Image src="https://placehold.co/300x225.png" alt={testimonial.source} layout="fill" objectFit="cover" data-ai-hint={testimonial.imageHint} />
                   </div>
                 </CardContent>
               </Card>
@@ -242,8 +256,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Promise Section */}
+      {/* Explore Grittrix Section */}
       <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 animate-fade-in">
+            <div className="inline-block mb-6">
+              {/* Ensure GrittrixLogo uses an Image tag and has appropriate dimensions set */}
+              <GrittrixLogo className="h-12 md:h-16 w-auto" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Explore Grittrix</h2>
+            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
+              Discover how our solutions and services can help you achieve your goals.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-slide-in-up">
+            {quickNavLinks.map((link, index) => {
+              const LinkIcon = link.icon;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="group bg-card p-6 rounded-lg shadow-md hover:shadow-primary/20 hover:border-primary/50 border border-transparent transition-all flex items-center space-x-4"
+                >
+                  <div className="p-2 bg-primary/10 rounded-md group-hover:bg-primary/20 transition-colors">
+                     <LinkIcon className="h-6 w-6 text-primary" />
+                  </div>
+                  <span className="font-medium text-primary group-hover:text-primary/90 transition-colors">{link.label}</span>
+                  <ArrowRight className="ml-auto h-5 w-5 text-primary/70 group-hover:text-primary transition-colors opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1" />
+                </Link>
+              );
+            })}
+          </div>
+          <div className="mt-12 text-center space-y-4 animate-fade-in animation-delay-300">
+             <h3 className="text-xl font-headline font-semibold text-primary">Connect With Us</h3>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-8 text-foreground/80">
+              <a href="tel:+919714688324" className="flex items-center hover:text-primary transition-colors">
+                <Phone className="h-5 w-5 mr-2 text-accent" /> +91 9714688324
+              </a>
+              <a href="tel:+256756693840" className="flex items-center hover:text-primary transition-colors">
+                <Phone className="h-5 w-5 mr-2 text-accent" /> +256 756693840
+              </a>
+              <a href="mailto:info@grittrix.com" className="flex items-center hover:text-primary transition-colors">
+                <Mail className="h-5 w-5 mr-2 text-accent" /> info@grittrix.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Our Promise Section */}
+      <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-xl shadow-2xl animate-fade-in">
             <ShieldCheck className="h-16 w-16 text-primary mx-auto mb-6" />
