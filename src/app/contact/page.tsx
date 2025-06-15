@@ -30,18 +30,23 @@ export default function ContactPage() {
                     <Mail className="h-5 w-5 mr-3 text-accent" />
                     <a href="mailto:info@grittrix.com" className="hover:text-primary">info@grittrix.com</a>
                   </li>
-                  <li className="flex items-center">
-                    <Phone className="h-5 w-5 mr-3 text-accent" />
-                    <a href="tel:+1234567890" className="hover:text-primary">+1 (234) 567-890</a> (HQ)
+                  <li className="flex items-start"> {/* Changed to items-start for multiline phone */}
+                    <Phone className="h-5 w-5 mr-3 text-accent mt-1" />
+                    <div>
+                        <a href="tel:+919714688324" className="hover:text-primary block">+91 9714688324</a>
+                        <a href="tel:+256756693840" className="hover:text-primary block">+256 756693840</a>
+                    </div>
                   </li>
                    <li className="flex items-center">
                     <MessageCircle className="h-5 w-5 mr-3 text-accent" />
-                    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Chat on WhatsApp</a>
+                    <a href="https://wa.me/256756693840" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Chat on WhatsApp (+256)</a>
                   </li>
+                  {/* Removed physical address
                   <li className="flex items-start">
                     <MapPin className="h-5 w-5 mr-3 text-accent mt-1" />
                     <span>123 AI Avenue, Tech City, TC 54321, Emerging Market Hub (Placeholder Address)</span>
                   </li>
+                  */}
                 </ul>
               </div>
 
