@@ -3,14 +3,14 @@ import { optimizeContent, type OptimizeContentOutput } from '@/ai/flows/content-
 import { PageHeader } from '@/components/PageHeader';
 import { TeamMemberCard } from '@/components/sections/TeamMemberCard';
 import type { TeamMember } from '@/lib/types';
-import { Lightbulb, UsersRound, ShieldCheck, Mountain, Eye } from 'lucide-react'; // Updated icons
+import { Lightbulb, UsersRound, ShieldCheck, Mountain, Eye } from 'lucide-react'; 
 import Image from 'next/image';
 
 const teamMembers: TeamMember[] = [
-  { id: '1', name: 'Dr. Aisha Bello', role: 'Founder & CEO', bio: 'Visionary leader with 15+ years in AI and emerging markets. Passionate about leveraging technology for social good.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: '#', twitter: '#' } },
-  { id: '2', name: 'Ken Njoroge', role: 'Chief Technology Officer', bio: 'Expert in AI/ML development and scalable cloud architectures. Driving Grittrix\'s innovation engine.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: '#', twitter: '#' } },
-  { id: '3', name: 'Fatima Diallo', role: 'Head of Operations - Africa', bio: 'Strategic operator ensuring seamless delivery and impact across African markets.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: '#', twitter: '#' } },
-  { id: '4', name: 'Rajesh Kumar', role: 'Lead AI Researcher', bio: 'Pioneering new algorithms and models to solve complex industry challenges.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: '#', twitter: '#' } },
+  { id: '1', name: 'Nkangi Disan', role: 'Founder & CEO', bio: 'Visionary leader with 15+ years in AI and emerging markets. Passionate about leveraging technology for social good.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/disan-nkangi-7ab2b62a9/' } },
+  { id: '2', name: 'Lubega Mahad', role: 'Chief Technology Officer', bio: 'Expert in AI/ML development and scalable cloud architectures. Driving Grittrix\'s innovation engine.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/lubega-mahad-ishaaq-021540322/' } },
+  { id: '3', name: 'Ashumbusha Emmanuel', role: 'Head of Operations - Africa', bio: 'Strategic operator ensuring seamless delivery and impact across African markets.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/ashumbusha-emmanuel-124059335/' } },
+  { id: '4', name: 'Juma Bakari', role: 'Lead AI Researcher', bio: 'Pioneering new algorithms and models to solve complex industry challenges.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/juma-bakari-4712ab152/' } },
 ];
 
 const coreValues = [
@@ -23,7 +23,7 @@ const coreValues = [
 
 export default async function AboutUsPage() {
   let optimizedData: OptimizeContentOutput | null = null;
-  const companyInfoForGenkit = "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology. We develop intelligent systems for health, retail, agriculture, and education in emerging markets, empowering even the smallest organizations. Our vision is to be the engine that powers data-driven transformation in Africa and beyond. Our values are: Innovation with purpose, Inclusion through simplicity, Transparency and trust, Resilience and grit.";
+  const companyInfoForGenkit = "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology. Born from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education. We believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive. Our vision is to be the engine that powers data-driven transformation in Africa and beyond. Our values are: Innovation with purpose, Inclusion through simplicity, Transparency and trust, Resilience and grit.";
 
   try {
     optimizedData = await optimizeContent({
