@@ -1,8 +1,9 @@
+
 import { optimizeContent, type OptimizeContentOutput } from '@/ai/flows/content-optimization';
 import { PageHeader } from '@/components/PageHeader';
 import { TeamMemberCard } from '@/components/sections/TeamMemberCard';
 import type { TeamMember } from '@/lib/types';
-import { Award, Eye, Gem, Lightbulb, Users, Zap } from 'lucide-react';
+import { Lightbulb, UsersRound, ShieldCheck, Mountain, Eye } from 'lucide-react'; // Updated icons
 import Image from 'next/image';
 
 const teamMembers: TeamMember[] = [
@@ -13,31 +14,34 @@ const teamMembers: TeamMember[] = [
 ];
 
 const coreValues = [
-    { title: "Innovation", description: "We constantly push the boundaries of AI to create novel solutions that address real-world needs.", icon: Lightbulb },
-    { title: "Integrity", description: "We operate with transparency and ethical considerations at the core of everything we do.", icon: Award },
-    { title: "Impact", description: "Our goal is to deliver measurable, positive change for businesses and communities.", icon: Zap },
-    { title: "Collaboration", description: "We believe in the power of partnership, working closely with clients to achieve shared success.", icon: Users },
+    { title: "Innovation with purpose", description: "We constantly push the boundaries of AI to create novel solutions that address real-world needs effectively.", icon: Lightbulb },
+    { title: "Inclusion through simplicity", description: "We design intuitive technology accessible to everyone, fostering broad participation and benefit.", icon: UsersRound },
+    { title: "Transparency and trust", description: "We operate with openness and ethical considerations, building lasting relationships based on integrity.", icon: ShieldCheck },
+    { title: "Resilience and grit", description: "We embrace challenges and persevere, committed to delivering impactful solutions even in complex environments.", icon: Mountain },
 ];
 
 
 export default async function AboutUsPage() {
   let optimizedData: OptimizeContentOutput | null = null;
+  const companyInfoForGenkit = "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology. We develop intelligent systems for health, retail, agriculture, and education in emerging markets, empowering even the smallest organizations. Our vision is to be the engine that powers data-driven transformation in Africa and beyond. Our values are: Innovation with purpose, Inclusion through simplicity, Transparency and trust, Resilience and grit.";
+
   try {
     optimizedData = await optimizeContent({
       pageType: 'About Us',
-      keywords: 'AI solutions Africa, emerging markets tech, Grittrix mission, AI company values, expert AI team',
-      companyInfo: 'Grittrix is an AI company focused on providing cutting-edge solutions for healthcare, retail, agriculture, and education in Africa and other emerging markets. Our mission is to democratize access to AI and drive sustainable development. Our vision is to be the leading AI partner for transformation in these regions. Our values include innovation, integrity, impact, and collaboration.'
+      keywords: 'AI solutions Africa, emerging markets tech, Grittrix mission, AI company values, expert AI team, accessible AI, scalable technology, localized solutions',
+      companyInfo: companyInfoForGenkit
     });
   } catch (error) {
     console.error("Failed to fetch optimized content for About Us:", error);
-    // Fallback content or error message can be handled here
     optimizedData = {
-        title: "About Grittrix: Pioneering AI in Emerging Markets",
-        content: "Grittrix is dedicated to transforming industries across Africa and emerging markets through innovative AI solutions. Our mission is to empower businesses and communities with cutting-edge technology, fostering growth and development. We believe in the power of AI to solve complex challenges and create a brighter future."
+        title: "About Grittrix: Redefining Industries with Technology",
+        content: "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology. Born from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education. We believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive."
     }
   }
 
   const breadcrumbs = [{ name: 'About Us' }];
+
+  const storyContent = optimizedData?.content || "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology.\n\nBorn from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education. We believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive.";
 
   return (
     <>
@@ -50,34 +54,31 @@ export default async function AboutUsPage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold font-headline text-primary mb-6">Our Story</h2>
-              <div className="prose prose-lg prose-invert text-foreground/80 max-w-none">
-                 {optimizedData?.content.split('\n\n').map((paragraph, index) => (
+            <div className="animate-slide-in-up">
+              <h2 className="text-3xl font-bold font-headline text-primary mb-6">Our Story & Mission</h2>
+              <div className="prose prose-lg prose-invert text-foreground/80 max-w-none space-y-4">
+                 {storyContent.split('\n\n').map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>
                  ))}
-                 <p>We are a team of passionate technologists, industry experts, and visionaries committed to harnessing the power of artificial intelligence to address the unique challenges and opportunities in Africa and other emerging economies. Our journey began with a simple belief: technology can be a powerful catalyst for positive change.</p>
+                 <p className="mt-4">We are engineers, designers, educators, analysts, and doers — united by one goal: creating systems that change lives.</p>
               </div>
             </div>
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl">
-               <Image src="https://placehold.co/600x400.png" alt="Grittrix Team Collaboration" layout="fill" objectFit="cover" data-ai-hint="team collaboration office" />
+            <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
+               <Image src="https://placehold.co/600x400.png" alt="Grittrix Team Collaboration" layout="fill" objectFit="cover" data-ai-hint="diverse team innovation" />
             </div>
           </div>
         </div>
       </section>
 
       <section className="py-16 md:py-24 bg-secondary/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 className="text-2xl font-bold font-headline text-primary mb-4 flex items-center"><Eye className="mr-3 h-7 w-7 text-accent" />Our Vision</h3>
-                    <p className="text-foreground/80 leading-relaxed">To be the leading catalyst for AI-driven transformation in Africa and emerging markets, creating a future where technology empowers every individual and organization to reach their full potential.</p>
-                </div>
-                <div>
-                    <h3 className="text-2xl font-bold font-headline text-primary mb-4 flex items-center"><Gem className="mr-3 h-7 w-7 text-accent" />Our Mission</h3>
-                    <p className="text-foreground/80 leading-relaxed">To democratize access to cutting-edge AI solutions, enabling businesses and institutions to innovate, optimize operations, and drive sustainable growth for the betterment of society.</p>
-                </div>
-            </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold font-headline text-primary mb-4 flex items-center justify-center">
+                <Eye className="mr-3 h-10 w-10 text-accent" />
+                Our Vision
+            </h2>
+            <p className="text-xl text-foreground/80 leading-relaxed max-w-3xl mx-auto">
+                To be the engine that powers data-driven transformation in Africa and beyond.
+            </p>
         </div>
       </section>
 
@@ -85,8 +86,8 @@ export default async function AboutUsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold font-headline text-primary text-center mb-12">Our Core Values</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {coreValues.map((value) => (
-              <div key={value.title} className="p-6 bg-card rounded-lg shadow-md text-center hover:shadow-primary/20 transition-shadow">
+            {coreValues.map((value, index) => (
+              <div key={value.title} className="p-6 bg-card rounded-lg shadow-md text-center hover:shadow-primary/20 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
                 <div className="flex justify-center mb-4">
                   <div className="p-3 bg-primary/10 rounded-full">
                     <value.icon className="h-8 w-8 text-primary" />
