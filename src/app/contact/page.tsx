@@ -1,3 +1,4 @@
+
 import { PageHeader } from '@/components/PageHeader';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { Mail, Phone, MapPin, MessageCircle, Linkedin, Twitter, Facebook } from 'lucide-react';
@@ -5,6 +6,8 @@ import Link from 'next/link';
 
 export default function ContactPage() {
   const breadcrumbs = [{ name: 'Contact Us' }];
+  const whatsappMessage = "Welcome to Grittrix, Redefining Industries with Technology! we build powerful, Website, Webapps and affordable AI and data solutions tailored for healthcare, retail, agriculture, and education helping businesses and institutions unlock smarter decisions, automate operations, and scale with confidence. Let us know how we can serve you at our best.";
+  const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
 
   return (
     <>
@@ -39,7 +42,7 @@ export default function ContactPage() {
                   </li>
                    <li className="flex items-center">
                     <MessageCircle className="h-5 w-5 mr-3 text-accent" />
-                    <a href="https://wa.me/256756693840" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Chat on WhatsApp (+256)</a>
+                    <a href={`https://wa.me/256756693840?text=${encodedWhatsappMessage}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary">Chat on WhatsApp (+256)</a>
                   </li>
                   {/* Removed physical address
                   <li className="flex items-start">
