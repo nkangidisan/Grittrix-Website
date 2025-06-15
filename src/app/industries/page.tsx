@@ -5,10 +5,10 @@ import { HeartPulse, ShoppingCart, Leaf, BookOpen } from 'lucide-react';
 
 // Simplified data for the overview page
 const industriesOverview: Omit<Industry, 'painPoints' | 'solutions'>[] = [
-  { id: 'healthcare', name: 'Healthcare', description: 'Revolutionizing patient care with AI-driven diagnostics, personalized medicine, and operational efficiency.', icon: HeartPulse, imageUrl: 'https://placehold.co/400x300.png', imageHint: 'modern hospital' },
-  { id: 'retail', name: 'Retail & E-commerce', description: 'Transforming customer experiences through AI-powered personalization, supply chain optimization, and intelligent inventory management.', icon: ShoppingCart, imageUrl: 'https://placehold.co/400x300.png', imageHint: 'retail tech' },
-  { id: 'agriculture', name: 'Agriculture', description: 'Enhancing food security with AI-driven precision farming, crop monitoring, and yield prediction for sustainable agriculture.', icon: Leaf, imageUrl: 'https://placehold.co/400x300.png', imageHint: 'agritech' },
-  { id: 'education', name: 'Education', description: 'Personalizing learning journeys with adaptive AI tutors, intelligent content delivery, and data-driven insights for educators.', icon: BookOpen, imageUrl: 'https://placehold.co/400x300.png', imageHint: 'digital classroom' },
+  { id: 'healthcare', name: 'Healthcare', description: 'Revolutionizing patient care with AI-driven diagnostics, personalized medicine, and operational efficiency.', icon: HeartPulse, imageUrl: 'https://placehold.co/400x300.png', imageHint: 'health vector' }, // Updated hint
+  { id: 'retail', name: 'Retail & E-commerce', description: 'Transforming customer experiences through AI-powered personalization, supply chain optimization, and intelligent inventory management.', icon: ShoppingCart, imageUrl: 'https://placehold.co/400x300.png', imageHint: 'retail isometric' }, // Updated hint
+  { id: 'agriculture', name: 'Agriculture', description: 'Enhancing food security with AI-driven precision farming, crop monitoring, and yield prediction for sustainable agriculture.', icon: Leaf, imageUrl: 'https://placehold.co/400x300.png', imageHint: 'farm AI' }, // Updated hint
+  { id: 'education', name: 'Education', description: 'Personalizing learning journeys with adaptive AI tutors, intelligent content delivery, and data-driven insights for educators.', icon: BookOpen, imageUrl: 'https://placehold.co/400x300.png', imageHint: 'learn AI' }, // Updated hint
 ];
 
 export default function IndustriesPage() {

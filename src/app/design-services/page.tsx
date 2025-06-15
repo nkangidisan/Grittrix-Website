@@ -13,10 +13,10 @@ const designProcessSteps = [
   { title: "Launch & Optimization", description: "Deploying your application and continuously optimizing for performance and user satisfaction.", icon: Rocket },
 ];
 
-const portfolioItems = [ // Placeholder portfolio items
-  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: 'https://placehold.co/600x400.png', imageHint: 'healthcare dashboard' },
-  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: 'https://placehold.co/600x400.png', imageHint: 'ecommerce app' },
-  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: 'https://placehold.co/600x400.png', imageHint: 'farming data' },
+const portfolioItems = [ 
+  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: 'https://placehold.co/600x400.png', imageHint: 'health UI' },
+  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: 'https://placehold.co/600x400.png', imageHint: 'retail UI' },
+  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: 'https://placehold.co/600x400.png', imageHint: 'agri UI' },
 ];
 
 export default function DesignServicesPage() {

@@ -35,13 +35,13 @@ export function HeroSection() {
           <div className="relative animate-fade-in animation-delay-300">
             <div className="aspect-video rounded-xl overflow-hidden shadow-2xl">
                <Image
-                src="https://placehold.co/600x400.png"
+                src="https://placehold.co/1080x608.png" // Adjusted for approx 16:9 banner
                 alt="AI Powered Infrastructure"
-                width={600}
-                height={400}
+                width={1080}
+                height={608}
                 className="object-cover w-full h-full transform transition-transform duration-500 hover:scale-105"
                 priority
-                data-ai-hint="futuristic AI infrastructure" 
+                data-ai-hint="AI business" 
               />
             </div>
             <div className="absolute -top-8 -right-8 w-32 h-32 bg-primary/20 rounded-full filter blur-2xl animate-pulse"></div>

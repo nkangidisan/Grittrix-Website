@@ -22,7 +22,7 @@ const industriesServed = [
     name: 'Healthcare', 
     icon: HeartPulse, 
     link: '/industries/healthcare', 
-    imageHint: 'modern hospital AI',
+    imageHint: 'AI diagnosis', // Updated hint
     points: [
       'Smart patient triage',
       'AI-assisted diagnostics',
@@ -34,7 +34,7 @@ const industriesServed = [
     name: 'Retail', 
     icon: ShoppingCart, 
     link: '/industries/retail', 
-    imageHint: 'retail tech analytics',
+    imageHint: 'smart retail', // Updated hint
     points: [
       'Inventory optimization',
       'Sales prediction',
@@ -46,7 +46,7 @@ const industriesServed = [
     name: 'Agriculture', 
     icon: Leaf, 
     link: '/industries/agriculture', 
-    imageHint: 'agritech smart farm',
+    imageHint: 'AI farming', // Updated hint
     points: [
       'AI crop disease detection',
       'Weather-based yield prediction',
@@ -58,7 +58,7 @@ const industriesServed = [
     name: 'Education', 
     icon: BookOpen, 
     link: '/industries/education', 
-    imageHint: 'digital classroom AI',
+    imageHint: 'AI learning', // Updated hint
     points: [
       'AI-powered tutoring',
       'Student performance analytics',
@@ -84,9 +84,9 @@ const whyGrittrixPoints = [
 ];
 
 const testimonials = [
-    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageHint: "happy pharmacist" },
-    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageHint: "farmer using tablet" },
-    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageHint: "teacher students classroom" }
+    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageHint: "health success" }, // Updated hint
+    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageHint: "farm success" }, // Updated hint
+    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageHint: "edu success" } // Updated hint
 ];
 
 const quickNavLinks = [
@@ -154,12 +154,12 @@ export default function Home() {
               <Card key={industry.name} className="bg-card hover:shadow-2xl transition-all duration-300 group flex flex-col md:flex-row overflow-hidden animate-slide-in-up" style={{ animationDelay: `${index * 150}ms`}}>
                 <div className="md:w-1/3 relative">
                   <Image 
-                    src="https://placehold.co/400x500.png"
+                    src="https://placehold.co/400x500.png" // Dimensions for card image
                     alt={industry.name}
                     width={400}
                     height={500}
                     className="object-cover w-full h-48 md:h-full group-hover:scale-105 transition-transform duration-300"
-                    data-ai-hint={industry.imageHint}
+                    data-ai-hint={industry.imageHint} // Uses updated hint from array
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent md:bg-gradient-to-r"></div>
                   <div className="absolute bottom-4 left-4 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:transform p-2 bg-primary/20 rounded-full">
@@ -261,7 +261,6 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
             <div className="inline-block mb-6">
-              {/* Ensure GrittrixLogo uses an Image tag and has appropriate dimensions set */}
               <GrittrixLogo className="h-12 md:h-16 w-auto" />
             </div>
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Explore Grittrix</h2>

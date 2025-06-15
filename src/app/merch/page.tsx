@@ -7,18 +7,18 @@ import Link from 'next/link';
 import { ShoppingCart, Package } from 'lucide-react';
 
 const merchandiseItems: MerchandiseItem[] = [
-  { id: '1', name: 'Grittrix "Innovate" Hoodie', price: '$59.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'branded hoodie mockup', description: 'Premium hoodie, perfect for tech enthusiasts.' },
-  { id: '2', name: 'Grittrix AI Tee', price: '$29.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'branded t-shirt mockup', description: 'Comfortable cotton tee with the Grittrix logo.' },
-  { id: '3', name: 'Grittrix Data Mug', price: '$19.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'branded mug mockup', description: 'Start your day with AI-powered inspiration.' },
-  { id: '4', name: 'Grittrix Tech Cap', price: '$24.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'branded cap mockup', description: 'Stylish cap featuring the Grittrix emblem.' },
-  { id: '5', name: 'Grittrix AI Notebook', price: '$15.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'branded notebook mockup', description: 'Jot down your brilliant AI ideas.' },
-  { id: '6', name: 'Grittrix "Future" Sticker Pack', price: '$9.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'laptop stickers mockup', description: 'Decorate your gear with Grittrix pride.' },
-  { id: '7', name: 'Grittrix Insulated Bottle', price: '$34.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'branded water bottle', description: 'Stay hydrated while innovating.' },
-  { id: '8', name: 'Grittrix Executive Pen', price: '$12.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'branded pen mockup', description: 'Sleek pen for your best ideas.' },
-  { id: '9', name: 'Grittrix PowerBank', price: '$45.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'branded powerbank', description: 'Keep your devices charged on the go.' },
-  { id: '10', name: 'Grittrix Tech Backpack', price: '$79.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'branded backpack tech', description: 'Carry your tech in style and comfort.' },
-  { id: '11', name: 'Grittrix Phone Holder', price: '$18.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'branded phone holder', description: 'Convenient holder for your smartphone.' },
-  { id: '12', name: 'Grittrix Mouse Pad', price: '$14.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'branded mouse pad', description: 'Smooth surface for precision work.' },
+  { id: '1', name: 'Grittrix "Innovate" Hoodie', price: '$59.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'hoodie vector', description: 'Premium hoodie, perfect for tech enthusiasts.' },
+  { id: '2', name: 'Grittrix AI Tee', price: '$29.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'tshirt vector', description: 'Comfortable cotton tee with the Grittrix logo.' },
+  { id: '3', name: 'Grittrix Data Mug', price: '$19.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'mug vector', description: 'Start your day with AI-powered inspiration.' },
+  { id: '4', name: 'Grittrix Tech Cap', price: '$24.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'cap vector', description: 'Stylish cap featuring the Grittrix emblem.' },
+  { id: '5', name: 'Grittrix AI Notebook', price: '$15.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'notebook vector', description: 'Jot down your brilliant AI ideas.' },
+  { id: '6', name: 'Grittrix "Future" Sticker Pack', price: '$9.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'stickers vector', description: 'Decorate your gear with Grittrix pride.' },
+  { id: '7', name: 'Grittrix Insulated Bottle', price: '$34.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'bottle vector', description: 'Stay hydrated while innovating.' },
+  { id: '8', name: 'Grittrix Executive Pen', price: '$12.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'pen vector', description: 'Sleek pen for your best ideas.' },
+  { id: '9', name: 'Grittrix PowerBank', price: '$45.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'powerbank vector', description: 'Keep your devices charged on the go.' },
+  { id: '10', name: 'Grittrix Tech Backpack', price: '$79.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'backpack vector', description: 'Carry your tech in style and comfort.' },
+  { id: '11', name: 'Grittrix Phone Holder', price: '$18.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'holder vector', description: 'Convenient holder for your smartphone.' },
+  { id: '12', name: 'Grittrix Mouse Pad', price: '$14.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'mousepad vector', description: 'Smooth surface for precision work.' },
 ];
 
 export default function MerchPage() {

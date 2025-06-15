@@ -64,7 +64,7 @@ export default async function AboutUsPage() {
               </div>
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
-               <Image src="https://placehold.co/600x400.png" alt="Grittrix Team Collaboration" layout="fill" objectFit="cover" data-ai-hint="diverse team innovation" />
+               <Image src="https://placehold.co/600x400.png" alt="Grittrix Team Collaboration" layout="fill" objectFit="cover" data-ai-hint="teamwork vector" /> 
             </div>
           </div>
         </div>

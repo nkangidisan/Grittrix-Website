@@ -5,10 +5,9 @@ import { ServiceItem } from '@/components/sections/ServiceItem';
 import type { Service } from '@/lib/types';
 import { 
   LayoutDashboard, TrendingUp, Activity, MonitorSmartphone, CloudCog, Cable, DatabaseZap, UsersRound, BrainCircuit 
-} from 'lucide-react'; // Updated icons
+} from 'lucide-react'; 
 import Image from 'next/image';
 
-// Updated servicesList based on new information
 export const servicesList: Service[] = [
   { id: '1', title: 'AI Dashboards & Reporting Tools', description: 'Transform raw data into strategic assets with intuitive, real-time analytics dashboards tailored to your needs.', icon: LayoutDashboard, detailsUrl: '/services/ai-dashboards' },
   { id: '2', title: 'Smart Forecasting Engines', description: 'Utilize machine learning to accurately predict demand, sales, and resource needs, optimizing planning and mitigating risks.', icon: TrendingUp, detailsUrl: '/services/forecasting' },
@@ -85,7 +84,7 @@ export default async function ServicesPage() {
               </ul>
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
-               <Image src="https://placehold.co/600x400.png" alt="Custom AI Solutions" layout="fill" objectFit="cover" data-ai-hint="data analysis charts" />
+               <Image src="https://placehold.co/600x400.png" alt="Custom AI Solutions" layout="fill" objectFit="cover" data-ai-hint="custom vector" /> 
             </div>
           </div>
         </div>
