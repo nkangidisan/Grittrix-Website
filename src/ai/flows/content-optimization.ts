@@ -30,7 +30,7 @@ export async function optimizeContent(input: OptimizeContentInput): Promise<Opti
   return optimizeContentFlow(input);
 }
 
-const prompt = ai.definePrompt({
+const contentOptimizerPrompt = ai.definePrompt({
   name: 'optimizeContentPrompt',
   input: {schema: OptimizeContentInputSchema},
   output: {schema: OptimizeContentOutputSchema},
@@ -42,10 +42,7 @@ Optimize the content for the following keywords: {{keywords}}.
 
 Use the following information about the company to provide context and build trust: {{companyInfo}}.
 
-Ensure the content is engaging, informative, and optimized for search engines.
-
-Title:
-Content:`, // No Handlebars functions, awaits, or complex logic here.
+Ensure the content is engaging, informative, and optimized for search engines. Your output should be a JSON object matching the defined schema, containing a 'title' and 'content'.`,
 });
 
 const optimizeContentFlow = ai.defineFlow(
@@ -54,8 +51,13 @@ const optimizeContentFlow = ai.defineFlow(
     inputSchema: OptimizeContentInputSchema,
     outputSchema: OptimizeContentOutputSchema,
   },
-  async input => {
-    const {output} = await prompt(input);
-    return output!;
+  async (input: OptimizeContentInput): Promise<OptimizeContentOutput> => {
+    const {output} = await contentOptimizerPrompt(input);
+    
+    if (!output) {
+      throw new Error("Content optimization failed: No output received from the AI model.");
+    }
+    
+    return output;
   }
 );
