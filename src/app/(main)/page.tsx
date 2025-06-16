@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
 import { 
-  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Building, Phone, Mail, ArrowRight, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay
+  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Building, Phone, Mail, ArrowRight, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay, ShieldCheck, ShoppingBag
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -28,7 +28,7 @@ const industriesServed = [
     name: 'Healthcare', 
     icon: HeartPulse, 
     link: '/industries/healthcare', 
-    imageSrc: '/media/images/healthcare.png',
+    imageSrc: '/media/health.webp',
     altText: 'Doctor reviewing medical data on a tablet, representing Grittrix AI for Healthcare',
     points: [
       'Smart patient triage',
@@ -41,7 +41,7 @@ const industriesServed = [
     name: 'Retail', 
     icon: ShoppingCart, 
     link: '/industries/retail', 
-    imageSrc: '/media/images/retail.png',
+    imageSrc: '/media/retail.png', // Assuming retail.png if not specified otherwise
     altText: 'Modern retail store interior with diverse products, illustrating Grittrix AI for Retail',
     points: [
       'Inventory optimization',
@@ -54,7 +54,7 @@ const industriesServed = [
     name: 'Agriculture', 
     icon: Leaf, 
     link: '/industries/agriculture', 
-    imageSrc: '/media/images/agriculture.jpg',
+    imageSrc: '/media/agriculture.jpg',
     altText: 'Lush green field with a farmer using a drone, showcasing Grittrix AI for Agriculture',
     points: [
       'AI crop disease detection',
@@ -67,7 +67,7 @@ const industriesServed = [
     name: 'Education', 
     icon: BookOpen, 
     link: '/industries/education', 
-    imageSrc: '/media/images/education-section.jpg',
+    imageSrc: '/media/education-section.jpg',
     altText: 'Students engaging with interactive technology in a classroom, representing Grittrix AI for Education',
     points: [
       'AI-powered tutoring',
@@ -94,9 +94,9 @@ const whyGrittrixPoints = [
 ];
 
 const testimonials = [
-    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/images/Healthcare%20Partner.png", altText: "Testimonial from a Grittrix Healthcare Partner" },
-    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/images/Agri-Business%20Owner.png", altText: "Testimonial from a Grittrix Agri-Business Owner" },
-    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/images/Education%20Leader.png", altText: "Testimonial from an Education Leader using Grittrix" }
+    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/Healthcare%20Partner.png", altText: "Testimonial from a Grittrix Healthcare Partner" },
+    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/Agri-Business%20Owner.png", altText: "Testimonial from a Grittrix Agri-Business Owner" },
+    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/Education%20Leader.png", altText: "Testimonial from an Education Leader using Grittrix" }
 ];
 
 const quickNavLinks = [
@@ -106,7 +106,7 @@ const quickNavLinks = [
   { href: '/careers', label: 'Careers', icon: BriefcaseBusiness },
   { href: '/blog', label: 'Blog', icon: PencilLine },
   { href: '/merch', label: 'Grittrix Merch', icon: Tag },
-  { href: '/products', label: 'Products', icon: ShoppingCart },
+  { href: '/products', label: 'Products', icon: ShoppingBag },
   { href: '/hosting', label: 'Hosting', icon: ServerCog },
   { href: '/design-services', label: 'Need a Website / Web App?', icon: MonitorPlay },
 ];
@@ -114,7 +114,7 @@ const quickNavLinks = [
 
 export default function Home() {
   return (
-    <> {/* Removed redundant Layout structure, as (main)/layout.tsx handles Header and Footer */}
+    <>
       <HeroSection />
 
       {/* What We Do Section */}
@@ -166,9 +166,8 @@ export default function Home() {
                   <Image 
                     src={industry.imageSrc} 
                     alt={industry.altText}
-                    layout="fill"
-                    objectFit="cover"
-                    className="group-hover:scale-105 transition-transform duration-300"
+                    fill
+                    className="object-cover w-full h-48 md:h-full group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent md:bg-gradient-to-r md:from-black/70 md:to-transparent"></div>
                   <div className="absolute bottom-4 left-4 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:transform p-2 bg-primary/20 rounded-full">
@@ -259,8 +258,8 @@ export default function Home() {
                     <Image 
                       src={testimonial.imageSrc} 
                       alt={testimonial.altText} 
-                      layout="fill" 
-                      objectFit="cover" 
+                      fill
+                      className="object-cover" 
                       />
                   </div>
                 </CardContent>

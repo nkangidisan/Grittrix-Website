@@ -7,7 +7,7 @@ export function GrittrixLogo({ className, ...props }: SVGProps<SVGSVGElement> & 
   return (
     <div className={cn("relative", className)} {...props}>
       <Image
-        src="/media/images/grittrix%20logo%20(1).png"
+        src="/media/grittrix%20logo%20(1).png"
         alt="Grittrix AI Solutions Logo - Redefining Industries with Technology"
         width={499} 
         height={499}

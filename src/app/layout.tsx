@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Grittrix AI Solutions',
     description: 'Transforming industries with AI in Africa and beyond.',
-    url: 'https://www.grittrix.com', // Replace with your actual domain
+    url: 'https://www.grittrix.com', // Replace with your actual domain for production
     siteName: 'Grittrix AI Solutions',
     images: [
       {
-        url: 'https://www.grittrix.com/media/images/og-image.png', // Replace with your actual OG image URL
+        url: '/media/og-image.png', // Updated to local path
         width: 1200,
         height: 630,
         alt: 'Grittrix AI Solutions - Transforming Industries',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: 'Grittrix AI Solutions',
     description: 'AI-Powered Solutions for Healthcare, Retail, Agriculture, and Education in Africa and Emerging Markets.',
     // site: '@Grittrix', // Replace with your Twitter handle
-    images: ['https://www.grittrix.com/media/images/twitter-card.png'], // Replace with your actual Twitter card image URL
+    images: ['/media/twitter-card.png'], // Updated to local path
   },
   robots: {
     index: true,
@@ -73,7 +73,7 @@ export default function RootLayout({
       <body className="font-body bg-background text-foreground antialiased min-h-screen flex flex-col">
         {children}
         <Toaster />
-        <Analytics /> {/* Example for Vercel Analytics. For Google/Firebase Analytics, add their script or setup here. */}
+        <Analytics /> {/* Vercel Analytics - ensure @vercel/analytics is installed */}
       </body>
     </html>
   );

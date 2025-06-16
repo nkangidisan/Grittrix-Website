@@ -21,9 +21,9 @@ const designProcessSteps = [
 ];
 
 const portfolioItems = [
-  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/media/images/healthcare.png', altText: 'Mockup of AfroHealth AI Platform on a laptop screen' },
-  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/media/images/retail.png', altText: 'RetailSense mobile e-commerce app interface example' },
-  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/media/images/agriculture.jpg', altText: 'AgriGrow farmer portal dashboard displaying crop data' },
+  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/media/health.webp', altText: 'Mockup of AfroHealth AI Platform on a laptop screen' },
+  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/media/retail.png', altText: 'RetailSense mobile e-commerce app interface example' },
+  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/media/agriculture.jpg', altText: 'AgriGrow farmer portal dashboard displaying crop data' },
 ];
 
 export default function DesignServicesPage() {
@@ -77,9 +77,8 @@ export default function DesignServicesPage() {
                     <Image
                       src={item.imageUrl}
                       alt={item.altText}
-                      layout="fill"
-                      objectFit="cover"
-                      className="group-hover:scale-105 transition-transform duration-300"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 </CardHeader>

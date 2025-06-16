@@ -36,10 +36,10 @@ export function HeroSection() {
           <div className="relative animate-fade-in animation-delay-300">
             <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
                <Image
-                src="/media/images/home%20page.png"
+                src="/media/homepage.jpeg"
                 alt="AI Powered Infrastructure displaying interconnected data nodes, representing Grittrix's smart solutions"
-                layout="fill" 
-                objectFit="cover" 
+                fill 
+                className="object-cover" 
                 priority 
               />
             </div>
