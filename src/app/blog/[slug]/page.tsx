@@ -1,6 +1,6 @@
 
 import { PageHeader } from '@/components/PageHeader';
-import { blogPosts } from '@/app/blog/page'; 
+import { blogPosts } from '@/app/blog/page';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { CalendarDays, UserCircle, Tag, Share2 } from 'lucide-react';
@@ -57,10 +57,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         breadcrumbs={breadcrumbs}
       />
       <div className="relative h-64 md:h-96 w-full">
-        <Image 
-            src={post.imageUrl} 
-            alt={post.title} 
-            layout="fill" 
+        <Image
+            src={post.imageUrl}
+            alt={post.title}
+            layout="fill"
             objectFit="cover"
             priority
         />

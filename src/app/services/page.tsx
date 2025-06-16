@@ -3,9 +3,9 @@ import { optimizeContent, type OptimizeContentOutput } from '@/ai/flows/content-
 import { PageHeader } from '@/components/PageHeader';
 import { ServiceItem } from '@/components/sections/ServiceItem';
 import type { Service } from '@/lib/types';
-import { 
-  LayoutDashboard, TrendingUp, Activity, MonitorSmartphone, CloudCog, Cable, DatabaseZap, UsersRound, BrainCircuit 
-} from 'lucide-react'; 
+import {
+  LayoutDashboard, TrendingUp, Activity, MonitorSmartphone, CloudCog, Cable, DatabaseZap, UsersRound, BrainCircuit
+} from 'lucide-react';
 import Image from 'next/image';
 
 export const servicesList: Service[] = [
@@ -22,7 +22,7 @@ export const servicesList: Service[] = [
 export default async function ServicesPage() {
   let optimizedData: OptimizeContentOutput | null = null;
   const companyInfoForGenkit = "Grittrix delivers ready-to-use, AI-powered platforms and services including AI Dashboards & Reporting, Smart Forecasting, Disease & Stock Prediction, Custom Web/Mobile Applications, Cloud Hosting, Software Integrations, Data Collection/Cleaning/Analysis, and Staff Training/Technical Support. Our mission is to modernize operations for businesses in emerging markets by making advanced technology accessible and impactful.";
-  
+
   try {
     optimizedData = await optimizeContent({
       pageType: 'Services',
@@ -86,7 +86,7 @@ export default async function ServicesPage() {
               </ul>
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
-               <Image src="/static/media/service%20page.png" alt="Custom AI Solutions by Grittrix" layout="fill" objectFit="cover" /> 
+               <Image src="/media/images/service%20page.png" alt="Custom AI Solutions by Grittrix" layout="fill" objectFit="cover" />
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
-import { 
+import {
   HeartPulse, Leaf, BookOpen, ShoppingCart, Cpu, Lightbulb, Users, ShieldCheck, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Briefcase, Building, GitFork, Tv, Server, ShoppingBag, Phone, Mail, ArrowRight, Home as HomeIcon, Info, Settings, MessageSquare, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay, ExternalLink
 } from 'lucide-react';
 import Image from 'next/image';
@@ -18,57 +18,57 @@ const keyFeatures = [
 ];
 
 const industriesServed = [
-  { 
-    name: 'Healthcare', 
-    icon: HeartPulse, 
-    link: '/industries/healthcare', 
-    imageSrc: '/static/media/healthcare.png',
+  {
+    name: 'Healthcare',
+    icon: HeartPulse,
+    link: '/industries/healthcare',
+    imageSrc: '/media/images/healthcare.png',
     altText: 'Grittrix AI for Healthcare',
     points: [
       'Smart patient triage',
       'AI-assisted diagnostics',
       'Drug inventory forecasting',
       'Digital health records'
-    ] 
+    ]
   },
-  { 
-    name: 'Retail', 
-    icon: ShoppingCart, 
-    link: '/industries/retail', 
-    imageSrc: '/static/media/retail.png',
+  {
+    name: 'Retail',
+    icon: ShoppingCart,
+    link: '/industries/retail',
+    imageSrc: '/media/images/retail.png',
     altText: 'Grittrix AI for Retail',
     points: [
       'Inventory optimization',
       'Sales prediction',
       'Low-stock alerts',
       'Customer insights'
-    ] 
+    ]
   },
-  { 
-    name: 'Agriculture', 
-    icon: Leaf, 
-    link: '/industries/agriculture', 
-    imageSrc: '/static/media/agriculture.jpg',
+  {
+    name: 'Agriculture',
+    icon: Leaf,
+    link: '/industries/agriculture',
+    imageSrc: '/media/images/agriculture.jpg',
     altText: 'Grittrix AI for Agriculture',
     points: [
       'AI crop disease detection',
       'Weather-based yield prediction',
       'Market price forecasting',
       'Smart farm planning tools'
-    ] 
+    ]
   },
-  { 
-    name: 'Education', 
-    icon: BookOpen, 
-    link: '/industries/education', 
-    imageSrc: '/static/media/education-section.jpg',
+  {
+    name: 'Education',
+    icon: BookOpen,
+    link: '/industries/education',
+    imageSrc: '/media/images/education-section.jpg',
     altText: 'Grittrix AI for Education',
     points: [
       'AI-powered tutoring',
       'Student performance analytics',
       'Lesson planning assistance',
       'Risk alerts for at-risk students'
-    ] 
+    ]
   },
 ];
 
@@ -88,9 +88,9 @@ const whyGrittrixPoints = [
 ];
 
 const testimonials = [
-    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/static/media/Healthcare%20Partner.png" },
-    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/static/media/Agri-Business%20Owner.png" },
-    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/static/media/Education%20Leader.png" }
+    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/images/Healthcare%20Partner.png" },
+    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/images/Agri-Business%20Owner.png" },
+    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/images/Education%20Leader.png" }
 ];
 
 const quickNavLinks = [
@@ -157,10 +157,10 @@ export default function Home() {
             {industriesServed.map((industry, index) => (
               <Card key={industry.name} className="bg-card hover:shadow-2xl transition-all duration-300 group flex flex-col md:flex-row overflow-hidden animate-slide-in-up" style={{ animationDelay: `${index * 150}ms`}}>
                 <div className="md:w-1/3 relative">
-                  <Image 
-                    src={industry.imageSrc} 
+                  <Image
+                    src={industry.imageSrc}
                     alt={industry.altText}
-                    width={400} 
+                    width={400}
                     height={500}
                     className="object-cover w-full h-48 md:h-full group-hover:scale-105 transition-transform duration-300"
                   />
@@ -212,7 +212,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* Why Grittrix Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

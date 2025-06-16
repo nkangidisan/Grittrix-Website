@@ -1,7 +1,7 @@
 
 import { PageHeader } from '@/components/PageHeader';
 import { IndustryCard } from '@/components/sections/IndustryCard';
-import type { Industry } from '@/lib/types'; 
+import type { Industry } from '@/lib/types';
 import { HeartPulse, ShoppingCart, Leaf, BookOpen } from 'lucide-react';
 
 interface IndustryOverview extends Omit<Industry, 'painPoints' | 'solutions' | 'imageHint'> {
@@ -10,10 +10,10 @@ interface IndustryOverview extends Omit<Industry, 'painPoints' | 'solutions' | '
 
 
 const industriesOverview: IndustryOverview[] = [
-  { id: 'healthcare', name: 'Healthcare', description: 'Revolutionizing patient care with AI-driven diagnostics, personalized medicine, and operational efficiency.', icon: HeartPulse, imageUrl: '/static/media/healthcare.png' },
-  { id: 'retail', name: 'Retail & E-commerce', description: 'Transforming customer experiences through AI-powered personalization, supply chain optimization, and intelligent inventory management.', icon: ShoppingCart, imageUrl: '/static/media/retail.png' },
-  { id: 'agriculture', name: 'Agriculture', description: 'Enhancing food security with AI-driven precision farming, crop monitoring, and yield prediction for sustainable agriculture.', icon: Leaf, imageUrl: '/static/media/agriculture.jpg' },
-  { id: 'education', name: 'Education', description: 'Personalizing learning journeys with adaptive AI tutors, intelligent content delivery, and data-driven insights for educators.', icon: BookOpen, imageUrl: '/static/media/education-section.jpg' },
+  { id: 'healthcare', name: 'Healthcare', description: 'Revolutionizing patient care with AI-driven diagnostics, personalized medicine, and operational efficiency.', icon: HeartPulse, imageUrl: '/media/images/healthcare.png' },
+  { id: 'retail', name: 'Retail & E-commerce', description: 'Transforming customer experiences through AI-powered personalization, supply chain optimization, and intelligent inventory management.', icon: ShoppingCart, imageUrl: '/media/images/retail.png' },
+  { id: 'agriculture', name: 'Agriculture', description: 'Enhancing food security with AI-driven precision farming, crop monitoring, and yield prediction for sustainable agriculture.', icon: Leaf, imageUrl: '/media/images/agriculture.jpg' },
+  { id: 'education', name: 'Education', description: 'Personalizing learning journeys with adaptive AI tutors, intelligent content delivery, and data-driven insights for educators.', icon: BookOpen, imageUrl: '/media/images/education-section.jpg' },
 ];
 
 export default function IndustriesPage() {

@@ -13,7 +13,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Healthcare',
     description: 'Empowering healthcare providers with AI to improve patient outcomes, enhance diagnostics, and streamline operations.',
     icon: HeartPulse,
-    imageUrl: '/static/media/healthcare.png',
+    imageUrl: '/media/images/healthcare.png',
     painPoints: [
       'Late disease detection and diagnosis',
       'Inefficient patient data management',
@@ -34,7 +34,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Retail & E-commerce',
     description: 'Transforming the retail landscape with AI for personalized experiences, optimized supply chains, and smarter operations.',
     icon: ShoppingCart,
-    imageUrl: '/static/media/retail.png',
+    imageUrl: '/media/images/retail.png',
     painPoints: [
       'Understanding customer behavior and preferences',
       'Inventory mismanagement (overstocking/understocking)',
@@ -55,7 +55,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Agriculture',
     description: 'Driving sustainable agriculture and food security with AI-powered precision farming and data analytics.',
     icon: Leaf,
-    imageUrl: '/static/media/agriculture.jpg',
+    imageUrl: '/media/images/agriculture.jpg',
     painPoints: [
       'Unpredictable weather patterns and climate change impact',
       'Crop diseases and pest infestations',
@@ -76,7 +76,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Education',
     description: 'Personalizing learning and enhancing educational outcomes with adaptive AI technologies.',
     icon: BookOpen,
-    imageUrl: '/static/media/education-section.jpg',
+    imageUrl: '/media/images/education-section.jpg',
     painPoints: [
       'One-size-fits-all learning approaches',
       'Difficulty in catering to diverse student needs',
@@ -113,12 +113,12 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
         description={industry.description}
         breadcrumbs={breadcrumbs}
       />
-      
+
       <div className="relative h-auto md:h-[calc(800px*9/16)] w-full aspect-[4/3] md:aspect-auto md:max-h-[500px] my-8 container mx-auto px-4 sm:px-6 lg:px-8">
-        <Image 
-            src={industry.imageUrl} 
-            alt={`Detailed view of AI in ${industry.name}`} 
-            layout="fill" 
+        <Image
+            src={industry.imageUrl}
+            alt={`Detailed view of AI in ${industry.name}`}
+            layout="fill"
             objectFit="contain"
             priority
             className="rounded-lg shadow-xl"
@@ -157,7 +157,7 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
               </ul>
             </div>
           </div>
-          
+
           <div className="mt-16 text-center">
             <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
               <Link href={`/contact?subject=Inquiry about ${industry.name} solutions`}>

@@ -3,14 +3,14 @@ import { optimizeContent, type OptimizeContentOutput } from '@/ai/flows/content-
 import { PageHeader } from '@/components/PageHeader';
 import { TeamMemberCard } from '@/components/sections/TeamMemberCard';
 import type { TeamMember } from '@/lib/types';
-import { Lightbulb, UsersRound, ShieldCheck, Mountain, Eye } from 'lucide-react'; 
+import { Lightbulb, UsersRound, ShieldCheck, Mountain, Eye } from 'lucide-react';
 import Image from 'next/image';
 
 const teamMembers: TeamMember[] = [
-  { id: '1', name: 'Nkangi Disan', role: 'Founder & CEO', bio: 'Visionary leader passionate about leveraging technology for social good.', imageUrl: '/static/media/Nkangi%20Disan.png', socials: { linkedin: 'https://www.linkedin.com/in/disan-nkangi-7ab2b62a9/' } },
-  { id: '2', name: 'Lubega Mahad', role: 'Chief Technology Officer', bio: 'Expert in AI/ML development and scalable cloud architectures. Driving Grittrix\'s innovation engine.', imageUrl: '/static/media/Lubega%20Mahad.png', socials: { linkedin: 'https://www.linkedin.com/in/lubega-mahad-ishaaq-021540322/' } },
-  { id: '3', name: 'Ashumbusha Emmanuel', role: 'Head of Operations - Africa', bio: 'Strategic operator ensuring seamless delivery and impact across African markets.', imageUrl: '/static/media/Ashumbusha%20Emmanuel.png', socials: { linkedin: 'https://www.linkedin.com/in/ashumbusha-emmanuel-124059335/' } },
-  { id: '4', name: 'Juma Bakari', role: 'Lead AI Researcher', bio: 'Pioneering new algorithms and models to solve complex industry challenges.', imageUrl: '/static/media/Juma%20Bakari.png', socials: { linkedin: 'https://www.linkedin.com/in/juma-bakari-4712ab152/' } },
+  { id: '1', name: 'Nkangi Disan', role: 'Founder & CEO', bio: 'Visionary leader passionate about leveraging technology for social good.', imageUrl: '/media/images/Nkangi%20Disan.png', socials: { linkedin: 'https://www.linkedin.com/in/disan-nkangi-7ab2b62a9/' } },
+  { id: '2', name: 'Lubega Mahad', role: 'Chief Technology Officer', bio: 'Expert in AI/ML development and scalable cloud architectures. Driving Grittrix\'s innovation engine.', imageUrl: '/media/images/Lubega%20Mahad.png', socials: { linkedin: 'https://www.linkedin.com/in/lubega-mahad-ishaaq-021540322/' } },
+  { id: '3', name: 'Ashumbusha Emmanuel', role: 'Head of Operations - Africa', bio: 'Strategic operator ensuring seamless delivery and impact across African markets.', imageUrl: '/media/images/Ashumbusha%20Emmanuel.png', socials: { linkedin: 'https://www.linkedin.com/in/ashumbusha-emmanuel-124059335/' } },
+  { id: '4', name: 'Juma Bakari', role: 'Lead AI Researcher', bio: 'Pioneering new algorithms and models to solve complex industry challenges.', imageUrl: '/media/images/Juma%20Bakari.png', socials: { linkedin: 'https://www.linkedin.com/in/juma-bakari-4712ab152/' } },
 ];
 
 const coreValues = [
@@ -64,7 +64,7 @@ export default async function AboutUsPage() {
               </div>
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
-               <Image src="/static/media/about%20page.png" alt="Grittrix team collaboration and company vision" layout="fill" objectFit="cover" /> 
+               <Image src="/media/images/about%20page.png" alt="Grittrix team collaboration and company vision" layout="fill" objectFit="cover" />
             </div>
           </div>
         </div>

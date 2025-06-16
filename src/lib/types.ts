@@ -9,7 +9,6 @@ export interface TeamMember {
     linkedin?: string;
     twitter?: string;
   };
-  // dataAiHint removed as actual images are used
 }
 
 export interface Service {
@@ -28,7 +27,6 @@ export interface Industry {
   solutions: string[];
   icon: React.ElementType;
   imageUrl: string;
-  // imageHint removed as actual images are used
 }
 
 export interface Product {
@@ -38,16 +36,16 @@ export interface Product {
   description: string;
   icon: React.ElementType;
   imageUrl: string;
-  imageHint?: string; // Kept for CORE product which is still placeholder
+  imageHint?: string;
   features: string[];
 }
 
 export interface MerchandiseItem {
   id: string;
   name: string;
-  price?: string; 
+  price?: string;
   imageUrl: string;
-  imageHint?: string; // Kept as these are placeholders
+  imageHint?: string;
   description?: string;
 }
 
@@ -66,8 +64,7 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   author: string;
-  date: string; 
+  date: string;
   imageUrl: string;
-  // imageHint removed as actual images are used
   category: string;
 }

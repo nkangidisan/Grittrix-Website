@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Palette, Layers, Smartphone, Rocket, CheckCircle } from 'lucide-react';
-import { ContactForm } from '@/components/forms/ContactForm'; 
+import { ContactForm } from '@/components/forms/ContactForm';
 
 const designProcessSteps = [
   { title: "Discovery & Strategy", description: "Understanding your vision, audience, and goals to craft a tailored design strategy.", icon: Palette },
@@ -14,10 +14,10 @@ const designProcessSteps = [
   { title: "Launch & Optimization", description: "Deploying your application and continuously optimizing for performance and user satisfaction.", icon: Rocket },
 ];
 
-const portfolioItems = [ 
-  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/static/media/healthcare.png', altText: 'Portfolio: AfroHealth AI Platform' },
-  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/static/media/retail.png', altText: 'Portfolio: RetailSense E-commerce' },
-  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/static/media/agriculture.jpg', altText: 'Portfolio: AgriGrow Farmer Portal' },
+const portfolioItems = [
+  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/media/images/healthcare.png', altText: 'Portfolio: AfroHealth AI Platform' },
+  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/media/images/retail.png', altText: 'Portfolio: RetailSense E-commerce' },
+  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/media/images/agriculture.jpg', altText: 'Portfolio: AgriGrow Farmer Portal' },
 ];
 
 export default function DesignServicesPage() {
@@ -91,7 +91,7 @@ export default function DesignServicesPage() {
           </div>
         </div>
       </section>
-      
+
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -107,7 +107,7 @@ export default function DesignServicesPage() {
                 <div className="bg-card p-8 rounded-lg shadow-xl">
                     <h2 className="text-2xl font-bold font-headline text-primary mb-6">Request a Quote</h2>
                     <p className="text-sm text-foreground/70 mb-6">Have a project in mind? Tell us about your requirements, and we'll get back to you with a tailored proposal.</p>
-                    <ContactForm /> 
+                    <ContactForm />
                 </div>
             </div>
         </div>

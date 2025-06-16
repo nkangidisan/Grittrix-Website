@@ -14,7 +14,7 @@ export function HeroSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left animate-slide-in-up">
             <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-              Transforming Industries in 
+              Transforming Industries in
               <span className="block text-primary">Africa and Beyond with</span>
               Smart AI Infrastructure
             </h1>
@@ -36,7 +36,7 @@ export function HeroSection() {
           <div className="relative animate-fade-in animation-delay-300">
             <div className="aspect-video rounded-xl overflow-hidden shadow-2xl">
                <Image
-                src="/static/media/home%20page.png" 
+                src="/media/images/home%20page.png"
                 alt="AI Powered Infrastructure for Business by Grittrix"
                 width={1080}
                 height={608}

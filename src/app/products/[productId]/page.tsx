@@ -1,7 +1,7 @@
 
 import { PageHeader } from '@/components/PageHeader';
 import type { Product } from '@/lib/types';
-import { productsList } from '@/app/products/page'; 
+import { productsList } from '@/app/products/page';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -19,7 +19,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
     { name: 'Products', href: '/products' },
     { name: product.name }
   ];
-  
+
   const IconComponent = product.icon;
 
   return (
@@ -29,18 +29,18 @@ export default function ProductDetailPage({ params }: { params: { productId: str
         description={product.tagline}
         breadcrumbs={breadcrumbs}
       />
-      
+
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="sticky top-24"> 
+            <div className="sticky top-24">
               <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl mb-8">
-                <Image 
-                  src={product.imageUrl} 
-                  alt={product.name} 
-                  layout="fill" 
-                  objectFit="cover" 
-                  data-ai-hint={product.imageHint} 
+                <Image
+                  src={product.imageUrl}
+                  alt={product.name}
+                  layout="fill"
+                  objectFit="cover"
+                  {...(product.imageHint && { 'data-ai-hint': product.imageHint })}
                 />
               </div>
               <div className="flex items-center space-x-3 mb-4 p-4 bg-secondary/10 rounded-lg">
@@ -57,7 +57,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
             <div>
               <h3 className="text-xl font-semibold font-headline text-primary mb-3">Product Overview</h3>
               <p className="text-foreground/80 leading-relaxed mb-8">{product.description}</p>
-              
+
               {product.features && product.features.length > 0 && (
                 <div className="mb-8">
                   <h3 className="text-xl font-semibold font-headline text-primary mb-4">Key Features & Benefits</h3>
