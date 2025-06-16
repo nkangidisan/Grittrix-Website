@@ -18,7 +18,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Healthcare',
     description: 'Empowering healthcare providers with AI to improve patient outcomes, enhance diagnostics, and streamline operations.',
     icon: HeartPulse,
-    imageUrl: '/media/health.webp',
+    imageUrl: '/media/health.webp', // Assuming health.webp
     painPoints: [
       'Late disease detection and diagnosis',
       'Inefficient patient data management',
@@ -39,7 +39,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Retail & E-commerce',
     description: 'Transforming the retail landscape with AI for personalized experiences, optimized supply chains, and smarter operations.',
     icon: ShoppingCart,
-    imageUrl: '/media/retail.png',
+    imageUrl: '/media/retail.png', // Assuming retail.png
     painPoints: [
       'Understanding customer behavior and preferences',
       'Inventory mismanagement (overstocking/understocking)',
@@ -60,7 +60,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Agriculture',
     description: 'Driving sustainable agriculture and food security with AI-powered precision farming and data analytics.',
     icon: Leaf,
-    imageUrl: '/media/agriculture.jpg',
+    imageUrl: '/media/agriculture.jpg', // Assuming agriculture.jpg
     painPoints: [
       'Unpredictable weather patterns and climate change impact',
       'Crop diseases and pest infestations',
@@ -81,7 +81,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Education',
     description: 'Personalizing learning and enhancing educational outcomes with adaptive AI technologies.',
     icon: BookOpen,
-    imageUrl: '/media/education-section.jpg',
+    imageUrl: '/media/education-section.jpg', // Assuming education-section.jpg
     painPoints: [
       'One-size-fits-all learning approaches',
       'Difficulty in catering to diverse student needs',
@@ -112,6 +112,8 @@ export async function generateMetadata(
       description: 'The industry you are looking for could not be found.',
     };
   }
+  
+  const absoluteImageUrl = industry.imageUrl.startsWith('http') ? industry.imageUrl : `https://www.grittrix.com${industry.imageUrl}`;
 
   return {
     title: `${industry.name} Solutions | Grittrix AI`,
@@ -119,7 +121,7 @@ export async function generateMetadata(
     openGraph: {
         title: `${industry.name} Solutions | Grittrix AI`,
         description: industry.description,
-        images: [{ url: industry.imageUrl, alt: `AI in ${industry.name}` }],
+        images: [{ url: absoluteImageUrl, alt: `AI in ${industry.name}` }],
     }
   };
 }
@@ -148,7 +150,7 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
 
       <div className="relative h-auto md:h-[calc(800px*9/16)] w-full aspect-[4/3] md:aspect-auto md:max-h-[500px] my-8 container mx-auto px-4 sm:px-6 lg:px-8">
         <Image
-            src={industry.imageUrl}
+            src={industry.imageUrl} // e.g., /media/health.webp
             alt={imageAltText}
             fill
             className="object-contain rounded-lg shadow-xl"
@@ -207,5 +209,6 @@ export async function generateStaticParams() {
     industrySlug: slug,
   }));
 }
+    
 
     

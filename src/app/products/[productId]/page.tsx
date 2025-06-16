@@ -27,13 +27,15 @@ export async function generateMetadata(
     };
   }
 
+  const absoluteImageUrl = product.imageUrl.startsWith('http') ? product.imageUrl : `https://www.grittrix.com${product.imageUrl}`;
+
   return {
     title: `${product.name} | Grittrix Products`,
     description: product.tagline,
     openGraph: {
         title: `${product.name} | Grittrix Products`,
         description: product.tagline,
-        images: [{ url: product.imageUrl, alt: product.name }],
+        images: [{ url: absoluteImageUrl, alt: product.name }],
     }
   };
 }
@@ -135,5 +137,6 @@ export async function generateStaticParams() {
     productId: product.id.toLowerCase(),
   }));
 }
+    
 
     

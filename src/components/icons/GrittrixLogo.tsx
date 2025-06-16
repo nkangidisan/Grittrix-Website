@@ -7,15 +7,16 @@ export function GrittrixLogo({ className, ...props }: SVGProps<SVGSVGElement> & 
   return (
     <div className={cn("relative", className)} {...props}>
       <Image
-        src="/media/grittrix logo (1).png"
+        src="/media/grittrix-logo.png" // Assuming grittrix-logo.png in public/media/
         alt="Grittrix AI Solutions Logo - Redefining Industries with Technology"
-        width={192} // Example width, adjust as needed or use fill if parent has dimensions
-        height={40} // Example height, to maintain aspect ratio with width
+        width={192} 
+        height={40} 
         priority
-        className="object-contain w-auto h-full" // h-full will respect parent's height if set
+        className="object-contain w-auto h-full" 
       />
     </div>
   );
 }
+    
 
     

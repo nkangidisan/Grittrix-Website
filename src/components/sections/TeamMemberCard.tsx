@@ -16,7 +16,7 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={member.imageUrl} 
+            src={member.imageUrl} // e.g., /media/nkangi-disan.png
             alt={imageAltText}
             fill
             className="object-cover rounded-t-lg"
@@ -45,5 +45,6 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
     </Card>
   );
 }
+    
 
     

@@ -21,9 +21,9 @@ const designProcessSteps = [
 ];
 
 const portfolioItems = [
-  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/media/health.webp', altText: 'Mockup of AfroHealth AI Platform on a laptop screen' },
-  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/media/retail.png', altText: 'RetailSense mobile e-commerce app interface example' },
-  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/media/agriculture.jpg', altText: 'AgriGrow farmer portal dashboard displaying crop data' },
+  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/media/health.webp', altText: 'Mockup of AfroHealth AI Platform on a laptop screen' }, // Assuming health.webp
+  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/media/retail.png', altText: 'RetailSense mobile e-commerce app interface example' }, // Assuming retail.png
+  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/media/agriculture.jpg', altText: 'AgriGrow farmer portal dashboard displaying crop data' }, // Assuming agriculture.jpg
 ];
 
 export default function DesignServicesPage() {
@@ -75,7 +75,7 @@ export default function DesignServicesPage() {
                 <CardHeader className="p-0">
                   <div className="relative aspect-video w-full">
                     <Image
-                      src={item.imageUrl}
+                      src={item.imageUrl} // e.g. /media/health.webp
                       alt={item.altText}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -120,5 +120,6 @@ export default function DesignServicesPage() {
     </>
   );
 }
+    
 
     

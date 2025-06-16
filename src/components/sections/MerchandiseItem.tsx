@@ -16,7 +16,7 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={item.imageUrl}
+            src={item.imageUrl} // Placeholder image, e.g. https://placehold.co/600x600.png
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -41,5 +41,6 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
     </Card>
   );
 }
+    
 
     

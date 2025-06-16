@@ -28,7 +28,7 @@ const industriesServed = [
     name: 'Healthcare', 
     icon: HeartPulse, 
     link: '/industries/healthcare', 
-    imageSrc: '/media/health.webp',
+    imageSrc: '/media/health.webp', // Assuming health.webp in public/media/
     altText: 'Doctor reviewing medical data on a tablet, representing Grittrix AI for Healthcare',
     points: [
       'Smart patient triage',
@@ -41,7 +41,7 @@ const industriesServed = [
     name: 'Retail', 
     icon: ShoppingCart, 
     link: '/industries/retail', 
-    imageSrc: '/media/retail.png',
+    imageSrc: '/media/retail.png', // Assuming retail.png in public/media/
     altText: 'Modern retail store interior with diverse products, illustrating Grittrix AI for Retail',
     points: [
       'Inventory optimization',
@@ -54,7 +54,7 @@ const industriesServed = [
     name: 'Agriculture', 
     icon: Leaf, 
     link: '/industries/agriculture', 
-    imageSrc: '/media/agriculture.jpg',
+    imageSrc: '/media/agriculture.jpg', // Assuming agriculture.jpg in public/media/
     altText: 'Lush green field with a farmer using a drone, showcasing Grittrix AI for Agriculture',
     points: [
       'AI crop disease detection',
@@ -67,7 +67,7 @@ const industriesServed = [
     name: 'Education', 
     icon: BookOpen, 
     link: '/industries/education', 
-    imageSrc: '/media/education-section.jpg',
+    imageSrc: '/media/education-section.jpg', // Assuming education-section.jpg in public/media/
     altText: 'Students engaging with interactive technology in a classroom, representing Grittrix AI for Education',
     points: [
       'AI-powered tutoring',
@@ -94,9 +94,9 @@ const whyGrittrixPoints = [
 ];
 
 const testimonials = [
-    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/Healthcare Partner.png", altText: "Testimonial from a Grittrix Healthcare Partner" },
-    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/Agri-Business Owner.png", altText: "Testimonial from a Grittrix Agri-Business Owner" },
-    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/Education Leader.png", altText: "Testimonial from an Education Leader using Grittrix" }
+    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/healthcare-partner.png", altText: "Testimonial from a Grittrix Healthcare Partner" }, // Assuming healthcare-partner.png
+    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/agri-business-owner.png", altText: "Testimonial from a Grittrix Agri-Business Owner" }, // Assuming agri-business-owner.png
+    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/education-leader.png", altText: "Testimonial from an Education Leader using Grittrix" } // Assuming education-leader.png
 ];
 
 const quickNavLinks = [
@@ -331,5 +331,6 @@ export default function Home() {
     </>
   );
 }
+    
 
     

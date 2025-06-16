@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.grittrix.com'), // Replace with your actual production domain
   title: {
     default: 'Grittrix AI Solutions | Transforming Industries with AI',
     template: '%s | Grittrix AI Solutions',
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     siteName: 'Grittrix AI Solutions',
     images: [
       {
-        url: '/media/og-image.png', // Ensure this image exists in public/media/og-image.png
+        url: '/media/og-image.png', // Assuming og-image.png in public/media/
         width: 1200,
         height: 630,
         alt: 'Grittrix AI Solutions - Transforming Industries with Advanced Technology',
@@ -31,8 +32,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Grittrix AI Solutions | AI for Emerging Markets',
     description: 'Pioneering AI-Powered Solutions for Healthcare, Retail, Agriculture, and Education in Africa and other emerging markets.',
-    // site: '@Grittrix', // Replace with your actual Twitter handle
-    images: ['/media/twitter-card.png'], // Ensure this image exists in public/media/twitter-card.png
+    // site: '@Grittrix', // Replace with your actual Twitter handle if available
+    images: ['/media/twitter-card.png'], // Assuming twitter-card.png in public/media/
   },
   robots: {
     index: true,
@@ -46,9 +47,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/media/favicon.ico', // Ensure favicon.ico exists in public/media/
-    shortcut: '/media/favicon-16x16.png', // Ensure favicon-16x16.png exists in public/media/
-    apple: '/media/apple-touch-icon.png', // Ensure apple-touch-icon.png exists in public/media/
+    icon: '/media/favicon.ico', // Assuming favicon.ico in public/media/
+    shortcut: '/media/favicon-16x16.png', // Assuming favicon-16x16.png in public/media/
+    apple: '/media/apple-touch-icon.png', // Assuming apple-touch-icon.png in public/media/
   },
 };
 
@@ -68,10 +69,11 @@ export default function RootLayout({
       <body className="font-body bg-background text-foreground antialiased min-h-screen flex flex-col">
         {children}
         <Toaster />
-        <Analytics />
+        <Analytics /> {/* Vercel Analytics - ensure @vercel/analytics is installed */}
       </body>
     </html>
   );
 }
+    
 
     

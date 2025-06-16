@@ -53,13 +53,17 @@ export async function generateMetadata(
     };
   }
 
+  // Assuming post.imageUrl is already a correct path like /media/health.webp
+  const absoluteImageUrl = post.imageUrl.startsWith('http') ? post.imageUrl : `https://www.grittrix.com${post.imageUrl}`;
+
+
   return {
     title: `${post.title} | Grittrix Blog`,
     description: post.excerpt,
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      images: [{ url: post.imageUrl, alt: post.title }],
+      images: [{ url: absoluteImageUrl, alt: post.title }],
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
@@ -69,7 +73,7 @@ export async function generateMetadata(
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
-      images: [post.imageUrl],
+      images: [absoluteImageUrl],
     },
   };
 }
@@ -96,8 +100,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       />
       <div className="relative h-64 md:h-96 w-full">
         <Image
-            src={post.imageUrl}
-            alt={post.title}
+            src={post.imageUrl} // e.g., /media/health.webp
+            alt={`Blog post image for ${post.title}`}
             fill
             className="object-cover"
             priority
@@ -151,5 +155,6 @@ export async function generateStaticParams() {
     slug: post.slug,
   }));
 }
+    
 
     

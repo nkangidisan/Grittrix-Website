@@ -28,7 +28,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <CardContent className="flex-grow">
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
           <Image
-            src={product.imageUrl} 
+            src={product.imageUrl} // Could be local /media/ or placeholder
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -60,5 +60,6 @@ export function ProductCard({ product }: ProductCardProps) {
     </Card>
   );
 }
+    
 
     

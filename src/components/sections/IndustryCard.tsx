@@ -20,7 +20,7 @@ export function IndustryCard({ industry, linkHref }: IndustryCardProps) {
       <CardHeader>
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
           <Image
-            src={industry.imageUrl}
+            src={industry.imageUrl} // e.g. /media/health.webp
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -46,5 +46,6 @@ export function IndustryCard({ industry, linkHref }: IndustryCardProps) {
     </Card>
   );
 }
+    
 
     
