@@ -16,10 +16,10 @@ interface IndustryOverview extends Omit<Industry, 'painPoints' | 'solutions' | '
 
 
 const industriesOverview: IndustryOverview[] = [
-  { id: 'healthcare', name: 'Healthcare', description: 'Revolutionizing patient care with AI-driven diagnostics, personalized medicine, and operational efficiency.', icon: HeartPulse, imageUrl: '/media/health.webp', altText: 'Iconic representation of AI in Healthcare by Grittrix' },
-  { id: 'retail', name: 'Retail & E-commerce', description: 'Transforming customer experiences through AI-powered personalization, supply chain optimization, and intelligent inventory management.', icon: ShoppingCart, imageUrl: '/media/retail.png', altText: 'Iconic representation of AI in Retail & E-commerce by Grittrix' },
-  { id: 'agriculture', name: 'Agriculture', description: 'Enhancing food security with AI-driven precision farming, crop monitoring, and yield prediction for sustainable agriculture.', icon: Leaf, imageUrl: '/media/agriculture.jpg', altText: 'Iconic representation of AI in Agriculture by Grittrix' },
-  { id: 'education', name: 'Education', description: 'Personalizing learning journeys with adaptive AI tutors, intelligent content delivery, and data-driven insights for educators.', icon: BookOpen, imageUrl: '/media/education-section.jpg', altText: 'Iconic representation of AI in Education by Grittrix' },
+  { id: 'healthcare', name: 'Healthcare', description: 'Revolutionizing patient care with AI-driven diagnostics, personalized medicine, and operational efficiency.', icon: HeartPulse, imageUrl: '/media/health.webp', altText: 'AI in Healthcare: advanced diagnostics and patient care by Grittrix' },
+  { id: 'retail', name: 'Retail & E-commerce', description: 'Transforming customer experiences through AI-powered personalization, supply chain optimization, and intelligent inventory management.', icon: ShoppingCart, imageUrl: '/media/retail.png', altText: 'AI in Retail: personalized e-commerce experiences and supply chain optimization by Grittrix' },
+  { id: 'agriculture', name: 'Agriculture', description: 'Enhancing food security with AI-driven precision farming, crop monitoring, and yield prediction for sustainable agriculture.', icon: Leaf, imageUrl: '/media/agriculture.jpg', altText: 'AI in Agriculture: precision farming and crop monitoring for sustainability by Grittrix' },
+  { id: 'education', name: 'Education', description: 'Personalizing learning journeys with adaptive AI tutors, intelligent content delivery, and data-driven insights for educators.', icon: BookOpen, imageUrl: '/media/education-section.jpg', altText: 'AI in Education: adaptive learning and intelligent tutoring by Grittrix' },
 ];
 
 export default function IndustriesPage() {
@@ -55,3 +55,5 @@ export default function IndustriesPage() {
     </>
   );
 }
+
+    

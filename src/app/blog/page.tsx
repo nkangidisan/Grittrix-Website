@@ -111,7 +111,7 @@ export default function BlogPage() {
                   <Link href={`/blog/${post.slug}`} className="block relative aspect-video w-full">
                     <Image
                       src={post.imageUrl} 
-                      alt={post.title} // Using post title as alt text, good for SEO
+                      alt={post.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -149,3 +149,5 @@ export default function BlogPage() {
     </>
   );
 }
+
+    

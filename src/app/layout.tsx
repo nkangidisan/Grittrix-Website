@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import { Analytics } from '@vercel/analytics/react'; // Example for Vercel Analytics
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: {
@@ -12,16 +12,16 @@ export const metadata: Metadata = {
   description: 'Grittrix provides cutting-edge AI-powered solutions for Healthcare, Retail, Agriculture, and Education, primarily focused on Africa and emerging markets. Unlock smarter decisions, automate operations, and scale with confidence.',
   keywords: ['AI solutions', 'emerging markets', 'Africa tech', 'Grittrix', 'AI in healthcare', 'AI in retail', 'AI in agriculture', 'AI in education', 'machine learning', 'data science'],
   openGraph: {
-    title: 'Grittrix AI Solutions',
-    description: 'Transforming industries with AI in Africa and beyond.',
-    url: 'https://www.grittrix.com', // Replace with your actual domain for production
+    title: 'Grittrix AI Solutions | Transforming Industries with AI',
+    description: 'AI-Powered Solutions for Healthcare, Retail, Agriculture, and Education in Africa and Emerging Markets.',
+    url: 'https://www.grittrix.com', // Replace with your actual production domain
     siteName: 'Grittrix AI Solutions',
     images: [
       {
-        url: '/media/og-image.png', // Updated to local path
+        url: '/media/og-image.png', // Ensure this image exists in public/media/og-image.png
         width: 1200,
         height: 630,
-        alt: 'Grittrix AI Solutions - Transforming Industries',
+        alt: 'Grittrix AI Solutions - Transforming Industries with Advanced Technology',
       },
     ],
     locale: 'en_US',
@@ -29,10 +29,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Grittrix AI Solutions',
-    description: 'AI-Powered Solutions for Healthcare, Retail, Agriculture, and Education in Africa and Emerging Markets.',
-    // site: '@Grittrix', // Replace with your Twitter handle
-    images: ['/media/twitter-card.png'], // Updated to local path
+    title: 'Grittrix AI Solutions | AI for Emerging Markets',
+    description: 'Pioneering AI-Powered Solutions for Healthcare, Retail, Agriculture, and Education in Africa and other emerging markets.',
+    // site: '@Grittrix', // Replace with your actual Twitter handle
+    images: ['/media/twitter-card.png'], // Ensure this image exists in public/media/twitter-card.png
   },
   robots: {
     index: true,
@@ -45,12 +45,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  // Add favicon links here if not handled by Next.js default in public folder
-  // icons: {
-  //   icon: '/favicon.ico',
-  //   shortcut: '/favicon-16x16.png',
-  //   apple: '/apple-touch-icon.png',
-  // },
+  icons: {
+    icon: '/media/favicon.ico', // Ensure favicon.ico exists in public/media/
+    shortcut: '/media/favicon-16x16.png', // Ensure favicon-16x16.png exists in public/media/
+    apple: '/media/apple-touch-icon.png', // Ensure apple-touch-icon.png exists in public/media/
+  },
 };
 
 export default function RootLayout({
@@ -65,16 +64,14 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        {/* Favicon link is typically handled by Next.js if favicon.ico is in /public or /app root. 
-            If you have specific favicon sizes or types, add them here or via metadata.icons object.
-            Example: <link rel="icon" href="/favicon.ico" sizes="any" /> 
-        */}
       </head>
       <body className="font-body bg-background text-foreground antialiased min-h-screen flex flex-col">
         {children}
         <Toaster />
-        <Analytics /> {/* Vercel Analytics - ensure @vercel/analytics is installed */}
+        <Analytics />
       </body>
     </html>
   );
 }
+
+    

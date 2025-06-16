@@ -12,7 +12,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const IconComponent = product.icon;
-  const imageAltText = product.imageHint ? `${product.name} - ${product.imageHint}` : product.name;
+  const imageAltText = product.imageHint ? `${product.name} showcasing ${product.imageHint}` : `Grittrix Product: ${product.name} - ${product.tagline}`;
 
   return (
     <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group">
@@ -30,9 +30,8 @@ export function ProductCard({ product }: ProductCardProps) {
           <Image
             src={product.imageUrl} 
             alt={imageAltText}
-            layout="fill"
-            objectFit="cover"
-            className="group-hover:scale-105 transition-transform duration-300"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
             {...(product.imageUrl.startsWith('https://placehold.co') && product.imageHint && { 'data-ai-hint': product.imageHint })}
           />
         </div>
@@ -61,3 +60,5 @@ export function ProductCard({ product }: ProductCardProps) {
     </Card>
   );
 }
+
+    

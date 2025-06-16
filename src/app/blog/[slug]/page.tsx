@@ -98,8 +98,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         <Image
             src={post.imageUrl}
             alt={post.title}
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="object-cover"
             priority
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-8">
@@ -151,3 +151,5 @@ export async function generateStaticParams() {
     slug: post.slug,
   }));
 }
+
+    

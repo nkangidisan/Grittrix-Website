@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   description: 'Discover Grittrix\'s industry-leading AI-powered products for Healthcare, Retail, Agriculture, and Education, built on our CORE AI engine.',
 };
 
-// imageHint will be removed or ignored if imageUrl is a local path
 export const productsList: Product[] = [
   {
     id: 'CORE',
@@ -18,8 +17,8 @@ export const productsList: Product[] = [
     tagline: 'AI Operating System for Industry.',
     description: 'The foundational AI engine powering Grittrix solutions. CORE provides a robust, scalable, and secure platform for developing, deploying, and managing AI models and applications across diverse industrial use cases. It enables seamless data integration, advanced analytics, and intelligent automation for transformative business outcomes.',
     icon: Cpu,
-    imageUrl: 'https://placehold.co/1080x608.png', // Placeholder, not local
-    imageHint: 'abstract AI core network', 
+    imageUrl: 'https://placehold.co/1080x608.png', 
+    imageHint: 'AI core network', 
     features: [
       'Unified AI Development Environment',
       'Scalable Model Deployment & Management',
@@ -37,7 +36,7 @@ export const productsList: Product[] = [
     description: 'Empowering healthcare providers with intelligent tools. Grittrix Health™ streamlines clinic workflows, optimizes pharmacy inventory, enhances diagnostic support through AI-assisted image analysis, and enables personalized patient care via predictive analytics for improved health outcomes.',
     icon: Stethoscope,
     imageUrl: '/media/health.webp', 
-    imageHint: 'healthcare medical', // Kept for consistency, though local path used
+    imageHint: 'healthcare medical', 
     features: [
       'AI-Assisted Medical Image Analysis (X-rays, Scans)',
       'Predictive Patient Triage & Risk Stratification',
@@ -133,3 +132,5 @@ export default function ProductsPage() {
     </>
   );
 }
+
+    

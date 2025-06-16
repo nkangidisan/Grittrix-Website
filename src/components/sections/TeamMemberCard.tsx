@@ -10,7 +10,7 @@ interface TeamMemberCardProps {
 }
 
 export function TeamMemberCard({ member }: TeamMemberCardProps) {
-  const imageAltText = `${member.name}, ${member.role} at Grittrix AI Solutions`;
+  const imageAltText = `Professional portrait of ${member.name}, ${member.role} at Grittrix AI Solutions`;
   return (
     <Card className="text-center bg-card hover:shadow-lg transition-shadow duration-300 flex flex-col">
       <CardHeader className="p-0">
@@ -18,9 +18,8 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
           <Image
             src={member.imageUrl} 
             alt={imageAltText}
-            layout="fill"
-            objectFit="cover"
-            className="rounded-t-lg"
+            fill
+            className="object-cover rounded-t-lg"
           />
         </div>
       </CardHeader>
@@ -46,3 +45,5 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
     </Card>
   );
 }
+
+    

@@ -52,7 +52,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
   ];
 
   const IconComponent = product.icon;
-  const imageAltText = product.imageHint ? `${product.name} - ${product.imageHint}` : product.name;
+  const imageAltText = product.imageHint ? `${product.name} - ${product.imageHint}` : `${product.name} product visualization by Grittrix`;
 
   return (
     <>
@@ -70,9 +70,9 @@ export default function ProductDetailPage({ params }: { params: { productId: str
                 <Image
                   src={product.imageUrl} 
                   alt={imageAltText}
-                  layout="fill"
-                  objectFit="cover"
-                  priority={product.id === 'CORE'} // Prioritize CORE image
+                  fill
+                  className="object-cover"
+                  priority={product.id === 'CORE'} 
                   {...(product.imageUrl.startsWith('https://placehold.co') && product.imageHint && { 'data-ai-hint': product.imageHint })}
                 />
               </div>
@@ -135,3 +135,5 @@ export async function generateStaticParams() {
     productId: product.id.toLowerCase(),
   }));
 }
+
+    

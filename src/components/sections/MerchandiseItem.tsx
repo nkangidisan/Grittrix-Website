@@ -10,7 +10,7 @@ interface MerchandiseItemProps {
 }
 
 export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
-  const imageAltText = item.description ? `${item.name} - ${item.description}` : item.name;
+  const imageAltText = item.description ? `${item.name} - ${item.description}` : `Grittrix Merchandise: ${item.name}`;
   return (
     <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group overflow-hidden">
       <CardHeader className="p-0">
@@ -18,9 +18,8 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
           <Image
             src={item.imageUrl}
             alt={imageAltText}
-            layout="fill"
-            objectFit="cover"
-            className="group-hover:scale-105 transition-transform duration-300"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
             {...(item.imageUrl.startsWith('https://placehold.co') && item.imageHint && { 'data-ai-hint': item.imageHint })}
           />
            <div className="absolute top-2 right-2 bg-primary/80 text-primary-foreground px-2 py-1 text-xs font-semibold rounded">
@@ -42,3 +41,5 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
     </Card>
   );
 }
+
+    

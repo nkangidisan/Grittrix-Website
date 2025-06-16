@@ -37,7 +37,7 @@ export function HeroSection() {
             <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
                <Image
                 src="/media/homepage.jpeg"
-                alt="AI Powered Infrastructure displaying interconnected data nodes, representing Grittrix's smart solutions"
+                alt="AI Powered Infrastructure displaying interconnected data nodes, representing Grittrix's smart solutions for emerging markets"
                 fill 
                 className="object-cover" 
                 priority 
@@ -51,3 +51,5 @@ export function HeroSection() {
     </section>
   );
 }
+
+    

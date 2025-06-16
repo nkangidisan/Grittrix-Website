@@ -151,9 +151,8 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
             src={industry.imageUrl}
             alt={imageAltText}
             fill
-            objectFit="contain" // Changed to contain to better show entire image within bounds
+            className="object-contain rounded-lg shadow-xl"
             priority
-            className="rounded-lg shadow-xl"
         />
       </div>
 
@@ -208,3 +207,5 @@ export async function generateStaticParams() {
     industrySlug: slug,
   }));
 }
+
+    
