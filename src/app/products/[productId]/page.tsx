@@ -40,7 +40,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
                   alt={product.name} 
                   layout="fill" 
                   objectFit="cover" 
-                  data-ai-hint={product.imageHint} // Kept for placeholders
+                  data-ai-hint={product.imageHint} 
                 />
               </div>
               <div className="flex items-center space-x-3 mb-4 p-4 bg-secondary/10 rounded-lg">

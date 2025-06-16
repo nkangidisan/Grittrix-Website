@@ -7,13 +7,13 @@ import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
-const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = { // Omit imageHint as it's not used here
+const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
   healthcare: {
     id: 'healthcare',
     name: 'Healthcare',
     description: 'Empowering healthcare providers with AI to improve patient outcomes, enhance diagnostics, and streamline operations.',
     icon: HeartPulse,
-    imageUrl: '/healthcare.png',
+    imageUrl: '/media/healthcare.png',
     painPoints: [
       'Late disease detection and diagnosis',
       'Inefficient patient data management',
@@ -34,7 +34,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = { // Omit
     name: 'Retail & E-commerce',
     description: 'Transforming the retail landscape with AI for personalized experiences, optimized supply chains, and smarter operations.',
     icon: ShoppingCart,
-    imageUrl: '/retail.png',
+    imageUrl: '/media/retail.png',
     painPoints: [
       'Understanding customer behavior and preferences',
       'Inventory mismanagement (overstocking/understocking)',
@@ -55,7 +55,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = { // Omit
     name: 'Agriculture',
     description: 'Driving sustainable agriculture and food security with AI-powered precision farming and data analytics.',
     icon: Leaf,
-    imageUrl: '/agriculture.jpg',
+    imageUrl: '/media/agriculture.jpg',
     painPoints: [
       'Unpredictable weather patterns and climate change impact',
       'Crop diseases and pest infestations',
@@ -76,7 +76,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = { // Omit
     name: 'Education',
     description: 'Personalizing learning and enhancing educational outcomes with adaptive AI technologies.',
     icon: BookOpen,
-    imageUrl: '/education-section.jpg',
+    imageUrl: '/media/education-section.jpg',
     painPoints: [
       'One-size-fits-all learning approaches',
       'Difficulty in catering to diverse student needs',

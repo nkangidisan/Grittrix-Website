@@ -1,6 +1,6 @@
 
 import { PageHeader } from '@/components/PageHeader';
-import { blogPosts } from '@/app/blog/page'; // Assuming blogPosts is exported or in a shared place
+import { blogPosts } from '@/app/blog/page'; 
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { CalendarDays, UserCircle, Tag, Share2 } from 'lucide-react';
@@ -15,7 +15,6 @@ const fullBlogContent: { [key: string]: string[] } = {
     "Furthermore, AI-powered predictive analytics can help in identifying potential disease outbreaks, managing patient flow in hospitals, and personalizing treatment plans. Mobile health applications integrated with AI are also bridging the gap in healthcare accessibility, providing remote consultations and health monitoring.",
     "However, the adoption of AI in African healthcare is not without its challenges. Issues such as data privacy, infrastructure limitations, the need for skilled AI professionals, and ethical considerations need to be carefully addressed. Collaborative efforts between governments, private sector innovators like Grittrix, and healthcare providers are essential to navigate these complexities and unlock the full potential of AI for a healthier Africa.",
   ],
-  // Add full content for other blog posts...
   'future-of-retail-ai': [
     "The retail sector in emerging markets is rapidly evolving, driven by changing consumer behaviors and technological advancements. Artificial Intelligence (AI) is playing a pivotal role in this transformation, enabling retailers to offer more personalized experiences, optimize operations, and make smarter decisions.",
     "AI-driven personalization engines analyze vast amounts of customer data – purchase history, browsing behavior, demographics – to deliver tailored product recommendations, targeted promotions, and customized content. This not only enhances customer engagement but also significantly boosts conversion rates and loyalty.",

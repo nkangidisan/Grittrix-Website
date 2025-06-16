@@ -15,9 +15,9 @@ const designProcessSteps = [
 ];
 
 const portfolioItems = [ 
-  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/healthcare.png', altText: 'Portfolio: AfroHealth AI Platform' },
-  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/retail.png', altText: 'Portfolio: RetailSense E-commerce' },
-  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/agriculture.jpg', altText: 'Portfolio: AgriGrow Farmer Portal' },
+  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/media/healthcare.png', altText: 'Portfolio: AfroHealth AI Platform' },
+  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/media/retail.png', altText: 'Portfolio: RetailSense E-commerce' },
+  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/media/agriculture.jpg', altText: 'Portfolio: AgriGrow Farmer Portal' },
 ];
 
 export default function DesignServicesPage() {

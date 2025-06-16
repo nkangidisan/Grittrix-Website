@@ -9,7 +9,7 @@ export interface TeamMember {
     linkedin?: string;
     twitter?: string;
   };
-  dataAiHint?: string; // Added for team member specific hints if they remain placeholders
+  // dataAiHint removed as actual images are used
 }
 
 export interface Service {
@@ -28,7 +28,7 @@ export interface Industry {
   solutions: string[];
   icon: React.ElementType;
   imageUrl: string;
-  imageHint?: string; // Optional if actual image path is used
+  // imageHint removed as actual images are used
 }
 
 export interface Product {
@@ -38,7 +38,7 @@ export interface Product {
   description: string;
   icon: React.ElementType;
   imageUrl: string;
-  imageHint?: string; // Optional if actual image path is used
+  imageHint?: string; // Kept for CORE product which is still placeholder
   features: string[];
 }
 
@@ -47,7 +47,7 @@ export interface MerchandiseItem {
   name: string;
   price?: string; 
   imageUrl: string;
-  imageHint?: string; // Optional for placeholders
+  imageHint?: string; // Kept as these are placeholders
   description?: string;
 }
 
@@ -68,6 +68,6 @@ export interface BlogPost {
   author: string;
   date: string; 
   imageUrl: string;
-  imageHint?: string; // Optional if actual image path is used
+  // imageHint removed as actual images are used
   category: string;
 }

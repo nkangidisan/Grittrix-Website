@@ -22,7 +22,7 @@ const industriesServed = [
     name: 'Healthcare', 
     icon: HeartPulse, 
     link: '/industries/healthcare', 
-    imageSrc: '/healthcare.png',
+    imageSrc: '/media/healthcare.png',
     altText: 'Grittrix AI for Healthcare',
     points: [
       'Smart patient triage',
@@ -35,7 +35,7 @@ const industriesServed = [
     name: 'Retail', 
     icon: ShoppingCart, 
     link: '/industries/retail', 
-    imageSrc: '/retail.png',
+    imageSrc: '/media/retail.png',
     altText: 'Grittrix AI for Retail',
     points: [
       'Inventory optimization',
@@ -48,7 +48,7 @@ const industriesServed = [
     name: 'Agriculture', 
     icon: Leaf, 
     link: '/industries/agriculture', 
-    imageSrc: '/agriculture.jpg',
+    imageSrc: '/media/agriculture.jpg',
     altText: 'Grittrix AI for Agriculture',
     points: [
       'AI crop disease detection',
@@ -61,7 +61,7 @@ const industriesServed = [
     name: 'Education', 
     icon: BookOpen, 
     link: '/industries/education', 
-    imageSrc: '/education-section.jpg',
+    imageSrc: '/media/education-section.jpg',
     altText: 'Grittrix AI for Education',
     points: [
       'AI-powered tutoring',
@@ -88,9 +88,9 @@ const whyGrittrixPoints = [
 ];
 
 const testimonials = [
-    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageHint: "health success", imageSrc: "https://placehold.co/300x225.png" },
-    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageHint: "farm success", imageSrc: "https://placehold.co/300x225.png" },
-    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageHint: "edu success", imageSrc: "https://placehold.co/300x225.png" }
+    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/Healthcare%20Partner.png" },
+    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/Agri-Business%20Owner.png" },
+    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/Education%20Leader.png" }
 ];
 
 const quickNavLinks = [
@@ -250,7 +250,7 @@ export default function Home() {
                   <blockquote className="text-lg text-foreground/80 italic mb-4">"{testimonial.quote}"</blockquote>
                   <p className="text-sm font-semibold text-accent">- {testimonial.source}</p>
                   <div className="mt-4 relative aspect-[4/3] rounded overflow-hidden">
-                    <Image src={testimonial.imageSrc} alt={testimonial.source} layout="fill" objectFit="cover" data-ai-hint={testimonial.imageHint} />
+                    <Image src={testimonial.imageSrc} alt={testimonial.source + " - Grittrix Testimonial"} layout="fill" objectFit="cover" />
                   </div>
                 </CardContent>
               </Card>
