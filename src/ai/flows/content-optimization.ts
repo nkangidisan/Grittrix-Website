@@ -57,14 +57,25 @@ const optimizeContentFlow = ai.defineFlow(
     outputSchema: OptimizeContentOutputSchema,
   },
   async (input: OptimizeContentInput): Promise<OptimizeContentOutput> => {
-    const {output} = await contentOptimizerPrompt(input);
-    
-    if (!output) {
-      throw new Error("Content optimization failed: No output received from the AI model.");
+    try {
+      const generationResult = await contentOptimizerPrompt(input);
+      const output = generationResult.output; // Genkit v1.x style to access parsed output
+
+      if (!output) {
+        console.error(`[${optimizeContentFlow.name}] No structured output received from model for input:`, JSON.stringify(input));
+        throw new Error("Content optimization failed: No structured output was received from the AI model.");
+      }
+      return output;
+    } catch (e) {
+      let errorMessage = "AI content optimization failed";
+      if (e instanceof Error) {
+        errorMessage = `${errorMessage}: ${e.message}`;
+      } else {
+        errorMessage = `${errorMessage} due to an unknown error: ${String(e)}`;
+      }
+      console.error(`[${optimizeContentFlow.name}] Error during content optimization:`, e);
+      throw new Error(errorMessage);
     }
-    // Ensure content is plain text as per the prompt instructions.
-    // The schema ensures title and content fields.
-    // Additional cleaning might be needed if the model still includes HTML, but the prompt is quite specific.
-    return output;
   }
 );
+
