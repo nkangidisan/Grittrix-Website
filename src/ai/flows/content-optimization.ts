@@ -73,7 +73,8 @@ const optimizeContentFlow = ai.defineFlow(
       } else {
         errorMessage = `${errorMessage} due to an unknown error: ${String(e)}`;
       }
-      console.error(`[${optimizeContentFlow.name}] Error during content optimization:`, e);
+      // Log the processed errorMessage string first, then the raw error object.
+      console.error(`[${optimizeContentFlow.name}] ${errorMessage}. Original error object:`, e);
       throw new Error(errorMessage);
     }
   }
