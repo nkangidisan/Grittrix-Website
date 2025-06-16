@@ -11,6 +11,5 @@ import {googleAI} from '@genkit-ai/googleai';
 // 4. The project has access to the specified model.
 export const ai = genkit({
   plugins: [googleAI()],
-  model: 'gemini-1.0-pro', // Changed from 'gemini-pro' to 'gemini-1.0-pro'
+  model: 'gemini-1.0-pro',
 });
-
