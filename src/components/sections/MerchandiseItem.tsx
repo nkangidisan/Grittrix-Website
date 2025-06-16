@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import type { MerchandiseItem } from '@/lib/types';
 import { Button } from '@/components/ui/button';
@@ -14,12 +15,12 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={item.imageUrl}
+            src={item.imageUrl} // Will remain placehold.co as per logic
             alt={item.name}
             layout="fill"
             objectFit="cover"
             className="group-hover:scale-105 transition-transform duration-300"
-            data-ai-hint={item.imageHint}
+            data-ai-hint={item.imageHint} // Kept for placeholders
           />
            <div className="absolute top-2 right-2 bg-primary/80 text-primary-foreground px-2 py-1 text-xs font-semibold rounded">
             GRITTRIX

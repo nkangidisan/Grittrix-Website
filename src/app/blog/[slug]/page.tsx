@@ -1,3 +1,4 @@
+
 import { PageHeader } from '@/components/PageHeader';
 import { blogPosts } from '@/app/blog/page'; // Assuming blogPosts is exported or in a shared place
 import { notFound } from 'next/navigation';
@@ -63,7 +64,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             layout="fill" 
             objectFit="cover"
             priority
-            data-ai-hint={post.imageHint}
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-8">
             <div className="container mx-auto">

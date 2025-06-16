@@ -1,10 +1,11 @@
+
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Palette, Layers, Smartphone, Rocket, CheckCircle } from 'lucide-react';
-import { ContactForm } from '@/components/forms/ContactForm'; // Reusing for quote request
+import { ContactForm } from '@/components/forms/ContactForm'; 
 
 const designProcessSteps = [
   { title: "Discovery & Strategy", description: "Understanding your vision, audience, and goals to craft a tailored design strategy.", icon: Palette },
@@ -14,9 +15,9 @@ const designProcessSteps = [
 ];
 
 const portfolioItems = [ 
-  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: 'https://placehold.co/600x400.png', imageHint: 'health UI' },
-  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: 'https://placehold.co/600x400.png', imageHint: 'retail UI' },
-  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: 'https://placehold.co/600x400.png', imageHint: 'agri UI' },
+  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/healthcare.png', altText: 'Portfolio: AfroHealth AI Platform' },
+  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/retail.png', altText: 'Portfolio: RetailSense E-commerce' },
+  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/agriculture.jpg', altText: 'Portfolio: AgriGrow Farmer Portal' },
 ];
 
 export default function DesignServicesPage() {
@@ -69,11 +70,10 @@ export default function DesignServicesPage() {
                   <div className="relative aspect-video w-full">
                     <Image
                       src={item.imageUrl}
-                      alt={item.title}
+                      alt={item.altText}
                       layout="fill"
                       objectFit="cover"
                       className="group-hover:scale-105 transition-transform duration-300"
-                      data-ai-hint={item.imageHint}
                     />
                   </div>
                 </CardHeader>
@@ -107,7 +107,7 @@ export default function DesignServicesPage() {
                 <div className="bg-card p-8 rounded-lg shadow-xl">
                     <h2 className="text-2xl font-bold font-headline text-primary mb-6">Request a Quote</h2>
                     <p className="text-sm text-foreground/70 mb-6">Have a project in mind? Tell us about your requirements, and we'll get back to you with a tailored proposal.</p>
-                    <ContactForm /> {/* Reusing contact form for quote request */}
+                    <ContactForm /> 
                 </div>
             </div>
         </div>

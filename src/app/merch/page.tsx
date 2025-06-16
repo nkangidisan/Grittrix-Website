@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ShoppingCart, Package } from 'lucide-react';
 
+// Merchandise items remain placeholders as specific image files were not provided for them.
 const merchandiseItems: MerchandiseItem[] = [
   { id: '1', name: 'Grittrix "Innovate" Hoodie', price: '$59.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'hoodie vector', description: 'Premium hoodie, perfect for tech enthusiasts.' },
   { id: '2', name: 'Grittrix AI Tee', price: '$29.99', imageUrl: 'https://placehold.co/400x400.png', imageHint: 'tshirt vector', description: 'Comfortable cotton tee with the Grittrix logo.' },

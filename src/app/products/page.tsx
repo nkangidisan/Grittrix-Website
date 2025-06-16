@@ -4,6 +4,8 @@ import { ProductCard } from '@/components/sections/ProductCard';
 import type { Product } from '@/lib/types';
 import { Cpu, Stethoscope, Store, Sprout, GraduationCap } from 'lucide-react';
 
+// For Grittrix CORE, since no specific image was named by user, it will remain placeholder.
+// For other products, we reuse the corresponding industry image.
 export const productsList: Product[] = [
   {
     id: 'CORE',
@@ -11,8 +13,8 @@ export const productsList: Product[] = [
     tagline: 'AI Operating System for Industry.',
     description: 'The foundational AI engine powering Grittrix solutions. CORE provides a robust, scalable, and secure platform for developing, deploying, and managing AI models and applications across diverse industrial use cases. It enables seamless data integration, advanced analytics, and intelligent automation for transformative business outcomes.',
     icon: Cpu,
-    imageUrl: 'https://placehold.co/400x300.png',
-    imageHint: 'core abstract', // Updated hint
+    imageUrl: 'https://placehold.co/400x300.png', // Placeholder as no specific image "product-core.png" was given
+    imageHint: 'core abstract', 
     features: [
       'Unified AI Development Environment',
       'Scalable Model Deployment & Management',
@@ -29,8 +31,8 @@ export const productsList: Product[] = [
     tagline: 'For clinics and pharmacies.',
     description: 'Empowering healthcare providers with intelligent tools. Grittrix Health™ streamlines clinic workflows, optimizes pharmacy inventory, enhances diagnostic support through AI-assisted image analysis, and enables personalized patient care via predictive analytics for improved health outcomes.',
     icon: Stethoscope,
-    imageUrl: 'https://placehold.co/400x300.png',
-    imageHint: 'health AI', // Updated hint
+    imageUrl: '/healthcare.png', // Reusing industry image
+    imageHint: '', // Removed as it's an actual image
     features: [
       'AI-Assisted Medical Image Analysis (X-rays, Scans)',
       'Predictive Patient Triage & Risk Stratification',
@@ -47,8 +49,8 @@ export const productsList: Product[] = [
     tagline: 'For retail shops and FMCG.',
     description: 'Transforming retail operations and customer experiences with AI. Grittrix Retail™ offers solutions for intelligent demand forecasting, dynamic inventory optimization, hyper-personalized customer engagement, and streamlined supply chain management, helping businesses boost sales and operational efficiency.',
     icon: Store,
-    imageUrl: 'https://placehold.co/400x300.png',
-    imageHint: 'retail AI', // Updated hint
+    imageUrl: '/retail.png', // Reusing industry image
+    imageHint: '', // Removed as it's an actual image
     features: [
       'AI-Powered Demand & Sales Forecasting',
       'Automated Inventory Replenishment & Optimization',
@@ -65,8 +67,8 @@ export const productsList: Product[] = [
     tagline: 'Smart agriculture insights.',
     description: 'Revolutionizing agriculture with data-driven intelligence. Grittrix Agro™ provides advanced tools for real-time crop monitoring, precise yield prediction, early pest and disease detection, and optimized resource management, promoting sustainable and highly productive farming practices.',
     icon: Sprout,
-    imageUrl: 'https://placehold.co/400x300.png',
-    imageHint: 'agro AI', // Updated hint
+    imageUrl: '/agriculture.jpg', // Reusing industry image
+    imageHint: '', // Removed as it's an actual image
     features: [
       'AI-Driven Crop Health Monitoring (Satellite/Drone Imagery)',
       'Precision Irrigation & Fertilization Recommendations',
@@ -83,8 +85,8 @@ export const productsList: Product[] = [
     tagline: 'Education analytics & AI tutors.',
     description: 'Personalizing education and empowering learners with AI. Grittrix Learn™ offers adaptive learning platforms, intelligent AI tutoring systems, and comprehensive analytics to enhance student engagement, improve learning outcomes, and support educators in creating impactful educational experiences.',
     icon: GraduationCap,
-    imageUrl: 'https://placehold.co/400x300.png',
-    imageHint: 'learn AI', // Updated hint
+    imageUrl: '/education-section.jpg', // Reusing industry image
+    imageHint: '', // Removed as it's an actual image
     features: [
       'Adaptive Learning Paths & Personalized Content Delivery',
       'AI-Powered Intelligent Tutoring System (24/7 Support)',

@@ -1,3 +1,4 @@
+
 export interface TeamMember {
   id: string;
   name: string;
@@ -8,6 +9,7 @@ export interface TeamMember {
     linkedin?: string;
     twitter?: string;
   };
+  dataAiHint?: string; // Added for team member specific hints if they remain placeholders
 }
 
 export interface Service {
@@ -26,7 +28,7 @@ export interface Industry {
   solutions: string[];
   icon: React.ElementType;
   imageUrl: string;
-  imageHint: string;
+  imageHint?: string; // Optional if actual image path is used
 }
 
 export interface Product {
@@ -36,16 +38,16 @@ export interface Product {
   description: string;
   icon: React.ElementType;
   imageUrl: string;
-  imageHint: string;
+  imageHint?: string; // Optional if actual image path is used
   features: string[];
 }
 
 export interface MerchandiseItem {
   id: string;
   name: string;
-  price?: string; // Optional price
+  price?: string; 
   imageUrl: string;
-  imageHint: string;
+  imageHint?: string; // Optional for placeholders
   description?: string;
 }
 
@@ -64,8 +66,8 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   author: string;
-  date: string; // ISO date string
+  date: string; 
   imageUrl: string;
-  imageHint: string;
+  imageHint?: string; // Optional if actual image path is used
   category: string;
 }

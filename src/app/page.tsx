@@ -22,7 +22,8 @@ const industriesServed = [
     name: 'Healthcare', 
     icon: HeartPulse, 
     link: '/industries/healthcare', 
-    imageHint: 'medical AI',
+    imageSrc: '/healthcare.png',
+    altText: 'Grittrix AI for Healthcare',
     points: [
       'Smart patient triage',
       'AI-assisted diagnostics',
@@ -34,7 +35,8 @@ const industriesServed = [
     name: 'Retail', 
     icon: ShoppingCart, 
     link: '/industries/retail', 
-    imageHint: 'retail tech',
+    imageSrc: '/retail.png',
+    altText: 'Grittrix AI for Retail',
     points: [
       'Inventory optimization',
       'Sales prediction',
@@ -46,7 +48,8 @@ const industriesServed = [
     name: 'Agriculture', 
     icon: Leaf, 
     link: '/industries/agriculture', 
-    imageHint: 'agritech AI',
+    imageSrc: '/agriculture.jpg',
+    altText: 'Grittrix AI for Agriculture',
     points: [
       'AI crop disease detection',
       'Weather-based yield prediction',
@@ -58,7 +61,8 @@ const industriesServed = [
     name: 'Education', 
     icon: BookOpen, 
     link: '/industries/education', 
-    imageHint: 'edtech AI',
+    imageSrc: '/education-section.jpg',
+    altText: 'Grittrix AI for Education',
     points: [
       'AI-powered tutoring',
       'Student performance analytics',
@@ -84,9 +88,9 @@ const whyGrittrixPoints = [
 ];
 
 const testimonials = [
-    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageHint: "health success" },
-    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageHint: "farm success" },
-    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageHint: "edu success" }
+    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageHint: "health success", imageSrc: "https://placehold.co/300x225.png" },
+    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageHint: "farm success", imageSrc: "https://placehold.co/300x225.png" },
+    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageHint: "edu success", imageSrc: "https://placehold.co/300x225.png" }
 ];
 
 const quickNavLinks = [
@@ -154,12 +158,11 @@ export default function Home() {
               <Card key={industry.name} className="bg-card hover:shadow-2xl transition-all duration-300 group flex flex-col md:flex-row overflow-hidden animate-slide-in-up" style={{ animationDelay: `${index * 150}ms`}}>
                 <div className="md:w-1/3 relative">
                   <Image 
-                    src="https://placehold.co/600x600.png" 
-                    alt={industry.name}
-                    width={400}
+                    src={industry.imageSrc} 
+                    alt={industry.altText}
+                    width={400} 
                     height={500}
                     className="object-cover w-full h-48 md:h-full group-hover:scale-105 transition-transform duration-300"
-                    data-ai-hint={industry.imageHint} 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent md:bg-gradient-to-r"></div>
                   <div className="absolute bottom-4 left-4 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:transform p-2 bg-primary/20 rounded-full">
@@ -247,7 +250,7 @@ export default function Home() {
                   <blockquote className="text-lg text-foreground/80 italic mb-4">"{testimonial.quote}"</blockquote>
                   <p className="text-sm font-semibold text-accent">- {testimonial.source}</p>
                   <div className="mt-4 relative aspect-[4/3] rounded overflow-hidden">
-                    <Image src="https://placehold.co/300x225.png" alt={testimonial.source} layout="fill" objectFit="cover" data-ai-hint={testimonial.imageHint} />
+                    <Image src={testimonial.imageSrc} alt={testimonial.source} layout="fill" objectFit="cover" data-ai-hint={testimonial.imageHint} />
                   </div>
                 </CardContent>
               </Card>
@@ -340,6 +343,3 @@ export default function Home() {
     </>
   );
 }
-    
-
-    

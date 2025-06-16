@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Industry } from '@/lib/types';
@@ -6,7 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { ArrowRight } from 'lucide-react';
 
 interface IndustryCardProps {
-  industry: Omit<Industry, 'painPoints' | 'solutions'>; // Use a simplified type for overview card
+  industry: Omit<Industry, 'painPoints' | 'solutions' | 'imageHint'>; 
   linkHref: string;
 }
 
@@ -18,11 +19,10 @@ export function IndustryCard({ industry, linkHref }: IndustryCardProps) {
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
           <Image
             src={industry.imageUrl}
-            alt={industry.name}
+            alt={`Grittrix solutions for ${industry.name}`}
             layout="fill"
             objectFit="cover"
             className="group-hover:scale-105 transition-transform duration-300"
-            data-ai-hint={industry.imageHint}
           />
         </div>
         <div className="flex items-center space-x-3">

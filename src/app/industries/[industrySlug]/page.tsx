@@ -1,3 +1,4 @@
+
 import { PageHeader } from '@/components/PageHeader';
 import type { Industry } from '@/lib/types';
 import { HeartPulse, ShoppingCart, Leaf, BookOpen, AlertTriangle, CheckCircle, Lightbulb } from 'lucide-react';
@@ -6,14 +7,13 @@ import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
-const industriesData: { [key: string]: Industry } = {
+const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = { // Omit imageHint as it's not used here
   healthcare: {
     id: 'healthcare',
     name: 'Healthcare',
     description: 'Empowering healthcare providers with AI to improve patient outcomes, enhance diagnostics, and streamline operations.',
     icon: HeartPulse,
-    imageUrl: 'https://placehold.co/800x600.png', // Updated dimensions
-    imageHint: 'medical AI', // Updated hint
+    imageUrl: '/healthcare.png',
     painPoints: [
       'Late disease detection and diagnosis',
       'Inefficient patient data management',
@@ -34,8 +34,7 @@ const industriesData: { [key: string]: Industry } = {
     name: 'Retail & E-commerce',
     description: 'Transforming the retail landscape with AI for personalized experiences, optimized supply chains, and smarter operations.',
     icon: ShoppingCart,
-    imageUrl: 'https://placehold.co/800x600.png', // Updated dimensions
-    imageHint: 'retail tech', // Updated hint
+    imageUrl: '/retail.png',
     painPoints: [
       'Understanding customer behavior and preferences',
       'Inventory mismanagement (overstocking/understocking)',
@@ -56,8 +55,7 @@ const industriesData: { [key: string]: Industry } = {
     name: 'Agriculture',
     description: 'Driving sustainable agriculture and food security with AI-powered precision farming and data analytics.',
     icon: Leaf,
-    imageUrl: 'https://placehold.co/800x600.png', // Updated dimensions
-    imageHint: 'agritech AI', // Updated hint
+    imageUrl: '/agriculture.jpg',
     painPoints: [
       'Unpredictable weather patterns and climate change impact',
       'Crop diseases and pest infestations',
@@ -78,8 +76,7 @@ const industriesData: { [key: string]: Industry } = {
     name: 'Education',
     description: 'Personalizing learning and enhancing educational outcomes with adaptive AI technologies.',
     icon: BookOpen,
-    imageUrl: 'https://placehold.co/800x600.png', // Updated dimensions
-    imageHint: 'edtech AI', // Updated hint
+    imageUrl: '/education-section.jpg',
     painPoints: [
       'One-size-fits-all learning approaches',
       'Difficulty in catering to diverse student needs',
@@ -117,19 +114,18 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
         breadcrumbs={breadcrumbs}
       />
       
-      <div className="relative h-auto md:h-[calc(800px*9/16)] w-full aspect-[4/3] md:aspect-auto md:max-h-[500px] my-8 container mx-auto px-4 sm:px-6 lg:px-8"> {/* Adjusted for better display of 800x600 as feature image */}
+      <div className="relative h-auto md:h-[calc(800px*9/16)] w-full aspect-[4/3] md:aspect-auto md:max-h-[500px] my-8 container mx-auto px-4 sm:px-6 lg:px-8">
         <Image 
             src={industry.imageUrl} 
-            alt={`${industry.name} industry showcase`} 
+            alt={`Detailed view of AI in ${industry.name}`} 
             layout="fill" 
-            objectFit="contain" // Changed to contain to show full illustration
+            objectFit="contain"
             priority
-            data-ai-hint={industry.imageHint}
             className="rounded-lg shadow-xl"
         />
       </div>
 
-      <section className="pb-16 md:pb-24"> {/* Adjusted padding */}
+      <section className="pb-16 md:pb-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-16">
             <div>

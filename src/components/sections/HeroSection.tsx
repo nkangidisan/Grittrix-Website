@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -35,13 +36,12 @@ export function HeroSection() {
           <div className="relative animate-fade-in animation-delay-300">
             <div className="aspect-video rounded-xl overflow-hidden shadow-2xl">
                <Image
-                src="https://placehold.co/1080x608.png" // Adjusted for approx 16:9 banner
-                alt="AI Powered Infrastructure"
+                src="/home%20page.png" 
+                alt="AI Powered Infrastructure for Business by Grittrix"
                 width={1080}
                 height={608}
                 className="object-cover w-full h-full transform transition-transform duration-500 hover:scale-105"
                 priority
-                data-ai-hint="AI business" 
               />
             </div>
             <div className="absolute -top-8 -right-8 w-32 h-32 bg-primary/20 rounded-full filter blur-2xl animate-pulse"></div>

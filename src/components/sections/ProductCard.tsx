@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import type { Product } from '@/lib/types';
 import { Button } from '@/components/ui/button';
@@ -30,7 +31,7 @@ export function ProductCard({ product }: ProductCardProps) {
             layout="fill"
             objectFit="cover"
             className="group-hover:scale-105 transition-transform duration-300"
-            data-ai-hint={product.imageHint}
+            data-ai-hint={product.imageHint} // Kept for placeholders, will be ignored by Next/Image if src is local
           />
         </div>
         <p className="text-sm text-foreground/70 mb-4 leading-relaxed">{product.description}</p>

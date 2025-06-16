@@ -86,7 +86,7 @@ export default async function ServicesPage() {
               </ul>
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
-               <Image src="https://placehold.co/600x400.png" alt="Custom AI Solutions" layout="fill" objectFit="cover" data-ai-hint="custom vector" /> 
+               <Image src="/service%20page.png" alt="Custom AI Solutions by Grittrix" layout="fill" objectFit="cover" /> 
             </div>
           </div>
         </div>

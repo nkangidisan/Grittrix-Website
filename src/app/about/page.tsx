@@ -7,10 +7,10 @@ import { Lightbulb, UsersRound, ShieldCheck, Mountain, Eye } from 'lucide-react'
 import Image from 'next/image';
 
 const teamMembers: TeamMember[] = [
-  { id: '1', name: 'Nkangi Disan', role: 'Founder & CEO', bio: 'Visionary leader passionate about leveraging technology for social good.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/disan-nkangi-7ab2b62a9/' } },
-  { id: '2', name: 'Lubega Mahad', role: 'Chief Technology Officer', bio: 'Expert in AI/ML development and scalable cloud architectures. Driving Grittrix\'s innovation engine.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/lubega-mahad-ishaaq-021540322/' } },
-  { id: '3', name: 'Ashumbusha Emmanuel', role: 'Head of Operations - Africa', bio: 'Strategic operator ensuring seamless delivery and impact across African markets.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/ashumbusha-emmanuel-124059335/' } },
-  { id: '4', name: 'Juma Bakari', role: 'Lead AI Researcher', bio: 'Pioneering new algorithms and models to solve complex industry challenges.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/juma-bakari-4712ab152/' } },
+  { id: '1', name: 'Nkangi Disan', role: 'Founder & CEO', bio: 'Visionary leader passionate about leveraging technology for social good.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/disan-nkangi-7ab2b62a9/' }, dataAiHint: "professional portrait" },
+  { id: '2', name: 'Lubega Mahad', role: 'Chief Technology Officer', bio: 'Expert in AI/ML development and scalable cloud architectures. Driving Grittrix\'s innovation engine.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/lubega-mahad-ishaaq-021540322/' }, dataAiHint: "professional portrait" },
+  { id: '3', name: 'Ashumbusha Emmanuel', role: 'Head of Operations - Africa', bio: 'Strategic operator ensuring seamless delivery and impact across African markets.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/ashumbusha-emmanuel-124059335/' }, dataAiHint: "professional portrait" },
+  { id: '4', name: 'Juma Bakari', role: 'Lead AI Researcher', bio: 'Pioneering new algorithms and models to solve complex industry challenges.', imageUrl: 'https://placehold.co/400x400.png', socials: { linkedin: 'https://www.linkedin.com/in/juma-bakari-4712ab152/' }, dataAiHint: "professional portrait" },
 ];
 
 const coreValues = [
@@ -64,7 +64,7 @@ export default async function AboutUsPage() {
               </div>
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
-               <Image src="https://placehold.co/600x400.png" alt="Grittrix Team Collaboration" layout="fill" objectFit="cover" data-ai-hint="teamwork vector" /> 
+               <Image src="/about%20page.png" alt="Grittrix team collaboration and company vision" layout="fill" objectFit="cover" /> 
             </div>
           </div>
         </div>
