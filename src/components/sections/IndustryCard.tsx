@@ -22,8 +22,6 @@ export function IndustryCard({ industry, linkHref }: IndustryCardProps) {
             alt={`Grittrix solutions for ${industry.name}`}
             layout="fill"
             objectFit="cover"
-            width={1080}
-            height={608}
             className="group-hover:scale-105 transition-transform duration-300"
           />
         </div>
