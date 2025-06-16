@@ -36,7 +36,7 @@ export function HeroSection() {
           <div className="relative animate-fade-in animation-delay-300">
             <div className="aspect-video rounded-xl overflow-hidden shadow-2xl">
                <Image
-                src="/media/home%20page.png" 
+                src="/static/media/home%20page.png" 
                 alt="AI Powered Infrastructure for Business by Grittrix"
                 width={1080}
                 height={608}

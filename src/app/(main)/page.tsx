@@ -22,7 +22,7 @@ const industriesServed = [
     name: 'Healthcare', 
     icon: HeartPulse, 
     link: '/industries/healthcare', 
-    imageSrc: '/media/healthcare.png',
+    imageSrc: '/static/media/healthcare.png',
     altText: 'Grittrix AI for Healthcare',
     points: [
       'Smart patient triage',
@@ -35,7 +35,7 @@ const industriesServed = [
     name: 'Retail', 
     icon: ShoppingCart, 
     link: '/industries/retail', 
-    imageSrc: '/media/retail.png',
+    imageSrc: '/static/media/retail.png',
     altText: 'Grittrix AI for Retail',
     points: [
       'Inventory optimization',
@@ -48,7 +48,7 @@ const industriesServed = [
     name: 'Agriculture', 
     icon: Leaf, 
     link: '/industries/agriculture', 
-    imageSrc: '/media/agriculture.jpg',
+    imageSrc: '/static/media/agriculture.jpg',
     altText: 'Grittrix AI for Agriculture',
     points: [
       'AI crop disease detection',
@@ -61,7 +61,7 @@ const industriesServed = [
     name: 'Education', 
     icon: BookOpen, 
     link: '/industries/education', 
-    imageSrc: '/media/education-section.jpg',
+    imageSrc: '/static/media/education-section.jpg',
     altText: 'Grittrix AI for Education',
     points: [
       'AI-powered tutoring',
@@ -88,9 +88,9 @@ const whyGrittrixPoints = [
 ];
 
 const testimonials = [
-    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/Healthcare%20Partner.png" },
-    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/Agri-Business%20Owner.png" },
-    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/Education%20Leader.png" }
+    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/static/media/Healthcare%20Partner.png" },
+    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/static/media/Agri-Business%20Owner.png" },
+    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/static/media/Education%20Leader.png" }
 ];
 
 const quickNavLinks = [
@@ -305,6 +305,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* Our Promise Section */}
       <section className="py-16 md:py-24 bg-secondary/10">

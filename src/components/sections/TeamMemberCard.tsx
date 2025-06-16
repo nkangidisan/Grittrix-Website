@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import type { TeamMember } from '@/lib/types';
 import { Linkedin, Twitter } from 'lucide-react';
@@ -19,7 +20,6 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
             layout="fill"
             objectFit="cover"
             className="rounded-t-lg"
-            data-ai-hint="professional portrait"
           />
         </div>
       </CardHeader>

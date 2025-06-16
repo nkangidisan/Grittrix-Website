@@ -3,13 +3,13 @@ import type { SVGProps } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
-// Note: Ensure your logo image is placed at /public/media/grittrix logo (1).png
+// Note: Ensure your logo image is placed at /public/static/media/grittrix logo (1).png
 
 export function GrittrixLogo({ className, ...props }: SVGProps<SVGSVGElement> & { className?: string }) {
   return (
     <div className={cn("relative", className)} {...props}>
       <Image
-        src="/media/grittrix%20logo%20(1).png" // Path relative to the /public directory
+        src="/static/media/grittrix%20logo%20(1).png" // Path relative to the /public directory
         alt="Grittrix - Redefining Industries with Technology"
         width={499} // Intrinsic width of the logo image file
         height={499}  // Intrinsic height of the logo image file

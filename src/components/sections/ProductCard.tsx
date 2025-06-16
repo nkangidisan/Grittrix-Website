@@ -31,7 +31,7 @@ export function ProductCard({ product }: ProductCardProps) {
             layout="fill"
             objectFit="cover"
             className="group-hover:scale-105 transition-transform duration-300"
-            data-ai-hint={product.imageHint} // Kept for placeholders, will be ignored by Next/Image if src is local
+            data-ai-hint={product.imageHint} 
           />
         </div>
         <p className="text-sm text-foreground/70 mb-4 leading-relaxed">{product.description}</p>
