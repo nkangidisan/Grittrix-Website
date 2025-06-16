@@ -105,10 +105,12 @@ export default function BlogPage() {
                 <CardHeader className="p-0">
                   <Link href={`/blog/${post.slug}`} className="block relative aspect-video w-full">
                     <Image
-                      src={post.imageUrl} // Uses the direct path from blogPosts array
+                      src={post.imageUrl} 
                       alt={post.title}
                       layout="fill"
                       objectFit="cover"
+                      width={1080}
+                      height={608}
                       className="group-hover:scale-105 transition-transform duration-300"
                     />
                   </Link>

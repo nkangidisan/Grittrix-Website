@@ -9,7 +9,7 @@ export function GrittrixLogo({ className, ...props }: SVGProps<SVGSVGElement> & 
       <Image
         src="/media/images/grittrix%20logo%20(1).png"
         alt="Grittrix - Redefining Industries with Technology"
-        width={499}
+        width={499} // Assuming original aspect ratio is important
         height={499}
         priority
         className="object-contain w-auto h-full"

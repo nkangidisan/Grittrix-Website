@@ -120,6 +120,8 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
             alt={`Detailed view of AI in ${industry.name}`}
             layout="fill"
             objectFit="contain"
+            width={1080}
+            height={608}
             priority
             className="rounded-lg shadow-xl"
         />

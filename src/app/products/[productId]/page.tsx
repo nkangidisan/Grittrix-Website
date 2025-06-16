@@ -36,11 +36,14 @@ export default function ProductDetailPage({ params }: { params: { productId: str
             <div className="sticky top-24">
               <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl mb-8">
                 <Image
-                  src={product.imageUrl} // Assumes this path is correct now, e.g., /media/images/healthcare.png
+                  src={product.imageUrl} 
                   alt={product.name}
                   layout="fill"
                   objectFit="cover"
-                  // data-ai-hint attribute removed if product.imageHint was used previously for specific images
+                  width={1080}
+                  height={608}
+                  // data-ai-hint removed for actual images, kept for placeholders
+                  {...(product.imageUrl.startsWith('https://placehold.co') && product.imageHint && { 'data-ai-hint': product.imageHint })}
                 />
               </div>
               <div className="flex items-center space-x-3 mb-4 p-4 bg-secondary/10 rounded-lg">

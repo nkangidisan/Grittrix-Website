@@ -64,7 +64,14 @@ export default async function AboutUsPage() {
               </div>
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
-               <Image src="/media/images/about%20page.png" alt="Grittrix team collaboration and company vision" layout="fill" objectFit="cover" />
+               <Image 
+                src="/media/images/about%20page.png" 
+                alt="Grittrix team collaboration and company vision" 
+                layout="fill" 
+                objectFit="cover" 
+                width={1080}
+                height={608}
+                />
             </div>
           </div>
         </div>

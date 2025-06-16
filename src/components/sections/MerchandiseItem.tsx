@@ -19,8 +19,11 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
             alt={item.name}
             layout="fill"
             objectFit="cover"
+            width={1080} // Standardized placeholder dimension
+            height={1080} // Standardized placeholder dimension
             className="group-hover:scale-105 transition-transform duration-300"
-            {...(item.imageHint && { 'data-ai-hint': item.imageHint })} // Keep hint for placeholders
+            // data-ai-hint kept for placeholders
+            {...(item.imageUrl.startsWith('https://placehold.co') && item.imageHint && { 'data-ai-hint': item.imageHint })}
           />
            <div className="absolute top-2 right-2 bg-primary/80 text-primary-foreground px-2 py-1 text-xs font-semibold rounded">
             GRITTRIX

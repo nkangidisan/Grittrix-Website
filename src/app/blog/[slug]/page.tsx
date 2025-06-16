@@ -58,10 +58,12 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       />
       <div className="relative h-64 md:h-96 w-full">
         <Image
-            src={`/media/images/${post.category.toLowerCase() === 'agriculture' || post.category.toLowerCase() === 'education' ? post.category.toLowerCase()+ (post.category.toLowerCase() === 'education' ? '-section.jpg' : '.jpg') : post.category.toLowerCase()+'.png'}`}
+            src={post.imageUrl} // Updated from previous category-based logic to use direct imageUrl from blogPosts
             alt={post.title}
             layout="fill"
             objectFit="cover"
+            width={1920}
+            height={1080}
             priority
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-8">
