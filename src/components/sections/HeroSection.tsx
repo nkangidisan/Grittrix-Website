@@ -34,13 +34,13 @@ export function HeroSection() {
             </div>
           </div>
           <div className="relative animate-fade-in animation-delay-300">
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl"> {/* Parent has position: relative and aspect-ratio */}
                <Image
                 src="/media/images/home%20page.png"
                 alt="AI Powered Infrastructure for Business by Grittrix"
-                layout="fill"
-                objectFit="cover"
-                priority
+                layout="fill" // This makes the image fill the parent
+                objectFit="cover" // This controls how the image content fits
+                priority // Keep priority for LCP
               />
             </div>
             <div className="absolute -top-8 -right-8 w-32 h-32 bg-primary/20 rounded-full filter blur-2xl animate-pulse"></div>
