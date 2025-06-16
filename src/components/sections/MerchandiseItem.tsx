@@ -15,12 +15,12 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={item.imageUrl} // Will remain placehold.co as per logic
+            src={item.imageUrl} // Remains placehold.co or uses /media/images if specific names provided
             alt={item.name}
             layout="fill"
             objectFit="cover"
             className="group-hover:scale-105 transition-transform duration-300"
-            data-ai-hint={item.imageHint} // Kept for placeholders
+            {...(item.imageHint && { 'data-ai-hint': item.imageHint })} // Keep hint for placeholders
           />
            <div className="absolute top-2 right-2 bg-primary/80 text-primary-foreground px-2 py-1 text-xs font-semibold rounded">
             GRITTRIX

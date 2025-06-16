@@ -15,7 +15,7 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={member.imageUrl}
+            src={member.imageUrl} // e.g., /media/images/Nkangi%20Disan.png
             alt={member.name}
             layout="fill"
             objectFit="cover"

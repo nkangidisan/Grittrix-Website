@@ -34,13 +34,12 @@ export function HeroSection() {
             </div>
           </div>
           <div className="relative animate-fade-in animation-delay-300">
-            <div className="aspect-video rounded-xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl"> {/* Added position: relative here */}
                <Image
                 src="/media/images/home%20page.png"
                 alt="AI Powered Infrastructure for Business by Grittrix"
-                width={1080}
-                height={608}
-                className="object-cover w-full h-full transform transition-transform duration-500 hover:scale-105"
+                layout="fill"
+                objectFit="cover"
                 priority
               />
             </div>

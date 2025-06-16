@@ -26,12 +26,12 @@ export function ProductCard({ product }: ProductCardProps) {
       <CardContent className="flex-grow">
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
           <Image
-            src={product.imageUrl}
+            src={product.imageUrl} // e.g., /media/images/healthcare.png or placeholder
             alt={product.name}
             layout="fill"
             objectFit="cover"
             className="group-hover:scale-105 transition-transform duration-300"
-            data-ai-hint={product.imageHint} 
+            {...(product.imageHint && { 'data-ai-hint': product.imageHint })} // Keep hint for placeholders
           />
         </div>
         <p className="text-sm text-foreground/70 mb-4 leading-relaxed">{product.description}</p>

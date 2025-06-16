@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
-// Placeholder blog posts data
+// Placeholder blog posts data - Image URLs will be category based
 export const blogPosts: BlogPost[] = [
   { id: '1', slug: 'ai-in-african-healthcare', title: 'The Transformative Power of AI in African Healthcare', excerpt: 'Discover how AI is revolutionizing diagnostics, treatment, and healthcare accessibility across the African continent.', author: 'Dr. Aisha Bello', date: '2024-07-15', imageUrl: '/media/images/healthcare.png', category: 'Healthcare' },
   { id: '2', slug: 'future-of-retail-ai', title: 'The Future of Retail: Personalized Experiences with AI', excerpt: 'Explore how AI-driven personalization, supply chain optimization, and smart analytics are reshaping the retail industry in emerging markets.', author: 'Ken Njoroge', date: '2024-07-08', imageUrl: '/media/images/retail.png', category: 'Retail' },
@@ -105,7 +105,7 @@ export default function BlogPage() {
                 <CardHeader className="p-0">
                   <Link href={`/blog/${post.slug}`} className="block relative aspect-video w-full">
                     <Image
-                      src={post.imageUrl}
+                      src={post.imageUrl} // Uses the direct path from blogPosts array
                       alt={post.title}
                       layout="fill"
                       objectFit="cover"

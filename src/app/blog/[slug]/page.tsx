@@ -58,7 +58,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       />
       <div className="relative h-64 md:h-96 w-full">
         <Image
-            src={post.imageUrl}
+            src={`/media/images/${post.category.toLowerCase() === 'agriculture' || post.category.toLowerCase() === 'education' ? post.category.toLowerCase()+ (post.category.toLowerCase() === 'education' ? '-section.jpg' : '.jpg') : post.category.toLowerCase()+'.png'}`}
             alt={post.title}
             layout="fill"
             objectFit="cover"

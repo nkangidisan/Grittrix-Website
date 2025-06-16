@@ -36,11 +36,11 @@ export default function ProductDetailPage({ params }: { params: { productId: str
             <div className="sticky top-24">
               <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl mb-8">
                 <Image
-                  src={product.imageUrl}
+                  src={product.imageUrl} // Assumes this path is correct now, e.g., /media/images/healthcare.png
                   alt={product.name}
                   layout="fill"
                   objectFit="cover"
-                  {...(product.imageHint && { 'data-ai-hint': product.imageHint })}
+                  // data-ai-hint attribute removed if product.imageHint was used previously for specific images
                 />
               </div>
               <div className="flex items-center space-x-3 mb-4 p-4 bg-secondary/10 rounded-lg">
