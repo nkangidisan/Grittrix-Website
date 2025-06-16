@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
 import { NavLink } from './NavLink';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -74,6 +74,7 @@ export function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
+                <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle> 
                 <div className="flex justify-between items-center mb-6">
                   <Link href="/" onClick={() => setIsMobileMenuOpen(false)} aria-label="Grittrix Home">
                     <GrittrixLogo className="h-8 w-auto" />
