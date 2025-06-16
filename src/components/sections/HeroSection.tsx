@@ -38,9 +38,9 @@ export function HeroSection() {
                <Image
                 src="/media/images/home%20page.png"
                 alt="AI Powered Infrastructure for Business by Grittrix"
-                layout="fill" // This makes the image fill the parent
-                objectFit="cover" // This controls how the image content fits
-                priority // Keep priority for LCP
+                layout="fill" 
+                objectFit="cover" 
+                priority 
               />
             </div>
             <div className="absolute -top-8 -right-8 w-32 h-32 bg-primary/20 rounded-full filter blur-2xl animate-pulse"></div>
