@@ -1,7 +1,8 @@
 
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useFormStatus } from 'react-dom';
+import { useActionState } from 'react'; // Updated import
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -39,7 +40,7 @@ interface JobApplicationFormProps {
 
 export function JobApplicationForm({ jobTitle }: JobApplicationFormProps) {
   const initialState: JobApplicationFormState = { message: '', success: false };
-  const [state, formAction] = useFormState(submitJobApplication, initialState);
+  const [state, formAction] = useActionState(submitJobApplication, initialState); // Updated usage
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
@@ -64,7 +65,7 @@ export function JobApplicationForm({ jobTitle }: JobApplicationFormProps) {
       toast({
         title: "Application Submitted!",
         description: state.message,
-        variant: "default", // or "success" if you have such a variant
+        variant: "default", 
       });
       reset(); 
       formRef.current?.reset(); 
@@ -152,5 +153,3 @@ export function JobApplicationForm({ jobTitle }: JobApplicationFormProps) {
     </form>
   );
 }
-
-    
