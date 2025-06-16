@@ -1,10 +1,16 @@
 
+import type { Metadata } from 'next';
 import { optimizeContent, type OptimizeContentOutput } from '@/ai/flows/content-optimization';
 import { PageHeader } from '@/components/PageHeader';
 import { TeamMemberCard } from '@/components/sections/TeamMemberCard';
 import type { TeamMember } from '@/lib/types';
 import { Lightbulb, UsersRound, ShieldCheck, Mountain, Eye } from 'lucide-react';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'About Grittrix AI Solutions | Our Mission, Vision, and Team',
+  description: 'Learn about Grittrix\'s mission to redefine industries with AI, our vision for emerging markets, core values, and the expert team driving innovation.',
+};
 
 const teamMembers: TeamMember[] = [
   { id: '1', name: 'Nkangi Disan', role: 'Founder & CEO', bio: 'Visionary leader passionate about leveraging technology for social good.', imageUrl: '/media/images/Nkangi%20Disan.png', socials: { linkedin: 'https://www.linkedin.com/in/disan-nkangi-7ab2b62a9/' } },
@@ -23,6 +29,9 @@ const coreValues = [
 
 export default async function AboutUsPage() {
   let optimizedData: OptimizeContentOutput | null = null;
+  const fallbackTitle = "About Grittrix: Redefining Industries with Technology";
+  const fallbackContent = "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology.\n\nBorn from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education.\n\nWe believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive.";
+  
   const companyInfoForGenkit = "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology. Born from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education. We believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive. Our vision is to be the engine that powers data-driven transformation in Africa and beyond. Our values are: Innovation with purpose, Inclusion through simplicity, Transparency and trust, Resilience and grit.";
 
   try {
@@ -32,21 +41,21 @@ export default async function AboutUsPage() {
       companyInfo: companyInfoForGenkit
     });
   } catch (error) {
-    console.error("Failed to fetch optimized content for About Us:", error);
+    console.error("Failed to fetch optimized content for About Us page. Using fallback content.", error);
     optimizedData = {
-        title: "About Grittrix: Redefining Industries with Technology",
-        content: "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology.\n\nBorn from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education.\n\nWe believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive."
+        title: fallbackTitle,
+        content: fallbackContent
     }
   }
 
   const breadcrumbs = [{ name: 'About Us' }];
-
-  const storyContent = optimizedData?.content || "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology.\n\nBorn from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education.\n\nWe believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive.";
+  const pageTitle = optimizedData?.title || fallbackTitle;
+  const storyContent = optimizedData?.content || fallbackContent;
 
   return (
     <>
       <PageHeader
-        title={optimizedData?.title || "About Grittrix"}
+        title={pageTitle}
         description="Learn about our mission, vision, values, and the dedicated team driving AI innovation in emerging markets."
         breadcrumbs={breadcrumbs}
       />
@@ -66,11 +75,10 @@ export default async function AboutUsPage() {
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
                <Image 
                 src="/media/images/about%20page.png" 
-                alt="Grittrix team collaboration and company vision" 
+                alt="Grittrix team collaborating in a modern office, planning AI solutions on a whiteboard" 
                 layout="fill" 
                 objectFit="cover" 
-                width={1080}
-                height={608}
+                priority
                 />
             </div>
           </div>

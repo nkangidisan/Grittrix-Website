@@ -12,6 +12,8 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const IconComponent = product.icon;
+  const imageAltText = product.imageHint ? `${product.name} - ${product.imageHint}` : product.name;
+
   return (
     <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group">
       <CardHeader>
@@ -27,22 +29,19 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
           <Image
             src={product.imageUrl} 
-            alt={product.name}
+            alt={imageAltText}
             layout="fill"
             objectFit="cover"
-            width={1080}
-            height={608}
             className="group-hover:scale-105 transition-transform duration-300"
-            // data-ai-hint removed for actual images, kept for placeholders
             {...(product.imageUrl.startsWith('https://placehold.co') && product.imageHint && { 'data-ai-hint': product.imageHint })}
           />
         </div>
-        <p className="text-sm text-foreground/70 mb-4 leading-relaxed">{product.description}</p>
+        <p className="text-sm text-foreground/70 mb-4 leading-relaxed line-clamp-4">{product.description}</p>
         {product.features && product.features.length > 0 && (
           <div>
             <h4 className="text-xs font-semibold text-foreground/90 mb-2">Key Features:</h4>
             <ul className="space-y-1">
-              {product.features.slice(0, 3).map((feature, index) => ( // Show top 3 features
+              {product.features.slice(0, 3).map((feature, index) => (
                 <li key={index} className="flex items-center text-xs text-foreground/70">
                   <CheckCircle className="h-3.5 w-3.5 text-accent mr-2 shrink-0" />
                   {feature}

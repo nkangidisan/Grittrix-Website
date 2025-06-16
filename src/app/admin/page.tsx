@@ -1,5 +1,16 @@
+
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { ShieldAlert } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Admin Dashboard | Grittrix AI Solutions',
+  description: 'Manage Grittrix content, users, and settings. Access restricted to authorized personnel.',
+  robots: {
+    index: false, // No need to index admin pages
+    follow: false,
+  },
+};
 
 // This is a placeholder admin page.
 // In a real application, this route would be protected by authentication.

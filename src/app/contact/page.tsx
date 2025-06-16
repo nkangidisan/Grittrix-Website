@@ -1,8 +1,14 @@
 
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { Mail, Phone, MapPin, MessageCircle, Linkedin, Twitter, Facebook } from 'lucide-react';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Contact Grittrix AI Solutions | Get in Touch',
+  description: 'Reach out to Grittrix for inquiries about our AI solutions, services, careers, or partnerships. We look forward to hearing from you!',
+};
 
 export default function ContactPage() {
   const breadcrumbs = [{ name: 'Contact Us' }];
@@ -33,7 +39,7 @@ export default function ContactPage() {
                     <Mail className="h-5 w-5 mr-3 text-accent" />
                     <a href="mailto:info@grittrix.com" className="hover:text-primary">info@grittrix.com</a>
                   </li>
-                  <li className="flex items-start"> {/* Changed to items-start for multiline phone */}
+                  <li className="flex items-start">
                     <Phone className="h-5 w-5 mr-3 text-accent mt-1" />
                     <div>
                         <a href="tel:+919714688324" className="hover:text-primary block">+91 9714688324</a>
@@ -44,18 +50,12 @@ export default function ContactPage() {
                     <MessageCircle className="h-5 w-5 mr-3 text-accent" />
                     <a href={`https://wa.me/256756693840?text=${encodedWhatsappMessage}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary">Chat on WhatsApp (+256)</a>
                   </li>
-                  {/* Removed physical address
-                  <li className="flex items-start">
-                    <MapPin className="h-5 w-5 mr-3 text-accent mt-1" />
-                    <span>123 AI Avenue, Tech City, TC 54321, Emerging Market Hub (Placeholder Address)</span>
-                  </li>
-                  */}
                 </ul>
               </div>
 
               <div>
                 <h3 className="text-xl font-semibold font-headline text-primary mb-4">Business Hours</h3>
-                <p className="text-foreground/80">Monday - Friday: 9:00 AM - 6:00 PM (GMT+1)</p>
+                <p className="text-foreground/80">Monday - Friday: 9:00 AM - 6:00 PM (EAT / GMT+3)</p>
                 <p className="text-foreground/80">Saturday - Sunday: Closed</p>
               </div>
 
@@ -63,9 +63,9 @@ export default function ContactPage() {
                 <h3 className="text-xl font-semibold font-headline text-primary mb-4">Connect on Social Media</h3>
                 <div className="flex space-x-4">
                   {[
-                    { href: '#', label: 'LinkedIn', icon: Linkedin },
-                    { href: '#', label: 'Twitter', icon: Twitter },
-                    { href: '#', label: 'Facebook', icon: Facebook },
+                    { href: 'https://www.linkedin.com/company/grittrix/', label: 'LinkedIn', icon: Linkedin },
+                    { href: 'https://x.com/grittrix', label: 'Twitter', icon: Twitter },
+                    { href: 'https://www.facebook.com/Grittrix/', label: 'Facebook', icon: Facebook },
                   ].map(social => (
                     <Link key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-primary transition-colors p-2 bg-secondary/20 rounded-full hover:bg-primary/20">
                       <social.icon className="h-6 w-6" />

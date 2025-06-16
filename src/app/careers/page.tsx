@@ -1,12 +1,17 @@
 
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import type { JobListing } from '@/lib/types';
-import { Briefcase, MapPin, ArrowRight, Mail, Sparkles, Brain, Palette, TrendingUp, Handshake, Users, Building } from 'lucide-react';
+import { Briefcase, MapPin, ArrowRight, Mail, Sparkles, Brain, Palette, TrendingUp, Handshake, Users } from 'lucide-react';
 import Link from 'next/link';
 
-// Updated job listings to be more general roles
+export const metadata: Metadata = {
+  title: 'Careers at Grittrix | Join Our AI Innovation Team',
+  description: 'Explore exciting career opportunities at Grittrix. Help shape the future of intelligent systems in Africa and emerging markets. Remote-first roles available.',
+};
+
 const jobListings: JobListing[] = [
   { 
     id: 'software-engineer', 
@@ -48,14 +53,6 @@ const jobListings: JobListing[] = [
     description: 'Leverage your deep industry expertise to guide our product development and strategy in Healthcare, Agriculture, or Education. Help us tailor our AI solutions for maximum impact.',
     applyUrl: '/careers/apply/industry-advisor' 
   },
-];
-
-const generalRoles = [
-    { name: "Software Engineers (Frontend & Backend)", icon: Brain },
-    { name: "Data Scientists / ML Engineers", icon: Sparkles },
-    { name: "UI/UX Designers", icon: Palette },
-    { name: "Business Development & Sales", icon: TrendingUp },
-    { name: "Industry Advisors (Health, Agri, Education)", icon: Handshake },
 ];
 
 export default function CareersPage() {
@@ -115,7 +112,6 @@ export default function CareersPage() {
             </Button>
           </div>
 
-
           <div className="mt-16 py-12">
             <h2 className="text-3xl font-bold font-headline text-primary text-center mb-10">Why Work at Grittrix?</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
@@ -151,7 +147,6 @@ export default function CareersPage() {
                 </div>
             </div>
           </div>
-
         </div>
       </section>
     </>

@@ -10,19 +10,17 @@ interface MerchandiseItemProps {
 }
 
 export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
+  const imageAltText = item.description ? `${item.name} - ${item.description}` : item.name;
   return (
     <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group overflow-hidden">
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={item.imageUrl} // Remains placehold.co or uses /media/images if specific names provided
-            alt={item.name}
+            src={item.imageUrl}
+            alt={imageAltText}
             layout="fill"
             objectFit="cover"
-            width={1080} // Standardized placeholder dimension
-            height={1080} // Standardized placeholder dimension
             className="group-hover:scale-105 transition-transform duration-300"
-            // data-ai-hint kept for placeholders
             {...(item.imageUrl.startsWith('https://placehold.co') && item.imageHint && { 'data-ai-hint': item.imageHint })}
           />
            <div className="absolute top-2 right-2 bg-primary/80 text-primary-foreground px-2 py-1 text-xs font-semibold rounded">
@@ -32,7 +30,7 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
       </CardHeader>
       <CardContent className="p-4 flex-grow">
         <CardTitle className="font-headline text-lg text-primary mb-1 group-hover:text-primary/90 transition-colors">{item.name}</CardTitle>
-        {item.description && <CardDescription className="text-xs text-foreground/70 mb-2">{item.description}</CardDescription>}
+        {item.description && <CardDescription className="text-xs text-foreground/70 mb-2 line-clamp-2">{item.description}</CardDescription>}
         {item.price && <p className="text-md font-semibold text-accent">{item.price}</p>}
       </CardContent>
       <CardFooter className="p-4 pt-0">

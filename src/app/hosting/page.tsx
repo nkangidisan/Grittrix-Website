@@ -1,9 +1,15 @@
 
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Zap, ShieldCheck, Database, BarChart, Gift, Server, Globe, Lock, RotateCcw, Users } from 'lucide-react';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { CheckCircle, Zap, ShieldCheck, Database, BarChart, Gift, Server, Globe, Users } from 'lucide-react';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'AI-Optimized Hosting Solutions | Grittrix',
+  description: 'Reliable, scalable, and secure hosting specifically designed for AI-powered applications and high-traffic websites by Grittrix.',
+};
 
 const hostingFeatures = [
   { title: "Blazing Fast Performance", description: "Leverage our optimized infrastructure for rapid load times and smooth user experiences, critical for AI applications.", icon: Zap },

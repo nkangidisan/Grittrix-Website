@@ -1,4 +1,5 @@
 
+import type { Metadata, ResolvingMetadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import type { Industry } from '@/lib/types';
 import { HeartPulse, ShoppingCart, Leaf, BookOpen, AlertTriangle, CheckCircle, Lightbulb } from 'lucide-react';
@@ -6,6 +7,10 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+
+type Props = {
+  params: { industrySlug: string };
+};
 
 const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
   healthcare: {
@@ -94,6 +99,31 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
   },
 };
 
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const industrySlug = params.industrySlug;
+  const industry = industriesData[industrySlug];
+
+  if (!industry) {
+    return {
+      title: 'Industry Not Found | Grittrix AI Solutions',
+      description: 'The industry you are looking for could not be found.',
+    };
+  }
+
+  return {
+    title: `${industry.name} Solutions | Grittrix AI`,
+    description: industry.description,
+    openGraph: {
+        title: `${industry.name} Solutions | Grittrix AI`,
+        description: industry.description,
+        images: [{ url: industry.imageUrl, alt: `AI in ${industry.name}` }],
+    }
+  };
+}
+
 export default function IndustryDetailPage({ params }: { params: { industrySlug: string } }) {
   const industry = industriesData[params.industrySlug];
 
@@ -106,6 +136,8 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
     { name: industry.name }
   ];
 
+  const imageAltText = `Concept image illustrating AI applications in the ${industry.name} sector by Grittrix.`;
+
   return (
     <>
       <PageHeader
@@ -117,11 +149,9 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
       <div className="relative h-auto md:h-[calc(800px*9/16)] w-full aspect-[4/3] md:aspect-auto md:max-h-[500px] my-8 container mx-auto px-4 sm:px-6 lg:px-8">
         <Image
             src={industry.imageUrl}
-            alt={`Detailed view of AI in ${industry.name}`}
+            alt={imageAltText}
             layout="fill"
-            objectFit="contain"
-            width={1080}
-            height={608}
+            objectFit="contain" // Changed to contain to better show entire image within bounds
             priority
             className="rounded-lg shadow-xl"
         />

@@ -1,11 +1,11 @@
 
+import type { Metadata, ResolvingMetadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { blogPosts } from '@/app/blog/page';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { CalendarDays, UserCircle, Tag, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 
 // Placeholder for full blog post content
 const fullBlogContent: { [key: string]: string[] } = {
@@ -35,6 +35,44 @@ const fullBlogContent: { [key: string]: string[] } = {
   ],
 };
 
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const slug = params.slug;
+  const post = blogPosts.find(p => p.slug === slug);
+
+  if (!post) {
+    return {
+      title: 'Post Not Found | Grittrix AI Solutions',
+      description: 'The blog post you are looking for could not be found.',
+    };
+  }
+
+  return {
+    title: `${post.title} | Grittrix Blog`,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      images: [{ url: post.imageUrl, alt: post.title }],
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author],
+      tags: [post.category],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [post.imageUrl],
+    },
+  };
+}
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = blogPosts.find(p => p.slug === params.slug);
@@ -58,12 +96,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       />
       <div className="relative h-64 md:h-96 w-full">
         <Image
-            src={post.imageUrl} // Updated from previous category-based logic to use direct imageUrl from blogPosts
+            src={post.imageUrl}
             alt={post.title}
             layout="fill"
             objectFit="cover"
-            width={1920}
-            height={1080}
             priority
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-8">

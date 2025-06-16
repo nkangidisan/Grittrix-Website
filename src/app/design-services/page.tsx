@@ -1,4 +1,5 @@
 
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,6 +7,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Palette, Layers, Smartphone, Rocket, CheckCircle } from 'lucide-react';
 import { ContactForm } from '@/components/forms/ContactForm';
+
+export const metadata: Metadata = {
+  title: 'Custom Web & App Design Services | Grittrix AI Solutions',
+  description: 'Grittrix crafts stunning, high-performing websites and mobile applications with AI integration. Get user-centric design and development for your digital presence.',
+};
 
 const designProcessSteps = [
   { title: "Discovery & Strategy", description: "Understanding your vision, audience, and goals to craft a tailored design strategy.", icon: Palette },
@@ -15,9 +21,9 @@ const designProcessSteps = [
 ];
 
 const portfolioItems = [
-  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/media/images/healthcare.png', altText: 'Portfolio: AfroHealth AI Platform' },
-  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/media/images/retail.png', altText: 'Portfolio: RetailSense E-commerce' },
-  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/media/images/agriculture.jpg', altText: 'Portfolio: AgriGrow Farmer Portal' },
+  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/media/images/healthcare.png', altText: 'Mockup of AfroHealth AI Platform on a laptop screen' },
+  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/media/images/retail.png', altText: 'RetailSense mobile e-commerce app interface example' },
+  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/media/images/agriculture.jpg', altText: 'AgriGrow farmer portal dashboard displaying crop data' },
 ];
 
 export default function DesignServicesPage() {
@@ -73,8 +79,6 @@ export default function DesignServicesPage() {
                       alt={item.altText}
                       layout="fill"
                       objectFit="cover"
-                      width={1080}
-                      height={608}
                       className="group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>

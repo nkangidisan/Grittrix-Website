@@ -1,4 +1,5 @@
 
+import type { Metadata } from 'next';
 import { optimizeContent, type OptimizeContentOutput } from '@/ai/flows/content-optimization';
 import { PageHeader } from '@/components/PageHeader';
 import { ServiceItem } from '@/components/sections/ServiceItem';
@@ -7,6 +8,11 @@ import {
   LayoutDashboard, TrendingUp, Activity, MonitorSmartphone, CloudCog, Cable, DatabaseZap, UsersRound, BrainCircuit
 } from 'lucide-react';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'AI-Powered Services & Platforms | Grittrix AI Solutions',
+  description: 'Explore Grittrix\'s comprehensive suite of AI services, including dashboards, forecasting, custom app development, cloud solutions, and data analytics.',
+};
 
 export const servicesList: Service[] = [
   { id: '1', title: 'AI Dashboards & Reporting Tools', description: 'Transform raw data into strategic assets with intuitive, real-time analytics dashboards tailored to your needs.', icon: LayoutDashboard, detailsUrl: '/services/ai-dashboards' },
@@ -21,6 +27,9 @@ export const servicesList: Service[] = [
 
 export default async function ServicesPage() {
   let optimizedData: OptimizeContentOutput | null = null;
+  const fallbackTitle = "Our AI-Powered Services & Platforms";
+  const fallbackContent = "Grittrix delivers a comprehensive suite of ready-to-use, AI-powered platforms and services designed to modernize your operations and drive growth.\n\nWe specialize in making advanced technology accessible and impactful for businesses in emerging markets.";
+
   const companyInfoForGenkit = "Grittrix delivers ready-to-use, AI-powered platforms and services including AI Dashboards & Reporting, Smart Forecasting, Disease & Stock Prediction, Custom Web/Mobile Applications, Cloud Hosting, Software Integrations, Data Collection/Cleaning/Analysis, and Staff Training/Technical Support. Our mission is to modernize operations for businesses in emerging markets by making advanced technology accessible and impactful.";
 
   try {
@@ -30,21 +39,21 @@ export default async function ServicesPage() {
       companyInfo: companyInfoForGenkit
     });
   } catch (error) {
-    console.error("Failed to fetch optimized content for Services:", error);
+    console.error("Failed to fetch optimized content for Services page. Using fallback content.", error);
     optimizedData = {
-        title: "Our AI-Powered Services & Platforms",
-        content: "Grittrix delivers a comprehensive suite of ready-to-use, AI-powered platforms and services designed to modernize your operations and drive growth.\n\nWe specialize in making advanced technology accessible and impactful for businesses in emerging markets."
+        title: fallbackTitle,
+        content: fallbackContent
     }
   }
 
   const breadcrumbs = [{ name: 'Services' }];
-
-  const serviceIntroContent = optimizedData?.content || "Grittrix delivers a comprehensive suite of ready-to-use, AI-powered platforms and services designed to modernize your operations and drive growth.\n\nWe specialize in making advanced technology accessible and impactful for businesses in emerging markets.";
+  const pageTitle = optimizedData?.title || fallbackTitle;
+  const serviceIntroContent = optimizedData?.content || fallbackContent;
 
   return (
     <>
       <PageHeader
-        title={optimizedData?.title || "AI-Powered Services to Modernize Your Operations"}
+        title={pageTitle}
         description={serviceIntroContent.split('\n\n')[0] || "Explore our comprehensive suite of AI solutions designed to empower your business and drive innovation in emerging markets."}
         breadcrumbs={breadcrumbs}
       />
@@ -57,7 +66,7 @@ export default async function ServicesPage() {
                  {serviceIntroContent.split('\n\n').map((paragraph, index) => (
                     <p key={index}>{paragraph.trim()}</p>
                  ))}
-                 {!optimizedData && <p>We specialize in transforming businesses through a diverse range of AI-driven services. Our expertise spans data analytics, machine learning, custom software development, and strategic AI integration, helping you navigate the complexities of the digital age and achieve sustainable success.</p>}
+                 {!optimizedData && !fallbackContent.includes("We specialize in transforming businesses") && <p>We specialize in transforming businesses through a diverse range of AI-driven services. Our expertise spans data analytics, machine learning, custom software development, and strategic AI integration, helping you navigate the complexities of the digital age and achieve sustainable success.</p>}
             </div>
           </div>
 
@@ -88,11 +97,9 @@ export default async function ServicesPage() {
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
                <Image 
                 src="/media/images/service%20page.png" 
-                alt="Custom AI Solutions by Grittrix" 
+                alt="Team of Grittrix experts collaborating on custom AI solutions for a client" 
                 layout="fill" 
                 objectFit="cover" 
-                width={1080}
-                height={608}
                 />
             </div>
           </div>

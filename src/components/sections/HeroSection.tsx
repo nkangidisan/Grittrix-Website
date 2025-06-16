@@ -34,10 +34,10 @@ export function HeroSection() {
             </div>
           </div>
           <div className="relative animate-fade-in animation-delay-300">
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl"> {/* Parent has position: relative and aspect-ratio */}
+            <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
                <Image
                 src="/media/images/home%20page.png"
-                alt="AI Powered Infrastructure for Business by Grittrix"
+                alt="AI Powered Infrastructure displaying interconnected data nodes, representing Grittrix's smart solutions"
                 layout="fill" 
                 objectFit="cover" 
                 priority 

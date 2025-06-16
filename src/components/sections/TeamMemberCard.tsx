@@ -10,35 +10,34 @@ interface TeamMemberCardProps {
 }
 
 export function TeamMemberCard({ member }: TeamMemberCardProps) {
+  const imageAltText = `${member.name}, ${member.role} at Grittrix AI Solutions`;
   return (
-    <Card className="text-center bg-card hover:shadow-lg transition-shadow duration-300">
+    <Card className="text-center bg-card hover:shadow-lg transition-shadow duration-300 flex flex-col">
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={member.imageUrl} // e.g., /media/images/Nkangi%20Disan.png
-            alt={member.name}
+            src={member.imageUrl} 
+            alt={imageAltText}
             layout="fill"
             objectFit="cover"
-            width={1080}
-            height={1080}
             className="rounded-t-lg"
           />
         </div>
       </CardHeader>
-      <CardContent className="p-6">
+      <CardContent className="p-6 flex-grow">
         <CardTitle className="font-headline text-xl text-primary mb-1">{member.name}</CardTitle>
         <p className="text-sm text-accent font-medium mb-3">{member.role}</p>
-        <p className="text-xs text-foreground/70 leading-relaxed">{member.bio}</p>
+        <p className="text-xs text-foreground/70 leading-relaxed line-clamp-3">{member.bio}</p>
       </CardContent>
       {(member.socials?.linkedin || member.socials?.twitter) && (
-        <CardFooter className="flex justify-center space-x-3 pb-6">
+        <CardFooter className="flex justify-center space-x-3 pb-6 mt-auto">
           {member.socials.linkedin && (
-            <Link href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary">
+            <Link href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${member.name} on LinkedIn`} className="text-foreground/60 hover:text-primary">
               <Linkedin size={20} />
             </Link>
           )}
           {member.socials.twitter && (
-            <Link href={member.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary">
+            <Link href={member.socials.twitter} target="_blank" rel="noopener noreferrer" aria-label={`${member.name} on Twitter`} className="text-foreground/60 hover:text-primary">
               <Twitter size={20} />
             </Link>
           )}

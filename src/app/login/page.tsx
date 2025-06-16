@@ -1,9 +1,20 @@
+
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Login | Grittrix AI Solutions',
+  description: 'Access your Grittrix admin dashboard or authoring tools. Firebase Authentication coming soon.',
+  robots: {
+    index: false, 
+    follow: false,
+  },
+};
 
 // This is a placeholder login page. Full Firebase authentication would require more setup.
 
@@ -37,9 +48,7 @@ export default function LoginPage() {
               </div>
                <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  {/* Checkbox can be added here if using shadcn/ui Checkbox */}
-                  {/* <Checkbox id="remember-me" /> 
-                  <Label htmlFor="remember-me" className="ml-2 block text-sm text-foreground/80">Remember me</Label> */}
+                  {/* Checkbox placeholder */}
                 </div>
                 <div className="text-sm">
                   <Link href="#" className="font-medium text-accent hover:underline">

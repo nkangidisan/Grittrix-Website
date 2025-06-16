@@ -1,4 +1,5 @@
 
+import type { Metadata, ResolvingMetadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import type { Product } from '@/lib/types';
 import { productsList } from '@/app/products/page';
@@ -7,6 +8,36 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { CheckCircle, Zap } from 'lucide-react';
+
+type Props = {
+  params: { productId: string };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const productId = params.productId.toLowerCase();
+  const product = productsList.find(p => p.id.toLowerCase() === productId);
+
+  if (!product) {
+    return {
+      title: 'Product Not Found | Grittrix AI Solutions',
+      description: 'The product you are looking for could not be found.',
+    };
+  }
+
+  return {
+    title: `${product.name} | Grittrix Products`,
+    description: product.tagline,
+    openGraph: {
+        title: `${product.name} | Grittrix Products`,
+        description: product.tagline,
+        images: [{ url: product.imageUrl, alt: product.name }],
+    }
+  };
+}
+
 
 export default function ProductDetailPage({ params }: { params: { productId: string } }) {
   const product = productsList.find(p => p.id.toLowerCase() === params.productId.toLowerCase());
@@ -21,6 +52,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
   ];
 
   const IconComponent = product.icon;
+  const imageAltText = product.imageHint ? `${product.name} - ${product.imageHint}` : product.name;
 
   return (
     <>
@@ -37,12 +69,10 @@ export default function ProductDetailPage({ params }: { params: { productId: str
               <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl mb-8">
                 <Image
                   src={product.imageUrl} 
-                  alt={product.name}
+                  alt={imageAltText}
                   layout="fill"
                   objectFit="cover"
-                  width={1080}
-                  height={608}
-                  // data-ai-hint removed for actual images, kept for placeholders
+                  priority={product.id === 'CORE'} // Prioritize CORE image
                   {...(product.imageUrl.startsWith('https://placehold.co') && product.imageHint && { 'data-ai-hint': product.imageHint })}
                 />
               </div>

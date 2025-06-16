@@ -1,4 +1,5 @@
 
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import type { BlogPost } from '@/lib/types';
@@ -8,7 +9,12 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
-// Placeholder blog posts data - Image URLs will be category based
+export const metadata: Metadata = {
+  title: 'Grittrix Insights Blog | AI, Technology & Innovation',
+  description: 'Explore Grittrix\'s thoughts on AI, technology, and innovation in emerging markets. Stay updated with the latest trends, research, and Grittrix news.',
+};
+
+// Placeholder blog posts data
 export const blogPosts: BlogPost[] = [
   { id: '1', slug: 'ai-in-african-healthcare', title: 'The Transformative Power of AI in African Healthcare', excerpt: 'Discover how AI is revolutionizing diagnostics, treatment, and healthcare accessibility across the African continent.', author: 'Dr. Aisha Bello', date: '2024-07-15', imageUrl: '/media/images/healthcare.png', category: 'Healthcare' },
   { id: '2', slug: 'future-of-retail-ai', title: 'The Future of Retail: Personalized Experiences with AI', excerpt: 'Explore how AI-driven personalization, supply chain optimization, and smart analytics are reshaping the retail industry in emerging markets.', author: 'Ken Njoroge', date: '2024-07-08', imageUrl: '/media/images/retail.png', category: 'Retail' },
@@ -35,8 +41,7 @@ export default function BlogPage() {
         breadcrumbs={breadcrumbs}
       />
 
-      {/* AI in White Coats YouTube Section - Moved to appear first */}
-      <section className="py-16 md:py-24 bg-card"> {/* Darker background for contrast */}
+      <section className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
             <div className="inline-block p-3 bg-primary/10 rounded-full mb-4">
@@ -50,7 +55,7 @@ export default function BlogPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"> {/* Changed to lg:grid-cols-4 for 4 videos */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {youtubeVideos.map((video, index) => (
               <div
                 key={video.id}
@@ -68,6 +73,7 @@ export default function BlogPage() {
                     referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                     className="rounded-md"
+                    loading="lazy"
                   ></iframe>
                 </div>
                  <div className="p-4">
@@ -93,7 +99,6 @@ export default function BlogPage() {
         <Separator />
       </div>
 
-      {/* Blog Articles Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-12 text-center">
@@ -109,8 +114,6 @@ export default function BlogPage() {
                       alt={post.title}
                       layout="fill"
                       objectFit="cover"
-                      width={1080}
-                      height={608}
                       className="group-hover:scale-105 transition-transform duration-300"
                     />
                   </Link>

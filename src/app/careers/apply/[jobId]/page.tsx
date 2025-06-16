@@ -1,12 +1,15 @@
 
+import type { Metadata, ResolvingMetadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { JobApplicationForm } from '@/components/forms/JobApplicationForm';
 import { notFound } from 'next/navigation';
-import { Briefcase, Brain, Palette, TrendingUp, Handshake, Sparkles, Building, Users } from 'lucide-react';
+import { Briefcase, Brain, Palette, TrendingUp, Handshake, Sparkles } from 'lucide-react';
 
-// This map helps to get a display-friendly title and some context for the application page
-// It should correspond to the 'id' in the jobListings on the main careers page.
-const jobDetailsMap: Record<string, { title: string; icon: React.ElementType; description: string; responsibilities: string[]; qualifications: string[] }> = {
+type Props = {
+  params: { jobId: string };
+};
+
+const jobDetailsMap: Record<string, { title: string; icon: React.ElementType; description: string; responsibilities: string[]; qualifications: string[]; metaDescription: string; }> = {
   'software-engineer': { 
     title: 'Software Engineer (Frontend & Backend)', 
     icon: Brain,
@@ -27,7 +30,8 @@ const jobDetailsMap: Record<string, { title: string; icon: React.ElementType; de
       'Understanding of software development lifecycle and agile methodologies.',
       'Strong problem-solving skills and ability to learn quickly.',
       'Excellent communication and teamwork skills. Portfolio of projects is a plus.'
-    ]
+    ],
+    metaDescription: 'Apply for the Software Engineer role at Grittrix. Develop innovative AI-driven platforms for emerging markets using modern web technologies.'
   },
   'data-scientist-ml': { 
     title: 'Data Scientist / ML Engineer', 
@@ -49,7 +53,8 @@ const jobDetailsMap: Record<string, { title: string; icon: React.ElementType; de
       'Strong analytical and problem-solving abilities.',
       'Experience in deploying ML models to production is a plus.',
       'Passion for solving real-world problems with AI.'
-    ]
+    ],
+    metaDescription: 'Apply for the Data Scientist / ML Engineer role at Grittrix. Architect and implement machine learning models to drive innovation in key sectors.'
   },
   'ui-ux-designer': { 
     title: 'UI/UX Designer', 
@@ -71,7 +76,8 @@ const jobDetailsMap: Record<string, { title: string; icon: React.ElementType; de
       'Ability to create wireframes, prototypes, and high-fidelity mockups.',
       'Excellent visual design skills with sensitivity to user-system interaction.',
       'Good communication skills to articulate design decisions.'
-    ]
+    ],
+    metaDescription: 'Apply for the UI/UX Designer role at Grittrix. Craft intuitive and engaging user experiences for AI-powered products in emerging markets.'
   },
   'business-development-sales': { 
     title: 'Business Development & Sales', 
@@ -92,7 +98,8 @@ const jobDetailsMap: Record<string, { title: string; icon: React.ElementType; de
       'Experience working in or with emerging markets is highly desirable.',
       'Self-motivated, results-oriented, and able to work independently.',
       'Understanding of AI/ML concepts is a plus.'
-    ]
+    ],
+    metaDescription: 'Apply for the Business Development & Sales role at Grittrix. Drive growth, build partnerships, and champion AI solutions in emerging markets.'
   },
   'industry-advisor': { 
     title: 'Industry Advisor (Health, Agri, Education)', 
@@ -113,9 +120,31 @@ const jobDetailsMap: Record<string, { title: string; icon: React.ElementType; de
       'Strong analytical and strategic thinking skills.',
       'Excellent communication and presentation abilities.',
       'Passion for leveraging technology to drive positive change in your sector.'
-    ]
+    ],
+    metaDescription: 'Apply for the Industry Advisor role at Grittrix. Provide domain expertise to shape AI solutions for Healthcare, Agriculture, or Education.'
   },
 };
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const jobId = params.jobId;
+  const jobInfo = jobDetailsMap[jobId];
+
+  if (!jobInfo) {
+    return {
+      title: 'Job Not Found | Grittrix AI Solutions',
+      description: 'The job listing you are looking for could not be found.',
+    };
+  }
+
+  return {
+    title: `Apply for ${jobInfo.title} | Grittrix Careers`,
+    description: jobInfo.metaDescription,
+  };
+}
+
 
 export default function ApplyJobPage({ params }: { params: { jobId: string } }) {
   const jobInfo = jobDetailsMap[params.jobId];
@@ -165,7 +194,7 @@ export default function ApplyJobPage({ params }: { params: { jobId: string } }) 
                 </p>
             </div>
             
-            <div className="bg-card p-8 rounded-lg shadow-xl sticky top-24"> {/* Make form sticky */}
+            <div className="bg-card p-8 rounded-lg shadow-xl sticky top-24">
               <h2 className="text-2xl font-bold font-headline text-primary mb-6">Application Form</h2>
               <JobApplicationForm jobTitle={jobInfo.title} />
             </div>
@@ -176,14 +205,9 @@ export default function ApplyJobPage({ params }: { params: { jobId: string } }) 
   );
 }
 
-// This function generates the static paths for all job IDs
 export async function generateStaticParams() {
   return Object.keys(jobDetailsMap).map((jobId) => ({
     jobId,
   }));
 }
-
-// Optional: If you need to revalidate these pages, you can add this
-// export const revalidate = 60; // Revalidate every 60 seconds
-
     
