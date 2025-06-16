@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.grittrix.com'), // Replace with your actual production domain
+  metadataBase: new URL('https://grittrix.com'), // Replace with your actual production domain
   title: {
     default: 'Grittrix AI Solutions | Transforming Industries with AI',
     template: '%s | Grittrix AI Solutions',
@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Grittrix AI Solutions | Transforming Industries with AI',
     description: 'AI-Powered Solutions for Healthcare, Retail, Agriculture, and Education in Africa and Emerging Markets.',
-    url: 'https://www.grittrix.com', // Replace with your actual production domain
+    url: 'https://grittrix.com', // Replace with your actual production domain
     siteName: 'Grittrix AI Solutions',
     images: [
       {
-        url: '/media/og-image.png', // Assuming og-image.png in public/media/
+        url: 'https://placehold.co/1200x630.png?text=Grittrix+OG+Image', // Placeholder OG image
         width: 1200,
         height: 630,
         alt: 'Grittrix AI Solutions - Transforming Industries with Advanced Technology',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: 'Grittrix AI Solutions | AI for Emerging Markets',
     description: 'Pioneering AI-Powered Solutions for Healthcare, Retail, Agriculture, and Education in Africa and other emerging markets.',
     // site: '@Grittrix', // Replace with your actual Twitter handle if available
-    images: ['/media/twitter-card.png'], // Assuming twitter-card.png in public/media/
+    images: ['https://placehold.co/1200x600.png?text=Grittrix+Twitter+Card'], // Placeholder Twitter card image
   },
   robots: {
     index: true,
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/media/favicon.ico', // Assuming favicon.ico in public/media/
-    shortcut: '/media/favicon-16x16.png', // Assuming favicon-16x16.png in public/media/
-    apple: '/media/apple-touch-icon.png', // Assuming apple-touch-icon.png in public/media/
+    icon: '/placeholder-favicon.ico', // Placeholder, replace with actual favicon in /public
+    shortcut: '/placeholder-favicon-16x16.png', // Placeholder
+    apple: '/placeholder-apple-touch-icon.png', // Placeholder
   },
 };
 

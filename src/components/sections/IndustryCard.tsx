@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { ArrowRight } from 'lucide-react';
 
 interface IndustryCardProps {
-  industry: Pick<Industry, 'id' | 'name' | 'description' | 'icon' | 'imageUrl'> & { altText?: string };
+  industry: Pick<Industry, 'id' | 'name' | 'description' | 'icon' | 'imageUrl' | 'imageHint'> & { altText?: string };
   linkHref: string;
 }
 
@@ -20,8 +20,9 @@ export function IndustryCard({ industry, linkHref }: IndustryCardProps) {
       <CardHeader>
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
           <Image
-            src={industry.imageUrl} // e.g. /media/health.webp
+            src={industry.imageUrl}
             alt={imageAltText}
+            data-ai-hint={industry.imageHint}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
           />

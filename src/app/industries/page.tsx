@@ -10,16 +10,16 @@ export const metadata: Metadata = {
   description: 'Grittrix delivers specialized AI solutions for Healthcare, Retail, Agriculture, and Education, tailored to emerging markets.',
 };
 
-interface IndustryOverview extends Omit<Industry, 'painPoints' | 'solutions' | 'imageHint'> {
+interface IndustryOverview extends Omit<Industry, 'painPoints' | 'solutions'> {
   altText: string;
 }
 
 
 const industriesOverview: IndustryOverview[] = [
-  { id: 'healthcare', name: 'Healthcare', description: 'Revolutionizing patient care with AI-driven diagnostics, personalized medicine, and operational efficiency.', icon: HeartPulse, imageUrl: '/media/health.webp', altText: 'AI in Healthcare: advanced diagnostics and patient care by Grittrix' }, // Assuming health.webp
-  { id: 'retail', name: 'Retail & E-commerce', description: 'Transforming customer experiences through AI-powered personalization, supply chain optimization, and intelligent inventory management.', icon: ShoppingCart, imageUrl: '/media/retail.png', altText: 'AI in Retail: personalized e-commerce experiences and supply chain optimization by Grittrix' }, // Assuming retail.png
-  { id: 'agriculture', name: 'Agriculture', description: 'Enhancing food security with AI-driven precision farming, crop monitoring, and yield prediction for sustainable agriculture.', icon: Leaf, imageUrl: '/media/agriculture.jpg', altText: 'AI in Agriculture: precision farming and crop monitoring for sustainability by Grittrix' }, // Assuming agriculture.jpg
-  { id: 'education', name: 'Education', description: 'Personalizing learning journeys with adaptive AI tutors, intelligent content delivery, and data-driven insights for educators.', icon: BookOpen, imageUrl: '/media/education-section.jpg', altText: 'AI in Education: adaptive learning and intelligent tutoring by Grittrix' }, // Assuming education-section.jpg
+  { id: 'healthcare', name: 'Healthcare', description: 'Revolutionizing patient care with AI-driven diagnostics, personalized medicine, and operational efficiency.', icon: HeartPulse, imageUrl: 'https://placehold.co/600x400.png', imageHint: 'healthcare medical', altText: 'AI in Healthcare: advanced diagnostics and patient care by Grittrix' },
+  { id: 'retail', name: 'Retail & E-commerce', description: 'Transforming customer experiences through AI-powered personalization, supply chain optimization, and intelligent inventory management.', icon: ShoppingCart, imageUrl: 'https://placehold.co/600x400.png', imageHint: 'retail store', altText: 'AI in Retail: personalized e-commerce experiences and supply chain optimization by Grittrix' },
+  { id: 'agriculture', name: 'Agriculture', description: 'Enhancing food security with AI-driven precision farming, crop monitoring, and yield prediction for sustainable agriculture.', icon: Leaf, imageUrl: 'https://placehold.co/600x400.png', imageHint: 'agriculture farm', altText: 'AI in Agriculture: precision farming and crop monitoring for sustainability by Grittrix' },
+  { id: 'education', name: 'Education', description: 'Personalizing learning journeys with adaptive AI tutors, intelligent content delivery, and data-driven insights for educators.', icon: BookOpen, imageUrl: 'https://placehold.co/600x400.png', imageHint: 'education classroom', altText: 'AI in Education: adaptive learning and intelligent tutoring by Grittrix' },
 ];
 
 export default function IndustriesPage() {

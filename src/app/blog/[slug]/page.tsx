@@ -53,9 +53,7 @@ export async function generateMetadata(
     };
   }
 
-  // Assuming post.imageUrl is already a correct path like /media/health.webp
-  const absoluteImageUrl = post.imageUrl.startsWith('http') ? post.imageUrl : `https://www.grittrix.com${post.imageUrl}`;
-
+  const absoluteImageUrl = post.imageUrl; // Placeholder images are absolute URLs
 
   return {
     title: `${post.title} | Grittrix Blog`,
@@ -100,8 +98,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       />
       <div className="relative h-64 md:h-96 w-full">
         <Image
-            src={post.imageUrl} // e.g., /media/health.webp
+            src={post.imageUrl}
             alt={`Blog post image for ${post.title}`}
+            data-ai-hint={post.dataAiHint}
             fill
             className="object-cover"
             priority

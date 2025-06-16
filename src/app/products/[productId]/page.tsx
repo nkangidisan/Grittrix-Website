@@ -27,7 +27,7 @@ export async function generateMetadata(
     };
   }
 
-  const absoluteImageUrl = product.imageUrl.startsWith('http') ? product.imageUrl : `https://www.grittrix.com${product.imageUrl}`;
+  const absoluteImageUrl = product.imageUrl; // Placeholder images are absolute URLs
 
   return {
     title: `${product.name} | Grittrix Products`,
@@ -72,10 +72,10 @@ export default function ProductDetailPage({ params }: { params: { productId: str
                 <Image
                   src={product.imageUrl} 
                   alt={imageAltText}
+                  data-ai-hint={product.imageHint}
                   fill
                   className="object-cover"
                   priority={product.id === 'CORE'} 
-                  {...(product.imageUrl.startsWith('https://placehold.co') && product.imageHint && { 'data-ai-hint': product.imageHint })}
                 />
               </div>
               <div className="flex items-center space-x-3 mb-4 p-4 bg-secondary/10 rounded-lg">

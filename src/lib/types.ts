@@ -5,6 +5,7 @@ export interface TeamMember {
   role: string;
   bio: string;
   imageUrl: string;
+  imageHint?: string; // Added for placeholders
   socials?: {
     linkedin?: string;
     twitter?: string;
@@ -27,6 +28,7 @@ export interface Industry {
   solutions: string[];
   icon: React.ElementType;
   imageUrl: string;
+  imageHint?: string; // Added for placeholders
 }
 
 export interface Product {
@@ -66,5 +68,6 @@ export interface BlogPost {
   author: string;
   date: string;
   imageUrl: string;
+  dataAiHint?: string; // Added for placeholders
   category: string;
 }
