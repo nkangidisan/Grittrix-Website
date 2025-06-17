@@ -96,8 +96,8 @@ export default async function ServicesPage() {
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
                <Image 
-                src="/media/services-custom-solutions.jpg"
-                alt="Team of Grittrix experts collaborating on custom AI solutions for a client, demonstrating project planning and execution" 
+                src="/media/service-custom-solutions.svg"
+                alt="Illustration of Grittrix experts collaborating on custom AI solutions, project planning" 
                 fill 
                 className="object-cover" 
                 />

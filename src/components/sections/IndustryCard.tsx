@@ -13,14 +13,14 @@ interface IndustryCardProps {
 
 export function IndustryCard({ industry, linkHref }: IndustryCardProps) {
   const IconComponent = industry.icon;
-  const imageAltText = industry.altText || `Grittrix AI solutions for the ${industry.name} industry`;
+  const imageAltText = industry.altText || `Grittrix AI solutions illustration for the ${industry.name} industry`;
   
   return (
     <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group">
       <CardHeader>
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
           <Image
-            src={industry.imageUrl}
+            src={industry.imageUrl} // Expecting .svg path
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"

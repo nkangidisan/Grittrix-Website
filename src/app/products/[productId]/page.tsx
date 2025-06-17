@@ -28,7 +28,8 @@ export async function generateMetadata(
   }
 
   const domain = (await parent).metadataBase || new URL('https://grittrix.com');
-  const absoluteImageUrl = new URL(product.imageUrl, domain).toString();
+  // Assuming imageUrl will now point to an SVG
+  const absoluteImageUrl = new URL(product.imageUrl.replace(/\.(png|jpg|jpeg)$/, '.svg'), domain).toString();
 
   return {
     title: `${product.name} | Grittrix Products`,
@@ -36,7 +37,7 @@ export async function generateMetadata(
     openGraph: {
         title: `${product.name} | Grittrix Products`,
         description: product.tagline,
-        images: [{ url: absoluteImageUrl, alt: product.name }],
+        images: [{ url: absoluteImageUrl, alt: `${product.name} illustration` }],
     }
   };
 }
@@ -55,7 +56,9 @@ export default function ProductDetailPage({ params }: { params: { productId: str
   ];
 
   const IconComponent = product.icon;
-  const imageAltText = `${product.name} - ${product.tagline}`;
+  const imageAltText = `${product.name} illustration - ${product.tagline}`;
+  const productImageUrl = product.imageUrl.replace(/\.(png|jpg|jpeg)$/, '.svg');
+
 
   return (
     <>
@@ -71,7 +74,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
             <div className="sticky top-24">
               <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl mb-8">
                 <Image
-                  src={product.imageUrl} 
+                  src={productImageUrl} 
                   alt={imageAltText}
                   fill
                   className="object-cover"

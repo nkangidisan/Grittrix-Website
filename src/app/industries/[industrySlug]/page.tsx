@@ -19,7 +19,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Healthcare',
     description: 'Empowering healthcare providers with AI to improve patient outcomes, enhance diagnostics, and streamline operations.',
     icon: HeartPulse,
-    imageUrl: '/media/industry-detail-healthcare.jpg',
+    imageUrl: '/media/industry-detail-healthcare.svg',
     painPoints: [
       'Late disease detection and diagnosis',
       'Inefficient patient data management',
@@ -40,7 +40,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Retail & E-commerce',
     description: 'Transforming the retail landscape with AI for personalized experiences, optimized supply chains, and smarter operations.',
     icon: ShoppingCart,
-    imageUrl: '/media/industry-detail-retail.jpg',
+    imageUrl: '/media/industry-detail-retail.svg',
     painPoints: [
       'Understanding customer behavior and preferences',
       'Inventory mismanagement (overstocking/understocking)',
@@ -61,7 +61,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Agriculture',
     description: 'Driving sustainable agriculture and food security with AI-powered precision farming and data analytics.',
     icon: Leaf,
-    imageUrl: '/media/industry-detail-agriculture.jpg',
+    imageUrl: '/media/industry-detail-agriculture.svg',
     painPoints: [
       'Unpredictable weather patterns and climate change impact',
       'Crop diseases and pest infestations',
@@ -82,7 +82,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Education',
     description: 'Personalizing learning and enhancing educational outcomes with adaptive AI technologies.',
     icon: BookOpen,
-    imageUrl: '/media/industry-detail-education.jpg',
+    imageUrl: '/media/industry-detail-education.svg',
     painPoints: [
       'One-size-fits-all learning approaches',
       'Difficulty in catering to diverse student needs',
@@ -115,7 +115,7 @@ export async function generateMetadata(
   }
   
   const domain = (await parent).metadataBase || new URL('https://grittrix.com');
-  const absoluteImageUrl = new URL(industry.imageUrl, domain).toString();
+  const absoluteImageUrl = new URL(industry.imageUrl, domain).toString(); // Assuming imageUrl is already .svg
 
   return {
     title: `${industry.name} Solutions | Grittrix AI`,
@@ -123,7 +123,7 @@ export async function generateMetadata(
     openGraph: {
         title: `${industry.name} Solutions | Grittrix AI`,
         description: industry.description,
-        images: [{ url: absoluteImageUrl, alt: `AI in ${industry.name}` }],
+        images: [{ url: absoluteImageUrl, alt: `AI in ${industry.name} illustration` }],
     }
   };
 }
@@ -140,7 +140,7 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
     { name: industry.name }
   ];
 
-  const imageAltText = `Concept image illustrating AI applications in the ${industry.name} sector by Grittrix.`;
+  const imageAltText = `Concept illustration for AI applications in the ${industry.name} sector by Grittrix.`;
 
   return (
     <>
@@ -152,7 +152,7 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
 
       <div className="relative h-auto md:h-[calc(800px*9/16)] w-full aspect-[4/3] md:aspect-auto md:max-h-[500px] my-8 container mx-auto px-4 sm:px-6 lg:px-8">
         <Image
-            src={industry.imageUrl} 
+            src={industry.imageUrl} // Assuming this is now .svg
             alt={imageAltText}
             fill
             className="object-contain rounded-lg shadow-xl"

@@ -52,9 +52,10 @@ export async function generateMetadata(
       description: 'The blog post you are looking for could not be found.',
     };
   }
-  // Construct absolute URL for OG image if using local paths
-  const domain = (await parent).metadataBase || new URL('https://grittrix.com'); // Fallback to a default domain
-  const absoluteImageUrl = new URL(post.imageUrl, domain).toString();
+  
+  const domain = (await parent).metadataBase || new URL('https://grittrix.com');
+  // Assuming imageUrl will now point to an SVG
+  const absoluteImageUrl = new URL(post.imageUrl.replace(/\.(png|jpg|jpeg)$/, '.svg'), domain).toString();
 
 
   return {
@@ -91,6 +92,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     { name: 'Blog', href: '/blog' },
     { name: post.title }
   ];
+  
+  const featuredImageUrl = post.imageUrl.replace(/\.(png|jpg|jpeg)$/, '.svg');
 
   return (
     <>
@@ -100,8 +103,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       />
       <div className="relative h-64 md:h-96 w-full">
         <Image
-            src={post.imageUrl}
-            alt={`Blog post image for ${post.title}`}
+            src={featuredImageUrl}
+            alt={`Blog post illustration for ${post.title}`}
             fill
             className="object-cover"
             priority
