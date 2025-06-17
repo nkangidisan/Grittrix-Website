@@ -1,7 +1,7 @@
 
 import type { Metadata, ResolvingMetadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
-import type { Industry } from '@/lib/types';
+import type { Industry } from '@/lib/types'; // Uses local Industry type
 import { HeartPulse, ShoppingCart, Leaf, BookOpen, AlertTriangle, CheckCircle, Lightbulb } from 'lucide-react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -12,14 +12,14 @@ type Props = {
   params: { industrySlug: string };
 };
 
-const industriesData: { [key: string]: Omit<Industry, 'imageHint'> & { dataAiHint: string } } = {
+// Data directly in the file, using local image paths
+const industriesData: { [key: string]: Omit<Industry, 'imageHint'> & { dataAiHint?: string } } = {
   healthcare: {
     id: 'healthcare',
     name: 'Healthcare',
     description: 'Empowering healthcare providers with AI to improve patient outcomes, enhance diagnostics, and streamline operations.',
     icon: HeartPulse,
-    imageUrl: 'https://placehold.co/1080x720.png',
-    dataAiHint: 'healthcare medical',
+    imageUrl: '/media/industry-detail-healthcare.jpg', // Local path
     painPoints: [
       'Late disease detection and diagnosis',
       'Inefficient patient data management',
@@ -40,8 +40,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> & { dataAiHin
     name: 'Retail & E-commerce',
     description: 'Transforming the retail landscape with AI for personalized experiences, optimized supply chains, and smarter operations.',
     icon: ShoppingCart,
-    imageUrl: 'https://placehold.co/1080x720.png',
-    dataAiHint: 'retail store',
+    imageUrl: '/media/industry-detail-retail.jpg', // Local path
     painPoints: [
       'Understanding customer behavior and preferences',
       'Inventory mismanagement (overstocking/understocking)',
@@ -62,8 +61,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> & { dataAiHin
     name: 'Agriculture',
     description: 'Driving sustainable agriculture and food security with AI-powered precision farming and data analytics.',
     icon: Leaf,
-    imageUrl: 'https://placehold.co/1080x720.png',
-    dataAiHint: 'agriculture farm',
+    imageUrl: '/media/industry-detail-agriculture.jpg', // Local path
     painPoints: [
       'Unpredictable weather patterns and climate change impact',
       'Crop diseases and pest infestations',
@@ -84,8 +82,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> & { dataAiHin
     name: 'Education',
     description: 'Personalizing learning and enhancing educational outcomes with adaptive AI technologies.',
     icon: BookOpen,
-    imageUrl: 'https://placehold.co/1080x720.png',
-    dataAiHint: 'education classroom',
+    imageUrl: '/media/industry-detail-education.jpg', // Local path
     painPoints: [
       'One-size-fits-all learning approaches',
       'Difficulty in catering to diverse student needs',
@@ -117,7 +114,9 @@ export async function generateMetadata(
     };
   }
   
-  const absoluteImageUrl = industry.imageUrl; // Placeholder images are absolute URLs
+  // Construct absolute URL for OG image if using local paths
+  const domain = (await parent).metadataBase || new URL('https://grittrix.com');
+  const absoluteImageUrl = new URL(industry.imageUrl, domain).toString();
 
   return {
     title: `${industry.name} Solutions | Grittrix AI`,
@@ -154,9 +153,8 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
 
       <div className="relative h-auto md:h-[calc(800px*9/16)] w-full aspect-[4/3] md:aspect-auto md:max-h-[500px] my-8 container mx-auto px-4 sm:px-6 lg:px-8">
         <Image
-            src={industry.imageUrl}
+            src={industry.imageUrl} // Local path
             alt={imageAltText}
-            data-ai-hint={industry.dataAiHint}
             fill
             className="object-contain rounded-lg shadow-xl"
             priority
@@ -214,6 +212,4 @@ export async function generateStaticParams() {
     industrySlug: slug,
   }));
 }
-    
-
     

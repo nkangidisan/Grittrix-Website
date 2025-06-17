@@ -16,11 +16,10 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={item.imageUrl} // Placeholder image, e.g. https://placehold.co/600x600.png
+            src={item.imageUrl} // Expects local path e.g., /media/merch-item-name.jpg
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
-            {...(item.imageUrl.startsWith('https://placehold.co') && item.imageHint && { 'data-ai-hint': item.imageHint })}
           />
            <div className="absolute top-2 right-2 bg-primary/80 text-primary-foreground px-2 py-1 text-xs font-semibold rounded">
             GRITTRIX
@@ -41,6 +40,4 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
     </Card>
   );
 }
-    
-
     

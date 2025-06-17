@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/react'; // Example for Vercel Analytics
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://grittrix.com'), // Replace with your actual production domain
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: 'Grittrix AI Solutions',
     images: [
       {
-        url: 'https://placehold.co/1200x630.png?text=Grittrix+OG+Image', // Placeholder OG image
+        url: '/media/og-image.png', // Local OG image
         width: 1200,
         height: 630,
         alt: 'Grittrix AI Solutions - Transforming Industries with Advanced Technology',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: 'Grittrix AI Solutions | AI for Emerging Markets',
     description: 'Pioneering AI-Powered Solutions for Healthcare, Retail, Agriculture, and Education in Africa and other emerging markets.',
     // site: '@Grittrix', // Replace with your actual Twitter handle if available
-    images: ['https://placehold.co/1200x600.png?text=Grittrix+Twitter+Card'], // Placeholder Twitter card image
+    images: ['/media/twitter-card.png'], // Local Twitter card image
   },
   robots: {
     index: true,
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/placeholder-favicon.ico', // Placeholder, replace with actual favicon in /public
-    shortcut: '/placeholder-favicon-16x16.png', // Placeholder
-    apple: '/placeholder-apple-touch-icon.png', // Placeholder
+    icon: '/media/favicon.ico', // Local favicon
+    shortcut: '/media/favicon-16x16.png', // Local
+    apple: '/media/apple-touch-icon.png', // Local
   },
 };
 
@@ -74,6 +74,4 @@ export default function RootLayout({
     </html>
   );
 }
-    
-
     

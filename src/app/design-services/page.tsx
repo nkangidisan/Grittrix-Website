@@ -21,9 +21,9 @@ const designProcessSteps = [
 ];
 
 const portfolioItems = [
-  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: 'https://placehold.co/600x400.png', dataAiHint: 'healthcare app', altText: 'Mockup of AfroHealth AI Platform on a laptop screen' },
-  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: 'https://placehold.co/600x400.png', dataAiHint: 'retail e-commerce', altText: 'RetailSense mobile e-commerce app interface example' },
-  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: 'https://placehold.co/600x400.png', dataAiHint: 'agriculture portal', altText: 'AgriGrow farmer portal dashboard displaying crop data' },
+  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/media/portfolio-healthcare-app.jpg', altText: 'Mockup of AfroHealth AI Platform on a laptop screen' },
+  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/media/portfolio-retail-ecommerce.jpg', altText: 'RetailSense mobile e-commerce app interface example' },
+  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/media/portfolio-agriculture-portal.jpg', altText: 'AgriGrow farmer portal dashboard displaying crop data' },
 ];
 
 export default function DesignServicesPage() {
@@ -77,7 +77,6 @@ export default function DesignServicesPage() {
                     <Image
                       src={item.imageUrl}
                       alt={item.altText}
-                      data-ai-hint={item.dataAiHint}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -121,6 +120,4 @@ export default function DesignServicesPage() {
     </>
   );
 }
-    
-
     

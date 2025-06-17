@@ -28,11 +28,10 @@ export function ProductCard({ product }: ProductCardProps) {
       <CardContent className="flex-grow">
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
           <Image
-            src={product.imageUrl} // Could be local /media/ or placeholder
+            src={product.imageUrl} // Expects local path e.g. /media/product-name.jpg
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
-            {...(product.imageUrl.startsWith('https://placehold.co') && product.imageHint && { 'data-ai-hint': product.imageHint })}
           />
         </div>
         <p className="text-sm text-foreground/70 mb-4 leading-relaxed line-clamp-4">{product.description}</p>
@@ -60,6 +59,4 @@ export function ProductCard({ product }: ProductCardProps) {
     </Card>
   );
 }
-    
-
     

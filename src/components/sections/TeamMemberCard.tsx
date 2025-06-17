@@ -16,9 +16,8 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={member.imageUrl}
+            src={member.imageUrl} // Expects local path like /media/team-member-name.jpg
             alt={imageAltText}
-            data-ai-hint={member.imageHint}
             fill
             className="object-cover rounded-t-lg"
           />
@@ -46,6 +45,4 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
     </Card>
   );
 }
-    
-
     

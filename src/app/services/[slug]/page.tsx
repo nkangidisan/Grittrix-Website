@@ -12,6 +12,7 @@ type Props = {
   params: { slug: string };
 };
 
+// Data directly in the file, using local image paths
 const serviceDetailsData: { 
   [key: string]: {
     title: string;
@@ -28,64 +29,64 @@ const serviceDetailsData: {
         description: 'Unlock actionable insights with custom-built AI dashboards that transform raw data into strategic assets.', 
         longDescription: 'Our AI Dashboards & Reporting Tools service empowers your organization to transform raw data into strategic assets. We design and develop intuitive, interactive dashboards that provide real-time insights into your key performance indicators (KPIs), operational metrics, and market trends. By leveraging advanced data visualization techniques and AI-driven analytics, we help you identify patterns, uncover hidden opportunities, and make data-backed decisions with confidence. These dashboards are tailored to your specific industry and business needs, ensuring relevance and maximum impact.', 
         features: ['Real-time data visualization', 'Custom KPI tracking', 'Predictive analytics integration', 'User-friendly interface', 'Mobile-responsive design', 'Secure data handling'], 
-        imageUrl: 'https://placehold.co/1080x608.png', 
-        imageHint: 'dashboard charts' 
+        imageUrl: '/media/service-ai-dashboards.jpg', 
+        imageHint: 'dashboard charts data visualization' 
     },
     'forecasting': { 
         title: 'Smart Forecasting Engines', 
         description: 'Leverage machine learning models for accurate demand forecasting, sales projections, and resource allocation.', 
         longDescription: 'Stay ahead of market dynamics with our Smart Forecasting Engines. We utilize sophisticated machine learning algorithms and statistical models to analyze historical data, identify influencing factors, and generate accurate forecasts for demand, sales, resource allocation, and more. Our approach helps businesses optimize inventory, improve financial planning, mitigate risks, and capitalize on emerging trends. We work closely with you to understand your specific forecasting needs and deliver models that are both robust and interpretable.', 
         features: ['Demand & sales forecasting', 'Financial trend analysis', 'Inventory optimization', 'Resource allocation planning', 'Risk assessment models', 'Scenario modeling'], 
-        imageUrl: 'https://placehold.co/1080x608.png', 
-        imageHint: 'forecast graph' 
+        imageUrl: '/media/service-forecasting.jpg', 
+        imageHint: 'forecast graph financial chart' 
     },
     'prediction-models': {
         title: 'Disease & Stock Prediction Models',
         description: 'Anticipate health trends and optimize inventory with advanced AI predictive modeling for healthcare and retail.',
         longDescription: 'Our Disease & Stock Prediction Models provide critical foresight for healthcare and retail sectors. For healthcare, we develop models to predict disease outbreaks and patient risk, enabling proactive interventions. For retail, our AI analyzes patterns to forecast stock needs, minimizing waste and ensuring availability. These tailored models enhance preparedness and operational efficiency.',
         features: ['Epidemiological trend prediction', 'Patient risk stratification', 'Inventory demand forecasting', 'Supply chain optimization alerts', 'Custom model training', 'Integration with existing data sources'],
-        imageUrl: 'https://placehold.co/1080x608.png', 
-        imageHint: 'prediction medical'
+        imageUrl: '/media/service-prediction-models.jpg', 
+        imageHint: 'prediction medical retail'
     },
     'custom-applications': {
         title: 'Custom Web & Mobile Applications',
         description: 'Build high-performance, AI-integrated web and mobile solutions tailored to your unique business needs.',
         longDescription: 'We design and develop bespoke web and mobile applications that are not only scalable and secure but also deeply integrated with AI capabilities. From customer-facing platforms to internal operational tools, our applications are crafted to deliver intuitive user experiences and drive tangible business outcomes. We focus on modern technology stacks and agile development methodologies.',
         features: ['Responsive web design', 'Native & cross-platform mobile apps', 'AI feature integration (chatbots, recommendations)', 'Scalable backend architecture', 'User-centric UI/UX design', 'Ongoing maintenance & support'],
-        imageUrl: 'https://placehold.co/1080x608.png',
-        imageHint: 'app mobile'
+        imageUrl: '/media/service-custom-applications.jpg',
+        imageHint: 'app mobile web development'
     },
     'cloud-services': {
         title: 'Cloud Hosting & Deployment',
         description: 'Securely host and deploy your applications on optimized, scalable cloud infrastructure with expert management.',
         longDescription: 'Leverage the power and flexibility of the cloud with our expert hosting and deployment services. We help you choose the right cloud platform, configure robust environments, and manage your applications for optimal performance, security, and cost-efficiency. Our services cover migration, CI/CD pipeline setup, and ongoing infrastructure management.',
         features: ['Cloud strategy & consultation', 'Infrastructure setup & configuration', 'Automated deployment (CI/CD)', 'Scalability & load balancing', 'Security & compliance management', 'Cost optimization'],
-        imageUrl: 'https://placehold.co/1080x608.png', 
-        imageHint: 'cloud server'
+        imageUrl: '/media/service-cloud-services.jpg', 
+        imageHint: 'cloud server hosting'
     },
     'integrations': {
         title: 'Software Integrations (POS, EHR, LMS, CRMs)',
         description: 'Seamlessly connect your critical business systems like POS, EHR, LMS, and CRMs for unified data and streamlined workflows.',
         longDescription: 'Break down data silos and enhance operational efficiency by integrating your diverse software applications. We specialize in connecting POS systems, Electronic Health Records (EHR), Learning Management Systems (LMS), Customer Relationship Management (CRMs), and other enterprise tools. Our integrations ensure smooth data flow, enabling a holistic view of your operations.',
         features: ['API development & integration', 'Third-party system integration', 'Data synchronization solutions', 'Workflow automation', 'Custom middleware development', 'Legacy system integration'],
-        imageUrl: 'https://placehold.co/1080x608.png', 
-        imageHint: 'systems integration'
+        imageUrl: '/media/service-integrations.jpg', 
+        imageHint: 'systems integration api'
     },
     'data-analytics-services': {
         title: 'Data Collection, Cleaning, & Analysis',
         description: 'Unlock the power of your data with comprehensive services from collection and preparation to deep actionable insights.',
         longDescription: 'Transform your raw data into a strategic asset. Our end-to-end data services include robust data collection strategies, meticulous data cleaning and preparation, and advanced analytical techniques. We help you uncover hidden patterns, understand trends, and derive actionable insights to drive informed decision-making and business growth.',
         features: ['Data sourcing & collection strategies', 'Data cleansing & preprocessing', 'Exploratory data analysis (EDA)', 'Statistical modeling & analysis', 'Big data processing', 'Custom reporting & visualization'],
-        imageUrl: 'https://placehold.co/1080x608.png', 
-        imageHint: 'data analysis'
+        imageUrl: '/media/service-data-analytics.jpg', 
+        imageHint: 'data analysis charts'
     },
     'training-support': {
         title: 'Staff Training & Technical Support',
         description: 'Empower your team with comprehensive training on new systems and AI tools, backed by reliable technical support.',
         longDescription: 'Maximize the value of your technology investments with our tailored training programs and ongoing technical support. We provide hands-on training for your staff to ensure proficiency with new systems and AI tools. Our dedicated support team is available to address any technical challenges, ensuring smooth operations and continuous improvement.',
         features: ['Customized training programs', 'On-site & remote training sessions', 'User documentation & guides', 'Dedicated helpdesk support', 'Troubleshooting & issue resolution', 'Proactive system monitoring'],
-        imageUrl: 'https://placehold.co/1080x608.png', 
-        imageHint: 'training team'
+        imageUrl: '/media/service-training-support.jpg', 
+        imageHint: 'training team support'
     }
 };
 
@@ -102,8 +103,10 @@ export async function generateMetadata(
       description: 'The service you are looking for could not be found.',
     };
   }
+  // Construct absolute URL for OG image if using local paths
+  const domain = (await parent).metadataBase || new URL('https://grittrix.com');
+  const absoluteImageUrl = new URL(service.imageUrl, domain).toString();
 
-  const absoluteImageUrl = service.imageUrl; // Placeholder images are absolute URLs
 
   return {
     title: `${service.title} | Grittrix Services`,
@@ -131,7 +134,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
   ];
   
   const IconComponent = serviceInfoFromList?.icon; 
-  const imageAltText = details.imageHint ? `${details.title} - ${details.imageHint}` : details.title;
+  const imageAltText = details.imageHint ? `${details.title} - representing ${details.imageHint}` : details.title;
 
   return (
     <>
@@ -145,9 +148,8 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl animate-fade-in">
               <Image 
-                src={details.imageUrl} 
+                src={details.imageUrl} // Local path
                 alt={imageAltText} 
-                data-ai-hint={details.imageHint}
                 fill
                 className="object-cover" 
                 priority
@@ -202,6 +204,4 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 export async function generateStaticParams() {
   return Object.keys(serviceDetailsData).map(slug => ({ slug }));
 }
-    
-
     

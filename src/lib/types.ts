@@ -4,8 +4,7 @@ export interface TeamMember {
   name: string;
   role: string;
   bio: string;
-  imageUrl: string;
-  imageHint?: string; // Added for placeholders
+  imageUrl: string; // Will be local path e.g., /media/team-member-name.jpg
   socials?: {
     linkedin?: string;
     twitter?: string;
@@ -27,8 +26,8 @@ export interface Industry {
   painPoints: string[];
   solutions: string[];
   icon: React.ElementType;
-  imageUrl: string;
-  imageHint?: string; // Added for placeholders
+  imageUrl: string; // Will be local path e.g., /media/industry-name.jpg
+  imageHint?: string; // Kept for cases where it might still be useful for alt text, but not for placeholder hints
 }
 
 export interface Product {
@@ -37,8 +36,8 @@ export interface Product {
   tagline: string;
   description: string;
   icon: React.ElementType;
-  imageUrl: string;
-  imageHint?: string;
+  imageUrl: string; // Will be local path e.g., /media/product-name.jpg
+  imageHint?: string; // For alt text enhancement
   features: string[];
 }
 
@@ -46,8 +45,7 @@ export interface MerchandiseItem {
   id: string;
   name: string;
   price?: string;
-  imageUrl: string;
-  imageHint?: string;
+  imageUrl: string; // Will be local path e.g., /media/merch-item-name.jpg
   description?: string;
 }
 
@@ -67,7 +65,6 @@ export interface BlogPost {
   excerpt: string;
   author: string;
   date: string;
-  imageUrl: string;
-  dataAiHint?: string; // Added for placeholders
+  imageUrl: string; // Will be local path e.g., /media/blog-slug-name.jpg
   category: string;
 }

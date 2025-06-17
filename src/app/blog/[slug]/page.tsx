@@ -52,8 +52,10 @@ export async function generateMetadata(
       description: 'The blog post you are looking for could not be found.',
     };
   }
+  // Construct absolute URL for OG image if using local paths
+  const domain = (await parent).metadataBase || new URL('https://grittrix.com');
+  const absoluteImageUrl = new URL(post.imageUrl, domain).toString();
 
-  const absoluteImageUrl = post.imageUrl; // Placeholder images are absolute URLs
 
   return {
     title: `${post.title} | Grittrix Blog`,
@@ -98,9 +100,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       />
       <div className="relative h-64 md:h-96 w-full">
         <Image
-            src={post.imageUrl}
+            src={post.imageUrl} // Expects local path e.g., /media/blog-post-slug.jpg
             alt={`Blog post image for ${post.title}`}
-            data-ai-hint={post.dataAiHint}
             fill
             className="object-cover"
             priority
@@ -154,6 +155,4 @@ export async function generateStaticParams() {
     slug: post.slug,
   }));
 }
-    
-
     

@@ -96,9 +96,8 @@ export default async function ServicesPage() {
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
                <Image 
-                src="https://placehold.co/1080x608.png"
+                src="/media/services-custom-solutions.jpg"
                 alt="Team of Grittrix experts collaborating on custom AI solutions for a client, demonstrating project planning and execution" 
-                data-ai-hint="team collaboration"
                 fill 
                 className="object-cover" 
                 />
@@ -109,6 +108,4 @@ export default async function ServicesPage() {
     </>
   );
 }
-    
-
     
