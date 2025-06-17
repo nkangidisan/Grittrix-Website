@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   description: 'Grittrix delivers specialized AI solutions for Healthcare, Retail, Agriculture, and Education, tailored to emerging markets.',
 };
 
-// Simplified type for this page, using local image paths
 interface IndustryOverview extends Pick<Industry, 'id' | 'name' | 'description' | 'icon' | 'imageUrl'> {
   altText: string;
 }
@@ -45,7 +44,7 @@ export default function IndustriesPage() {
             {industriesOverview.map((industry) => (
               <IndustryCard
                 key={industry.id}
-                industry={industry} // Pass the simplified structure
+                industry={industry} 
                 linkHref={`/industries/${industry.id}`}
               />
             ))}

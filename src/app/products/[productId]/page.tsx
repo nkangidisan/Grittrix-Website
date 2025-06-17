@@ -27,7 +27,6 @@ export async function generateMetadata(
     };
   }
 
-  // Construct absolute URL for OG image if using local paths
   const domain = (await parent).metadataBase || new URL('https://grittrix.com');
   const absoluteImageUrl = new URL(product.imageUrl, domain).toString();
 
@@ -56,7 +55,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
   ];
 
   const IconComponent = product.icon;
-  const imageAltText = product.imageHint ? `${product.name} - ${product.imageHint}` : `${product.name} product visualization by Grittrix`;
+  const imageAltText = `${product.name} - ${product.tagline}`;
 
   return (
     <>
@@ -72,7 +71,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
             <div className="sticky top-24">
               <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl mb-8">
                 <Image
-                  src={product.imageUrl} // Expects local path e.g. /media/product-name.jpg
+                  src={product.imageUrl} 
                   alt={imageAltText}
                   fill
                   className="object-cover"

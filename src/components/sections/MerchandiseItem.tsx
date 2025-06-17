@@ -16,7 +16,7 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={item.imageUrl} // Expects local path e.g., /media/merch-item-name.jpg
+            src={item.imageUrl}
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"

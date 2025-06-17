@@ -53,7 +53,7 @@ export async function generateMetadata(
     };
   }
   // Construct absolute URL for OG image if using local paths
-  const domain = (await parent).metadataBase || new URL('https://grittrix.com');
+  const domain = (await parent).metadataBase || new URL('https://grittrix.com'); // Fallback to a default domain
   const absoluteImageUrl = new URL(post.imageUrl, domain).toString();
 
 
@@ -100,7 +100,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       />
       <div className="relative h-64 md:h-96 w-full">
         <Image
-            src={post.imageUrl} // Expects local path e.g., /media/blog-post-slug.jpg
+            src={post.imageUrl}
             alt={`Blog post image for ${post.title}`}
             fill
             className="object-cover"

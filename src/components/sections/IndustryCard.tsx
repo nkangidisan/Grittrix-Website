@@ -1,14 +1,13 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-// Use a more specific pick from Industry or define a local type if Industry type is too broad
 import type { Industry } from '@/lib/types'; 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 
 interface IndustryCardProps {
-  industry: Pick<Industry, 'id' | 'name' | 'description' | 'icon' | 'imageUrl'> & { altText?: string }; // imageHint removed as we are using local paths
+  industry: Pick<Industry, 'id' | 'name' | 'description' | 'icon' | 'imageUrl'> & { altText?: string };
   linkHref: string;
 }
 
@@ -21,7 +20,7 @@ export function IndustryCard({ industry, linkHref }: IndustryCardProps) {
       <CardHeader>
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
           <Image
-            src={industry.imageUrl} // Expects local path like /media/industry-card-name.jpg
+            src={industry.imageUrl}
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"

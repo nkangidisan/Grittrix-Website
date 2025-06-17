@@ -1,5 +1,4 @@
 
-import type { Metadata } from 'next';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,11 +8,6 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-export const metadata: Metadata = {
-  title: 'Grittrix AI Solutions | Transforming Industries with AI',
-  description: 'Grittrix provides AI-powered solutions for healthcare, retail, agriculture, and education in Africa and emerging markets. Unlock smarter decisions and automate operations.',
-};
 
 const keyFeatures = [
   { name: 'Insight Dashboards', description: 'Get real-time analytics and forecasts tailored to your sector.', icon: BarChartBig },
@@ -29,7 +23,7 @@ const industriesServed = [
     icon: HeartPulse, 
     link: '/industries/healthcare', 
     imageSrc: '/media/industry-healthcare.jpg',
-    altText: 'Doctor reviewing medical data on a tablet, representing Grittrix AI for Healthcare',
+    altText: 'Grittrix AI for Healthcare - advanced medical diagnostics',
     points: [
       'Smart patient triage',
       'AI-assisted diagnostics',
@@ -42,7 +36,7 @@ const industriesServed = [
     icon: ShoppingCart, 
     link: '/industries/retail', 
     imageSrc: '/media/industry-retail.jpg',
-    altText: 'Modern retail store interior with diverse products, illustrating Grittrix AI for Retail',
+    altText: 'Grittrix AI for Retail - e-commerce optimization',
     points: [
       'Inventory optimization',
       'Sales prediction',
@@ -55,7 +49,7 @@ const industriesServed = [
     icon: Leaf, 
     link: '/industries/agriculture', 
     imageSrc: '/media/industry-agriculture.jpg',
-    altText: 'Lush green field with a farmer using a drone, showcasing Grittrix AI for Agriculture',
+    altText: 'Grittrix AI for Agriculture - smart farming solutions',
     points: [
       'AI crop disease detection',
       'Weather-based yield prediction',
@@ -68,7 +62,7 @@ const industriesServed = [
     icon: BookOpen, 
     link: '/industries/education', 
     imageSrc: '/media/industry-education.jpg',
-    altText: 'Students engaging with interactive technology in a classroom, representing Grittrix AI for Education',
+    altText: 'Grittrix AI for Education - personalized learning platforms',
     points: [
       'AI-powered tutoring',
       'Student performance analytics',
@@ -94,9 +88,9 @@ const whyGrittrixPoints = [
 ];
 
 const testimonials = [
-    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/testimonial-healthcare.jpg", altText: "Testimonial from a Grittrix Healthcare Partner" },
-    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/testimonial-agriculture.jpg", altText: "Testimonial from a Grittrix Agri-Business Owner" },
-    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/testimonial-education.jpg", altText: "Testimonial from an Education Leader using Grittrix" }
+    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/testimonial-healthcare-partner.jpg", altText: "Testimonial from a Grittrix Healthcare Partner" },
+    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/testimonial-agri-business-owner.jpg", altText: "Testimonial from a Grittrix Agri-Business Owner" },
+    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/testimonial-education-leader.jpg", altText: "Testimonial from an Education Leader using Grittrix" }
 ];
 
 const quickNavLinks = [
@@ -162,12 +156,12 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
             {industriesServed.map((industry, index) => (
               <Card key={industry.name} className="bg-card hover:shadow-2xl transition-all duration-300 group flex flex-col md:flex-row overflow-hidden animate-slide-in-up" style={{ animationDelay: `${index * 150}ms`}}>
-                <div className="md:w-1/3 relative">
+                <div className="md:w-1/3 relative h-48 md:h-auto"> {/* Ensure parent has dimensions or aspect ratio for fill */}
                   <Image 
                     src={industry.imageSrc} 
                     alt={industry.altText}
                     fill
-                    className="object-cover w-full h-48 md:h-full group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent md:bg-gradient-to-r md:from-black/70 md:to-transparent"></div>
                   <div className="absolute bottom-4 left-4 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:transform p-2 bg-primary/20 rounded-full">

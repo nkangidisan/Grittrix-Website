@@ -12,7 +12,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const IconComponent = product.icon;
-  const imageAltText = product.imageHint ? `${product.name} showcasing ${product.imageHint}` : `Grittrix Product: ${product.name} - ${product.tagline}`;
+  const imageAltText = `Grittrix Product: ${product.name} - ${product.tagline}`;
 
   return (
     <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group">
@@ -28,7 +28,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <CardContent className="flex-grow">
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
           <Image
-            src={product.imageUrl} // Expects local path e.g. /media/product-name.jpg
+            src={product.imageUrl} 
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
