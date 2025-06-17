@@ -4,7 +4,8 @@ import { cn } from '@/lib/utils';
 import Image from 'next/image';
 
 export function GrittrixLogo({ className, ...props }: SVGProps<SVGSVGElement> & { className?: string }) {
-  // Using next/image for the SVG logo file as per user's list
+  // Using next/image for the SVG logo file as per user's list.
+  // The actual SVG content should be in public/media/Grittrixlogo.svg
   return (
     <div className={cn("relative", className)} style={{ width: props.width || 150, height: props.height || 33 }}>
       <Image

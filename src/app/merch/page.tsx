@@ -6,6 +6,7 @@ import type { MerchandiseItem } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ShoppingCart, Package } from 'lucide-react';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Grittrix Merchandise Store | Official AI Gear',
@@ -23,8 +24,7 @@ const merchandiseItems: MerchandiseItem[] = [
   { id: '7', name: 'Grittrix Insulated Bottle', price: '$34.99', imageUrl: '/media/merch-bottle.svg', description: 'Insulated bottle to stay hydrated while innovating.' },
   { id: '8', name: 'Grittrix Executive Pen', price: '$12.99', imageUrl: '/media/merch-pen.svg', description: 'Sleek pen for your best ideas.' },
 ];
-// If 'Grittrixmerchandise.svg' is meant to be a general image for this page, it could be used as a banner.
-// However, the items list uses specific image URLs.
+
 
 export default function MerchPage() {
   const breadcrumbs = [{ name: 'Merchandise' }];
@@ -47,11 +47,13 @@ export default function MerchPage() {
             <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
               Get your hands on exclusive Grittrix merchandise. Perfect for tech enthusiasts, AI practitioners, and supporters of innovation in emerging markets.
             </p>
-            {/* Optional: Add a general merchandise banner image here if 'Grittrixmerchandise.svg' is for that
             <div className="my-8 relative aspect-[16/9] max-w-3xl mx-auto">
-              <Image src="/media/Grittrixmerchandise.svg" alt="Grittrix Merchandise Collection" fill className="object-contain rounded-lg"/>
-            </div> 
-            */}
+              <Image 
+                src="/media/Grittrixmerchandise.svg" // Using specific filename from user list
+                alt="Grittrix Merchandise Collection banner" 
+                fill 
+                className="object-contain rounded-lg"/>
+            </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {merchandiseItems.map((item) => (

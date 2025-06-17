@@ -19,7 +19,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Healthcare',
     description: 'Empowering healthcare providers with AI to improve patient outcomes, enhance diagnostics, and streamline operations.',
     icon: HeartPulse,
-    imageUrl: '/media/health.svg', // Updated to use user-provided name
+    imageUrl: '/media/health.svg', // Using specific filename from user list
     painPoints: [
       'Late disease detection and diagnosis',
       'Inefficient patient data management',
@@ -40,7 +40,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Retail & E-commerce',
     description: 'Transforming the retail landscape with AI for personalized experiences, optimized supply chains, and smarter operations.',
     icon: ShoppingCart,
-    imageUrl: '/media/retail.svg', // Updated to use user-provided name
+    imageUrl: '/media/retail.svg', // Using specific filename from user list
     painPoints: [
       'Understanding customer behavior and preferences',
       'Inventory mismanagement (overstocking/understocking)',
@@ -61,7 +61,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Agriculture',
     description: 'Driving sustainable agriculture and food security with AI-powered precision farming and data analytics.',
     icon: Leaf,
-    imageUrl: '/media/agriculture.svg', // Updated to use user-provided name
+    imageUrl: '/media/agriculture.svg', // Using specific filename from user list
     painPoints: [
       'Unpredictable weather patterns and climate change impact',
       'Crop diseases and pest infestations',
@@ -82,7 +82,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Education',
     description: 'Personalizing learning and enhancing educational outcomes with adaptive AI technologies.',
     icon: BookOpen,
-    imageUrl: '/media/education.svg', // Updated to use user-provided name
+    imageUrl: '/media/education.svg', // Using specific filename from user list
     painPoints: [
       'One-size-fits-all learning approaches',
       'Difficulty in catering to diverse student needs',

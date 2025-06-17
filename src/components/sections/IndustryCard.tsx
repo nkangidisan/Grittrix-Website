@@ -20,7 +20,7 @@ export function IndustryCard({ industry, linkHref }: IndustryCardProps) {
       <CardHeader>
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
           <Image
-            src={industry.imageUrl} // Expecting .svg path based on mapping
+            src={industry.imageUrl} // Expecting SVG path like /media/health.svg (user provided list)
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"

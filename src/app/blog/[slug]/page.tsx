@@ -54,7 +54,7 @@ export async function generateMetadata(
   }
   
   const domain = (await parent).metadataBase || new URL('https://grittrix.com');
-  const absoluteImageUrl = new URL(post.imageUrl, domain).toString(); // Expecting .svg path
+  const absoluteImageUrl = new URL(post.imageUrl, domain).toString(); 
 
   return {
     title: `${post.title} | Grittrix Blog`,
@@ -91,7 +91,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     { name: post.title }
   ];
   
-  const featuredImageUrl = post.imageUrl; // Already an SVG path from blogPosts data
+  const featuredImageUrl = post.imageUrl; // SVG path from blogPosts data
 
   return (
     <>
