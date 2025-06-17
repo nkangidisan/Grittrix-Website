@@ -9,8 +9,9 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { FinalCtaSection } from '@/components/layout/FinalCtaSection';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+// Header and Footer are already in (main)/layout.tsx
+// import { Header } from '@/components/layout/Header'; 
+// import { Footer } from '@/components/layout/Footer';
 
 
 const keyFeatures = [
@@ -26,7 +27,7 @@ const industriesServed = [
     name: 'Healthcare', 
     icon: HeartPulse, 
     link: '/industries/healthcare', 
-    imageSrc: '/media/industry-healthcare.svg',
+    imageSrc: '/media/health.svg',
     altText: 'Grittrix AI for Healthcare - advanced medical diagnostics illustration',
     points: [
       'Smart patient triage',
@@ -39,7 +40,7 @@ const industriesServed = [
     name: 'Retail', 
     icon: ShoppingCart, 
     link: '/industries/retail', 
-    imageSrc: '/media/industry-retail.svg',
+    imageSrc: '/media/retail.svg',
     altText: 'Grittrix AI for Retail - e-commerce optimization illustration',
     points: [
       'Inventory optimization',
@@ -52,7 +53,7 @@ const industriesServed = [
     name: 'Agriculture', 
     icon: Leaf, 
     link: '/industries/agriculture', 
-    imageSrc: '/media/industry-agriculture.svg',
+    imageSrc: '/media/agriculture.svg',
     altText: 'Grittrix AI for Agriculture - smart farming solutions illustration',
     points: [
       'AI crop disease detection',
@@ -65,7 +66,7 @@ const industriesServed = [
     name: 'Education', 
     icon: BookOpen, 
     link: '/industries/education', 
-    imageSrc: '/media/industry-education.svg',
+    imageSrc: '/media/education.svg',
     altText: 'Grittrix AI for Education - personalized learning platforms illustration',
     points: [
       'AI-powered tutoring',
@@ -92,9 +93,9 @@ const whyGrittrixPoints = [
 ];
 
 const testimonials = [
-    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/testimonial-healthcare-partner.svg", altText: "Testimonial from a Grittrix Healthcare Partner illustration" },
-    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/testimonial-agri-business-owner.svg", altText: "Testimonial from a Grittrix Agri-Business Owner illustration" },
-    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/testimonial-education-leader.svg", altText: "Testimonial from an Education Leader using Grittrix illustration" }
+    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/healthcarepartner.svg", altText: "Testimonial from a Grittrix Healthcare Partner" },
+    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/agribusinessowner.svg", altText: "Testimonial from a Grittrix Agri-Business Owner" },
+    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/educationleader.svg", altText: "Testimonial from an Education Leader using Grittrix" }
 ];
 
 const quickNavLinks = [
@@ -112,8 +113,8 @@ const quickNavLinks = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
+    <> {/* Removed redundant flex flex-col min-h-screen, handled by layout */}
+      {/* <Header />  Handled by (main)/layout.tsx */}
       <main className="flex-grow">
         <HeroSection />
 
@@ -274,7 +275,7 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 animate-fade-in">
               <div className="inline-block mb-6">
-                <GrittrixLogo className="h-12 md:h-16" />
+                <GrittrixLogo className="h-12 md:h-16" width={192} height={40}/>
               </div>
               <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Explore Grittrix</h2>
               <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
@@ -330,8 +331,8 @@ export default function Home() {
         </section>
       </main>
       <FinalCtaSection />
-      <Footer />
-    </div>
+      {/* <Footer /> Handled by (main)/layout.tsx */}
+    </>
   );
 }
     

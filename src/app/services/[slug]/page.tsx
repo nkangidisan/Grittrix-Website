@@ -12,7 +12,8 @@ type Props = {
   params: { slug: string };
 };
 
-// Data directly in the file - imageUrls updated to .svg
+// Data directly in the file - imageUrls updated to .svg paths
+// Ensure these paths match your files in public/media/
 const serviceDetailsData: { 
   [key: string]: {
     title: string;
@@ -104,7 +105,7 @@ export async function generateMetadata(
     };
   }
   const domain = (await parent).metadataBase || new URL('https://grittrix.com');
-  const absoluteImageUrl = new URL(service.imageUrl, domain).toString(); // Assuming imageUrl is .svg
+  const absoluteImageUrl = new URL(service.imageUrl, domain).toString(); 
 
   return {
     title: `${service.title} | Grittrix Services`,
@@ -145,7 +146,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl animate-fade-in">
               <Image 
-                src={details.imageUrl} // Expecting .svg path
+                src={details.imageUrl} 
                 alt={details.imageAlt} 
                 fill
                 className="object-cover" 

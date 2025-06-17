@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { CalendarDays, UserCircle, Tag, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-// Placeholder for full blog post content
+// Placeholder for full blog post content - assuming content remains text-based
 const fullBlogContent: { [key: string]: string[] } = {
   'ai-in-african-healthcare': [
     "The healthcare landscape in Africa is undergoing a significant transformation, and Artificial Intelligence (AI) is at the forefront of this revolution. From enhancing diagnostic capabilities to improving access to care in remote areas, AI offers unprecedented opportunities to address long-standing challenges.",
@@ -54,9 +54,7 @@ export async function generateMetadata(
   }
   
   const domain = (await parent).metadataBase || new URL('https://grittrix.com');
-  // Assuming imageUrl will now point to an SVG
-  const absoluteImageUrl = new URL(post.imageUrl.replace(/\.(png|jpg|jpeg)$/, '.svg'), domain).toString();
-
+  const absoluteImageUrl = new URL(post.imageUrl, domain).toString(); // Expecting .svg path
 
   return {
     title: `${post.title} | Grittrix Blog`,
@@ -93,7 +91,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     { name: post.title }
   ];
   
-  const featuredImageUrl = post.imageUrl.replace(/\.(png|jpg|jpeg)$/, '.svg');
+  const featuredImageUrl = post.imageUrl; // Already an SVG path from blogPosts data
 
   return (
     <>

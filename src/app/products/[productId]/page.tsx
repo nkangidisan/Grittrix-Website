@@ -28,8 +28,7 @@ export async function generateMetadata(
   }
 
   const domain = (await parent).metadataBase || new URL('https://grittrix.com');
-  // Assuming imageUrl will now point to an SVG
-  const absoluteImageUrl = new URL(product.imageUrl.replace(/\.(png|jpg|jpeg)$/, '.svg'), domain).toString();
+  const absoluteImageUrl = new URL(product.imageUrl, domain).toString(); // Expecting .svg path
 
   return {
     title: `${product.name} | Grittrix Products`,
@@ -57,7 +56,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
 
   const IconComponent = product.icon;
   const imageAltText = `${product.name} illustration - ${product.tagline}`;
-  const productImageUrl = product.imageUrl.replace(/\.(png|jpg|jpeg)$/, '.svg');
+  const productImageUrl = product.imageUrl; // Already an SVG path from productsList data
 
 
   return (

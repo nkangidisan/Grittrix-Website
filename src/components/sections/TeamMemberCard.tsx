@@ -10,13 +10,13 @@ interface TeamMemberCardProps {
 }
 
 export function TeamMemberCard({ member }: TeamMemberCardProps) {
-  const imageAltText = `Professional portrait illustration of ${member.name}, ${member.role} at Grittrix AI Solutions`;
+  const imageAltText = `Professional portrait of ${member.name}, ${member.role} at Grittrix AI Solutions`;
   return (
     <Card className="text-center bg-card hover:shadow-lg transition-shadow duration-300 flex flex-col">
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={member.imageUrl}
+            src={member.imageUrl} // Expecting path like /media/NkangiDisan.svg
             alt={imageAltText}
             fill
             className="object-cover rounded-t-lg"

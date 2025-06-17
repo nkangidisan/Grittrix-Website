@@ -10,13 +10,13 @@ interface MerchandiseItemProps {
 }
 
 export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
-  const imageAltText = item.description ? `${item.name} illustration - ${item.description}` : `Grittrix Merchandise illustration: ${item.name}`;
+  const imageAltText = item.description ? `${item.name} - ${item.description}` : `Grittrix Merchandise: ${item.name}`;
   return (
     <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group overflow-hidden">
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={item.imageUrl} // Expecting .svg path
+            src={item.imageUrl} // Expecting .svg path like /media/merch-hoodie.svg
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
