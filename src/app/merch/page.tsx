@@ -14,14 +14,14 @@ export const metadata: Metadata = {
 };
 
 const merchandiseItems: MerchandiseItem[] = [
-  { id: '1', name: 'Grittrix "Innovate" Hoodie', price: '$59.99', imageUrl: '/media/Grittrixhoodie.png', description: 'Premium hoodie, perfect for tech enthusiasts.' },
-  { id: '2', name: 'Grittrix AI Tee', price: '$29.99', imageUrl: '/media/merch-tee.png', description: 'Comfortable cotton tee with the Grittrix logo.' },
-  { id: '3', name: 'Grittrix Data Mug', price: '$19.99', imageUrl: '/media/merch-mug.png', description: 'Mug to start your day with AI-powered inspiration.' },
-  { id: '4', name: 'Grittrix Tech Cap', price: '$24.99', imageUrl: '/media/merch-cap.jpg', description: 'Stylish cap featuring the Grittrix emblem.' },
-  { id: '5', name: 'Grittrix AI Notebook', price: '$15.99', imageUrl: '/media/merch-notebook.png', description: 'Notebook to jot down your brilliant AI ideas.' },
-  { id: '6', name: 'Grittrix "Future" Sticker Pack', price: '$9.99', imageUrl: '/media/merch-sticker-pack.png', description: 'Sticker pack to decorate your gear with Grittrix pride.' },
-  { id: '7', name: 'Grittrix Insulated Bottle', price: '$34.99', imageUrl: '/media/merch-insulated-bottle.jpg', description: 'Insulated bottle to stay hydrated while innovating.' },
-  { id: '8', name: 'Grittrix Executive Pen', price: '$12.99', imageUrl: '/media/merch-pen.png', description: 'Sleek pen for your best ideas.' },
+  { id: '1', name: 'Grittrix "Innovate" Hoodie', price: '$17', imageUrl: '/media/Grittrixhoodie.png', description: 'Premium hoodie, perfect for tech enthusiasts.' },
+  { id: '2', name: 'Grittrix AI Tee', price: '$10', imageUrl: '/media/AITee.png', description: 'Comfortable cotton tee with the Grittrix logo.' },
+  { id: '3', name: 'Grittrix Data Mug', price: '$8', imageUrl: '/media/GrittrixDataMug.png', description: 'Mug to start your day with AI-powered inspiration.' },
+  { id: '4', name: 'Grittrix Tech Cap', price: '$8', imageUrl: '/media/GrittrixTechCap.png', description: 'Stylish cap featuring the Grittrix emblem.' },
+  { id: '5', name: 'Grittrix AI Notebook', price: '$5', imageUrl: '/media/GrittrixAINotebook.png', description: 'Notebook to jot down your brilliant AI ideas.' },
+  { id: '6', name: 'Grittrix "Future" Sticker Pack', price: '$12', imageUrl: '/media/GrittrixFutureStickerPack.png', description: 'Sticker pack to decorate your gear with Grittrix pride.' },
+  { id: '7', name: 'Grittrix Insulated Bottle', price: '$8', imageUrl: '/media/GrittrixInsulatedBottle.png', description: 'Insulated bottle to stay hydrated while innovating.' },
+  { id: '8', name: 'Grittrix Executive Pen', price: '$5', imageUrl: '/media/GrittrixExecutivePen.png', description: 'Sleek pen for your best ideas.' },
 ];
 
 
