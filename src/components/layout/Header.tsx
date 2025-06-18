@@ -37,9 +37,7 @@ export function Header() {
     <header
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
-        isScrolled ? 'bg-background/80 backdrop-blur-md shadow-lg' : 'bg-transparent' // bg-transparent might be too light for a navy bg. Consider bg-background initially for navy.
-                                                                                    // Or ensure Hero section has a dark top part for logo visibility.
-                                                                                    // For now, keeping as is, but this might need visual adjustment based on navy theme.
+        isScrolled ? 'bg-background/80 backdrop-blur-md shadow-lg' : 'bg-background'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,10 +56,10 @@ export function Header() {
           
           <div className="hidden lg:flex items-center space-x-4">
             <Button variant="outline" size="sm" asChild>
-              <Link href="/contact?subject=Demo Request">Request a Demo</Link>
+              <Link href={`/contact?subject=${encodeURIComponent('Demo Request')}`}><span>Request a Demo</span></Link>
             </Button>
-            <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild> {/* Changed accent to primary */}
-              <Link href="/contact?subject=Expert Consultation">Talk to Our Experts</Link>
+            <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
+              <Link href={`/contact?subject=${encodeURIComponent('Expert Consultation')}`}><span>Talk to Our Experts</span></Link>
             </Button>
           </div>
 
@@ -94,10 +92,10 @@ export function Header() {
                 </nav>
                 <div className="mt-8 flex flex-col space-y-3">
                    <Button variant="outline" asChild>
-                     <Link href="/contact?subject=Demo Request" onClick={() => setIsMobileMenuOpen(false)}>Request a Demo</Link>
+                     <Link href={`/contact?subject=${encodeURIComponent('Demo Request')}`} onClick={() => setIsMobileMenuOpen(false)}><span>Request a Demo</span></Link>
                    </Button>
-                   <Button variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild> {/* Changed accent to primary */}
-                     <Link href="/contact?subject=Expert Consultation" onClick={() => setIsMobileMenuOpen(false)}>Talk to Our Experts</Link>
+                   <Button variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
+                     <Link href={`/contact?subject=${encodeURIComponent('Expert Consultation')}`} onClick={() => setIsMobileMenuOpen(false)}><span>Talk to Our Experts</span></Link>
                    </Button>
                 </div>
               </SheetContent>
