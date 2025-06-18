@@ -22,7 +22,7 @@ const industriesServed = [
     name: 'Healthcare', 
     icon: HeartPulse, 
     link: '/industries/healthcare', 
-    imageSrc: '/media/health.webp', // Updated based on user's list
+    imageSrc: '/media/health.webp',
     altText: 'Grittrix AI for Healthcare - advanced medical diagnostics illustration',
     points: [
       'Smart patient triage',
@@ -35,7 +35,7 @@ const industriesServed = [
     name: 'Retail', 
     icon: ShoppingCart, 
     link: '/industries/retail', 
-    imageSrc: '/media/retail.webp', // Updated based on user's list
+    imageSrc: '/media/retail.webp',
     altText: 'Grittrix AI for Retail - e-commerce optimization illustration',
     points: [
       'Inventory optimization',
@@ -48,7 +48,7 @@ const industriesServed = [
     name: 'Agriculture', 
     icon: Leaf, 
     link: '/industries/agriculture', 
-    imageSrc: '/media/agriculture.webp', // Updated based on user's list
+    imageSrc: '/media/agriculture.webp',
     altText: 'Grittrix AI for Agriculture - smart farming solutions illustration',
     points: [
       'AI crop disease detection',
@@ -61,7 +61,7 @@ const industriesServed = [
     name: 'Education', 
     icon: BookOpen, 
     link: '/industries/education', 
-    imageSrc: '/media/education.webp', // Updated based on user's list
+    imageSrc: '/media/education.webp',
     altText: 'Grittrix AI for Education - personalized learning platforms illustration',
     points: [
       'AI-powered tutoring',
@@ -133,8 +133,8 @@ export default function Home() {
             {keyFeatures.map((feature, index) => (
               <Card key={feature.name} className="bg-card hover:shadow-xl transition-shadow duration-300 group animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
                 <CardHeader className="items-center text-center">
-                  <div className="p-4 bg-primary/10 rounded-full mb-3 group-hover:bg-primary/20 transition-colors"> {/* Changed accent to primary */}
-                    <feature.icon className="h-10 w-10 text-primary" /> {/* Changed accent to primary */}
+                  <div className="p-4 bg-primary/10 rounded-full mb-3 group-hover:bg-primary/20 transition-colors">
+                    <feature.icon className="h-10 w-10 text-primary" />
                   </div>
                   <CardTitle className="font-headline text-xl text-primary group-hover:text-primary/90 transition-colors">{feature.name}</CardTitle>
                 </CardHeader>
@@ -173,13 +173,15 @@ export default function Home() {
                   <ul className="space-y-2 mb-6">
                     {industry.points.map(point => (
                       <li key={point} className="flex items-center text-sm text-foreground/70">
-                        <CheckCircle className="h-4 w-4 text-primary mr-2 shrink-0" /> {/* Changed accent to primary */}
+                        <CheckCircle className="h-4 w-4 text-primary mr-2 shrink-0" />
                         {point}
                       </li>
                     ))}
                   </ul>
-                  <Button variant="link" asChild className="text-primary group-hover:underline self-start p-0"> {/* Changed accent to primary */}
-                    <Link href={industry.link}>Learn More <ArrowRight className="ml-1 h-4 w-4" /></Link>
+                  <Button variant="link" asChild className="text-primary group-hover:underline self-start p-0">
+                    <Link href={industry.link}>
+                      <span>Learn More <ArrowRight className="ml-1 h-4 w-4 inline" /></span>
+                    </Link>
                   </Button>
                 </div>
               </Card>
@@ -220,10 +222,10 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyGrittrixPoints.map((point, index) => (
-              <Card key={point.name} className="text-center p-6 bg-card rounded-lg shadow-lg hover:shadow-primary/30 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}> {/* Changed accent to primary */}
+              <Card key={point.name} className="text-center p-6 bg-card rounded-lg shadow-lg hover:shadow-primary/30 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
                 <CardHeader className="items-center p-0 mb-4">
-                  <div className="p-4 bg-primary/10 rounded-full mb-3"> {/* Changed accent to primary */}
-                    <point.icon className="h-10 w-10 text-primary" /> {/* Changed accent to primary */}
+                  <div className="p-4 bg-primary/10 rounded-full mb-3">
+                    <point.icon className="h-10 w-10 text-primary" />
                   </div>
                   <CardTitle className="font-headline text-xl text-primary">{point.name}</CardTitle>
                 </CardHeader>
@@ -247,7 +249,7 @@ export default function Home() {
               <Card key={index} className="bg-card p-6 rounded-lg shadow-xl animate-slide-in-up" style={{ animationDelay: `${index * 150}ms`}}>
                 <CardContent className="p-0">
                   <blockquote className="text-lg text-foreground/80 italic mb-4">"{testimonial.quote}"</blockquote>
-                  <p className="text-sm font-semibold text-primary">- {testimonial.source}</p> {/* Changed accent to primary */}
+                  <p className="text-sm font-semibold text-primary">- {testimonial.source}</p>
                   <div className="mt-4 relative aspect-[4/3] rounded overflow-hidden">
                     <Image 
                       src={testimonial.imageSrc} 
@@ -297,13 +299,13 @@ export default function Home() {
              <h3 className="text-xl font-headline font-semibold text-primary">Connect With Us</h3>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-8 text-foreground/80">
               <a href="tel:+919714688324" className="flex items-center hover:text-primary transition-colors">
-                <Phone className="h-5 w-5 mr-2 text-primary" /> +91 9714688324 {/* Changed accent to primary */}
+                <Phone className="h-5 w-5 mr-2 text-primary" /> +91 9714688324
               </a>
               <a href="tel:+256756693840" className="flex items-center hover:text-primary transition-colors">
-                <Phone className="h-5 w-5 mr-2 text-primary" /> +256 756693840 {/* Changed accent to primary */}
+                <Phone className="h-5 w-5 mr-2 text-primary" /> +256 756693840
               </a>
               <a href="mailto:info@grittrix.com" className="flex items-center hover:text-primary transition-colors">
-                <Mail className="h-5 w-5 mr-2 text-primary" /> info@grittrix.com {/* Changed accent to primary */}
+                <Mail className="h-5 w-5 mr-2 text-primary" /> info@grittrix.com
               </a>
             </div>
           </div>
