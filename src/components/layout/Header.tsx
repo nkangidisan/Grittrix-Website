@@ -96,13 +96,13 @@ export function Header() {
                 </nav>
                 <div className="mt-8 flex flex-col space-y-3">
                    <Button variant="outline" asChild>
-                     <Link href={`/contact?subject=${encodeURIComponent('Demo Request')}`} onClick={() => setIsMobileMenuOpen(false)} legacyBehavior passHref>
-                       <a><span>Request a Demo</span></a>
+                     <Link href={`/contact?subject=${encodeURIComponent('Demo Request')}`} legacyBehavior passHref>
+                       <a onClick={() => setIsMobileMenuOpen(false)}><span>Request a Demo</span></a>
                      </Link>
                    </Button>
                    <Button variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
-                     <Link href={`/contact?subject=${encodeURIComponent('Expert Consultation')}`} onClick={() => setIsMobileMenuOpen(false)} legacyBehavior passHref>
-                       <a><span>Talk to Our Experts</span></a>
+                     <Link href={`/contact?subject=${encodeURIComponent('Expert Consultation')}`} legacyBehavior passHref>
+                       <a onClick={() => setIsMobileMenuOpen(false)}><span>Talk to Our Experts</span></a>
                      </Link>
                    </Button>
                 </div>
