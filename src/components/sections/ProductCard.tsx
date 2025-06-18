@@ -13,7 +13,8 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const IconComponent = product.icon;
   const imageAltText = `Grittrix Product: ${product.name} - ${product.tagline}`;
-  const productImageUrl = product.imageUrl; // Expecting user-provided SVG path like /media/core.svg
+  // product.imageUrl will be like /media/core.png or /media/health.webp
+  const productImageUrl = product.imageUrl; 
 
   return (
     <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group">

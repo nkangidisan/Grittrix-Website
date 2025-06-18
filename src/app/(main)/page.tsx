@@ -4,10 +4,14 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
 import { 
-  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Building, Phone, Mail, ArrowRight, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay, ShieldCheck, ShoppingBag
+  HeartPulse, Leaf, BookOpen, ShoppingCart, Cpu, Lightbulb, Users, ShieldCheck, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Briefcase, Building, GitFork, Tv, Server, ShoppingBag, Phone, Mail, ArrowRight, Home as HomeIcon, Info, Settings, MessageSquare, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay, ExternalLink
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FinalCtaSection } from '@/components/layout/FinalCtaSection';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+
 
 const keyFeatures = [
   { name: 'Insight Dashboards', description: 'Get real-time analytics and forecasts tailored to your sector.', icon: BarChartBig },
@@ -17,12 +21,13 @@ const keyFeatures = [
   { name: 'Secure & Private', description: 'Your data is encrypted and securely hosted.', icon: ShieldCheck },
 ];
 
+// User specified health.webp, assuming .jpg for retail, agriculture, education based on general use
 const industriesServed = [
   { 
     name: 'Healthcare', 
     icon: HeartPulse, 
     link: '/industries/healthcare', 
-    imageSrc: '/media/health.svg',
+    imageSrc: '/media/health.webp', // User-specified
     altText: 'Grittrix AI for Healthcare - advanced medical diagnostics illustration',
     points: [
       'Smart patient triage',
@@ -35,7 +40,7 @@ const industriesServed = [
     name: 'Retail', 
     icon: ShoppingCart, 
     link: '/industries/retail', 
-    imageSrc: '/media/retail.svg',
+    imageSrc: '/media/retail.png', // Assuming .png for retail illustration
     altText: 'Grittrix AI for Retail - e-commerce optimization illustration',
     points: [
       'Inventory optimization',
@@ -48,7 +53,7 @@ const industriesServed = [
     name: 'Agriculture', 
     icon: Leaf, 
     link: '/industries/agriculture', 
-    imageSrc: '/media/agriculture.svg',
+    imageSrc: '/media/agriculture.jpg', // Assuming .jpg for agriculture photo/illustration
     altText: 'Grittrix AI for Agriculture - smart farming solutions illustration',
     points: [
       'AI crop disease detection',
@@ -61,7 +66,7 @@ const industriesServed = [
     name: 'Education', 
     icon: BookOpen, 
     link: '/industries/education', 
-    imageSrc: '/media/education.svg',
+    imageSrc: '/media/education.jpg', // Assuming .jpg for education photo/illustration
     altText: 'Grittrix AI for Education - personalized learning platforms illustration',
     points: [
       'AI-powered tutoring',
@@ -87,10 +92,11 @@ const whyGrittrixPoints = [
   { name: 'Expert Support', description: 'We don’t just sell tools. We walk with you. Real humans. Real impact.', icon: LifeBuoy },
 ];
 
+// Using user-specified names, assuming .png or .jpg for testimonial images
 const testimonials = [
-    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/healthcarepartner.svg", altText: "Testimonial from a Grittrix Healthcare Partner using AI solutions" },
-    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/agribusinessowner.svg", altText: "Testimonial from a Grittrix Agri-Business Owner using smart farming tools" },
-    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/educationleader.svg", altText: "Testimonial from an Education Leader using Grittrix AI in education" }
+    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/healthcarepartner.png", altText: "Testimonial from a Grittrix Healthcare Partner using AI solutions" },
+    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/agribusinessowner.png", altText: "Testimonial from a Grittrix Agri-Business Owner using smart farming tools" },
+    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/educationleader.png", altText: "Testimonial from an Education Leader using Grittrix AI in education" }
 ];
 
 const quickNavLinks = [
@@ -108,7 +114,9 @@ const quickNavLinks = [
 
 export default function Home() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow">
         <HeroSection />
 
         {/* What We Do Section */}
@@ -268,7 +276,7 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 animate-fade-in">
               <div className="inline-block mb-6">
-                <GrittrixLogo className="h-12 md:h-16" width={192} height={40}/>
+                 <GrittrixLogo className="h-12 md:h-16" width={192} height={40}/>
               </div>
               <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Explore Grittrix</h2>
               <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
@@ -322,7 +330,10 @@ export default function Home() {
             </div>
           </div>
         </section>
-    </>
+      </main>
+      <FinalCtaSection />
+      <Footer />
+    </div>
   );
 }
-    
+

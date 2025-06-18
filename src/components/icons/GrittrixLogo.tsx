@@ -3,17 +3,25 @@ import type { SVGProps } from 'react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 
-export function GrittrixLogo({ className, ...props }: SVGProps<SVGSVGElement> & { className?: string }) {
-  // Using next/image for the SVG logo file as per user's list.
-  // The actual SVG content should be in public/media/Grittrixlogo.svg
+// Reverted to use next/image with a raster logo as per user clarification.
+// User needs to ensure 'public/media/Grittrixlogo.png' (or .jpeg) exists.
+// Defaulting to .png for logos.
+
+interface GrittrixLogoProps {
+  className?: string;
+  width?: number;
+  height?: number;
+}
+
+export function GrittrixLogo({ className, width = 150, height = 33 }: GrittrixLogoProps) {
   return (
-    <div className={cn("relative", className)} style={{ width: props.width || 150, height: props.height || 33 }}>
+    <div className={cn("relative", className)} style={{ width, height }}>
       <Image
-        src="/media/Grittrixlogo.svg" 
+        src="/media/Grittrixlogo.png" 
         alt="Grittrix AI Solutions Logo"
         fill
         className="object-contain"
-        priority // Logo is usually LCP
+        priority 
       />
     </div>
   );

@@ -91,7 +91,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     { name: post.title }
   ];
   
-  const featuredImageUrl = post.imageUrl; // SVG path from blogPosts data
+  // Assuming blog post images are raster (e.g., .jpg or .png)
+  const featuredImageUrl = post.imageUrl; // e.g., /media/blog-ai-in-healthcare.jpg
 
   return (
     <>
