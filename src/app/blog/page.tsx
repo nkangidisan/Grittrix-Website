@@ -142,10 +142,6 @@ export default function BlogPage() {
               </Card>
             ))}
           </div>
-
-          <div className="mt-16 text-center">
-            <Button variant="ghost" className="text-primary hover:text-primary/90 hover:bg-primary/10">Load More Articles</Button>
-          </div>
         </div>
       </section>
     </>

@@ -89,11 +89,6 @@ export default function DesignServicesPage() {
               </Card>
             ))}
           </div>
-           <div className="text-center mt-12">
-            <Button variant="outline" size="lg" className="hover:bg-primary/10 hover:text-primary border-primary/50 text-primary">
-                View More Projects (Coming Soon)
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -120,4 +115,3 @@ export default function DesignServicesPage() {
     </>
   );
 }
-    

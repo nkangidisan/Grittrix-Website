@@ -109,7 +109,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-8">
             <div className="container mx-auto">
-                 <div className="mb-2 text-sm text-primary font-semibold uppercase tracking-wider flex items-center"> {/* Changed accent to primary */}
+                 <div className="mb-2 text-sm text-primary font-semibold uppercase tracking-wider flex items-center">
                      <Tag className="h-4 w-4 mr-1.5" /> {post.category}
                   </div>
                 <h1 className="text-3xl md:text-4xl font-bold font-headline text-white mb-2">{post.title}</h1>
@@ -137,12 +137,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <Button variant="outline" className="hover:bg-primary/10 hover:text-primary">
                     <Share2 className="h-4 w-4 mr-2" /> Share
                 </Button>
-            </div>
-
-            <div className="mt-12">
-                <h3 className="text-2xl font-bold font-headline text-primary mb-6">Related Articles</h3>
-                {/* Placeholder for related articles */}
-                <p className="text-foreground/70">More insights coming soon!</p>
             </div>
           </div>
         </div>
