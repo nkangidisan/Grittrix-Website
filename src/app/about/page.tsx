@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next';
-import { optimizeContent, type OptimizeContentOutput } from '@/ai/flows/content-optimization';
+// Removed optimizeContent import
 import { PageHeader } from '@/components/PageHeader';
 import { TeamMemberCard } from '@/components/sections/TeamMemberCard';
 import type { TeamMember } from '@/lib/types';
@@ -28,30 +28,13 @@ const coreValues = [
 ];
 
 
-export default async function AboutUsPage() {
-  let optimizedData: OptimizeContentOutput | null = null;
+export default function AboutUsPage() { // Changed to non-async
   const fallbackTitle = "About Grittrix: Redefining Industries with Technology";
   const fallbackContent = "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology.\n\nBorn from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education.\n\nWe believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive.";
   
-  const companyInfoForGenkit = "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology. Born from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education. We believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive. Our vision is to be the engine that powers data-driven transformation in Africa and beyond. Our values are: Innovation with purpose, Inclusion through simplicity, Transparency and trust, Resilience and grit.";
-
-  try {
-    optimizedData = await optimizeContent({
-      pageType: 'About Us',
-      keywords: 'AI solutions Africa, emerging markets tech, Grittrix mission, AI company values, expert AI team, accessible AI, scalable technology, localized solutions',
-      companyInfo: companyInfoForGenkit
-    });
-  } catch (error) {
-    console.error("Failed to fetch optimized content for About Us page. Using fallback content.", error);
-    optimizedData = {
-        title: fallbackTitle,
-        content: fallbackContent
-    }
-  }
-
   const breadcrumbs = [{ name: 'About Us' }];
-  const pageTitle = optimizedData?.title || fallbackTitle;
-  const storyContent = optimizedData?.content || fallbackContent;
+  const pageTitle = fallbackTitle;
+  const storyContent = fallbackContent;
 
   return (
     <>
@@ -75,7 +58,8 @@ export default async function AboutUsPage() {
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
                <Image 
-                src="/media/aboutpage.jpg" 
+                src="https://placehold.co/600x400.png"
+                data-ai-hint="team collaboration"
                 alt="Grittrix team collaborating - Our Story & Mission illustration" 
                 fill
                 className="object-cover" 
@@ -89,7 +73,7 @@ export default async function AboutUsPage() {
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold font-headline text-primary mb-4 flex items-center justify-center">
-                <Eye className="mr-3 h-10 w-10 text-primary" /> {/* Changed accent to primary */}
+                <Eye className="mr-3 h-10 w-10 text-primary" />
                 Our Vision
             </h2>
             <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed max-w-3xl mx-auto">

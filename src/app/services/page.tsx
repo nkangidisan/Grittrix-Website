@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next';
-import { optimizeContent, type OptimizeContentOutput } from '@/ai/flows/content-optimization';
+// Removed optimizeContent import
 import { PageHeader } from '@/components/PageHeader';
 import { ServiceItem } from '@/components/sections/ServiceItem';
 import type { Service } from '@/lib/types';
@@ -25,30 +25,13 @@ export const servicesList: Service[] = [
   { id: '8', title: 'Staff Training & Technical Support', description: 'Empower your team with comprehensive training and reliable technical support to maximize technology adoption.', icon: UsersRound, detailsUrl: '/services/training-support' },
 ];
 
-export default async function ServicesPage() {
-  let optimizedData: OptimizeContentOutput | null = null;
+export default function ServicesPage() { // Changed to non-async
   const fallbackTitle = "Our AI-Powered Services & Platforms";
   const fallbackContent = "Grittrix delivers a comprehensive suite of ready-to-use, AI-powered platforms and services designed to modernize your operations and drive growth.\n\nWe specialize in making advanced technology accessible and impactful for businesses in emerging markets.";
 
-  const companyInfoForGenkit = "Grittrix delivers ready-to-use, AI-powered platforms and services including AI Dashboards & Reporting, Smart Forecasting, Disease & Stock Prediction, Custom Web/Mobile Applications, Cloud Hosting, Software Integrations, Data Collection/Cleaning/Analysis, and Staff Training/Technical Support. Our mission is to modernize operations for businesses in emerging markets by making advanced technology accessible and impactful.";
-
-  try {
-    optimizedData = await optimizeContent({
-      pageType: 'Services',
-      keywords: 'AI services, machine learning solutions, custom software development, AI dashboards, business forecasting, cloud hosting, software integration, data analysis, technical support, AI in Africa',
-      companyInfo: companyInfoForGenkit
-    });
-  } catch (error) {
-    console.error("Failed to fetch optimized content for Services page. Using fallback content.", error);
-    optimizedData = {
-        title: fallbackTitle,
-        content: fallbackContent
-    }
-  }
-
   const breadcrumbs = [{ name: 'Services' }];
-  const pageTitle = optimizedData?.title || fallbackTitle;
-  const serviceIntroContent = optimizedData?.content || fallbackContent;
+  const pageTitle = fallbackTitle;
+  const serviceIntroContent = fallbackContent;
 
   return (
     <>
@@ -66,7 +49,7 @@ export default async function ServicesPage() {
                  {serviceIntroContent.split('\n\n').map((paragraph, index) => (
                     <p key={index}>{paragraph.trim()}</p>
                  ))}
-                 {!optimizedData && !fallbackContent.includes("We specialize in transforming businesses") && <p>We specialize in transforming businesses through a diverse range of AI-driven services. Our expertise spans data analytics, machine learning, custom software development, and strategic AI integration, helping you navigate the complexities of the digital age and achieve sustainable success.</p>}
+                 {!fallbackContent.includes("We specialize in transforming businesses") && <p>We specialize in transforming businesses through a diverse range of AI-driven services. Our expertise spans data analytics, machine learning, custom software development, and strategic AI integration, helping you navigate the complexities of the digital age and achieve sustainable success.</p>}
             </div>
           </div>
 
@@ -89,14 +72,15 @@ export default async function ServicesPage() {
                 At Grittrix, we understand that one size doesn't fit all. Our approach is to deeply understand your specific business context, challenges, and goals. We then co-create tailored AI strategies and solutions that deliver maximum impact and value.
               </p>
               <ul className="space-y-3 text-foreground/80">
-                <li className="flex items-start"><BrainCircuit className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" /><span>Bespoke AI model development to fit your data and objectives.</span></li> {/* Changed accent to primary */}
-                <li className="flex items-start"><Cable className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" /><span>Seamless integration with your existing systems and workflows.</span></li> {/* Changed accent to primary */}
-                <li className="flex items-start"><TrendingUp className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" /><span>Scalable solutions that grow with your business.</span></li> {/* Changed accent to primary */}
+                <li className="flex items-start"><BrainCircuit className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" /><span>Bespoke AI model development to fit your data and objectives.</span></li>
+                <li className="flex items-start"><Cable className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" /><span>Seamless integration with your existing systems and workflows.</span></li>
+                <li className="flex items-start"><TrendingUp className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" /><span>Scalable solutions that grow with your business.</span></li>
               </ul>
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
                <Image 
-                src="/media/servicepage.webp" 
+                src="https://placehold.co/600x400.png"
+                data-ai-hint="team collaboration"
                 alt="Illustration of Grittrix experts collaborating on custom AI solutions, project planning" 
                 fill 
                 className="object-cover" 
