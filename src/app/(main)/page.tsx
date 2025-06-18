@@ -180,10 +180,8 @@ export default function Home() {
                     ))}
                   </ul>
                   <Button variant="link" asChild className="text-primary group-hover:underline self-start p-0 h-auto">
-                    <Link href={industry.link} legacyBehavior passHref>
-                      <a className="flex items-center">
-                        <span>Learn More <ArrowRight className="ml-1 h-4 w-4 inline" /></span>
-                      </a>
+                    <Link href={industry.link} className="flex items-center">
+                      <span>Learn More <ArrowRight className="ml-1 h-4 w-4 inline" /></span>
                     </Link>
                   </Button>
                 </div>

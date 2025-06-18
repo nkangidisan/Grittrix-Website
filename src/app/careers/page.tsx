@@ -91,13 +91,11 @@ export default function CareersPage() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                    <Link href={job.applyUrl || `/contact?subject=Application for ${encodeURIComponent(job.title)}`} legacyBehavior passHref>
-                      <a className="flex items-center justify-center w-full">
-                        <span>
-                          Learn More & Apply Online
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </span>
-                      </a>
+                    <Link href={job.applyUrl || `/contact?subject=Application for ${encodeURIComponent(job.title)}`} className="flex items-center justify-center w-full">
+                      <span>
+                        Learn More & Apply Online
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </span>
                     </Link>
                   </Button>
                 </CardFooter>

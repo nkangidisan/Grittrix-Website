@@ -25,7 +25,7 @@ export function ServiceItem({ service }: ServiceItemProps) {
       {service.detailsUrl && (
         <div className="p-6 pt-0">
           <Button variant="link" asChild className="text-primary p-0 h-auto group-hover:underline">
-            <Link href={service.detailsUrl}>
+            <Link href={service.detailsUrl} className="flex items-center">
               <span>
                 Learn More <ArrowRight className="ml-1 h-4 w-4" />
               </span>
