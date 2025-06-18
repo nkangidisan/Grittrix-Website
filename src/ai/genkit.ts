@@ -86,7 +86,7 @@ const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
 
 export const ai = genkit({
   plugins: [
-    googleAI(apiKey ? { apiKey } : {}), // Pass apiKey if available
+    googleAI(apiKey ? { apiKey } : {}), // Pass apiKey if available, otherwise rely on ADC
   ],
   model: 'gemini-1.0-pro', // Using a widely available and robust model.
 });
