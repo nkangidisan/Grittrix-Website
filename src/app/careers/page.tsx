@@ -109,7 +109,9 @@ export default function CareersPage() {
             </p>
             <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10 hover:text-primary">
               <Link href={`mailto:careers@grittrix.com?subject=${encodeURIComponent('General Career Inquiry')}`}>
-                <Mail className="mr-2 h-5 w-5" /> Send Your CV to careers@grittrix.com
+                <span>
+                  <Mail className="mr-2 h-5 w-5" /> Send Your CV to careers@grittrix.com
+                </span>
               </Link>
             </Button>
           </div>
