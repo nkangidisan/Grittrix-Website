@@ -204,3 +204,5 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 export async function generateStaticParams() {
   return Object.keys(serviceDetailsData).map(slug => ({ slug }));
 }
+
+    
