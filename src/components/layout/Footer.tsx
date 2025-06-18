@@ -1,13 +1,14 @@
+
 import Link from 'next/link';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
-import { Linkedin, Twitter, Facebook, Instagram, Youtube, Mail, Phone, MessageCircle, Building, Users, Briefcase, Cpu, Server, Tv, ShoppingBag, BookOpen, Layers } from 'lucide-react';
+import { Linkedin, Twitter, Facebook, Instagram, Youtube, Mail, Phone, MessageCircle, Building, Users, Briefcase, Cpu, Server, Tv, ShoppingBag, BookOpen, Layers, HelpCircle, ShieldAlert } from 'lucide-react';
 
 const socialLinks = [
-  { href: '#', label: 'LinkedIn', icon: Linkedin },
-  { href: '#', label: 'Twitter', icon: Twitter },
-  { href: '#', label: 'Facebook', icon: Facebook },
-  { href: '#', label: 'Instagram', icon: Instagram },
-  { href: '#', label: 'YouTube', icon: Youtube },
+  { href: 'https://www.linkedin.com/company/grittrix/', label: 'LinkedIn', icon: Linkedin },
+  { href: 'https://x.com/grittrix', label: 'Twitter', icon: Twitter },
+  { href: 'https://www.facebook.com/Grittrix/', label: 'Facebook', icon: Facebook },
+  { href: 'https://www.instagram.com/grittrix/', label: 'Instagram', icon: Instagram },
+  { href: 'https://www.youtube.com/@AI_in_White_Coats', label: 'YouTube', icon: Youtube },
 ];
 
 const footerNavs = [
@@ -36,14 +37,17 @@ const footerNavs = [
     icon: BookOpen,
     items: [
       { href: '/merch', name: 'Grittrix Merch', icon: ShoppingBag },
-      { href: '/faq', name: 'FAQ', icon: Users }, // Example, can be created later
-      { href: '/privacy', name: 'Privacy Policy', icon: Users }, // Example
+      { href: '/faq', name: 'FAQ', icon: HelpCircle },
+      { href: '/privacy', name: 'Privacy Policy', icon: ShieldAlert },
     ],
   },
 ];
 
 
 export function Footer() {
+  const whatsappMessage = "Welcome to Grittrix, Redefining Industries with Technology! we build powerful, Website, Webapps and affordable AI and data solutions tailored for healthcare, retail, agriculture, and education helping businesses and institutions unlock smarter decisions, automate operations, and scale with confidence. Let us know how we can serve you at our best.";
+  const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
+
   return (
     <footer className="bg-background border-t border-border/50 mt-auto">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -53,7 +57,7 @@ export function Footer() {
               <GrittrixLogo className="h-10 w-auto mb-4" />
             </Link>
             <p className="text-sm text-foreground/70 leading-relaxed">
-              Pioneering AI-driven solutions for Africa and emerging markets. We empower businesses in healthcare, retail, agriculture, and education.
+              🔍 Pioneering AI-driven solutions for Africa and emerging markets. We are Grittrix Redefining Industries with Technology.
             </p>
             <div className="mt-6 flex space-x-4">
               {socialLinks.map((social) => (
@@ -109,14 +113,14 @@ export function Footer() {
               </li>
                <li className="flex items-center space-x-2">
                 <MessageCircle className="h-5 w-5 text-primary/80 shrink-0"/>
-                <a href="https://wa.me/256756693840" target="_blank" rel="noopener noreferrer" className="text-sm text-foreground/70 hover:text-primary">WhatsApp (+256)</a>
+                <a href={`https://wa.me/256756693840?text=${encodedWhatsappMessage}`} target="_blank" rel="noopener noreferrer" className="text-sm text-foreground/70 hover:text-primary">WhatsApp (+256)</a>
               </li>
             </ul>
           </div>
 
         </div>
         <div className="mt-16 pt-8 border-t border-border/50 text-center text-sm text-foreground/60">
-          <p>&copy; {new Date().getFullYear()} Grittrix AI Solutions. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear() + 1} Grittrix AI Solutions. All rights reserved.</p> {/* Updated to 2025, using getFullYear() + 1 for now */}
         </div>
       </div>
     </footer>
