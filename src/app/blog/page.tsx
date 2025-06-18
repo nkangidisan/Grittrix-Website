@@ -84,10 +84,12 @@ export default function BlogPage() {
           </div>
 
           <div className="mt-12 text-center animate-fade-in animation-delay-300">
-            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground"> {/* Changed accent to primary */}
+            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link href="https://www.youtube.com/@AI_in_White_Coats" target="_blank" rel="noopener noreferrer">
-                Visit Channel on YouTube
-                <Youtube className="ml-2 h-5 w-5" />
+                <span>
+                  Visit Channel on YouTube
+                  <Youtube className="ml-2 h-5 w-5" />
+                </span>
               </Link>
             </Button>
           </div>
@@ -113,11 +115,12 @@ export default function BlogPage() {
                       alt={`Featured illustration for blog post: ${post.title}`}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      data-ai-hint="technology abstract"
                     />
                   </Link>
                 </CardHeader>
                 <CardContent className="p-6 flex-grow">
-                  <div className="mb-2 text-xs text-primary font-semibold uppercase tracking-wider flex items-center"> {/* Changed accent to primary */}
+                  <div className="mb-2 text-xs text-primary font-semibold uppercase tracking-wider flex items-center">
                      <Tag className="h-3.5 w-3.5 mr-1.5" /> {post.category}
                   </div>
                   <CardTitle className="font-headline text-xl text-primary mb-2">
@@ -133,7 +136,7 @@ export default function BlogPage() {
                 </CardContent>
                 <CardFooter className="p-6 pt-0">
                    <Button variant="outline" asChild className="w-full hover:bg-primary/10 hover:text-primary border-primary/50 text-primary">
-                      <Link href={`/blog/${post.slug}`}>Read More</Link>
+                      <Link href={`/blog/${post.slug}`}><span>Read More</span></Link>
                    </Button>
                 </CardFooter>
               </Card>
@@ -141,7 +144,7 @@ export default function BlogPage() {
           </div>
 
           <div className="mt-16 text-center">
-            <Button variant="ghost" className="text-primary hover:text-primary/90 hover:bg-primary/10">Load More Articles</Button> {/* Changed accent to primary */}
+            <Button variant="ghost" className="text-primary hover:text-primary/90 hover:bg-primary/10">Load More Articles</Button>
           </div>
         </div>
       </section>

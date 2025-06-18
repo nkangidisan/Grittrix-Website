@@ -2,8 +2,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { PageHeader } from '@/components/PageHeader'; // Assuming PageHeader doesn't fetch main layout
-import MainLayout from '@/app/(main)/layout'; // Import the main layout
+import { PageHeader } from '@/components/PageHeader';
+import MainLayout from '@/app/(main)/layout';
 import { AlertTriangle } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   const breadcrumbs = [{ name: '404 - Page Not Found' }];
   return (
-    <MainLayout> {/* Wrap with MainLayout */}
+    <MainLayout>
       <PageHeader
         title="404 - Page Not Found"
         description="Oops! The page you're looking for doesn't exist or has been moved."
@@ -27,7 +27,7 @@ export default function NotFound() {
             We can't seem to find the page you're looking for.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Link href="/">Go back to Homepage</Link>
+            <Link href="/"><span>Go back to Homepage</span></Link>
           </Button>
         </div>
       </section>

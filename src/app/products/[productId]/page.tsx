@@ -79,6 +79,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
                   fill
                   className="object-cover"
                   priority={product.id === 'CORE'} 
+                  data-ai-hint={`${product.name.toLowerCase()} interface`}
                 />
               </div>
               <div className="flex items-center space-x-3 mb-4 p-4 bg-secondary/10 rounded-lg">
@@ -87,7 +88,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
                 </div>
                 <div>
                     <h2 className="text-2xl font-bold font-headline text-primary">{product.name}</h2>
-                    <p className="text-md text-primary font-semibold">{product.tagline}</p> {/* Changed accent to primary */}
+                    <p className="text-md text-primary font-semibold">{product.tagline}</p>
                 </div>
               </div>
             </div>
@@ -102,7 +103,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
                   <ul className="space-y-3">
                     {product.features.map((feature, index) => (
                       <li key={index} className="flex items-start text-foreground/80">
-                        <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /> {/* Changed accent to primary */}
+                        <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -112,14 +113,14 @@ export default function ProductDetailPage({ params }: { params: { productId: str
 
               <div className="p-6 bg-card rounded-lg shadow-md mb-8">
                 <h3 className="text-lg font-semibold font-headline text-primary mb-3 flex items-center">
-                    <Zap className="h-6 w-6 text-primary mr-2"/> {/* Changed accent to primary */}
+                    <Zap className="h-6 w-6 text-primary mr-2"/>
                     Transform Your Business
                 </h3>
                 <p className="text-sm text-foreground/70 mb-4">
                   {product.name} is designed to integrate seamlessly into your operations, providing immediate value and long-term strategic advantages.
                 </p>
-                <Button size="lg" asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"> {/* Changed accent to primary */}
-                  <Link href={`/contact?subject=Inquiry about ${product.name}`}>Request a Demo or Consultation</Link>
+                <Button size="lg" asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                  <Link href={`/contact?subject=${encodeURIComponent('Inquiry about ' + product.name)}`}><span>Request a Demo or Consultation</span></Link>
                 </Button>
               </div>
 

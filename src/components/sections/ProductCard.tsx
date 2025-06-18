@@ -24,7 +24,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </div>
             <CardTitle className="font-headline text-2xl text-primary group-hover:text-primary/90 transition-colors">{product.name}</CardTitle>
         </div>
-        <CardDescription className="text-sm font-semibold text-primary">{product.tagline}</CardDescription> {/* Changed accent to primary */}
+        <CardDescription className="text-sm font-semibold text-primary">{product.tagline}</CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
@@ -33,6 +33,7 @@ export function ProductCard({ product }: ProductCardProps) {
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
+            data-ai-hint={`${product.name.toLowerCase()} interface`}
           />
         </div>
         <p className="text-sm text-foreground/70 mb-4 leading-relaxed line-clamp-4">{product.description}</p>
@@ -42,7 +43,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <ul className="space-y-1">
               {product.features.slice(0, 3).map((feature, index) => (
                 <li key={index} className="flex items-center text-xs text-foreground/70">
-                  <CheckCircle className="h-3.5 w-3.5 text-primary mr-2 shrink-0" /> {/* Changed accent to primary */}
+                  <CheckCircle className="h-3.5 w-3.5 text-primary mr-2 shrink-0" />
                   {feature}
                 </li>
               ))}
@@ -53,7 +54,9 @@ export function ProductCard({ product }: ProductCardProps) {
       <CardFooter>
         <Button variant="outline" asChild className="w-full hover:bg-primary/10 hover:text-primary border-primary/50 text-primary">
           <Link href={`/products/${product.id.toLowerCase()}`}>
-            Learn More <ArrowRight className="ml-2 h-4 w-4" />
+            <span>
+              Learn More <ArrowRight className="ml-2 h-4 w-4" />
+            </span>
           </Link>
         </Button>
       </CardFooter>

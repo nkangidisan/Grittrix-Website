@@ -157,6 +157,7 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
             fill
             className="object-contain rounded-lg shadow-xl"
             priority
+            data-ai-hint={`${industry.name.toLowerCase()} technology`}
         />
       </div>
 
@@ -179,13 +180,13 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
             </div>
             <div>
               <h2 className="text-2xl md:text-3xl font-bold font-headline text-primary mb-6 flex items-center">
-                <Lightbulb className="h-8 w-8 text-primary mr-3" /> {/* Changed accent to primary */}
+                <Lightbulb className="h-8 w-8 text-primary mr-3" />
                 Our AI-Powered Solutions
               </h2>
               <ul className="space-y-3">
                 {industry.solutions.map((solution, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /> {/* Changed accent to primary */}
+                    <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" />
                     <span className="text-foreground/80">{solution}</span>
                   </li>
                 ))}
@@ -194,9 +195,9 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
           </div>
 
           <div className="mt-16 text-center">
-            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground"> {/* Changed accent to primary */}
-              <Link href={`/contact?subject=Inquiry about ${industry.name} solutions`}>
-                Discuss Your {industry.name} Needs
+            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Link href={`/contact?subject=${encodeURIComponent('Inquiry about ' + industry.name + ' solutions')}`}>
+                <span>Discuss Your {industry.name} Needs</span>
               </Link>
             </Button>
           </div>

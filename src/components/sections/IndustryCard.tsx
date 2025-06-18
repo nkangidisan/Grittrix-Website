@@ -24,6 +24,7 @@ export function IndustryCard({ industry, altText, linkHref }: IndustryCardProps)
             alt={altText} 
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
+            data-ai-hint={`${industry.id} technology`}
           />
         </div>
         <div className="flex items-center space-x-3">
@@ -37,9 +38,11 @@ export function IndustryCard({ industry, altText, linkHref }: IndustryCardProps)
         <CardDescription className="text-sm text-foreground/70 leading-relaxed">{industry.description}</CardDescription>
       </CardContent>
       <CardFooter>
-        <Button variant="link" asChild className="text-primary p-0 h-auto group-hover:underline"> {/* Changed accent to primary */}
+        <Button variant="link" asChild className="text-primary p-0 h-auto group-hover:underline">
           <Link href={linkHref}>
-            Explore Solutions <ArrowRight className="ml-1 h-4 w-4" />
+            <span>
+                Explore Solutions <ArrowRight className="ml-1 h-4 w-4" />
+            </span>
           </Link>
         </Button>
       </CardFooter>

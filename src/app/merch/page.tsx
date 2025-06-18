@@ -40,7 +40,7 @@ export default function MerchPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-headline text-primary mb-4">Official Grittrix Store</h2>
-            <p className="text-2xl font-semibold text-primary mb-2"> {/* Changed accent to primary */}
+            <p className="text-2xl font-semibold text-primary mb-2">
               Shop. Represent. Innovate.
             </p>
             <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
@@ -51,7 +51,9 @@ export default function MerchPage() {
                 src="/media/GrittrixMerchandise.png" 
                 alt="Grittrix Merchandise Collection banner" 
                 fill 
-                className="object-contain rounded-lg"/>
+                className="object-contain rounded-lg"
+                data-ai-hint="merchandise collection"
+                />
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -65,16 +67,20 @@ export default function MerchPage() {
               For now, please contact us for purchases.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground"> {/* Changed accent to primary */}
-                  <Link href="/contact?subject=Merchandise Purchase Inquiry">
-                    <ShoppingCart className="mr-2 h-5 w-5" />
-                    Buy Now (Contact Us)
+                <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                  <Link href={`/contact?subject=${encodeURIComponent('Merchandise Purchase Inquiry')}`}>
+                    <span>
+                      <ShoppingCart className="mr-2 h-5 w-5" />
+                      Buy Now (Contact Us)
+                    </span>
                   </Link>
                 </Button>
                 <Button variant="outline" size="lg" asChild className="border-primary text-primary hover:bg-primary/10">
-                   <Link href="/contact?subject=Merchandise Bulk Order Inquiry">
-                    <Package className="mr-2 h-5 w-5" />
-                    Bulk Orders for Institutions
+                   <Link href={`/contact?subject=${encodeURIComponent('Merchandise Bulk Order Inquiry')}`}>
+                    <span>
+                      <Package className="mr-2 h-5 w-5" />
+                      Bulk Orders for Institutions
+                    </span>
                   </Link>
                 </Button>
             </div>
