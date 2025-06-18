@@ -1,27 +1,29 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Industry } from '@/lib/types'; 
+// Keep Industry type from lib/types but only use relevant fields for this card
+import type { Industry as LibIndustryType } from '@/lib/types'; 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 
+// Define a more specific type for the props this component expects
 interface IndustryCardProps {
-  industry: Pick<Industry, 'id' | 'name' | 'description' | 'icon' | 'imageUrl'> & { altText?: string };
+  industry: Pick<LibIndustryType, 'id' | 'name' | 'description' | 'icon' | 'imageUrl'>;
+  altText: string; // Make altText a required prop for this card
   linkHref: string;
 }
 
-export function IndustryCard({ industry, linkHref }: IndustryCardProps) {
+export function IndustryCard({ industry, altText, linkHref }: IndustryCardProps) {
   const IconComponent = industry.icon;
-  const imageAltText = industry.altText || `Grittrix AI solutions illustration for the ${industry.name} industry`;
   
   return (
     <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group">
       <CardHeader>
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
           <Image
-            src={industry.imageUrl} // Expecting SVG path like /media/health.svg (user provided list)
-            alt={imageAltText}
+            src={industry.imageUrl} // Expecting user-provided SVG path like /media/health.svg
+            alt={altText} // Use the passed altText
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
           />

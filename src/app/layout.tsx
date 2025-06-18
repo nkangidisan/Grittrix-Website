@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: 'Grittrix AI Solutions',
     images: [
       {
-        url: '/media/homepage.svg', // Updated to use specific SVG filename
+        url: '/media/homepage.svg', 
         width: 1200,
         height: 630,
         alt: 'Grittrix AI Solutions - Transforming Industries with Advanced Technology',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: 'Grittrix AI Solutions | AI for Emerging Markets',
     description: 'Pioneering AI-Powered Solutions for Healthcare, Retail,Agriculture, and Education in Africa and other emerging markets.',
     // site: '@Grittrix', // Replace with your actual Twitter handle if available
-    images: ['/media/homepage.svg'], // Updated to use specific SVG filename
+    images: ['/media/homepage.svg'], 
   },
   robots: {
     index: true,

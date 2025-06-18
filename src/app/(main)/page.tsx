@@ -8,9 +8,6 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-// FinalCtaSection is in layout
-// Header and Footer are already in (main)/layout.tsx
-
 
 const keyFeatures = [
   { name: 'Insight Dashboards', description: 'Get real-time analytics and forecasts tailored to your sector.', icon: BarChartBig },
@@ -25,7 +22,7 @@ const industriesServed = [
     name: 'Healthcare', 
     icon: HeartPulse, 
     link: '/industries/healthcare', 
-    imageSrc: '/media/health.svg', // Using specific filename from user list
+    imageSrc: '/media/health.svg',
     altText: 'Grittrix AI for Healthcare - advanced medical diagnostics illustration',
     points: [
       'Smart patient triage',
@@ -38,7 +35,7 @@ const industriesServed = [
     name: 'Retail', 
     icon: ShoppingCart, 
     link: '/industries/retail', 
-    imageSrc: '/media/retail.svg', // Using specific filename from user list
+    imageSrc: '/media/retail.svg',
     altText: 'Grittrix AI for Retail - e-commerce optimization illustration',
     points: [
       'Inventory optimization',
@@ -51,7 +48,7 @@ const industriesServed = [
     name: 'Agriculture', 
     icon: Leaf, 
     link: '/industries/agriculture', 
-    imageSrc: '/media/agriculture.svg', // Using specific filename from user list
+    imageSrc: '/media/agriculture.svg',
     altText: 'Grittrix AI for Agriculture - smart farming solutions illustration',
     points: [
       'AI crop disease detection',
@@ -64,7 +61,7 @@ const industriesServed = [
     name: 'Education', 
     icon: BookOpen, 
     link: '/industries/education', 
-    imageSrc: '/media/education.svg', // Using specific filename from user list
+    imageSrc: '/media/education.svg',
     altText: 'Grittrix AI for Education - personalized learning platforms illustration',
     points: [
       'AI-powered tutoring',
@@ -91,9 +88,9 @@ const whyGrittrixPoints = [
 ];
 
 const testimonials = [
-    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/healthcarepartner.svg", altText: "Testimonial from a Grittrix Healthcare Partner using AI solutions" }, // Using specific filename from user list
-    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/agribusinessowner.svg", altText: "Testimonial from a Grittrix Agri-Business Owner using smart farming tools" }, // Using specific filename from user list
-    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/educationleader.svg", altText: "Testimonial from an Education Leader using Grittrix AI in education" } // Using specific filename from user list
+    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/healthcarepartner.svg", altText: "Testimonial from a Grittrix Healthcare Partner using AI solutions" },
+    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/agribusinessowner.svg", altText: "Testimonial from a Grittrix Agri-Business Owner using smart farming tools" },
+    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/educationleader.svg", altText: "Testimonial from an Education Leader using Grittrix AI in education" }
 ];
 
 const quickNavLinks = [
@@ -111,9 +108,7 @@ const quickNavLinks = [
 
 export default function Home() {
   return (
-    <> {/* Removed redundant flex flex-col min-h-screen, handled by layout */}
-      {/* <Header />  Handled by (main)/layout.tsx */}
-      {/* <main className="flex-grow">  Main tag is in layout */}
+    <>
         <HeroSection />
 
         {/* What We Do Section */}
@@ -327,9 +322,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-      {/* </main> */}
-      {/* <FinalCtaSection /> Handled by (main)/layout.tsx */}
-      {/* <Footer /> Handled by (main)/layout.tsx */}
     </>
   );
 }

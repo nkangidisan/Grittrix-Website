@@ -75,7 +75,7 @@ export default function DesignServicesPage() {
                 <CardHeader className="p-0">
                   <div className="relative aspect-video w-full">
                     <Image
-                      src={item.imageUrl} // Expecting .svg path
+                      src={item.imageUrl} 
                       alt={item.altText}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"

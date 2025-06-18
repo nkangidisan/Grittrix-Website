@@ -12,8 +12,7 @@ type Props = {
   params: { slug: string };
 };
 
-// Data directly in the file - imageUrls updated to .svg paths
-// Ensure these paths match your files in public/media/
+// Data directly in the file - imageUrls updated to descriptive .svg paths
 const serviceDetailsData: { 
   [key: string]: {
     title: string;

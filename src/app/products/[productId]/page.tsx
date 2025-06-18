@@ -18,6 +18,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const productId = params.productId.toLowerCase();
+  // Find product by comparing lowercase ID
   const product = productsList.find(p => p.id.toLowerCase() === productId);
 
   if (!product) {
@@ -43,6 +44,7 @@ export async function generateMetadata(
 
 
 export default function ProductDetailPage({ params }: { params: { productId: string } }) {
+  // Find product by comparing lowercase ID
   const product = productsList.find(p => p.id.toLowerCase() === params.productId.toLowerCase());
 
   if (!product) {
@@ -134,6 +136,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
   );
 }
 
+// Ensure product IDs for static params are lowercase to match URL structure
 export async function generateStaticParams() {
   return productsList.map(product => ({
     productId: product.id.toLowerCase(),

@@ -16,7 +16,7 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={member.imageUrl} // Expecting path like /media/NkangiDisan.svg (user provided list)
+            src={member.imageUrl} // Expecting path like /media/NkangiDisan.svg
             alt={imageAltText}
             fill
             className="object-cover rounded-t-lg"

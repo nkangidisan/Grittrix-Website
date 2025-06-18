@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: 'Shop official Grittrix merchandise. Show your support for AI innovation with high-quality apparel and accessories.',
 };
 
-// Assuming descriptive names for individual SVG files in /public/media/
+// Ensuring descriptive SVG names for individual items
 const merchandiseItems: MerchandiseItem[] = [
   { id: '1', name: 'Grittrix "Innovate" Hoodie', price: '$59.99', imageUrl: '/media/merch-hoodie.svg', description: 'Premium hoodie, perfect for tech enthusiasts.' },
   { id: '2', name: 'Grittrix AI Tee', price: '$29.99', imageUrl: '/media/merch-tee.svg', description: 'Comfortable cotton tee with the Grittrix logo.' },
@@ -49,7 +49,7 @@ export default function MerchPage() {
             </p>
             <div className="my-8 relative aspect-[16/9] max-w-3xl mx-auto">
               <Image 
-                src="/media/Grittrixmerchandise.svg" // Using specific filename from user list
+                src="/media/Grittrixmerchandise.svg" 
                 alt="Grittrix Merchandise Collection banner" 
                 fill 
                 className="object-contain rounded-lg"/>

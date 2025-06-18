@@ -16,7 +16,7 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
       <CardHeader className="p-0">
         <div className="relative aspect-square w-full">
           <Image
-            src={item.imageUrl} // Expecting SVG path like /media/merch-hoodie.svg
+            src={item.imageUrl} // Expecting descriptive SVG path like /media/merch-hoodie.svg
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
