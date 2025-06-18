@@ -20,10 +20,9 @@ const designProcessSteps = [
   { title: "Launch & Optimization", description: "Deploying your application and continuously optimizing for performance and user satisfaction.", icon: Rocket },
 ];
 
-// Assuming raster images for portfolio items (e.g., .jpg or .png)
 const portfolioItems = [
   { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/media/portfolio-healthcare-app.jpg', altText: 'Mockup illustration of AfroHealth AI Platform on a laptop screen' },
-  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/media/portfolio-retail-ecommerce.jpg', altText: 'RetailSense mobile e-commerce app interface illustration' },
+  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/media/portfolio-retail-ecommerce.png', altText: 'RetailSense mobile e-commerce app interface illustration' },
   { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/media/portfolio-agriculture-portal.jpg', altText: 'AgriGrow farmer portal dashboard illustration displaying crop data' },
 ];
 

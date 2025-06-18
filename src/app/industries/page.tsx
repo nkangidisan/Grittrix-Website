@@ -19,12 +19,11 @@ interface IndustryOverview {
   altText: string;
 }
 
-// Using user-specified names and plausible raster extensions
 const industriesOverview: IndustryOverview[] = [
   { id: 'healthcare', name: 'Healthcare', description: 'Revolutionizing patient care with AI-driven diagnostics, personalized medicine, and operational efficiency.', icon: HeartPulse, imageUrl: '/media/health.webp', altText: 'AI in Healthcare illustration: advanced diagnostics and patient care by Grittrix' },
-  { id: 'retail', name: 'Retail & E-commerce', description: 'Transforming customer experiences through AI-powered personalization, supply chain optimization, and intelligent inventory management.', icon: ShoppingCart, imageUrl: '/media/retail.png', altText: 'AI in Retail illustration: personalized e-commerce experiences by Grittrix' },
-  { id: 'agriculture', name: 'Agriculture', description: 'Enhancing food security with AI-driven precision farming, crop monitoring, and yield prediction for sustainable agriculture.', icon: Leaf, imageUrl: '/media/agriculture.jpg', altText: 'AI in Agriculture illustration: precision farming and crop monitoring by Grittrix' },
-  { id: 'education', name: 'Education', description: 'Personalizing learning journeys with adaptive AI tutors, intelligent content delivery, and data-driven insights for educators.', icon: BookOpen, imageUrl: '/media/education.jpg', altText: 'AI in Education illustration: adaptive learning and intelligent tutoring by Grittrix' },
+  { id: 'retail', name: 'Retail & E-commerce', description: 'Transforming customer experiences through AI-powered personalization, supply chain optimization, and intelligent inventory management.', icon: ShoppingCart, imageUrl: '/media/retail.webp', altText: 'AI in Retail illustration: personalized e-commerce experiences by Grittrix' },
+  { id: 'agriculture', name: 'Agriculture', description: 'Enhancing food security with AI-driven precision farming, crop monitoring, and yield prediction for sustainable agriculture.', icon: Leaf, imageUrl: '/media/agriculture.webp', altText: 'AI in Agriculture illustration: precision farming and crop monitoring by Grittrix' },
+  { id: 'education', name: 'Education', description: 'Personalizing learning journeys with adaptive AI tutors, intelligent content delivery, and data-driven insights for educators.', icon: BookOpen, imageUrl: '/media/education.webp', altText: 'AI in Education illustration: adaptive learning and intelligent tutoring by Grittrix' },
 ];
 
 export default function IndustriesPage() {

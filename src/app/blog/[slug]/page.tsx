@@ -7,7 +7,6 @@ import Image from 'next/image';
 import { CalendarDays, UserCircle, Tag, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-// Placeholder for full blog post content - assuming content remains text-based
 const fullBlogContent: { [key: string]: string[] } = {
   'ai-in-african-healthcare': [
     "The healthcare landscape in Africa is undergoing a significant transformation, and Artificial Intelligence (AI) is at the forefront of this revolution. From enhancing diagnostic capabilities to improving access to care in remote areas, AI offers unprecedented opportunities to address long-standing challenges.",
@@ -54,7 +53,9 @@ export async function generateMetadata(
   }
   
   const domain = (await parent).metadataBase || new URL('https://grittrix.com');
-  const absoluteImageUrl = new URL(post.imageUrl, domain).toString(); 
+  // Ensure the image URL is correctly formed, assuming post.imageUrl is like "/media/blog-post-image.jpg"
+  const absoluteImageUrl = post.imageUrl.startsWith('http') ? post.imageUrl : new URL(post.imageUrl, domain).toString();
+
 
   return {
     title: `${post.title} | Grittrix Blog`,
@@ -91,8 +92,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     { name: post.title }
   ];
   
-  // Assuming blog post images are raster (e.g., .jpg or .png)
-  const featuredImageUrl = post.imageUrl; // e.g., /media/blog-ai-in-healthcare.jpg
+  const featuredImageUrl = post.imageUrl;
 
   return (
     <>

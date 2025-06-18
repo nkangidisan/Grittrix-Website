@@ -12,7 +12,6 @@ type Props = {
   params: { slug: string };
 };
 
-// Assuming raster images for service details (e.g., .jpg or .png)
 const serviceDetailsData: { 
   [key: string]: {
     title: string;
@@ -104,7 +103,8 @@ export async function generateMetadata(
     };
   }
   const domain = (await parent).metadataBase || new URL('https://grittrix.com');
-  const absoluteImageUrl = new URL(service.imageUrl, domain).toString(); 
+  const absoluteImageUrl = service.imageUrl.startsWith('http') ? service.imageUrl : new URL(service.imageUrl, domain).toString(); 
+
 
   return {
     title: `${service.title} | Grittrix Services`,

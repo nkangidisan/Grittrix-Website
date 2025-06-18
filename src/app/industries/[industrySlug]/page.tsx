@@ -12,14 +12,13 @@ type Props = {
   params: { industrySlug: string };
 };
 
-// Using user-specified names and plausible raster extensions
 const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
   healthcare: {
     id: 'healthcare',
     name: 'Healthcare',
     description: 'Empowering healthcare providers with AI to improve patient outcomes, enhance diagnostics, and streamline operations.',
     icon: HeartPulse,
-    imageUrl: '/media/health.webp', // User-specified webp
+    imageUrl: '/media/health.webp', 
     painPoints: [
       'Late disease detection and diagnosis',
       'Inefficient patient data management',
@@ -40,7 +39,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Retail & E-commerce',
     description: 'Transforming the retail landscape with AI for personalized experiences, optimized supply chains, and smarter operations.',
     icon: ShoppingCart,
-    imageUrl: '/media/retail.png', // User-specified, assuming png
+    imageUrl: '/media/retail.webp', 
     painPoints: [
       'Understanding customer behavior and preferences',
       'Inventory mismanagement (overstocking/understocking)',
@@ -61,7 +60,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Agriculture',
     description: 'Driving sustainable agriculture and food security with AI-powered precision farming and data analytics.',
     icon: Leaf,
-    imageUrl: '/media/agriculture.jpg', // User-specified, assuming jpg
+    imageUrl: '/media/agriculture.webp', 
     painPoints: [
       'Unpredictable weather patterns and climate change impact',
       'Crop diseases and pest infestations',
@@ -82,7 +81,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
     name: 'Education',
     description: 'Personalizing learning and enhancing educational outcomes with adaptive AI technologies.',
     icon: BookOpen,
-    imageUrl: '/media/education.jpg', // User-specified, assuming jpg
+    imageUrl: '/media/education.webp',
     painPoints: [
       'One-size-fits-all learning approaches',
       'Difficulty in catering to diverse student needs',
@@ -115,7 +114,8 @@ export async function generateMetadata(
   }
   
   const domain = (await parent).metadataBase || new URL('https://grittrix.com');
-  const absoluteImageUrl = new URL(industry.imageUrl, domain).toString(); 
+  const absoluteImageUrl = industry.imageUrl.startsWith('http') ? industry.imageUrl : new URL(industry.imageUrl, domain).toString();
+
 
   return {
     title: `${industry.name} Solutions | Grittrix AI`,

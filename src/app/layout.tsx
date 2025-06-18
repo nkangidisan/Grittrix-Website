@@ -4,9 +4,6 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from '@vercel/analytics/react'; 
 
-// User needs to ensure 'public/media/homepage.jpeg' and 'public/media/Grittrixlogo.png' exist
-// and are the correct images for OG and favicons respectively.
-
 export const metadata: Metadata = {
   metadataBase: new URL('https://grittrix.com'), 
   title: {
@@ -22,7 +19,7 @@ export const metadata: Metadata = {
     siteName: 'Grittrix AI Solutions',
     images: [
       {
-        url: '/media/homepage.jpeg', // Changed from .svg to .jpeg
+        url: '/media/homepage.jpg', 
         width: 1200,
         height: 630,
         alt: 'Grittrix AI Solutions - Transforming Industries with Advanced Technology',
@@ -35,8 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Grittrix AI Solutions | AI for Emerging Markets',
     description: 'Pioneering AI-Powered Solutions for Healthcare, Retail,Agriculture, and Education in Africa and other emerging markets.',
-    // site: '@Grittrix', // Replace with your actual Twitter handle if available
-    images: ['/media/homepage.jpeg'], // Changed from .svg to .jpeg
+    images: ['/media/homepage.jpg'], 
   },
   robots: {
     index: true,
@@ -50,9 +46,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/media/Grittrixlogo.png', // Changed from .svg to .png
-    shortcut: '/media/Grittrixlogo.png', // Changed from .svg to .png
-    apple: '/media/Grittrixlogo.png', // Changed from .svg to .png
+    icon: '/media/grittrixlogo.png', 
+    shortcut: '/media/grittrixlogo.png', 
+    apple: '/media/grittrixlogo.png', 
   },
 };
 

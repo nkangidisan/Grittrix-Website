@@ -15,7 +15,6 @@ interface IndustryCardProps {
 export function IndustryCard({ industry, altText, linkHref }: IndustryCardProps) {
   const IconComponent = industry.icon;
   
-  // imageUrl will be like /media/health.webp or /media/retail.png based on IndustriesPage data
   return (
     <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group">
       <CardHeader>

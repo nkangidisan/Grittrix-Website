@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   description: 'Learn about Grittrix\'s mission to redefine industries with AI, our vision for emerging markets, core values, and the expert team driving innovation.',
 };
 
-// Using user-specified names for team members, assuming .jpg extension
 const teamMembers: TeamMember[] = [
   { id: '1', name: 'Nkangi Disan', role: 'Founder & CEO', bio: 'Visionary leader passionate about leveraging technology for social good.', imageUrl: '/media/NkangiDisan.jpg', socials: { linkedin: 'https://www.linkedin.com/in/disan-nkangi-7ab2b62a9/' } },
   { id: '2', name: 'Lubega Mahad', role: 'Chief Technology Officer', bio: 'Expert in AI/ML development and scalable cloud architectures. Driving Grittrix\'s innovation engine.', imageUrl: '/media/LubegaMahad.jpg', socials: { linkedin: 'https://www.linkedin.com/in/lubega-mahad-ishaaq-021540322/' } },
@@ -75,7 +74,7 @@ export default async function AboutUsPage() {
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
                <Image 
-                src="/media/aboutpage.jpeg" // User-specified, using .jpeg
+                src="/media/aboutpage.jpg" 
                 alt="Grittrix team collaborating - Our Story & Mission illustration" 
                 fill
                 className="object-cover" 

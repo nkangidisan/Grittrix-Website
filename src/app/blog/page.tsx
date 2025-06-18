@@ -14,10 +14,9 @@ export const metadata: Metadata = {
   description: 'Explore Grittrix\'s thoughts on AI, technology, and innovation in emerging markets. Stay updated with the latest trends, research, and Grittrix news.',
 };
 
-// Assuming raster images for blog posts (e.g., .jpg or .png)
 export const blogPosts: BlogPost[] = [
-  { id: '1', slug: 'ai-in-african-healthcare', title: 'The Transformative Power of AI in African Healthcare', excerpt: 'Discover how AI is revolutionizing diagnostics, treatment, and healthcare accessibility across the African continent.', author: 'Dr. Aisha Bello', date: '2024-07-15', imageUrl: '/media/blog-ai-african-healthcare.jpg', category: 'Healthcare' },
-  { id: '2', slug: 'future-of-retail-ai', title: 'The Future of Retail: Personalized Experiences with AI', excerpt: 'Explore how AI-driven personalization, supply chain optimization, and smart analytics are reshaping the retail industry in emerging markets.', author: 'Ken Njoroge', date: '2024-07-08', imageUrl: '/media/blog-future-retail-ai.jpg', category: 'Retail' },
+  { id: '1', slug: 'ai-in-african-healthcare', title: 'The Transformative Power of AI in African Healthcare', excerpt: 'Discover how AI is revolutionizing diagnostics, treatment, and healthcare accessibility across the African continent.', author: 'Dr. Aisha Bello', date: '2024-07-15', imageUrl: '/media/blog-ai-in-african-healthcare.jpg', category: 'Healthcare' },
+  { id: '2', slug: 'future-of-retail-ai', title: 'The Future of Retail: Personalized Experiences with AI', excerpt: 'Explore how AI-driven personalization, supply chain optimization, and smart analytics are reshaping the retail industry in emerging markets.', author: 'Ken Njoroge', date: '2024-07-08', imageUrl: '/media/blog-future-of-retail-ai.jpg', category: 'Retail' },
   { id: '3', slug: 'precision-agriculture-africa', title: 'Precision Agriculture: AI for Sustainable Farming in Africa', excerpt: 'Learn about the role of AI in optimizing crop yields, managing resources efficiently, and promoting sustainable agricultural practices.', author: 'Fatima Diallo', date: '2024-06-28', imageUrl: '/media/blog-precision-agriculture.jpg', category: 'Agriculture' },
   { id: '4', slug: 'ai-edtech-emerging-markets', title: 'AI in EdTech: Bridging Educational Gaps in Emerging Markets', excerpt: 'How adaptive learning platforms and AI-powered tools are personalizing education and improving learning outcomes.', author: 'Rajesh Kumar', date: '2024-06-15', imageUrl: '/media/blog-ai-edtech.jpg', category: 'Education' },
 ];

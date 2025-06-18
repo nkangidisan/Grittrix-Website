@@ -13,7 +13,6 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const IconComponent = product.icon;
   const imageAltText = `Grittrix Product: ${product.name} - ${product.tagline}`;
-  // product.imageUrl will be like /media/core.png or /media/health.webp
   const productImageUrl = product.imageUrl; 
 
   return (
