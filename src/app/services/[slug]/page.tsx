@@ -68,7 +68,7 @@ const serviceDetailsData: {
         description: 'Seamlessly connect your critical business systems like POS, EHR, LMS, and CRMs for unified data and streamlined workflows.',
         longDescription: 'Break down data silos and enhance operational efficiency by integrating your diverse software applications. We specialize in connecting POS systems, Electronic Health Records (EHR), Learning Management Systems (LMS), Customer Relationship Management (CRMs), and other enterprise tools. Our integrations ensure smooth data flow, enabling a holistic view of your operations.',
         features: ['API development & integration', 'Third-party system integration', 'Data synchronization solutions', 'Workflow automation', 'Custom middleware development', 'Legacy system integration'],
-        imageUrl: '/media/SoftwareIntegrations-POS-EHR-LMS-CRMs.png', 
+        imageUrl: '/media/SoftwareIntegrations(POS, EHR, LMS, CRMs).png', 
         imageAlt: 'Diagram illustration showing interconnected software systems like POS, EHR, CRM'
     },
     'data-analytics-services': {
@@ -76,7 +76,7 @@ const serviceDetailsData: {
         description: 'Unlock the power of your data with comprehensive services from collection and preparation to deep actionable insights.',
         longDescription: 'Transform your raw data into a strategic asset. Our end-to-end data services include robust data collection strategies, meticulous data cleaning and preparation, and advanced analytical techniques. We help you uncover hidden patterns, understand trends, and derive actionable insights to drive informed decision-making and business growth.',
         features: ['Data sourcing & collection strategies', 'Data cleansing & preprocessing', 'Exploratory data analysis (EDA)', 'Statistical modeling & analysis', 'Big data processing', 'Custom reporting & visualization'],
-        imageUrl: '/media/DataCollectionCleaning-andAnalysis.webp', 
+        imageUrl: '/media/DataCollectionCleaning,andAnalysis.webp', 
         imageAlt: 'Graphs and charts illustration representing data collection, cleaning, and analysis'
     },
     'training-support': {
