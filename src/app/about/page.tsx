@@ -1,6 +1,5 @@
 
 import type { Metadata } from 'next';
-// Removed optimizeContent import
 import { PageHeader } from '@/components/PageHeader';
 import { TeamMemberCard } from '@/components/sections/TeamMemberCard';
 import type { TeamMember } from '@/lib/types';
@@ -28,7 +27,7 @@ const coreValues = [
 ];
 
 
-export default function AboutUsPage() { // Changed to non-async
+export default function AboutUsPage() {
   const fallbackTitle = "About Grittrix: Redefining Industries with Technology";
   const fallbackContent = "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology.\n\nBorn from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education.\n\nWe believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive.";
   
@@ -58,9 +57,9 @@ export default function AboutUsPage() { // Changed to non-async
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
                <Image 
-                src="https://placehold.co/600x400.png"
+                src="/media/aboutpage.jpg"
                 data-ai-hint="team collaboration"
-                alt="Grittrix team collaborating - Our Story & Mission illustration" 
+                alt="Grittrix - Our Story & Mission" 
                 fill
                 className="object-cover" 
                 priority

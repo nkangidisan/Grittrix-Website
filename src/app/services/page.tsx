@@ -1,6 +1,5 @@
 
 import type { Metadata } from 'next';
-// Removed optimizeContent import
 import { PageHeader } from '@/components/PageHeader';
 import { ServiceItem } from '@/components/sections/ServiceItem';
 import type { Service } from '@/lib/types';
@@ -25,7 +24,7 @@ export const servicesList: Service[] = [
   { id: '8', title: 'Staff Training & Technical Support', description: 'Empower your team with comprehensive training and reliable technical support to maximize technology adoption.', icon: UsersRound, detailsUrl: '/services/training-support' },
 ];
 
-export default function ServicesPage() { // Changed to non-async
+export default function ServicesPage() {
   const fallbackTitle = "Our AI-Powered Services & Platforms";
   const fallbackContent = "Grittrix delivers a comprehensive suite of ready-to-use, AI-powered platforms and services designed to modernize your operations and drive growth.\n\nWe specialize in making advanced technology accessible and impactful for businesses in emerging markets.";
 
@@ -79,9 +78,9 @@ export default function ServicesPage() { // Changed to non-async
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
                <Image 
-                src="https://placehold.co/600x400.png"
-                data-ai-hint="team collaboration"
-                alt="Illustration of Grittrix experts collaborating on custom AI solutions, project planning" 
+                src="/media/servicepage.webp"
+                data-ai-hint="custom solution"
+                alt="Grittrix - Custom AI Solutions" 
                 fill 
                 className="object-cover" 
                 />
