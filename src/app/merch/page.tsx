@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const merchandiseItems: MerchandiseItem[] = [
-  { id: '1', name: 'Grittrix "Innovate" Hoodie', price: '$59.99', imageUrl: '/media/merch-hoodie.jpg', description: 'Premium hoodie, perfect for tech enthusiasts.' },
+  { id: '1', name: 'Grittrix "Innovate" Hoodie', price: '$59.99', imageUrl: '/media/Grittrixhoodie.png', description: 'Premium hoodie, perfect for tech enthusiasts.' },
   { id: '2', name: 'Grittrix AI Tee', price: '$29.99', imageUrl: '/media/merch-tee.png', description: 'Comfortable cotton tee with the Grittrix logo.' },
   { id: '3', name: 'Grittrix Data Mug', price: '$19.99', imageUrl: '/media/merch-mug.png', description: 'Mug to start your day with AI-powered inspiration.' },
   { id: '4', name: 'Grittrix Tech Cap', price: '$24.99', imageUrl: '/media/merch-cap.jpg', description: 'Stylish cap featuring the Grittrix emblem.' },
