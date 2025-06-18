@@ -188,7 +188,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                   Let us help you leverage this service to achieve your business goals. Contact us for a consultation.
                 </p>
                 <Button size="lg" asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                  <Link href={`/contact?subject=Inquiry about ${details.title}`}>
+                  <Link href={`/contact?subject=${encodeURIComponent('Inquiry about ' + details.title)}`}>
                     <span>Discuss Your Project</span>
                   </Link>
                 </Button>
