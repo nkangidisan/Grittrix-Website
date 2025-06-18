@@ -62,13 +62,13 @@ import {googleAI} from '@genkit-ai/googleai';
 //       (e.g., using `curl` or a Google API client library outside of Genkit/Next.js)
 //       to confirm the key and project setup can access the `gemini-1.0-pro` model.
 //       Example `curl` for Generative Language API (replace YOUR_API_KEY and ensure your project has the API enabled and billing active):
-//       ```bash
+//       \`\`\`bash
 //       curl -X POST \
 //            -H "Content-Type: application/json" \
 //            -d '{"contents":[{"parts":[{"text":"Write a story about a magic backpack"}]}]}' \
 //            "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:generateContent?key=YOUR_API_KEY"
-//       ```
-//       If this `curl` command fails with a "not found," "permission denied," "API not enabled," or similar error,
+//       \`\`\`
+//       If this \`curl\` command fails with a "not found," "permission denied," "API not enabled," or similar error,
 //       the issue is definitively with your GCP setup or API Key, not the Genkit code itself.
 //       If it works, the issue might be how the key is passed to the application or a subtle Next.js/Genkit interaction specific to your environment.
 //
