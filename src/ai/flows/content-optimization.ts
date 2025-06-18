@@ -67,15 +67,13 @@ const optimizeContentFlow = ai.defineFlow(
         throw new Error("Content optimization failed: No structured output was received from the AI model.");
       }
       return output;
-    } catch (e) {
+    } catch (e: any) {
       let errorMessage = "AI content optimization failed";
-      if (e instanceof Error) {
-        // Check if the error message is about the model not being found
-        if (e.message.includes("NOT_FOUND") && e.message.includes("Model")) {
-            errorMessage = `${errorMessage}: ${e.message}. THIS USUALLY INDICATES AN ISSUE WITH YOUR GOOGLE CLOUD PROJECT SETUP (API KEY, ENABLED APIS, BILLING) - PLEASE CHECK src/ai/genkit.ts FOR DETAILED TROUBLESHOOTING STEPS.`;
-        } else {
-            errorMessage = `${errorMessage}: ${e.message}`;
-        }
+      // Check if the error message is about the model not being found
+      if (e.message && e.message.includes("NOT_FOUND") && e.message.includes("Model")) {
+          errorMessage = `${errorMessage}: ${e.message}. THIS ALMOST ALWAYS INDICATES AN ISSUE WITH YOUR GOOGLE CLOUD PROJECT SETUP (API KEY, ENABLED APIS, BILLING) - PLEASE METICULOUSLY CHECK THE TROUBLESHOOTING STEPS IN THE COMMENTS OF THE 'src/ai/genkit.ts' FILE.`;
+      } else if (e.message) {
+          errorMessage = `${errorMessage}: ${e.message}`;
       } else {
         errorMessage = `${errorMessage} due to an unknown error: ${String(e)}`;
       }
