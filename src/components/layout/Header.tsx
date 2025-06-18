@@ -12,16 +12,13 @@ import { cn } from '@/lib/utils';
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About Us' },
+  { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/industries', label: 'Industries' },
   { href: '/products', label: 'Products' },
   { href: '/blog', label: 'Blog' },
   { href: '/careers', label: 'Careers' },
-  { href: '/hosting', label: 'Hosting' },
-  { href: '/design-services', label: 'Design Services' },
-  { href: '/merch', label: 'Merch' },
-  { href: '/contact', label: 'Contact Us' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export function Header() {
@@ -50,7 +47,7 @@ export function Header() {
           </Link>
 
           <nav className="hidden lg:flex items-center space-x-1">
-            {navItems.slice(0, 6).map((item) => ( // Show first 6 items for desktop
+            {navItems.map((item) => (
               <NavLink key={item.href} href={item.href}>
                 {item.label}
               </NavLink>
@@ -89,6 +86,10 @@ export function Header() {
                       {item.label}
                     </NavLink>
                   ))}
+                  {/* Additional links for mobile that are not in the main desktop nav but were in the original full list */}
+                  <NavLink href="/hosting" onClick={() => setIsMobileMenuOpen(false)} className="text-lg">Hosting</NavLink>
+                  <NavLink href="/design-services" onClick={() => setIsMobileMenuOpen(false)} className="text-lg">Design Services</NavLink>
+                  <NavLink href="/merch" onClick={() => setIsMobileMenuOpen(false)} className="text-lg">Merch</NavLink>
                 </nav>
                 <div className="mt-8 flex flex-col space-y-3">
                    <Button variant="outline" asChild>

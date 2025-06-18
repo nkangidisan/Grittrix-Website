@@ -2,6 +2,7 @@
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { ShieldCheck } from 'lucide-react';
+import Link from 'next/link'; // Added Link import
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Grittrix AI Solutions',
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   const breadcrumbs = [{ name: 'Privacy Policy' }];
+  const currentDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
 
   return (
     <>
@@ -25,7 +28,7 @@ export default function PrivacyPolicyPage() {
                 <h2 className="text-3xl font-bold font-headline text-primary mb-4">Our Commitment to Your Privacy</h2>
             </div>
           <div className="prose prose-lg prose-invert text-foreground/80 max-w-none space-y-6">
-            <p><strong>Last Updated: [Current Date - Placeholder, please update]</strong></p>
+            <p><strong>Last Updated: {currentDate}</strong></p>
             
             <p>Grittrix AI Solutions ("Grittrix", "we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website grittrix.com (the "Site") and use our services (the "Services"). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site or use our services.</p>
 
@@ -69,7 +72,7 @@ export default function PrivacyPolicyPage() {
             <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
 
             <h3>Contact Us</h3>
-            <p>If you have questions or comments about this Privacy Policy, please contact us at: <a href="mailto:info@grittrix.com" className="text-accent hover:underline">info@grittrix.com</a></p>
+            <p>If you have questions or comments about this Privacy Policy, please contact us at: <Link href="mailto:info@grittrix.com" className="text-accent hover:underline">info@grittrix.com</Link></p>
           </div>
         </div>
       </section>

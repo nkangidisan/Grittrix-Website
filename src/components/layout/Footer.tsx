@@ -45,7 +45,7 @@ const footerNavs = [
 
 
 export function Footer() {
-  const whatsappMessage = "Welcome to Grittrix, Redefining Industries with Technology! we build powerful, Website, Webapps and affordable AI and data solutions tailored for healthcare, retail, agriculture, and education helping businesses and institutions unlock smarter decisions, automate operations, and scale with confidence. Let us know how we can serve you at our best.";
+  const whatsappMessage = "Welcome to Grittrix, Redefining Industries with Technology! We build powerful, websites, webapps and affordable AI and data solutions tailored for healthcare, retail, agriculture, and education helping businesses and institutions unlock smarter decisions, automate operations, and scale with confidence. Let us know how we can serve you at our best.";
   const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
 
   return (
@@ -57,7 +57,7 @@ export function Footer() {
               <GrittrixLogo className="h-10 w-auto mb-4" />
             </Link>
             <p className="text-sm text-foreground/70 leading-relaxed">
-              🔍 Pioneering AI-driven solutions for Africa and emerging markets. We are Grittrix Redefining Industries with Technology.
+              🔍 Pioneering AI-driven solutions for Africa and emerging markets. We are Grittrix — Redefining Industries with Technology.
             </p>
             <div className="mt-6 flex space-x-4">
               {socialLinks.map((social) => (
@@ -98,14 +98,14 @@ export function Footer() {
           ))}
           
           <div>
-            <h3 className="text-md font-semibold font-headline text-primary mb-4 flex items-center"><Phone className="h-5 w-5 mr-2" />Contact Us</h3>
+            <h3 className="text-md font-semibold font-headline text-primary mb-4 flex items-center"><Phone className="h-5 w-5 mr-2" />Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
                 <Mail className="h-5 w-5 text-primary/80 shrink-0"/>
                 <a href="mailto:info@grittrix.com" className="text-sm text-foreground/70 hover:text-primary break-all">info@grittrix.com</a>
               </li>
-              <li className="flex items-center space-x-2">
-                <Phone className="h-5 w-5 text-primary/80 shrink-0"/>
+              <li className="flex items-start space-x-2">
+                <Phone className="h-5 w-5 text-primary/80 shrink-0 mt-0.5"/>
                 <div className="text-sm text-foreground/70">
                     <a href="tel:+919714688324" className="hover:text-primary block">+91 9714688324</a>
                     <a href="tel:+256756693840" className="hover:text-primary block">+256 756693840</a>
@@ -120,7 +120,7 @@ export function Footer() {
 
         </div>
         <div className="mt-16 pt-8 border-t border-border/50 text-center text-sm text-foreground/60">
-          <p>&copy; {new Date().getFullYear() + 1} Grittrix AI Solutions. All rights reserved.</p> {/* Updated to 2025, using getFullYear() + 1 for now */}
+          <p>&copy; 2025 Grittrix AI Solutions. All rights reserved.</p>
         </div>
       </div>
     </footer>
