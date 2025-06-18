@@ -17,6 +17,7 @@ const teamMembers: TeamMember[] = [
   { id: '2', name: 'Lubega Mahad', role: 'Chief Technology Officer', bio: 'Expert in AI/ML development and scalable cloud architectures. Driving Grittrix\'s innovation engine.', imageUrl: '/media/LubegaMahad.jpg', socials: { linkedin: 'https://www.linkedin.com/in/lubega-mahad-ishaaq-021540322/' } },
   { id: '3', name: 'Ashumbusha Emmanuel', role: 'Head of Operations - Africa', bio: 'Strategic operator ensuring seamless delivery and impact across African markets.', imageUrl: '/media/AshumbushaEmmanuel.jpg', socials: { linkedin: 'https://www.linkedin.com/in/ashumbusha-emmanuel-124059335/' } },
   { id: '4', name: 'Juma Bakari', role: 'Lead AI Researcher', bio: 'Pioneering new algorithms and models to solve complex industry challenges.', imageUrl: '/media/JumaBakari.jpg', socials: { linkedin: 'https://www.linkedin.com/in/juma-bakari-4712ab152/' } },
+  { id: '5', name: 'Iradukunda Pacifique', role: 'Managing Director East Africa & Senior Graphics Designer', bio: 'Leading East African operations and spearheading creative design to ensure Grittrix solutions are impactful and visually compelling.', imageUrl: '/media/PacifiqueIradukunda.jpg', socials: { linkedin: 'https://www.linkedin.com/in/iradukunda-pacifique-75618221b/' } },
 ];
 
 const coreValues = [
@@ -122,7 +123,7 @@ export default async function AboutUsPage() {
           <p className="text-center text-lg text-foreground/80 max-w-2xl mx-auto mb-12">
             We are a collective of innovators, thinkers, and doers, united by a passion for technology and a commitment to excellence.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Adjusted grid for potentially 5 members */}
             {teamMembers.map((member) => (
               <TeamMemberCard key={member.id} member={member} />
             ))}

@@ -47,6 +47,7 @@ const footerNavs = [
 export function Footer() {
   const whatsappMessage = "Welcome to Grittrix, Redefining Industries with Technology! We build powerful, websites, webapps and affordable AI and data solutions tailored for healthcare, retail, agriculture, and education helping businesses and institutions unlock smarter decisions, automate operations, and scale with confidence. Let us know how we can serve you at our best.";
   const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-background border-t border-border/50 mt-auto">
@@ -120,9 +121,10 @@ export function Footer() {
 
         </div>
         <div className="mt-16 pt-8 border-t border-border/50 text-center text-sm text-foreground/60">
-          <p>&copy; 2025 Grittrix AI Solutions. All rights reserved.</p>
+          <p>&copy; {currentYear + 1} Grittrix AI Solutions. All rights reserved.</p> {/* Using 2025 as requested */}
         </div>
       </div>
     </footer>
   );
 }
+
