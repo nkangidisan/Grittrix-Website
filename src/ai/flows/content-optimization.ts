@@ -10,7 +10,7 @@
  */
 
 import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import {z} from 'zod';
 
 const OptimizeContentInputSchema = z.object({
   pageType: z
@@ -33,6 +33,7 @@ export async function optimizeContent(input: OptimizeContentInput): Promise<Opti
 
 const contentOptimizerPrompt = ai.definePrompt({
   name: 'optimizeContentPrompt',
+  // Model defaults to what's set in ai/genkit.ts (e.g., 'gemini-1.0-pro')
   input: {schema: OptimizeContentInputSchema},
   output: {schema: OptimizeContentOutputSchema},
   prompt: `You are an expert content writer specializing in SEO optimization and trust-building content.
@@ -59,7 +60,7 @@ const optimizeContentFlow = ai.defineFlow(
   async (input: OptimizeContentInput): Promise<OptimizeContentOutput> => {
     try {
       const generationResult = await contentOptimizerPrompt(input);
-      const output = generationResult.output; // Genkit v1.x style to access parsed output
+      const output = generationResult.output; 
 
       if (!output) {
         console.error(`[${optimizeContentFlow.name}] No structured output received from model for input:`, JSON.stringify(input));
@@ -69,7 +70,12 @@ const optimizeContentFlow = ai.defineFlow(
     } catch (e) {
       let errorMessage = "AI content optimization failed";
       if (e instanceof Error) {
-        errorMessage = `${errorMessage}: ${e.message}`;
+        // Check if the error message is about the model not being found
+        if (e.message.includes("NOT_FOUND") && e.message.includes("Model")) {
+            errorMessage = `${errorMessage}: ${e.message}. THIS USUALLY INDICATES AN ISSUE WITH YOUR GOOGLE CLOUD PROJECT SETUP (API KEY, ENABLED APIS, BILLING) - PLEASE CHECK src/ai/genkit.ts FOR DETAILED TROUBLESHOOTING STEPS.`;
+        } else {
+            errorMessage = `${errorMessage}: ${e.message}`;
+        }
       } else {
         errorMessage = `${errorMessage} due to an unknown error: ${String(e)}`;
       }
@@ -79,4 +85,3 @@ const optimizeContentFlow = ai.defineFlow(
     }
   }
 );
-
