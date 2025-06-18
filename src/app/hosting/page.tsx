@@ -119,8 +119,8 @@ export default function HostingPage() {
             {hostingFeatures.map(feature => (
               <div key={feature.title} className="p-6 bg-card rounded-lg shadow-md hover:shadow-primary/20 transition-shadow">
                 <div className="flex items-center mb-3">
-                    <div className="p-2 bg-accent/10 rounded-md mr-3">
-                        <feature.icon className="h-7 w-7 text-accent" />
+                    <div className="p-2 bg-primary/10 rounded-md mr-3"> {/* Changed accent to primary */}
+                        <feature.icon className="h-7 w-7 text-primary" /> {/* Changed accent to primary */}
                     </div>
                     <h3 className="text-lg font-semibold font-headline text-primary">{feature.title}</h3>
                 </div>
@@ -143,8 +143,8 @@ export default function HostingPage() {
             {pricingPlans.map((plan) => {
               const PlanIcon = plan.icon;
               return (
-                <Card key={plan.name} className={`flex flex-col ${plan.recommended ? 'border-2 border-accent shadow-accent/30 shadow-lg' : 'bg-card'}`}>
-                  {plan.recommended && <div className="py-1 px-4 bg-accent text-accent-foreground text-xs font-bold uppercase tracking-wider text-center rounded-t-lg -mb-px">Most Popular</div>}
+                <Card key={plan.name} className={`flex flex-col ${plan.recommended ? 'border-2 border-primary shadow-primary/30 shadow-lg' : 'bg-card'}`}> {/* Changed accent to primary */}
+                  {plan.recommended && <div className="py-1 px-4 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider text-center rounded-t-lg -mb-px">Most Popular</div>} {/* Changed accent to primary */}
                   <CardHeader className="text-center">
                     {PlanIcon && (
                         <div className="flex justify-center mb-3">
@@ -163,7 +163,7 @@ export default function HostingPage() {
                     <ul className="space-y-3">
                       {plan.features.map((feature) => (
                         <li key={feature} className="flex items-start text-sm">
-                          <CheckCircle className="h-4 w-4 text-accent mr-2 mt-0.5 shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-primary mr-2 mt-0.5 shrink-0" /> {/* Changed accent to primary */}
                           <span className="text-foreground/80">{feature}</span>
                         </li>
                       ))}
@@ -172,7 +172,7 @@ export default function HostingPage() {
                   <CardFooter>
                     <Button 
                       asChild 
-                      className={`w-full ${plan.recommended ? 'bg-accent hover:bg-accent/90 text-accent-foreground' : plan.name === "Free Trial" ? 'bg-primary hover:bg-primary/90 text-primary-foreground' : 'bg-primary hover:bg-primary/90 text-primary-foreground'}`}
+                      className={`w-full ${plan.recommended ? 'bg-primary hover:bg-primary/90 text-primary-foreground' : 'bg-primary hover:bg-primary/90 text-primary-foreground'}`} // All buttons primary now
                     >
                       <Link href={`/contact?subject=Hosting Plan: ${plan.name}`}>{plan.cta}</Link>
                     </Button>
@@ -182,7 +182,7 @@ export default function HostingPage() {
             })}
           </div>
            <p className="text-center mt-12 text-sm text-foreground/70">
-            Need a custom solution? <Link href="/contact?subject=Custom Hosting Inquiry" className="text-accent hover:underline">Contact us</Link> for enterprise and tailored hosting packages.
+            Need a custom solution? <Link href="/contact?subject=Custom Hosting Inquiry" className="text-primary hover:underline">Contact us</Link> for enterprise and tailored hosting packages. {/* Changed accent to primary */}
           </p>
         </div>
       </section>

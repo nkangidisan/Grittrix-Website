@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
+import MainLayout from '@/app/(main)/layout'; // Import the main layout
 
 export const metadata: Metadata = {
   title: 'Login | Grittrix AI Solutions',
@@ -16,13 +17,11 @@ export const metadata: Metadata = {
   },
 };
 
-// This is a placeholder login page. Full Firebase authentication would require more setup.
-
 export default function LoginPage() {
   const breadcrumbs = [{ name: 'Login' }];
 
   return (
-    <>
+    <MainLayout> {/* Wrap with MainLayout */}
       <PageHeader
         title="Admin & Author Login"
         description="Access your Grittrix dashboard or authoring tools."
@@ -51,7 +50,7 @@ export default function LoginPage() {
                   {/* Checkbox placeholder */}
                 </div>
                 <div className="text-sm">
-                  <Link href="#" className="font-medium text-accent hover:underline">
+                  <Link href="#" className="font-medium text-primary hover:underline"> {/* Updated to primary for accent */}
                     Forgot your password?
                   </Link>
                 </div>
@@ -66,6 +65,6 @@ export default function LoginPage() {
           </Card>
         </div>
       </section>
-    </>
+    </MainLayout>
   );
 }

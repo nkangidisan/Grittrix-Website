@@ -24,7 +24,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </div>
             <CardTitle className="font-headline text-2xl text-primary group-hover:text-primary/90 transition-colors">{product.name}</CardTitle>
         </div>
-        <CardDescription className="text-sm font-semibold text-accent">{product.tagline}</CardDescription>
+        <CardDescription className="text-sm font-semibold text-primary">{product.tagline}</CardDescription> {/* Changed accent to primary */}
       </CardHeader>
       <CardContent className="flex-grow">
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
@@ -42,7 +42,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <ul className="space-y-1">
               {product.features.slice(0, 3).map((feature, index) => (
                 <li key={index} className="flex items-center text-xs text-foreground/70">
-                  <CheckCircle className="h-3.5 w-3.5 text-accent mr-2 shrink-0" />
+                  <CheckCircle className="h-3.5 w-3.5 text-primary mr-2 shrink-0" /> {/* Changed accent to primary */}
                   {feature}
                 </li>
               ))}
@@ -60,4 +60,3 @@ export function ProductCard({ product }: ProductCardProps) {
     </Card>
   );
 }
-    

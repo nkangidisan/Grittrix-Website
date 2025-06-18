@@ -2,7 +2,7 @@
 'use client';
 
 import { useFormStatus } from 'react-dom';
-import { useActionState } from 'react'; // Updated import
+import { useActionState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -29,7 +29,7 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+    <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"> {/* Changed accent to primary */}
       {pending ? 'Sending...' : 'Send Message'}
     </Button>
   );
@@ -37,7 +37,7 @@ function SubmitButton() {
 
 export function ContactForm() {
   const initialState: ContactFormState = { message: '', success: false };
-  const [state, formAction] = useActionState(submitContactForm, initialState); // Updated usage
+  const [state, formAction] = useActionState(submitContactForm, initialState);
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
   const searchParams = useSearchParams();
@@ -68,9 +68,9 @@ export function ContactForm() {
         description: state.message,
         variant: "default",
       });
-      reset(); // Reset react-hook-form fields
-      formRef.current?.reset(); // Reset native form fields if necessary
-    } else if (state.message && !state.success && state.issues === undefined) { // An error occurred that wasn't a validation issue
+      reset(); 
+      formRef.current?.reset(); 
+    } else if (state.message && !state.success && state.issues === undefined) { 
       toast({
         title: "Error",
         description: state.message,

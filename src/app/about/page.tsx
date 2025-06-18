@@ -89,7 +89,7 @@ export default async function AboutUsPage() {
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold font-headline text-primary mb-4 flex items-center justify-center">
-                <Eye className="mr-3 h-10 w-10 text-accent" />
+                <Eye className="mr-3 h-10 w-10 text-primary" /> {/* Changed accent to primary */}
                 Our Vision
             </h2>
             <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed max-w-3xl mx-auto">
@@ -123,7 +123,7 @@ export default async function AboutUsPage() {
           <p className="text-center text-lg text-foreground/80 max-w-2xl mx-auto mb-12">
             We are a collective of innovators, thinkers, and doers, united by a passion for technology and a commitment to excellence.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Adjusted grid for potentially 5 members */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member) => (
               <TeamMemberCard key={member.id} member={member} />
             ))}
@@ -133,4 +133,3 @@ export default async function AboutUsPage() {
     </>
   );
 }
-    

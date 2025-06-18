@@ -37,7 +37,7 @@ export function IndustryCard({ industry, altText, linkHref }: IndustryCardProps)
         <CardDescription className="text-sm text-foreground/70 leading-relaxed">{industry.description}</CardDescription>
       </CardContent>
       <CardFooter>
-        <Button variant="link" asChild className="text-accent p-0 h-auto group-hover:underline">
+        <Button variant="link" asChild className="text-primary p-0 h-auto group-hover:underline"> {/* Changed accent to primary */}
           <Link href={linkHref}>
             Explore Solutions <ArrowRight className="ml-1 h-4 w-4" />
           </Link>
@@ -46,4 +46,3 @@ export function IndustryCard({ industry, altText, linkHref }: IndustryCardProps)
     </Card>
   );
 }
-    

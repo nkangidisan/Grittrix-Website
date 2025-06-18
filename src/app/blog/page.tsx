@@ -84,7 +84,7 @@ export default function BlogPage() {
           </div>
 
           <div className="mt-12 text-center animate-fade-in animation-delay-300">
-            <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground"> {/* Changed accent to primary */}
               <Link href="https://www.youtube.com/@AI_in_White_Coats" target="_blank" rel="noopener noreferrer">
                 Visit Channel on YouTube
                 <Youtube className="ml-2 h-5 w-5" />
@@ -117,7 +117,7 @@ export default function BlogPage() {
                   </Link>
                 </CardHeader>
                 <CardContent className="p-6 flex-grow">
-                  <div className="mb-2 text-xs text-accent font-semibold uppercase tracking-wider flex items-center">
+                  <div className="mb-2 text-xs text-primary font-semibold uppercase tracking-wider flex items-center"> {/* Changed accent to primary */}
                      <Tag className="h-3.5 w-3.5 mr-1.5" /> {post.category}
                   </div>
                   <CardTitle className="font-headline text-xl text-primary mb-2">
@@ -141,11 +141,10 @@ export default function BlogPage() {
           </div>
 
           <div className="mt-16 text-center">
-            <Button variant="ghost" className="text-accent hover:text-accent/90 hover:bg-accent/10">Load More Articles</Button>
+            <Button variant="ghost" className="text-primary hover:text-primary/90 hover:bg-primary/10">Load More Articles</Button> {/* Changed accent to primary */}
           </div>
         </div>
       </section>
     </>
   );
 }
-    

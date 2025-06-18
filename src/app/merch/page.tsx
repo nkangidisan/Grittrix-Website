@@ -40,7 +40,7 @@ export default function MerchPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-headline text-primary mb-4">Official Grittrix Store</h2>
-            <p className="text-2xl font-semibold text-accent mb-2">
+            <p className="text-2xl font-semibold text-primary mb-2"> {/* Changed accent to primary */}
               Shop. Represent. Innovate.
             </p>
             <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
@@ -65,7 +65,7 @@ export default function MerchPage() {
               For now, please contact us for purchases.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground"> {/* Changed accent to primary */}
                   <Link href="/contact?subject=Merchandise Purchase Inquiry">
                     <ShoppingCart className="mr-2 h-5 w-5" />
                     Buy Now (Contact Us)
@@ -84,4 +84,3 @@ export default function MerchPage() {
     </>
   );
 }
-    

@@ -89,9 +89,9 @@ export default async function ServicesPage() {
                 At Grittrix, we understand that one size doesn't fit all. Our approach is to deeply understand your specific business context, challenges, and goals. We then co-create tailored AI strategies and solutions that deliver maximum impact and value.
               </p>
               <ul className="space-y-3 text-foreground/80">
-                <li className="flex items-start"><BrainCircuit className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span>Bespoke AI model development to fit your data and objectives.</span></li>
-                <li className="flex items-start"><Cable className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span>Seamless integration with your existing systems and workflows.</span></li>
-                <li className="flex items-start"><TrendingUp className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span>Scalable solutions that grow with your business.</span></li>
+                <li className="flex items-start"><BrainCircuit className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" /><span>Bespoke AI model development to fit your data and objectives.</span></li> {/* Changed accent to primary */}
+                <li className="flex items-start"><Cable className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" /><span>Seamless integration with your existing systems and workflows.</span></li> {/* Changed accent to primary */}
+                <li className="flex items-start"><TrendingUp className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" /><span>Scalable solutions that grow with your business.</span></li> {/* Changed accent to primary */}
               </ul>
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
@@ -108,4 +108,3 @@ export default async function ServicesPage() {
     </>
   );
 }
-    

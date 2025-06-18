@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { HelpCircle } from 'lucide-react';
-import Link from 'next/link'; // Added Link import
+import Link from 'next/link'; 
 
 export const metadata: Metadata = {
   title: 'FAQ | Grittrix AI Solutions',
@@ -57,7 +57,7 @@ export default function FAQPage() {
                 <HelpCircle className="h-16 w-16 text-primary mx-auto mb-6" />
                 <h2 className="text-3xl font-bold font-headline text-primary mb-4">Have Questions? We Have Answers.</h2>
                 <p className="text-lg text-foreground/80">
-                    If you don't find what you're looking for, please feel free to <Link href="/contact" className="text-accent hover:underline">contact us</Link>.
+                    If you don't find what you're looking for, please feel free to <Link href="/contact" className="text-primary hover:underline">contact us</Link>. {/* Changed accent to primary */}
                 </p>
             </div>
           <Accordion type="single" collapsible className="w-full">

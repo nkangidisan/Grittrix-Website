@@ -37,13 +37,15 @@ export function Header() {
     <header
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
-        isScrolled ? 'bg-background/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-background/80 backdrop-blur-md shadow-lg' : 'bg-transparent' // bg-transparent might be too light for a navy bg. Consider bg-background initially for navy.
+                                                                                    // Or ensure Hero section has a dark top part for logo visibility.
+                                                                                    // For now, keeping as is, but this might need visual adjustment based on navy theme.
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" aria-label="Grittrix Home">
-            <GrittrixLogo className="h-10 w-auto" /> {/* Logo height set to 40px, width scales */}
+            <GrittrixLogo className="h-10 w-auto" />
           </Link>
 
           <nav className="hidden lg:flex items-center space-x-1">
@@ -58,7 +60,7 @@ export function Header() {
             <Button variant="outline" size="sm" asChild>
               <Link href="/contact?subject=Demo Request">Request a Demo</Link>
             </Button>
-            <Button variant="default" size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
+            <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild> {/* Changed accent to primary */}
               <Link href="/contact?subject=Expert Consultation">Talk to Our Experts</Link>
             </Button>
           </div>
@@ -86,7 +88,6 @@ export function Header() {
                       {item.label}
                     </NavLink>
                   ))}
-                  {/* Additional links for mobile that are not in the main desktop nav but were in the original full list */}
                   <NavLink href="/hosting" onClick={() => setIsMobileMenuOpen(false)} className="text-lg">Hosting</NavLink>
                   <NavLink href="/design-services" onClick={() => setIsMobileMenuOpen(false)} className="text-lg">Design Services</NavLink>
                   <NavLink href="/merch" onClick={() => setIsMobileMenuOpen(false)} className="text-lg">Merch</NavLink>
@@ -95,7 +96,7 @@ export function Header() {
                    <Button variant="outline" asChild>
                      <Link href="/contact?subject=Demo Request" onClick={() => setIsMobileMenuOpen(false)}>Request a Demo</Link>
                    </Button>
-                   <Button variant="default" className="bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
+                   <Button variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild> {/* Changed accent to primary */}
                      <Link href="/contact?subject=Expert Consultation" onClick={() => setIsMobileMenuOpen(false)}>Talk to Our Experts</Link>
                    </Button>
                 </div>

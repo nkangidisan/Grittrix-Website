@@ -2,7 +2,7 @@
 'use client';
 
 import { useFormStatus } from 'react-dom';
-import { useActionState } from 'react'; // Updated import
+import { useActionState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -28,7 +28,7 @@ type JobApplicationFormData = z.infer<typeof jobApplicationSchema>;
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+    <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"> {/* Changed accent to primary */}
       {pending ? 'Submitting Application...' : 'Submit Application'}
     </Button>
   );
@@ -40,7 +40,7 @@ interface JobApplicationFormProps {
 
 export function JobApplicationForm({ jobTitle }: JobApplicationFormProps) {
   const initialState: JobApplicationFormState = { message: '', success: false };
-  const [state, formAction] = useActionState(submitJobApplication, initialState); // Updated usage
+  const [state, formAction] = useActionState(submitJobApplication, initialState);
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
@@ -70,14 +70,12 @@ export function JobApplicationForm({ jobTitle }: JobApplicationFormProps) {
       reset(); 
       formRef.current?.reset(); 
     } else if (state.message && !state.success && (state.issues === undefined || state.issues.length === 0)) { 
-      // General error not related to field validation
       toast({
         title: "Submission Error",
         description: state.message,
         variant: "destructive",
       });
     } else if (state.message && !state.success && state.issues && state.issues.length > 0) {
-      // Field validation errors
        toast({
         title: "Validation Error",
         description: state.message,

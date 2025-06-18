@@ -53,7 +53,6 @@ export async function generateMetadata(
   }
   
   const domain = (await parent).metadataBase || new URL('https://grittrix.com');
-  // Ensure the image URL is correctly formed, assuming post.imageUrl is like "/media/blog-post-image.jpg"
   const absoluteImageUrl = post.imageUrl.startsWith('http') ? post.imageUrl : new URL(post.imageUrl, domain).toString();
 
 
@@ -110,7 +109,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-8">
             <div className="container mx-auto">
-                 <div className="mb-2 text-sm text-accent font-semibold uppercase tracking-wider flex items-center">
+                 <div className="mb-2 text-sm text-primary font-semibold uppercase tracking-wider flex items-center"> {/* Changed accent to primary */}
                      <Tag className="h-4 w-4 mr-1.5" /> {post.category}
                   </div>
                 <h1 className="text-3xl md:text-4xl font-bold font-headline text-white mb-2">{post.title}</h1>
@@ -157,4 +156,3 @@ export async function generateStaticParams() {
     slug: post.slug,
   }));
 }
-    

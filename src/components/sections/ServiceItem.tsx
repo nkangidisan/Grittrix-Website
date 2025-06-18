@@ -1,3 +1,4 @@
+
 import type { Service } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -23,7 +24,7 @@ export function ServiceItem({ service }: ServiceItemProps) {
       </CardContent>
       {service.detailsUrl && (
         <div className="p-6 pt-0">
-          <Button variant="link" asChild className="text-accent p-0 h-auto group-hover:underline">
+          <Button variant="link" asChild className="text-primary p-0 h-auto group-hover:underline"> {/* Changed accent to primary */}
             <Link href={service.detailsUrl}>
               Learn More <ArrowRight className="ml-1 h-4 w-4" />
             </Link>

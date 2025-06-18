@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { ShieldCheck } from 'lucide-react';
-import Link from 'next/link'; // Added Link import
+import Link from 'next/link'; 
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Grittrix AI Solutions',
@@ -72,7 +72,7 @@ export default function PrivacyPolicyPage() {
             <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
 
             <h3>Contact Us</h3>
-            <p>If you have questions or comments about this Privacy Policy, please contact us at: <Link href="mailto:info@grittrix.com" className="text-accent hover:underline">info@grittrix.com</Link></p>
+            <p>If you have questions or comments about this Privacy Policy, please contact us at: <Link href="mailto:info@grittrix.com" className="text-primary hover:underline">info@grittrix.com</Link></p> {/* Changed accent to primary */}
           </div>
         </div>
       </section>

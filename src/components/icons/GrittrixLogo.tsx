@@ -13,7 +13,7 @@ export function GrittrixLogo({ className, width = 150, height = 33 }: GrittrixLo
   return (
     <div className={cn("relative", className)} style={{ width, height }}>
       <Image
-        src="/media/grittrixlogo.png" 
+        src="/media/grittrixlogo.png" /* Ensured lowercase 'g' */
         alt="Grittrix AI Solutions Logo"
         fill
         className="object-contain"
@@ -22,4 +22,3 @@ export function GrittrixLogo({ className, width = 150, height = 33 }: GrittrixLo
     </div>
   );
 }
-    

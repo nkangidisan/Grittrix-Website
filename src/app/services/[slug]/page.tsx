@@ -171,7 +171,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                   <ul className="space-y-3">
                     {details.features.map((feature: string, index: number) => (
                       <li key={index} className="flex items-start text-foreground/80">
-                        <CheckCircle className="h-5 w-5 text-accent mr-3 mt-1 shrink-0" />
+                        <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /> {/* Changed accent to primary */}
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -180,13 +180,13 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
               )}
                <div className="p-6 bg-card rounded-lg shadow-md">
                  <h3 className="text-lg font-semibold font-headline text-primary mb-3 flex items-center">
-                    <Zap className="h-6 w-6 text-accent mr-2"/>
+                    <Zap className="h-6 w-6 text-primary mr-2"/> {/* Changed accent to primary */}
                     Ready to Get Started?
                 </h3>
                 <p className="text-sm text-foreground/70 mb-4">
                   Let us help you leverage this service to achieve your business goals. Contact us for a consultation.
                 </p>
-                <Button size="lg" asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                <Button size="lg" asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"> {/* Changed accent to primary */}
                   <Link href={`/contact?subject=Inquiry about ${details.title}`}>Discuss Your Project</Link>
                 </Button>
               </div>
@@ -201,4 +201,3 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 export async function generateStaticParams() {
   return Object.keys(serviceDetailsData).map(slug => ({ slug }));
 }
-    

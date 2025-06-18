@@ -87,7 +87,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
                 </div>
                 <div>
                     <h2 className="text-2xl font-bold font-headline text-primary">{product.name}</h2>
-                    <p className="text-md text-accent font-semibold">{product.tagline}</p>
+                    <p className="text-md text-primary font-semibold">{product.tagline}</p> {/* Changed accent to primary */}
                 </div>
               </div>
             </div>
@@ -102,7 +102,7 @@ export default function ProductDetailPage({ params }: { params: { productId: str
                   <ul className="space-y-3">
                     {product.features.map((feature, index) => (
                       <li key={index} className="flex items-start text-foreground/80">
-                        <CheckCircle className="h-5 w-5 text-accent mr-3 mt-1 shrink-0" />
+                        <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /> {/* Changed accent to primary */}
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -112,13 +112,13 @@ export default function ProductDetailPage({ params }: { params: { productId: str
 
               <div className="p-6 bg-card rounded-lg shadow-md mb-8">
                 <h3 className="text-lg font-semibold font-headline text-primary mb-3 flex items-center">
-                    <Zap className="h-6 w-6 text-accent mr-2"/>
+                    <Zap className="h-6 w-6 text-primary mr-2"/> {/* Changed accent to primary */}
                     Transform Your Business
                 </h3>
                 <p className="text-sm text-foreground/70 mb-4">
                   {product.name} is designed to integrate seamlessly into your operations, providing immediate value and long-term strategic advantages.
                 </p>
-                <Button size="lg" asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                <Button size="lg" asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"> {/* Changed accent to primary */}
                   <Link href={`/contact?subject=Inquiry about ${product.name}`}>Request a Demo or Consultation</Link>
                 </Button>
               </div>
@@ -140,4 +140,3 @@ export async function generateStaticParams() {
     productId: product.id.toLowerCase(),
   }));
 }
-    

@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 export function FinalCtaSection() {
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-r from-primary to-accent text-primary-foreground">
+    <section className="py-20 md:py-32 bg-gradient-to-r from-primary to-secondary text-primary-foreground"> {/* Updated gradient to use primary and secondary */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in">
         <h2 className="text-3xl md:text-4xl font-headline font-bold mb-6">📞 Ready to Build Smarter Operations?</h2>
         <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto">
@@ -26,4 +26,3 @@ export function FinalCtaSection() {
     </section>
   );
 }
-

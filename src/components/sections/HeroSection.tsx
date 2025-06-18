@@ -22,7 +22,7 @@ export function HeroSection() {
               At Grittrix, we build powerful, affordable AI and data solutions tailored for healthcare, retail, agriculture, and education — helping businesses and institutions unlock smarter decisions, automate operations, and scale with confidence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg transform transition-transform hover:scale-105">
+              <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transform transition-transform hover:scale-105"> {/* Changed accent to primary */}
                 <Link href="/contact?subject=Demo Request">
                   Request a Demo
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -43,12 +43,11 @@ export function HeroSection() {
                 priority 
               />
             </div>
-            <div className="absolute -top-8 -right-8 w-32 h-32 bg-primary/20 rounded-full filter blur-2xl animate-pulse"></div>
-            <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-accent/20 rounded-full filter blur-2xl animate-pulse animation-delay-500"></div>
+            <div className="absolute -top-8 -right-8 w-32 h-32 bg-primary/20 rounded-full filter blur-2xl animate-pulse"></div> {/* Changed accent to primary */}
+            <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-secondary/20 rounded-full filter blur-2xl animate-pulse animation-delay-500"></div> {/* Using secondary for variety */}
           </div>
         </div>
       </div>
     </section>
   );
 }
-    

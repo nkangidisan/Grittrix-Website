@@ -2,24 +2,22 @@
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { ShieldAlert } from 'lucide-react';
+import MainLayout from '@/app/(main)/layout'; // Import the main layout
 
 export const metadata: Metadata = {
   title: 'Admin Dashboard | Grittrix AI Solutions',
   description: 'Manage Grittrix content, users, and settings. Access restricted to authorized personnel.',
   robots: {
-    index: false, // No need to index admin pages
+    index: false, 
     follow: false,
   },
 };
-
-// This is a placeholder admin page.
-// In a real application, this route would be protected by authentication.
 
 export default function AdminPage() {
   const breadcrumbs = [{ name: 'Admin Dashboard' }];
 
   return (
-    <>
+    <MainLayout> {/* Wrap with MainLayout */}
       <PageHeader
         title="Admin Dashboard"
         description="Manage Grittrix content, users, and settings."
@@ -39,6 +37,6 @@ export default function AdminPage() {
           </div>
         </div>
       </section>
-    </>
+    </MainLayout>
   );
 }

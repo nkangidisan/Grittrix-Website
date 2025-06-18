@@ -25,7 +25,7 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
       </CardHeader>
       <CardContent className="p-6 flex-grow">
         <CardTitle className="font-headline text-xl text-primary mb-1">{member.name}</CardTitle>
-        <p className="text-sm text-accent font-medium mb-3">{member.role}</p>
+        <p className="text-sm text-primary font-medium mb-3">{member.role}</p> {/* Changed accent to primary */}
         <p className="text-xs text-foreground/70 leading-relaxed line-clamp-3">{member.bio}</p>
       </CardContent>
       {(member.socials?.linkedin || member.socials?.twitter) && (
@@ -45,4 +45,3 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
     </Card>
   );
 }
-    

@@ -29,10 +29,10 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
       <CardContent className="p-4 flex-grow">
         <CardTitle className="font-headline text-lg text-primary mb-1 group-hover:text-primary/90 transition-colors">{item.name}</CardTitle>
         {item.description && <CardDescription className="text-xs text-foreground/70 mb-2 line-clamp-2">{item.description}</CardDescription>}
-        {item.price && <p className="text-md font-semibold text-accent">{item.price}</p>}
+        {item.price && <p className="text-md font-semibold text-primary">{item.price}</p>} {/* Changed accent to primary */}
       </CardContent>
       <CardFooter className="p-4 pt-0">
-        <Button variant="outline" className="w-full hover:bg-accent/10 hover:text-accent border-accent/50 text-accent">
+        <Button variant="outline" className="w-full hover:bg-primary/10 hover:text-primary border-primary/50 text-primary"> {/* Changed accent to primary for hover and text */}
           <ShoppingCart className="mr-2 h-4 w-4" />
           View Item
         </Button>
@@ -40,4 +40,3 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
     </Card>
   );
 }
-    

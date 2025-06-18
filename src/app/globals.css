@@ -3,99 +3,97 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Arial, Helvetica, sans-serif; /* Ensuring Inter is primary body font */
 }
 
 @layer base {
   :root {
-    --background: 230 83% 6%; /* Almost-black #03071E */
-    --foreground: 210 40% 98%; /* Light gray/white */
+    /* New Theme: Navy background, Orange primary, White foreground */
+    --background: 220 35% 12%; /* Navy Blue */
+    --foreground: 210 40% 98%; /* White / Light Gray */
 
-    --muted: 225 40% 20%;
-    --muted-foreground: 210 30% 70%;
+    --muted: 220 30% 25%; /* Slightly lighter navy for muted */
+    --muted-foreground: 210 30% 75%; /* Lighter gray for muted text */
 
-    --popover: 230 80% 10%;
+    --popover: 220 35% 10%; /* Darker navy for popovers */
     --popover-foreground: 210 40% 98%;
 
-    --card: 230 80% 10%;
+    --card: 220 35% 15%; /* Navy for cards, slightly lighter than main bg */
     --card-foreground: 210 40% 98%;
 
-    --border: 225 60% 18%;
-    --input: 230 70% 12%;
+    --border: 220 30% 30%; /* Border color for navy theme */
+    --input: 220 30% 20%; /* Input background for navy theme */
 
-    --primary: 182 100% 74%; /* Dark electric blue #7DF9FF */
-    --primary-foreground: 230 83% 6%; /* Almost-black for text on primary */
+    --primary: 16 88% 54%; /* Orange #F05423 */
+    --primary-foreground: 20 0% 100%; /* White text on Orange */
 
-    --secondary: 225 50% 15%; /* Darker blue */
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 25% 45%; /* A lighter, desaturated blue for secondary elements */
+    --secondary-foreground: 210 40% 98%; /* White/Light Gray text on secondary */
 
-    --accent: 147 56% 55%; /* Sea green #3DDC84 */
-    --accent-foreground: 230 83% 6%; /* Almost-black for text on accent */
+    /* Accent will now map to primary (Orange) */
+    --accent: 16 88% 54%; /* Orange #F05423 */
+    --accent-foreground: 20 0% 100%; /* White text on Orange */
 
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 50%; /* A standard red for destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive */
 
-    --ring: 182 100% 74%; /* Primary color for rings */
+    --ring: 16 88% 54%; /* Orange for focus rings */
 
     --radius: 0.5rem;
 
-    /* Sidebar specific dark theme variables */
-    --sidebar-background: 230 80% 8%;
+    /* Sidebar specific variables - adapted for new theme */
+    --sidebar-background: 220 35% 10%; /* Very dark navy for sidebar */
     --sidebar-foreground: 210 40% 90%;
-    --sidebar-primary: 182 100% 74%;
-    --sidebar-primary-foreground: 230 83% 6%;
-    --sidebar-accent: 147 56% 55%;
-    --sidebar-accent-foreground: 230 83% 6%;
-    --sidebar-border: 225 30% 20%;
-    --sidebar-ring: 182 100% 74%;
+    --sidebar-primary: 16 88% 54%; /* Orange */
+    --sidebar-primary-foreground: 20 0% 100%; /* White */
+    --sidebar-accent: 16 88% 54%; /* Orange */
+    --sidebar-accent-foreground: 20 0% 100%; /* White */
+    --sidebar-border: 220 30% 25%;
+    --sidebar-ring: 16 88% 54%; /* Orange */
 
-    --chart-1: 182 100% 74%;
-    --chart-2: 147 56% 55%;
-    --chart-3: 225 50% 60%;
-    --chart-4: 210 40% 80%;
-    --chart-5: 0 0% 50%;
+    /* Chart colors - adjusted to harmonize with Orange/Navy */
+    --chart-1: 16 88% 54%; /* Orange */
+    --chart-2: 35 90% 60%; /* A warmer yellow/gold */
+    --chart-3: 200 70% 65%; /* A contrasting lighter blue */
+    --chart-4: 210 40% 80%; /* Light gray */
+    --chart-5: 0 0% 60%;   /* Medium gray */
   }
 
-  /*
-    Explicitly define dark theme variables to be same as root,
-    as shadcn components might look for .dark if system theme is dark.
-    This ensures our chosen dark theme is always applied.
-  */
   .dark {
-    --background: 230 83% 6%;
+    --background: 220 35% 12%;
     --foreground: 210 40% 98%;
-    --muted: 225 40% 20%;
-    --muted-foreground: 210 30% 70%;
-    --popover: 230 80% 10%;
+    --muted: 220 30% 25%;
+    --muted-foreground: 210 30% 75%;
+    --popover: 220 35% 10%;
     --popover-foreground: 210 40% 98%;
-    --card: 230 80% 10%;
+    --card: 220 35% 15%;
     --card-foreground: 210 40% 98%;
-    --border: 225 60% 18%;
-    --input: 230 70% 12%;
-    --primary: 182 100% 74%;
-    --primary-foreground: 230 83% 6%;
-    --secondary: 225 50% 15%;
+    --border: 220 30% 30%;
+    --input: 220 30% 20%;
+    --primary: 16 88% 54%;
+    --primary-foreground: 20 0% 100%;
+    --secondary: 220 25% 45%;
     --secondary-foreground: 210 40% 98%;
-    --accent: 147 56% 55%;
-    --accent-foreground: 230 83% 6%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-    --ring: 182 100% 74%;
+    --accent: 16 88% 54%;
+    --accent-foreground: 20 0% 100%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 16 88% 54%;
     
-    --sidebar-background: 230 80% 8%;
+    --sidebar-background: 220 35% 10%;
     --sidebar-foreground: 210 40% 90%;
-    --sidebar-primary: 182 100% 74%;
-    --sidebar-primary-foreground: 230 83% 6%;
-    --sidebar-accent: 147 56% 55%;
-    --sidebar-accent-foreground: 230 83% 6%;
-    --sidebar-border: 225 30% 20%;
-    --sidebar-ring: 182 100% 74%;
+    --sidebar-primary: 16 88% 54%;
+    --sidebar-primary-foreground: 20 0% 100%;
+    --sidebar-accent: 16 88% 54%;
+    --sidebar-accent-foreground: 20 0% 100%;
+    --sidebar-border: 220 30% 25%;
+    --sidebar-ring: 16 88% 54%;
 
-    --chart-1: 182 100% 74%;
-    --chart-2: 147 56% 55%;
-    --chart-3: 225 50% 60%;
+    --chart-1: 16 88% 54%;
+    --chart-2: 35 90% 60%;
+    --chart-3: 200 70% 65%;
     --chart-4: 210 40% 80%;
-    --chart-5: 0 0% 50%;
+    --chart-5: 0 0% 60%;
   }
 }
 
@@ -108,4 +106,35 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+}
+
+.font-headline {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+/* Animations (fade-in, slide-in-up) - ensuring they are defined */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0px); opacity: 1; }
+}
+.animate-slide-in-up {
+  animation: slideInUp 0.5s ease-out forwards;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+.animation-delay-500 {
+  animation-delay: 500ms;
 }

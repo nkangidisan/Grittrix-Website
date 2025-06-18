@@ -37,9 +37,9 @@ export default {
           DEFAULT: 'hsl(var(--muted))',
           foreground: 'hsl(var(--muted-foreground))',
         },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+        accent: { // Accent now uses the same HSL vars as primary
+          DEFAULT: 'hsl(var(--primary))', // Changed from --accent to --primary
+          foreground: 'hsl(var(--primary-foreground))', // Changed from --accent-foreground to --primary-foreground
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
@@ -60,7 +60,7 @@ export default {
           foreground: 'hsl(var(--sidebar-foreground))',
           primary: 'hsl(var(--sidebar-primary))',
           'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-          accent: 'hsl(var(--sidebar-accent))',
+          accent: 'hsl(var(--sidebar-accent))', // Sidebar accent also uses new primary/orange
           'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',

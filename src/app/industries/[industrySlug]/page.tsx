@@ -179,13 +179,13 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
             </div>
             <div>
               <h2 className="text-2xl md:text-3xl font-bold font-headline text-primary mb-6 flex items-center">
-                <Lightbulb className="h-8 w-8 text-accent mr-3" />
+                <Lightbulb className="h-8 w-8 text-primary mr-3" /> {/* Changed accent to primary */}
                 Our AI-Powered Solutions
               </h2>
               <ul className="space-y-3">
                 {industry.solutions.map((solution, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-accent mr-3 mt-1 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" /> {/* Changed accent to primary */}
                     <span className="text-foreground/80">{solution}</span>
                   </li>
                 ))}
@@ -194,7 +194,7 @@ export default function IndustryDetailPage({ params }: { params: { industrySlug:
           </div>
 
           <div className="mt-16 text-center">
-            <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground"> {/* Changed accent to primary */}
               <Link href={`/contact?subject=Inquiry about ${industry.name} solutions`}>
                 Discuss Your {industry.name} Needs
               </Link>
@@ -211,4 +211,3 @@ export async function generateStaticParams() {
     industrySlug: slug,
   }));
 }
-    

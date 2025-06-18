@@ -46,9 +46,16 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/media/grittrixlogo.png', 
-    shortcut: '/media/grittrixlogo.png', 
-    apple: '/media/grittrixlogo.png', 
+    icon: [
+      // The primary icon definition. Using an array of IconDescriptor objects for explicitness.
+      { url: '/media/grittrixlogo.png', type: 'image/png', sizes: 'any' } 
+    ],
+    shortcut: [ // For older browsers, often equates to favicon.ico behavior
+      { url: '/media/grittrixlogo.png', type: 'image/png' }
+    ],
+    apple: [ // For Apple touch icons
+      { url: '/media/grittrixlogo.png', type: 'image/png' }
+    ],
   },
 };
 
@@ -73,4 +80,3 @@ export default function RootLayout({
     </html>
   );
 }
-    
