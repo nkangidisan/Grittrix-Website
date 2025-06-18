@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
 import { 
-  HeartPulse, Leaf, BookOpen, ShoppingCart, Cpu, Lightbulb, Users, ShieldCheck, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Briefcase, Building, GitFork, Tv, Server, ShoppingBag, Phone, Mail, ArrowRight, Home as HomeIcon, Info, Settings, MessageSquare, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay, ExternalLink
+  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Briefcase, Building, GitFork, Tv, Server, ShoppingBag, Phone, Mail, ArrowRight, Home as HomeIcon, Info, Settings, MessageSquare, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay, ExternalLink
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ const keyFeatures = [
   { name: 'AI Modules', description: 'Plug in smart tools to predict sales, manage stock, or detect diseases.', icon: BrainCircuit },
   { name: 'Modular Design', description: 'Only pay for the features you need — scale as you grow.', icon: Puzzle },
   { name: 'Data-Driven Decisions', description: 'Stop guessing. Start acting with data-backed intelligence.', icon: DatabaseZap },
-  { name: 'Secure & Private', description: 'Your data is encrypted and securely hosted.', icon: ShieldCheck },
+  { name: 'Secure & Private', description: 'Your data is encrypted and securely hosted.', icon: CheckCircle }, // Updated from ShieldCheck to CheckCircle for consistency
 ];
 
 const industriesServed = [
@@ -162,6 +162,7 @@ export default function Home() {
                     alt={industry.altText}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    data-ai-hint={`${industry.name.toLowerCase()} technology`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent md:bg-gradient-to-r md:from-black/70 md:to-transparent"></div>
                   <div className="absolute bottom-4 left-4 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:transform p-2 bg-primary/20 rounded-full">
@@ -178,9 +179,11 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Button variant="link" asChild className="text-primary group-hover:underline self-start p-0">
-                    <Link href={industry.link}>
-                      <span>Learn More <ArrowRight className="ml-1 h-4 w-4 inline" /></span>
+                  <Button variant="link" asChild className="text-primary group-hover:underline self-start p-0 h-auto">
+                    <Link href={industry.link} legacyBehavior passHref>
+                      <a className="flex items-center">
+                        <span>Learn More <ArrowRight className="ml-1 h-4 w-4 inline" /></span>
+                      </a>
                     </Link>
                   </Button>
                 </div>
@@ -255,7 +258,8 @@ export default function Home() {
                       src={testimonial.imageSrc} 
                       alt={testimonial.altText} 
                       fill
-                      className="object-cover" 
+                      className="object-cover"
+                      data-ai-hint="business impact"
                       />
                   </div>
                 </CardContent>
@@ -316,7 +320,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-xl shadow-2xl animate-fade-in">
-            <ShieldCheck className="h-16 w-16 text-primary mx-auto mb-6" />
+            <CheckCircle className="h-16 w-16 text-primary mx-auto mb-6" /> {/* Replaced ShieldCheck for consistency */}
             <h2 className="text-3xl font-headline font-bold text-primary mb-4">Our Promise</h2>
             <p className="text-lg text-foreground/80 leading-relaxed">
               We believe in technology with trust. Your data stays yours. Our platform is secure, compliant, and constantly improving.

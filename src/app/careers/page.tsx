@@ -91,11 +91,13 @@ export default function CareersPage() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                    <Link href={job.applyUrl || `/contact?subject=Application for ${encodeURIComponent(job.title)}`}>
-                      <span className="flex items-center justify-center">
-                        Learn More & Apply Online
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </span>
+                    <Link href={job.applyUrl || `/contact?subject=Application for ${encodeURIComponent(job.title)}`} legacyBehavior passHref>
+                      <a className="flex items-center justify-center w-full">
+                        <span>
+                          Learn More & Apply Online
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </span>
+                      </a>
                     </Link>
                   </Button>
                 </CardFooter>
@@ -109,7 +111,7 @@ export default function CareersPage() {
               Don't see a specific role that fits? We are always interested in hearing from talented individuals passionate about AI and emerging markets.
             </p>
             <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10 hover:text-primary">
-              <Link href="mailto:careers@grittrix.com?subject=General Career Inquiry">
+              <Link href={`mailto:careers@grittrix.com?subject=${encodeURIComponent('General Career Inquiry')}`}>
                 <Mail className="mr-2 h-5 w-5" /> Send Your CV to careers@grittrix.com
               </Link>
             </Button>
