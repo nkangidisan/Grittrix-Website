@@ -2,7 +2,6 @@
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { ShieldAlert } from 'lucide-react';
-import MainLayout from '@/app/(main)/layout'; // Import the main layout
 
 export const metadata: Metadata = {
   title: 'Admin Dashboard | Grittrix AI Solutions',
@@ -17,7 +16,7 @@ export default function AdminPage() {
   const breadcrumbs = [{ name: 'Admin Dashboard' }];
 
   return (
-    <MainLayout> {/* Wrap with MainLayout */}
+    <>
       <PageHeader
         title="Admin Dashboard"
         description="Manage Grittrix content, users, and settings."
@@ -37,6 +36,6 @@ export default function AdminPage() {
           </div>
         </div>
       </section>
-    </MainLayout>
+    </>
   );
 }

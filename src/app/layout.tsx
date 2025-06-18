@@ -3,6 +3,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from '@vercel/analytics/react'; 
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { FinalCtaSection } from '@/components/layout/FinalCtaSection';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://grittrix.com'), 
@@ -47,13 +50,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      // The primary icon definition. Using an array of IconDescriptor objects for explicitness.
       { url: '/media/grittrixlogo.png', type: 'image/png', sizes: 'any' } 
     ],
-    shortcut: [ // For older browsers, often equates to favicon.ico behavior
+    shortcut: [ 
       { url: '/media/grittrixlogo.png', type: 'image/png' }
     ],
-    apple: [ // For Apple touch icons
+    apple: [ 
       { url: '/media/grittrixlogo.png', type: 'image/png' }
     ],
   },
@@ -65,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">{/* Enforce dark mode globally */}
+    <html lang="en" className="dark">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -73,7 +75,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body bg-background text-foreground antialiased min-h-screen flex flex-col">
-        {children}
+        <Header />
+        <main className="flex-grow">{children}</main>
+        <FinalCtaSection />
+        <Footer />
         <Toaster />
         <Analytics />
       </body>

@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { PageHeader } from '@/components/PageHeader';
-import MainLayout from '@/app/(main)/layout';
 import { AlertTriangle } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   const breadcrumbs = [{ name: '404 - Page Not Found' }];
   return (
-    <MainLayout>
+    <>
       <PageHeader
         title="404 - Page Not Found"
         description="Oops! The page you're looking for doesn't exist or has been moved."
@@ -31,6 +30,6 @@ export default function NotFound() {
           </Button>
         </div>
       </section>
-    </MainLayout>
+    </>
   );
 }

@@ -6,7 +6,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import type { JobListing } from '@/lib/types';
 import { Briefcase, MapPin, ArrowRight, Mail, Sparkles, Brain, Palette, TrendingUp, Handshake, Users } from 'lucide-react';
 import Link from 'next/link';
-import MainLayout from '@/app/(main)/layout';
 
 export const metadata: Metadata = {
   title: 'Careers at Grittrix | Join Our AI Innovation Team',
@@ -60,7 +59,7 @@ export default function CareersPage() {
   const breadcrumbs = [{ name: 'Careers' }];
 
   return (
-    <MainLayout>
+    <>
       <PageHeader
         title="Join Grittrix"
         description="Help shape the future of intelligent systems in Africa and beyond. We value skills, passion, and a drive to make an impact over formal degrees. All roles are open to qualified candidates globally (remote-first)."
@@ -91,7 +90,7 @@ export default function CareersPage() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                    <Link href={job.applyUrl || `/contact?subject=Application for ${encodeURIComponent(job.title)}`} className="flex items-center justify-center w-full">
+                    <Link href={job.applyUrl || `/contact?subject=Application%20for%20${encodeURIComponent(job.title)}`} className="flex items-center justify-center w-full">
                       <span>
                         Learn More & Apply Online
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -152,6 +151,6 @@ export default function CareersPage() {
           </div>
         </div>
       </section>
-    </MainLayout>
+    </>
   );
 }

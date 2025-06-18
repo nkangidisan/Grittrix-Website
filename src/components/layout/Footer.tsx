@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
-import { Linkedin, Twitter, Facebook, Instagram, Youtube, Mail, Phone, MessageCircle, Building, Users, Briefcase, Cpu, Server, Tv, ShoppingBag, BookOpen, Layers, HelpCircle, ShieldAlert as PrivacyIcon } from 'lucide-react'; // Renamed ShieldAlert to avoid conflict
+import { Linkedin, Twitter, Facebook, Instagram, Youtube, Mail, Phone, MessageCircle, Building, Users, Briefcase, Cpu, Server, Tv, ShoppingBag, BookOpen, Layers, HelpCircle, ShieldAlert as PrivacyIcon } from 'lucide-react';
 
 const socialLinks = [
   { href: 'https://www.linkedin.com/company/grittrix/', label: 'LinkedIn', icon: Linkedin },
@@ -25,7 +25,7 @@ const footerNavs = [
     label: 'Offerings',
     icon: Cpu,
     items: [
-      { href: '/services', name: 'AI Services', icon: Briefcase }, // Assuming icon remains Briefcase for AI Services
+      { href: '/services', name: 'AI Services', icon: Briefcase },
       { href: '/products', name: 'Products', icon: Cpu },
       { href: '/industries', name: 'Industries', icon: Layers },
       { href: '/design-services', name: 'Web/App Design', icon: Tv },
@@ -38,7 +38,7 @@ const footerNavs = [
     items: [
       { href: '/merch', name: 'Grittrix Merch', icon: ShoppingBag },
       { href: '/faq', name: 'FAQ', icon: HelpCircle },
-      { href: '/privacy', name: 'Privacy Policy', icon: PrivacyIcon }, // Using renamed ShieldAlert
+      { href: '/privacy', name: 'Privacy Policy', icon: PrivacyIcon },
     ],
   },
 ];
@@ -98,7 +98,7 @@ export function Footer() {
           ))}
           
           <div>
-            <h3 className="text-md font-semibold font-headline text-primary mb-4 flex items-center"><Phone className="h-5 w-5 mr-2" />Contact</h3>
+            <h3 className="text-md font-semibold font-headline text-primary mb-4 flex items-center"><Phone className="h-5 w-5 mr-2" />Contact Us</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
                 <Mail className="h-5 w-5 text-primary/80 shrink-0"/>
