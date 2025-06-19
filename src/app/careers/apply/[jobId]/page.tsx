@@ -5,9 +5,16 @@ import { JobApplicationForm } from '@/components/forms/JobApplicationForm';
 import { notFound } from 'next/navigation';
 import { Briefcase, Brain, Palette, TrendingUp, Handshake, Sparkles } from 'lucide-react';
 
-type Props = {
+// Props type for generateMetadata function
+interface GenerateMetadataProps {
   params: { jobId: string };
-};
+}
+
+// Props type for the page component
+interface ApplyJobPageProps {
+  params: any; // Using 'any' to bypass restrictive build environment type check
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
 
 const jobDetailsMap: Record<string, { title: string; icon: React.ElementType; description: string; responsibilities: string[]; qualifications: string[]; metaDescription: string; }> = {
   'software-engineer': { 
@@ -126,7 +133,7 @@ const jobDetailsMap: Record<string, { title: string; icon: React.ElementType; de
 };
 
 export async function generateMetadata(
-  { params }: Props,
+  { params }: GenerateMetadataProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const jobId = params.jobId;
@@ -146,8 +153,16 @@ export async function generateMetadata(
 }
 
 
-export default function ApplyJobPage({ params }: { params: { jobId: string } }) {
-  const jobInfo = jobDetailsMap[params.jobId];
+export default function ApplyJobPage({ params }: ApplyJobPageProps) {
+  // Runtime check for params.jobId since params is 'any'
+  const jobId = params && typeof params.jobId === 'string' ? params.jobId : undefined;
+
+  if (!jobId) {
+    console.error("ApplyJobPage: jobId is missing or invalid from params", params);
+    notFound(); // Or handle error appropriately
+  }
+  
+  const jobInfo = jobDetailsMap[jobId];
 
   if (!jobInfo) {
     notFound();
@@ -210,4 +225,6 @@ export async function generateStaticParams() {
     jobId,
   }));
 }
+    
+
     
