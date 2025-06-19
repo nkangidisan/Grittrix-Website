@@ -9,12 +9,20 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { CheckCircle, Zap } from 'lucide-react';
 
-type Props = {
+// Props for the page component
+interface ProductDetailPageProps {
   params: { productId: string };
-};
+  // searchParams is omitted as it's not directly used by the page component logic
+}
+
+// Props for generateMetadata
+interface GenerateMetadataProps {
+  params: { productId: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
 
 export async function generateMetadata(
-  { params }: Props,
+  { params }: GenerateMetadataProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const productId = params.productId.toLowerCase();
@@ -43,7 +51,7 @@ export async function generateMetadata(
 }
 
 
-export default function ProductDetailPage({ params }: { params: { productId: string } }) {
+export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   const product = productsList.find(p => p.id.toLowerCase() === params.productId.toLowerCase());
 
   if (!product) {

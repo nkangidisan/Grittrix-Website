@@ -8,9 +8,17 @@ import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
-type Props = {
+// Props for the page component
+interface IndustryDetailPageProps {
   params: { industrySlug: string };
-};
+  // searchParams is omitted as it's not directly used by the page component logic
+}
+
+// Props for generateMetadata
+interface GenerateMetadataProps {
+  params: { industrySlug: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
 
 const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
   healthcare: {
@@ -100,7 +108,7 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
 };
 
 export async function generateMetadata(
-  { params }: Props,
+  { params }: GenerateMetadataProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const industrySlug = params.industrySlug;
@@ -128,7 +136,7 @@ export async function generateMetadata(
   };
 }
 
-export default function IndustryDetailPage({ params }: { params: { industrySlug: string } }) {
+export default function IndustryDetailPage({ params }: IndustryDetailPageProps) {
   const industry = industriesData[params.industrySlug];
 
   if (!industry) {

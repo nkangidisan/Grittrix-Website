@@ -8,9 +8,17 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { CheckCircle, Zap } from 'lucide-react';
 
-type Props = {
+// Props for the page component
+interface ServiceDetailPageProps {
   params: { slug: string };
-};
+  // searchParams is omitted as it's not directly used by the page component logic
+}
+
+// Props for generateMetadata
+interface GenerateMetadataProps {
+  params: { slug: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
 
 const serviceDetailsData: { 
   [key: string]: {
@@ -90,7 +98,7 @@ const serviceDetailsData: {
 };
 
 export async function generateMetadata(
-  { params }: Props,
+  { params }: GenerateMetadataProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const slug = params.slug;
@@ -118,7 +126,7 @@ export async function generateMetadata(
 }
 
 
-export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
+export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
   const serviceInfoFromList = servicesList.find(s => s.detailsUrl === `/services/${params.slug}`);
   const details = serviceDetailsData[params.slug];
 
@@ -204,5 +212,3 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 export async function generateStaticParams() {
   return Object.keys(serviceDetailsData).map(slug => ({ slug }));
 }
-
-    
