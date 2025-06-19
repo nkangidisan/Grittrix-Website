@@ -77,7 +77,7 @@ export async function generateMetadata(
   };
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+export default function BlogPostPage({ params }: Props) {
   const post = blogPosts.find(p => p.slug === params.slug);
 
   if (!post) {
@@ -132,7 +132,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
             <div className="mt-12 pt-8 border-t border-border/50 flex justify-between items-center">
                 <div>
-                    <p className="text-sm text-foreground/70">Enjoyed this article?</p>
+                    {/* Placeholder for related articles or similar content if needed in future */}
                 </div>
                 <Button variant="outline" className="hover:bg-primary/10 hover:text-primary">
                     <Share2 className="h-4 w-4 mr-2" /> Share
