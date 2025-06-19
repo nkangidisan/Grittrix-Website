@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import type { BlogPost } from '@/lib/types';
 
 // Define blogPosts data directly in this file
+// This is necessary because the import from '@/app/blog/page' was removed.
 const blogPosts: BlogPost[] = [
   {
     id: '1',
@@ -58,6 +59,12 @@ interface GenerateMetadataProps {
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
+// Props for the Page component
+interface BlogPostPageProps {
+  params: { slug: string; };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
 export async function generateMetadata(
   { params }: GenerateMetadataProps,
   parent: ResolvingMetadata
@@ -94,13 +101,10 @@ export async function generateMetadata(
   };
 }
 
-export default function BlogPostPage(props: any) {
-  // Runtime check and access for params.slug
-  const slug = props.params && typeof props.params.slug === 'string' ? props.params.slug : undefined;
+export default function BlogPostPage({ params }: BlogPostPageProps) {
+  const slug = params?.slug;
 
   if (!slug) {
-    // This case should ideally not be reached if routing is correct,
-    // but as a fallback, we can call notFound.
     notFound();
   }
 
@@ -171,8 +175,11 @@ export default function BlogPostPage(props: any) {
   );
 }
 
+// Temporarily removed generateStaticParams for diagnostic purposes
+/*
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
     slug: post.slug,
   }));
 }
+*/
