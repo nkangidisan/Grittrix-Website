@@ -9,7 +9,6 @@ import { Button } from '@/components/ui/button';
 import type { BlogPost } from '@/lib/types';
 
 // Define blogPosts data directly in this file
-// This is necessary because the import from '@/app/blog/page' was removed.
 const blogPosts: BlogPost[] = [
   {
     id: '1',
@@ -59,12 +58,6 @@ interface GenerateMetadataProps {
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-// Props for the Page component
-interface BlogPostPageProps {
-  params: { slug: string; };
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
-
 export async function generateMetadata(
   { params }: GenerateMetadataProps,
   parent: ResolvingMetadata
@@ -101,10 +94,12 @@ export async function generateMetadata(
   };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const slug = params?.slug;
+export default function BlogPostPage(props: any) { // Changed props type to any
+  const params = props?.params;
+  const slug = typeof params?.slug === 'string' ? params.slug : undefined;
 
   if (!slug) {
+    console.error("BlogPostPage: slug is missing or invalid from params", params);
     notFound();
   }
 
@@ -175,7 +170,6 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   );
 }
 
-// Temporarily removed generateStaticParams for diagnostic purposes
 /*
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
