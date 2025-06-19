@@ -1,12 +1,58 @@
 
 import type { Metadata, ResolvingMetadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
-import { blogPosts } from '@/app/blog/page';
+// import { blogPosts } from '@/app/blog/page'; // Removed this import
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { CalendarDays, UserCircle, Tag, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import type { BlogPost } from '@/lib/types';
+
+// Define blogPosts data locally within this file
+const blogPosts: BlogPost[] = [
+  {
+    id: '1',
+    slug: 'ai-in-african-healthcare',
+    title: 'The Transformative Power of AI in African Healthcare',
+    excerpt: 'Exploring how AI is revolutionizing diagnostics, treatment, and healthcare management across Africa, improving access and outcomes.',
+    author: 'Nkangi Disan',
+    date: '2024-05-15',
+    imageUrl: '/media/AfricanHealthcare.jpg',
+    category: 'Healthcare AI',
+  },
+  {
+    id: '2',
+    slug: 'future-of-retail-ai',
+    title: 'The Future of Retail: Personalized Experiences with AI',
+    excerpt: 'Discover how AI is reshaping the retail landscape, from personalized customer journeys to optimized supply chains and inventory management.',
+    author: 'Lubega Mahad',
+    date: '2024-05-20',
+    imageUrl: '/media/ExperienceswithAI.png',
+    category: 'Retail Tech',
+  },
+  {
+    id: '3',
+    slug: 'precision-agriculture-africa',
+    title: 'Precision Agriculture: AI for Sustainable Farming in Africa',
+    excerpt: 'Learn how AI-driven insights are helping African farmers increase yields, optimize resources, and promote sustainable agricultural practices.',
+    author: 'Ashumbusha Emmanuel',
+    date: '2024-05-25',
+    imageUrl: '/media/FarmingAfrica.png',
+    category: 'AgriTech',
+  },
+  {
+    id: '4',
+    slug: 'ai-edtech-emerging-markets',
+    title: 'AI in EdTech: Bridging Educational Gaps in Emerging Markets',
+    excerpt: 'How AI is creating personalized learning experiences and improving educational access and quality in emerging economies.',
+    author: 'Juma Bakari',
+    date: '2024-05-28',
+    imageUrl: '/media/EmergingMarket.jpg',
+    category: 'EdTech',
+  },
+];
+
 
 const fullBlogContent: { [key: string]: string[] } = {
   'ai-in-african-healthcare': [
@@ -38,14 +84,15 @@ const fullBlogContent: { [key: string]: string[] } = {
 // Props for generateMetadata function
 interface GenerateMetadataProps {
   params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
 }
 
 export async function generateMetadata(
-  { params }: GenerateMetadataProps,
+  { params, searchParams }: GenerateMetadataProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const slug = params.slug;
-  const post = blogPosts.find(p => p.slug === slug);
+  const post = blogPosts.find(p => p.slug === slug); // Uses local blogPosts
 
   if (!post) {
     return {
@@ -80,24 +127,25 @@ export async function generateMetadata(
 }
 
 // Interface for the props of the BlogPostPage component
+// Simplified to only include params, as searchParams was the point of error.
+// searchParams are still available to the component if needed, but not explicitly typed here
+// to avoid conflict with the build environment's PageProps expectations.
 interface BlogPostPageProps {
-  params: any; // Using 'any' here as a targeted fix for the build error.
-                // Normally, this would be { slug: string; }
-  searchParams?: { [key: string]: string | string[] | undefined };
+  params: { slug: string; };
+  // searchParams?: { [key: string]: string | string[] | undefined }; // Removed from explicit props
 }
 
 // Default export for the page component
-export default function BlogPostPage({ params, searchParams }: BlogPostPageProps): JSX.Element {
+export default function BlogPostPage({ params }: BlogPostPageProps): JSX.Element {
   // At runtime, we still expect params.slug to be a string.
-  // Add a type assertion and a check for robustness.
-  const slug = params?.slug as string | undefined;
+  const slug = params?.slug;
 
   if (typeof slug !== 'string') {
       console.error("BlogPostPage: slug is not a string or is undefined in params", params);
       notFound();
   }
 
-  const post = blogPosts.find(p => p.slug === slug);
+  const post = blogPosts.find(p => p.slug === slug); // Uses local blogPosts
 
   if (!post) {
     notFound();
@@ -163,8 +211,9 @@ export default function BlogPostPage({ params, searchParams }: BlogPostPageProps
 }
 
 export async function generateStaticParams() {
-  return blogPosts.map(post => ({
+  return blogPosts.map(post => ({ // Uses local blogPosts
     slug: post.slug,
   }));
 }
 
+    
