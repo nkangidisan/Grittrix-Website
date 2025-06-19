@@ -34,12 +34,12 @@ const fullBlogContent: { [key: string]: string[] } = {
   ],
 };
 
-type Props = {
+type MetadataProps = {
   params: { slug: string };
 };
 
 export async function generateMetadata(
-  { params }: Props,
+  { params }: MetadataProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const slug = params.slug;
@@ -77,7 +77,11 @@ export async function generateMetadata(
   };
 }
 
-export default function BlogPostPage({ params }: Props) {
+interface BlogPostPageProps {
+  params: { slug: string };
+}
+
+export default function BlogPostPage({ params }: BlogPostPageProps) {
   const post = blogPosts.find(p => p.slug === params.slug);
 
   if (!post) {
@@ -132,7 +136,7 @@ export default function BlogPostPage({ params }: Props) {
 
             <div className="mt-12 pt-8 border-t border-border/50 flex justify-between items-center">
                 <div>
-                    {/* Placeholder for related articles or similar content if needed in future */}
+                    {/* Related Articles Placeholder Removed */}
                 </div>
                 <Button variant="outline" className="hover:bg-primary/10 hover:text-primary">
                     <Share2 className="h-4 w-4 mr-2" /> Share
