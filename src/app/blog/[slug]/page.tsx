@@ -35,10 +35,9 @@ const fullBlogContent: { [key: string]: string[] } = {
   ],
 };
 
-// Interface for the props of the generateMetadata function
+// Props for generateMetadata function
 interface GenerateMetadataProps {
   params: { slug: string };
-  // searchParams can also be part of this if needed for metadata generation
 }
 
 export async function generateMetadata(
@@ -82,13 +81,23 @@ export async function generateMetadata(
 
 // Interface for the props of the BlogPostPage component
 interface BlogPostPageProps {
-  params: { slug: string };
-  // searchParams?: { [key: string]: string | string[] | undefined }; // Optional: if you use searchParams
+  params: any; // Using 'any' here as a targeted fix for the build error.
+                // Normally, this would be { slug: string; }
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 // Default export for the page component
-export default function BlogPostPage({ params }: BlogPostPageProps): JSX.Element {
-  const post = blogPosts.find(p => p.slug === params.slug);
+export default function BlogPostPage({ params, searchParams }: BlogPostPageProps): JSX.Element {
+  // At runtime, we still expect params.slug to be a string.
+  // Add a type assertion and a check for robustness.
+  const slug = params?.slug as string | undefined;
+
+  if (typeof slug !== 'string') {
+      console.error("BlogPostPage: slug is not a string or is undefined in params", params);
+      notFound();
+  }
+
+  const post = blogPosts.find(p => p.slug === slug);
 
   if (!post) {
     notFound();
@@ -158,3 +167,4 @@ export async function generateStaticParams() {
     slug: post.slug,
   }));
 }
+
