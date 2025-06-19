@@ -1,11 +1,12 @@
 
-import type { Metadata, ResolvingMetadata, NextPage } from 'next';
+import type { Metadata, ResolvingMetadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { blogPosts } from '@/app/blog/page';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { CalendarDays, UserCircle, Tag, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const fullBlogContent: { [key: string]: string[] } = {
   'ai-in-african-healthcare': [
@@ -34,18 +35,14 @@ const fullBlogContent: { [key: string]: string[] } = {
   ],
 };
 
-// Type for the dynamic route parameter
-type BlogPageParams = {
-  slug: string;
-};
-
-// Props type for the generateMetadata function
-type MetadataProps = {
-  params: BlogPageParams;
-};
+// Interface for the props of the generateMetadata function
+interface GenerateMetadataProps {
+  params: { slug: string };
+  // searchParams can also be part of this if needed for metadata generation
+}
 
 export async function generateMetadata(
-  { params }: MetadataProps,
+  { params }: GenerateMetadataProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const slug = params.slug;
@@ -83,8 +80,14 @@ export async function generateMetadata(
   };
 }
 
-// Using NextPage type for the page component
-const BlogPostPage: NextPage<{ params: BlogPageParams }> = ({ params }) => {
+// Interface for the props of the BlogPostPage component
+interface BlogPostPageProps {
+  params: { slug: string };
+  // searchParams?: { [key: string]: string | string[] | undefined }; // Optional: if you use searchParams
+}
+
+// Default export for the page component
+export default function BlogPostPage({ params }: BlogPostPageProps): JSX.Element {
   const post = blogPosts.find(p => p.slug === params.slug);
 
   if (!post) {
@@ -149,12 +152,9 @@ const BlogPostPage: NextPage<{ params: BlogPageParams }> = ({ params }) => {
     </>
   );
 }
-export default BlogPostPage;
 
 export async function generateStaticParams() {
   return blogPosts.map(post => ({
     slug: post.slug,
   }));
 }
-
-    
