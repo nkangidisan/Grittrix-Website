@@ -34,12 +34,13 @@ const fullBlogContent: { [key: string]: string[] } = {
   ],
 };
 
-type MetadataProps = {
+// Renamed to avoid any potential conflict with a global PageProps or similar
+type MetadataGenerationProps = {
   params: { slug: string };
 };
 
 export async function generateMetadata(
-  { params }: MetadataProps,
+  { params }: MetadataGenerationProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const slug = params.slug;
@@ -77,11 +78,8 @@ export async function generateMetadata(
   };
 }
 
-interface BlogPostPageProps {
-  params: { slug: string };
-}
-
-export default function BlogPostPage({ params }: BlogPostPageProps) {
+// Using direct inline type for the page component props
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = blogPosts.find(p => p.slug === params.slug);
 
   if (!post) {
@@ -110,6 +108,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             fill
             className="object-cover"
             priority
+            data-ai-hint="blog abstract"
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-8">
             <div className="container mx-auto">
@@ -134,10 +133,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               ))}
             </div>
 
-            <div className="mt-12 pt-8 border-t border-border/50 flex justify-between items-center">
-                <div>
-                    {/* Related Articles Placeholder Removed */}
-                </div>
+            <div className="mt-12 pt-8 border-t border-border/50 flex justify-end items-center">
                 <Button variant="outline" className="hover:bg-primary/10 hover:text-primary">
                     <Share2 className="h-4 w-4 mr-2" /> Share
                 </Button>
