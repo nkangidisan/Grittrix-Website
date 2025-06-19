@@ -102,6 +102,10 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
                 <Mail className="h-5 w-5 text-primary/80 shrink-0"/>
+                <a href="mailto:hello@grittrix.com" className="text-sm text-foreground/70 hover:text-primary break-all">hello@grittrix.com</a>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Mail className="h-5 w-5 text-primary/80 shrink-0"/>
                 <a href="mailto:info@grittrix.com" className="text-sm text-foreground/70 hover:text-primary break-all">info@grittrix.com</a>
               </li>
               <li className="flex items-start space-x-2">

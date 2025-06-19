@@ -36,18 +36,22 @@ export default function ContactPage() {
                 <h3 className="text-xl font-semibold font-headline text-primary mb-4">Contact Information</h3>
                 <ul className="space-y-3 text-foreground/80">
                   <li className="flex items-center">
-                    <Mail className="h-5 w-5 mr-3 text-primary" /> {/* Changed accent to primary */}
+                    <Mail className="h-5 w-5 mr-3 text-primary" />
+                    <a href="mailto:hello@grittrix.com" className="hover:text-primary">hello@grittrix.com</a>
+                  </li>
+                  <li className="flex items-center">
+                    <Mail className="h-5 w-5 mr-3 text-primary" />
                     <a href="mailto:info@grittrix.com" className="hover:text-primary">info@grittrix.com</a>
                   </li>
                   <li className="flex items-start">
-                    <Phone className="h-5 w-5 mr-3 text-primary mt-1" /> {/* Changed accent to primary */}
+                    <Phone className="h-5 w-5 mr-3 text-primary mt-1" />
                     <div>
                         <a href="tel:+919714688324" className="hover:text-primary block">+91 9714688324</a>
                         <a href="tel:+256756693840" className="hover:text-primary block">+256 756693840</a>
                     </div>
                   </li>
                    <li className="flex items-center">
-                    <MessageCircle className="h-5 w-5 mr-3 text-primary" /> {/* Changed accent to primary */}
+                    <MessageCircle className="h-5 w-5 mr-3 text-primary" />
                     <a href={`https://wa.me/256756693840?text=${encodedWhatsappMessage}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary">Chat on WhatsApp (+256)</a>
                   </li>
                 </ul>

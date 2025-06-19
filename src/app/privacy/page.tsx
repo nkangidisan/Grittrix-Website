@@ -72,7 +72,7 @@ export default function PrivacyPolicyPage() {
             <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
 
             <h3>Contact Us</h3>
-            <p>If you have questions or comments about this Privacy Policy, please contact us at: <Link href="mailto:info@grittrix.com" className="text-primary hover:underline">info@grittrix.com</Link></p> {/* Changed accent to primary */}
+            <p>If you have questions or comments about this Privacy Policy, please contact us at: <Link href="mailto:hello@grittrix.com" className="text-primary hover:underline">hello@grittrix.com</Link> or <Link href="mailto:info@grittrix.com" className="text-primary hover:underline">info@grittrix.com</Link></p>
           </div>
         </div>
       </section>

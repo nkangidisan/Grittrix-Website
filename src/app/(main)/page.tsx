@@ -306,6 +306,9 @@ export default function Home() {
               <a href="tel:+256756693840" className="flex items-center hover:text-primary transition-colors">
                 <Phone className="h-5 w-5 mr-2 text-primary" /> +256 756693840
               </a>
+              <a href="mailto:hello@grittrix.com" className="flex items-center hover:text-primary transition-colors">
+                <Mail className="h-5 w-5 mr-2 text-primary" /> hello@grittrix.com
+              </a>
               <a href="mailto:info@grittrix.com" className="flex items-center hover:text-primary transition-colors">
                 <Mail className="h-5 w-5 mr-2 text-primary" /> info@grittrix.com
               </a>
