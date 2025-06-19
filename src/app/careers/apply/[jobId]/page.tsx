@@ -5,13 +5,6 @@ import { JobApplicationForm } from '@/components/forms/JobApplicationForm';
 import { notFound } from 'next/navigation';
 import { Briefcase, Brain, Palette, TrendingUp, Handshake, Sparkles } from 'lucide-react';
 
-// Props for the page component
-interface ApplyJobPageProps {
-  params: any; // Using 'any' to bypass restrictive build environment type check for params
-  // searchParams is omitted as it's not directly used by the page component logic
-  // and has been a source of type errors with the build environment's PageProps.
-}
-
 // Props type for generateMetadata function
 interface GenerateMetadataProps {
   params: { jobId: string };
@@ -154,13 +147,11 @@ export async function generateMetadata(
   };
 }
 
-
-export default function ApplyJobPage({ params }: ApplyJobPageProps) {
-  // Runtime check for params.jobId since params is 'any'
-  const jobId = params && typeof params.jobId === 'string' ? params.jobId : undefined;
+export default function ApplyJobPage(props: any) {
+  const jobId = props.params && typeof props.params.jobId === 'string' ? props.params.jobId : undefined;
 
   if (!jobId) {
-    console.error("ApplyJobPage: jobId is missing or invalid from params", params);
+    console.error("ApplyJobPage: jobId is missing or invalid from params", props.params);
     notFound();
   }
   

@@ -8,12 +8,6 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { CheckCircle, Zap } from 'lucide-react';
 
-// Props for the page component
-interface ServiceDetailPageProps {
-  params: { slug: string };
-  // searchParams is omitted as it's not directly used by the page component logic
-}
-
 // Props for generateMetadata
 interface GenerateMetadataProps {
   params: { slug: string };
@@ -113,7 +107,6 @@ export async function generateMetadata(
   const domain = (await parent).metadataBase || new URL('https://grittrix.com');
   const absoluteImageUrl = service.imageUrl.startsWith('http') ? service.imageUrl : new URL(service.imageUrl, domain).toString(); 
 
-
   return {
     title: `${service.title} | Grittrix Services`,
     description: service.description,
@@ -125,10 +118,15 @@ export async function generateMetadata(
   };
 }
 
+export default function ServiceDetailPage(props: any) {
+  const slug = props.params && typeof props.params.slug === 'string' ? props.params.slug : undefined;
 
-export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
-  const serviceInfoFromList = servicesList.find(s => s.detailsUrl === `/services/${params.slug}`);
-  const details = serviceDetailsData[params.slug];
+  if (!slug) {
+    notFound();
+  }
+
+  const serviceInfoFromList = servicesList.find(s => s.detailsUrl === `/services/${slug}`);
+  const details = serviceDetailsData[slug];
 
   if (!details) { 
     notFound();

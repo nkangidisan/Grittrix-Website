@@ -8,12 +8,6 @@ import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
-// Props for the page component
-interface IndustryDetailPageProps {
-  params: { industrySlug: string };
-  // searchParams is omitted as it's not directly used by the page component logic
-}
-
 // Props for generateMetadata
 interface GenerateMetadataProps {
   params: { industrySlug: string };
@@ -124,7 +118,6 @@ export async function generateMetadata(
   const domain = (await parent).metadataBase || new URL('https://grittrix.com');
   const absoluteImageUrl = industry.imageUrl.startsWith('http') ? industry.imageUrl : new URL(industry.imageUrl, domain).toString();
 
-
   return {
     title: `${industry.name} Solutions | Grittrix AI`,
     description: industry.description,
@@ -136,8 +129,14 @@ export async function generateMetadata(
   };
 }
 
-export default function IndustryDetailPage({ params }: IndustryDetailPageProps) {
-  const industry = industriesData[params.industrySlug];
+export default function IndustryDetailPage(props: any) {
+  const industrySlug = props.params && typeof props.params.industrySlug === 'string' ? props.params.industrySlug : undefined;
+
+  if (!industrySlug) {
+    notFound();
+  }
+
+  const industry = industriesData[industrySlug];
 
   if (!industry) {
     notFound();

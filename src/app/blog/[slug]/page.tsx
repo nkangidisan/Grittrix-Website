@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import type { BlogPost } from '@/lib/types'; // Ensure BlogPost type is correctly defined
+import type { BlogPost } from '@/lib/types';
 
 // Define blogPosts data directly in this file
 const blogPosts: BlogPost[] = [
@@ -52,14 +52,6 @@ const blogPosts: BlogPost[] = [
   },
 ];
 
-
-// Props for the page component
-interface BlogPostPageProps {
-  params: { slug: string; };
-  // searchParams is omitted as it's not directly used by the page component logic
-  // and has been a source of type errors with the build environment's PageProps.
-}
-
 // Props for generateMetadata
 interface GenerateMetadataProps {
   params: { slug: string; };
@@ -102,8 +94,16 @@ export async function generateMetadata(
   };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const slug = params.slug;
+export default function BlogPostPage(props: any) {
+  // Runtime check and access for params.slug
+  const slug = props.params && typeof props.params.slug === 'string' ? props.params.slug : undefined;
+
+  if (!slug) {
+    // This case should ideally not be reached if routing is correct,
+    // but as a fallback, we can call notFound.
+    notFound();
+  }
+
   const post = blogPosts.find(p => p.slug === slug);
 
   if (!post) {
@@ -115,10 +115,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     { name: post.title }
   ];
 
-  // Dummy content if post.content is not available
   const postContentHtml = post.content || `<p>${post.excerpt}</p><p>More content coming soon for this article. Stay tuned for in-depth insights and discussions on ${post.category}. We are working hard to bring you valuable information and perspectives on the latest advancements and applications of AI in various sectors critical to emerging markets.</p><p>In the meantime, explore our other articles or check out our YouTube channel for more insights into the world of AI and technology tailored for professionals, students, and innovators.</p>`;
   const imageAltText = `Blog post illustration for "${post.title}" by ${post.author} on Grittrix`;
-
 
   return (
     <>
@@ -155,7 +153,6 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
             <div className="mt-12 pt-8 border-t border-border">
               <h3 className="text-xl font-semibold font-headline text-primary mb-4">Share this post:</h3>
-              {/* Placeholder for social share buttons */}
               <div className="flex space-x-3">
                 <Button variant="outline" size="sm">Share on X</Button>
                 <Button variant="outline" size="sm">Share on LinkedIn</Button>

@@ -9,12 +9,6 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { CheckCircle, Zap } from 'lucide-react';
 
-// Props for the page component
-interface ProductDetailPageProps {
-  params: { productId: string };
-  // searchParams is omitted as it's not directly used by the page component logic
-}
-
 // Props for generateMetadata
 interface GenerateMetadataProps {
   params: { productId: string };
@@ -38,7 +32,6 @@ export async function generateMetadata(
   const domain = (await parent).metadataBase || new URL('https://grittrix.com');
   const absoluteImageUrl = product.imageUrl.startsWith('http') ? product.imageUrl : new URL(product.imageUrl, domain).toString();
 
-
   return {
     title: `${product.name} | Grittrix Products`,
     description: product.tagline,
@@ -50,9 +43,14 @@ export async function generateMetadata(
   };
 }
 
+export default function ProductDetailPage(props: any) {
+  const productId = props.params && typeof props.params.productId === 'string' ? props.params.productId.toLowerCase() : undefined;
 
-export default function ProductDetailPage({ params }: ProductDetailPageProps) {
-  const product = productsList.find(p => p.id.toLowerCase() === params.productId.toLowerCase());
+  if (!productId) {
+    notFound();
+  }
+  
+  const product = productsList.find(p => p.id.toLowerCase() === productId);
 
   if (!product) {
     notFound();
@@ -66,7 +64,6 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   const IconComponent = product.icon;
   const imageAltText = `${product.name} illustration - ${product.tagline}`;
   const productImageUrl = product.imageUrl; 
-
 
   return (
     <>
