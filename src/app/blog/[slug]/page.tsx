@@ -1,5 +1,5 @@
 
-import type { Metadata, ResolvingMetadata } from 'next';
+import type { Metadata, ResolvingMetadata, NextPage } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { blogPosts } from '@/app/blog/page';
 import { notFound } from 'next/navigation';
@@ -34,13 +34,18 @@ const fullBlogContent: { [key: string]: string[] } = {
   ],
 };
 
-// Renamed to avoid any potential conflict with a global PageProps or similar
-type MetadataGenerationProps = {
-  params: { slug: string };
+// Type for the dynamic route parameter
+type BlogPageParams = {
+  slug: string;
+};
+
+// Props type for the generateMetadata function
+type MetadataProps = {
+  params: BlogPageParams;
 };
 
 export async function generateMetadata(
-  { params }: MetadataGenerationProps,
+  { params }: MetadataProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const slug = params.slug;
@@ -78,8 +83,8 @@ export async function generateMetadata(
   };
 }
 
-// Using direct inline type for the page component props
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+// Using NextPage type for the page component
+const BlogPostPage: NextPage<{ params: BlogPageParams }> = ({ params }) => {
   const post = blogPosts.find(p => p.slug === params.slug);
 
   if (!post) {
@@ -144,9 +149,12 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     </>
   );
 }
+export default BlogPostPage;
 
 export async function generateStaticParams() {
   return blogPosts.map(post => ({
     slug: post.slug,
   }));
 }
+
+    
