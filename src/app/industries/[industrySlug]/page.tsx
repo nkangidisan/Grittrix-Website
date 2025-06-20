@@ -1,15 +1,18 @@
 
 import * as React from 'react';
 import type { Metadata } from 'next';
-import { PageHeader } from '@/components/PageHeader';
+// import { PageHeader } from '@/components/PageHeader'; // Temporarily removed
 import { notFound } from 'next/navigation';
-import type { IndustryDetails, UseCase, RelatedServiceLink } from '@/lib/types';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import type { IndustryDetails, UseCase as LibUseCase, RelatedServiceLink as LibRelatedServiceLink } from '@/lib/types'; // Ensured correct import
+// import Image from 'next/image'; // Temporarily removed
+// import { Button } from '@/components/ui/button'; // Temporarily removed
+// import Link from 'next/link'; // Temporarily removed
+// import { ArrowLeft } from 'lucide-react'; // Temporarily removed
 
-// Ensured IndustryDetails matches the definition in lib/types.ts
+// Ensure this matches the structure in lib/types.ts
+interface UseCase extends LibUseCase {}
+interface RelatedServiceLink extends LibRelatedServiceLink {}
+
 const industryDetailsData: { [key: string]: IndustryDetails } = {
   healthcare: {
     slug: 'healthcare',
@@ -19,7 +22,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     image: '/media/health.webp',
     dataAiHint: 'healthcare technology',
     fullDescription:
-      'Our AI solutions for healthcare focus on accelerating diagnostics through image analysis, personalizing treatment plans based on genetic and historical data, and optimizing hospital workflows. We aim to reduce costs, improve patient outcomes, and support healthcare professionals with intelligent tools. Grittrix Health™ offers predictive patient triage, smart pharmacy inventory management, and AI-assisted medical image analysis. We are committed to integrating with existing EHR systems and providing platforms for telemedicine enhanced by AI chatbots, aiming to make healthcare more accessible and efficient across emerging markets.',
+      'Our AI solutions for healthcare focus on accelerating diagnostics through image analysis, personalizing treatment plans based on genetic and historical data, and optimizing hospital workflows. We aim to reduce costs, improve patient outcomes, and support healthcare professionals with intelligent tools.',
     keyFeatures: [
       'AI-powered diagnostic tools',
       'Personalized treatment planning',
@@ -57,7 +60,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     image: '/media/agriculture.webp',
     dataAiHint: 'agriculture technology',
     fullDescription:
-      "We provide AI solutions that empower farmers and agribusinesses with predictive insights and automation. Grittrix Agro™ technologies help optimize planting and harvesting schedules, manage resources like water and fertilizer more efficiently, and detect issues like pests or diseases early. Our platform supports AI-driven crop health monitoring using satellite/drone imagery, provides precision irrigation recommendations, and offers market linkage with price trend forecasting, leading to increased yields and reduced waste in agricultural practices.",
+      "We provide AI solutions that empower farmers and agribusinesses with predictive insights and automation. Our technologies help optimize planting and harvesting schedules, manage resources like water and fertilizer more efficiently, and detect issues like pests or diseases early, leading to increased yields and reduced waste.",
     keyFeatures: [
       'Crop yield prediction models',
       'Pest and disease detection',
@@ -78,7 +81,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
         description:
           'AI models that predict potential crop diseases or livestock health issues based on environmental data and historical patterns, allowing for proactive intervention.',
         image: '/media/DiseaseandStockPredictionModels.webp',
-        dataAiHint: 'agriculture prediction',
+        dataAiHint: 'crop prediction',
       },
     ],
     relatedServices: [
@@ -95,7 +98,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     image: '/media/education.webp',
     dataAiHint: 'education technology',
     fullDescription:
-      'Our AI solutions for education aim to create more engaging and effective learning environments. Grittrix Learn™ offers tools for personalized learning paths adapted to individual student needs, automated assessment and feedback systems, and AI assistants to support educators and administrators. Features include adaptive learning content, AI-powered intelligent tutoring, student performance analytics, and teacher support tools, all designed to improve efficiency and student outcomes globally.',
+      'Our AI solutions for education aim to create more engaging and effective learning environments. We offer tools for personalized learning paths adapted to individual student needs, automated assessment and feedback systems, and AI assistants to support educators and administrators, improving efficiency and student outcomes.',
     keyFeatures: [
       'Personalized learning platforms',
       'Automated grading and feedback',
@@ -108,14 +111,14 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
         title: 'AI-Powered Learning Platforms',
         description:
           'Adaptive learning platforms that tailor content and pace to each student\'s learning style and progress, providing a truly personalized educational experience.',
-        image: '/media/ExperienceswithAI.png', 
-        dataAiHint: 'education platform',
+        image: '/media/ExperienceswithAI.png',
+        dataAiHint: 'learning platform',
       },
       {
         title: 'Smart Administrative Assistants',
         description:
           'AI tools that automate routine administrative tasks for educators and institutions, such as scheduling, communication, and data entry, freeing up time for teaching and student interaction.',
-        image: '/media/SmartForecastingEngines.png', 
+        image: '/media/SmartForecastingEngines.png',
         dataAiHint: 'education admin',
       },
     ],
@@ -133,7 +136,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     image: '/media/retail.webp',
     dataAiHint: 'retail technology',
     fullDescription:
-      'We help retail businesses thrive in a competitive landscape with AI-driven insights. Grittrix Retail™ solutions include AI for personalized product recommendations, demand forecasting to optimize inventory, customer sentiment analysis, and automation of pricing and promotions. Our platform offers features like AI-powered sales forecasting, automated inventory replenishment, dynamic pricing strategies, and supply chain visibility, leading to increased sales and customer satisfaction for both online and brick-and-mortar stores.',
+      'We help retail businesses thrive in a competitive landscape with AI-driven insights. Our solutions include AI for personalized product recommendations, demand forecasting to optimize inventory, customer sentiment analysis, and automation of pricing and promotions, leading to increased sales and customer satisfaction.',
     keyFeatures: [
       'Personalized product recommendations',
       'Demand forecasting and inventory optimization',
@@ -147,14 +150,14 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
         description:
           'An AI-enhanced e-commerce platform providing personalized shopping experiences, intelligent search, and predictive insights for online retailers.',
         image: '/media/RetailSenseE-commerce.jpg',
-        dataAiHint: 'retail ecommerce',
+        dataAiHint: 'retail e-commerce',
       },
       {
         title: 'Smart Forecasting Engines',
         description:
           'AI models that analyze sales data, market trends, and external factors to provide accurate demand forecasts, enabling better inventory management and reducing stockouts or overstock.',
         image: '/media/SmartForecastingEngines.png',
-        dataAiHint: 'retail forecasting',
+        dataAiHint: 'retail forecast',
       },
     ],
     relatedServices: [
@@ -167,7 +170,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
 
 export async function generateMetadata({ params }: { params: { industrySlug: string } }): Promise<Metadata> {
   const industrySlug = params?.industrySlug;
-  const industry = industrySlug ? industryDetailsData[industrySlug] : undefined;
+  const industry = industryDetailsData[industrySlug];
 
   if (!industry) {
     return {
@@ -175,17 +178,20 @@ export async function generateMetadata({ params }: { params: { industrySlug: str
       description: 'This industry page does not exist.',
     };
   }
+
   const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://grittrix.com';
-  const absoluteImageUrl = industry.image.startsWith('http') ? industry.image : new URL(industry.image, domainBase).toString();
+  const absoluteImageUrl = industry.image.startsWith('http')
+    ? industry.image
+    : new URL(industry.image, domainBase).toString();
 
   return {
     title: `${industry.title} | Grittrix AI Solutions`,
     description: industry.description,
     openGraph: {
-        title: `${industry.title} | Grittrix AI Solutions`,
-        description: industry.description,
-        images: [{ url: absoluteImageUrl, alt: industry.title }],
-    }
+      title: `${industry.title} | Grittrix AI Solutions`,
+      description: industry.description,
+      images: [{ url: absoluteImageUrl, alt: industry.title }],
+    },
   };
 }
 
@@ -195,60 +201,133 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function IndustryPage(props: any) {
-  const industrySlug = props?.params?.industrySlug;
-  const industry = industrySlug ? industryDetailsData[industrySlug] : undefined;
+export default function IndustryPage({ params }: { params: { industrySlug: string } }) {
+  const industry = industryDetailsData[params.industrySlug];
 
   if (!industry) {
     notFound();
-    return null; 
+    return null;
   }
 
-  const breadcrumbs = [
-    { name: 'Industries', href: '/industries' },
-    { name: industry.title },
-  ];
+  // const breadcrumbs = [ // Temporarily removed
+  //   { name: 'Industries', href: '/industries' },
+  //   { name: industry.title },
+  // ];
 
   return (
-    <>
-      <PageHeader title={industry.title} description={industry.description} breadcrumbs={breadcrumbs} />
-       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <div className="relative aspect-video w-full mb-8 rounded-lg overflow-hidden shadow-xl">
-            <Image
-              src={industry.image}
-              alt={`${industry.title} - ${industry.description}`}
-              fill
-              className="object-cover"
-              priority
-              data-ai-hint={industry.dataAiHint}
-            />
-          </div>
-          <h2 className="text-2xl font-bold font-headline text-primary mb-4">Transforming {industry.title}</h2>
-          <p className="text-lg text-foreground/80 leading-relaxed mb-8">
-            {industry.fullDescription}
-          </p>
-          
-          <div className="bg-card p-6 rounded-lg shadow-md">
-             <p className="text-foreground/70 mb-4">
-              Explore how Grittrix AI Solutions can revolutionize your operations. For a detailed overview of solutions for all sectors, please visit our main industries page or contact us.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
-                <Link href="/industries" className="flex items-center">
-                    <ArrowLeft className="mr-2 h-5 w-5" />
-                    Back to All Industries
-                </Link>
-                </Button>
-                <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link href={`/contact?subject=Solutions%20for%20${encodeURIComponent(industry.title)}`}>
-                    Contact Us for Solutions
-                </Link>
-                </Button>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      {/* <PageHeader title={industry.title} description={industry.description} breadcrumbs={breadcrumbs} /> // Temporarily removed */}
+      
+      <h1 className="text-4xl font-bold font-headline text-primary mb-4">{industry.title}</h1>
+      <p className="text-lg text-foreground/80 mb-6">{industry.description}</p>
+      
+      {/* Temporarily remove image section
+      <section className="relative w-full h-96 overflow-hidden">
+        <Image
+          src={industry.image}
+          alt={`${industry.title} - ${industry.dataAiHint}`}
+          fill
+          style={{ objectFit: 'cover' }}
+          className="object-cover object-center"
+          priority
+          data-ai-hint={industry.dataAiHint}
+        />
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+      </section>
+      */}
+
+      <section className="py-16 md:py-8 bg-background"> {/* Adjusted padding */}
+        <div className="max-w-4xl"> {/* Simplified container */}
+          <p className="text-lg md:text-xl text-foreground/90 mb-12">{industry.fullDescription}</p>
+
+          {/* Temporarily remove key features, related services, and use cases sections
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold font-headline text-primary mb-6">Key Features</h2>
+              <ul className="space-y-4 text-foreground/80">
+                {industry.keyFeatures.map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <svg
+                      className="flex-shrink-0 w-6 h-6 text-green-500 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold font-headline text-primary mb-6">Related Services</h2>
+              <ul className="space-y-4">
+                {industry.relatedServices.map((service, index) => (
+                  <li key={index}>
+                    <Link href={service.href} className="text-foreground/80 hover:text-primary transition-colors duration-200 flex items-center">
+                       <svg className="flex-shrink-0 w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+                       {service.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
+
+          {industry.useCases && industry.useCases.length > 0 && (
+            <div className="mt-16">
+              <h2 className="text-2xl md:text-3xl font-bold font-headline text-primary mb-8 text-center">Use Cases</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                {industry.useCases.map((useCase, index) => (
+                  <div key={index} className="bg-card rounded-lg shadow-lg overflow-hidden">
+                    <div className="relative w-full h-48">
+                       <Image
+                          src={useCase.image}
+                          alt={`${useCase.title} - ${useCase.dataAiHint}`}
+                          fill
+                          style={{ objectFit: 'cover' }}
+                          className="object-cover object-center"
+                          data-ai-hint={useCase.dataAiHint}
+                        />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold font-headline text-foreground mb-3">{useCase.title}</h3>
+                      <p className="text-foreground/80 text-sm">{useCase.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+          */}
         </div>
       </section>
-    </>
+
+      {/* Temporarily remove Explore Further section
+      <section className="py-16 md:py-24 bg-secondary/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+            <h2 className="text-2xl font-bold font-headline text-primary mb-6">Explore Further</h2>
+             <p className="text-lg text-foreground/80 mb-8">
+                For a comprehensive overview of solutions for all sectors, or to discuss your specific needs for {industry.title.toLowerCase()}, please visit our main industries page or contact our expert team.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
+                <Link href="/industries" className="flex items-center">
+                  <ArrowLeft className="mr-2 h-5 w-5" />
+                  Back to All Industries
+                </Link>
+              </Button>
+              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Link href={`/contact?subject=Solutions%20for%20${encodeURIComponent(industry.title)}`}>
+                  Contact Us for Solutions
+                </Link>
+              </Button>
+            </div>
+        </div>
+      </section>
+      */}
+    </div>
   );
 }
