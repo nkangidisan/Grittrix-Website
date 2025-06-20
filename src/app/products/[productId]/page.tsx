@@ -16,6 +16,12 @@ export async function generateMetadata({
 }: {
   params: { productId: string };
 }): Promise<Metadata> {
+  if (!params || !params.productId) {
+    return {
+      title: 'Product Not Found | Grittrix',
+      description: 'This product is not available or the URL is invalid.',
+    };
+  }
   const productId = params.productId.toLowerCase();
   const product = productsList.find(p => p.id.toLowerCase() === productId);
 
@@ -42,21 +48,23 @@ export async function generateMetadata({
 
 interface ProductDetailPageProps {
   params: { productId: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  // searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-export default function ProductDetailPage({ params, searchParams }: ProductDetailPageProps) {
-  const productId = params?.productId?.toLowerCase();
+export default function ProductDetailPage(props: ProductDetailPageProps) {
+  const productId = props?.params?.productId?.toLowerCase();
 
   if (!productId) {
-    console.error("ProductDetailPage: productId is missing or invalid from params", params);
+    console.error("ProductDetailPage: productId is missing from props.params", props);
     notFound();
+    return null;
   }
   
   const product = productsList.find(p => p.id.toLowerCase() === productId);
 
   if (!product) {
     notFound();
+    return null;
   }
 
   const breadcrumbs = [

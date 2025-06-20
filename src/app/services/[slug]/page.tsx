@@ -92,6 +92,12 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
+  if (!params || !params.slug) {
+    return {
+      title: 'Service Not Found | Grittrix',
+      description: 'This service is not available or the URL is invalid.',
+    };
+  }
   const slug = params.slug;
   const service = serviceDetailsData[slug];
 
@@ -117,15 +123,16 @@ export async function generateMetadata({
 
 interface ServiceDetailPageProps {
   params: { slug: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  // searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-export default function ServiceDetailPage({ params, searchParams }: ServiceDetailPageProps) {
-  const slug = params?.slug;
+export default function ServiceDetailPage(props: ServiceDetailPageProps) {
+  const slug = props?.params?.slug;
 
   if (!slug) {
-    console.error("ServiceDetailPage: slug is missing or invalid from params", params);
+    console.error("ServiceDetailPage: slug is missing from props.params", props);
     notFound();
+    return null;
   }
 
   const serviceInfoFromList = servicesList.find(s => s.detailsUrl === `/services/${slug}`);
@@ -133,6 +140,7 @@ export default function ServiceDetailPage({ params, searchParams }: ServiceDetai
 
   if (!details) { 
     notFound();
+    return null;
   }
   
   const breadcrumbs = [

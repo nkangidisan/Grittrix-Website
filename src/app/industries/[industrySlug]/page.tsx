@@ -19,7 +19,7 @@ const industriesData: { [key: string]: IndustryData } = {
     id: 'healthcare',
     name: 'Healthcare',
     description: 'Empowering healthcare providers with AI to improve patient outcomes, enhance diagnostics, and streamline operations.',
-    icon: HeartPulse,
+    icon: HeartPulse as ElementType,
     imageUrl: '/media/health.webp', 
     painPoints: [
       'Late disease detection and diagnosis',
@@ -40,7 +40,7 @@ const industriesData: { [key: string]: IndustryData } = {
     id: 'retail',
     name: 'Retail & E-commerce',
     description: 'Transforming the retail landscape with AI for personalized experiences, optimized supply chains, and smarter operations.',
-    icon: ShoppingCart,
+    icon: ShoppingCart as ElementType,
     imageUrl: '/media/retail.webp', 
     painPoints: [
       'Understanding customer behavior and preferences',
@@ -61,7 +61,7 @@ const industriesData: { [key: string]: IndustryData } = {
     id: 'agriculture',
     name: 'Agriculture',
     description: 'Driving sustainable agriculture and food security with AI-powered precision farming and data analytics.',
-    icon: Leaf,
+    icon: Leaf as ElementType,
     imageUrl: '/media/agriculture.webp', 
     painPoints: [
       'Unpredictable weather patterns and climate change impact',
@@ -82,7 +82,7 @@ const industriesData: { [key: string]: IndustryData } = {
     id: 'education',
     name: 'Education',
     description: 'Personalizing learning and enhancing educational outcomes with adaptive AI technologies.',
-    icon: BookOpen,
+    icon: BookOpen as ElementType,
     imageUrl: '/media/education.webp',
     painPoints: [
       'One-size-fits-all learning approaches',
@@ -106,6 +106,12 @@ export async function generateMetadata({
 }: {
   params: { industrySlug: string };
 }): Promise<Metadata> {
+  if (!params || !params.industrySlug) {
+    return {
+      title: 'Industry Not Found | Grittrix',
+      description: 'This industry page is not available or the URL is invalid.',
+    };
+  }
   const industrySlug = params.industrySlug;
   const industry = industriesData[industrySlug];
 
@@ -132,21 +138,23 @@ export async function generateMetadata({
 
 interface IndustryDetailPageProps {
   params: { industrySlug: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  // searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-export default function IndustryDetailPage({ params, searchParams }: IndustryDetailPageProps) {
-  const industrySlug = params?.industrySlug;
+export default function IndustryDetailPage(props: IndustryDetailPageProps) {
+  const industrySlug = props?.params?.industrySlug;
 
   if (!industrySlug) {
-    console.error("IndustryDetailPage: industrySlug is missing or invalid from params", params);
+    console.error("IndustryDetailPage: industrySlug is missing from props.params", props);
     notFound();
+    return null;
   }
 
   const industry = industriesData[industrySlug];
 
   if (!industry) {
     notFound();
+    return null;
   }
 
   const breadcrumbs = [

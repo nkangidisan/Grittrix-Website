@@ -70,7 +70,14 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+  if (!params || !params.slug) {
+    return {
+      title: 'Post Not Found | Grittrix Blog',
+      description: 'This blog post could not be found or the URL is invalid.',
+    };
+  }
+  const slug = params.slug;
+  const post = blogPosts.find((p) => p.slug === slug);
 
   if (!post) {
     return {
@@ -78,6 +85,9 @@ export async function generateMetadata({
       description: 'This blog post could not be found.',
     };
   }
+  const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://grittrix.com';
+  const absoluteImageUrl = post.imageUrl.startsWith('http') ? post.imageUrl : new URL(post.imageUrl, domainBase).toString();
+
 
   return {
     title: `${post.title} | Grittrix Blog`,
@@ -85,25 +95,31 @@ export async function generateMetadata({
     openGraph: {
       title: `${post.title} | Grittrix Blog`,
       description: post.excerpt,
-      images: [{ url: post.imageUrl, alt: `Image for ${post.title}` }],
+      images: [{ url: absoluteImageUrl, alt: `Image for ${post.title}` }],
     }
   };
 }
 
+// Interface for the page component's props
 interface BlogPostPageProps {
   params: { slug: string };
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-export default function BlogPostPage({ params, searchParams }: BlogPostPageProps) {
-  const slug = params?.slug;
+export default function BlogPostPage(props: BlogPostPageProps) {
+  // Runtime check for params and slug
+  const slug = props?.params?.slug;
+
   if (!slug) {
+    console.error("BlogPostPage: slug is missing from props.params", props);
     notFound();
+    return null; 
   }
 
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) {
     notFound();
+    return null;
   }
 
   const postContentHtml = `<p>${post.excerpt}</p><p>More insights and updates will be added soon. Stay tuned! This page uses static data defined within the file.</p>`;
@@ -170,9 +186,10 @@ export default function BlogPostPage({ params, searchParams }: BlogPostPageProps
   );
 }
 
-// Reinstating generateStaticParams if needed for SSG
+/*
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
     slug: post.slug,
   }));
 }
+*/

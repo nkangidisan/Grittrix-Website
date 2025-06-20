@@ -20,7 +20,7 @@ const jobDetailsMap: Record<
 > = {
   'software-engineer': {
     title: 'Software Engineer (Frontend & Backend)',
-    icon: Brain,
+    icon: Brain as ElementType,
     description:
       "As a Software Engineer at Grittrix, you'll be at the heart of developing and scaling our innovative AI-driven platforms...",
     responsibilities: [
@@ -43,7 +43,7 @@ const jobDetailsMap: Record<
   },
   'data-scientist-ml': {
     title: 'Data Scientist / ML Engineer',
-    icon: Sparkles,
+    icon: Sparkles as ElementType,
     description:
       'Join Grittrix as a Data Scientist/ML Engineer to architect and implement cutting-edge machine learning models...',
     responsibilities: [
@@ -62,7 +62,7 @@ const jobDetailsMap: Record<
   },
   'ui-ux-designer': {
     title: 'UI/UX Designer',
-    icon: Palette,
+    icon: Palette as ElementType,
     description:
       'As a UI/UX Designer at Grittrix, you will craft intuitive, accessible, and engaging user experiences for our AI-powered products...',
     responsibilities: [
@@ -80,7 +80,7 @@ const jobDetailsMap: Record<
   },
   'business-development-sales': {
     title: 'Business Development & Sales',
-    icon: TrendingUp,
+    icon: TrendingUp as ElementType,
     description:
       'Drive Grittrix growth as a business development lead. Build strategic partnerships and grow adoption of AI solutions...',
     responsibilities: [
@@ -98,7 +98,7 @@ const jobDetailsMap: Record<
   },
   'industry-advisor': {
     title: 'Industry Advisor (Health, Agri, Education)',
-    icon: Handshake,
+    icon: Handshake as ElementType,
     description:
       "As an Industry Advisor, you'll guide our product direction with your sector expertise. Ensure our AI tools solve real problems...",
     responsibilities: [
@@ -116,17 +116,22 @@ const jobDetailsMap: Record<
   },
 };
 
-
 export async function generateMetadata({
   params,
 }: {
   params: { jobId: string };
 }): Promise<Metadata> {
+  if (!params || !params.jobId) {
+    return {
+      title: 'Job Not Found | Grittrix Careers',
+      description: 'The requested job opening could not be found or the URL is invalid.',
+    };
+  }
   const job = jobDetailsMap[params.jobId];
 
   if (!job) {
     return {
-      title: 'Job Not Found | Grittrix',
+      title: 'Job Not Found | Grittrix Careers',
       description: 'The requested job does not exist.',
     };
   }
@@ -139,17 +144,25 @@ export async function generateMetadata({
 
 interface ApplyJobPageProps {
   params: { jobId: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  // searchParams?: { [key: string]: string | string[] | undefined }; // Keep if needed, or remove if not used
 }
 
-export default function ApplyJobPage({ params, searchParams }: ApplyJobPageProps) {
-  const jobId = params?.jobId;
-  if (!jobId) notFound();
+export default function ApplyJobPage(props: ApplyJobPageProps) {
+  const jobId = props?.params?.jobId;
+
+  if (!jobId) {
+    console.error("ApplyJobPage: jobId is missing from props.params", props);
+    notFound();
+    return null;
+  }
   
   const job = jobDetailsMap[jobId];
-  if (!job) notFound();
+  if (!job) {
+    notFound();
+    return null;
+  }
 
-  const Icon = job.icon || Briefcase;
+  const Icon = job.icon || (Briefcase as ElementType);
 
   const breadcrumbs = [
     { name: 'Careers', href: '/careers' },
