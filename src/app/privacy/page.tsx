@@ -1,15 +1,13 @@
 "use client";
 
 import * as React from 'react';
-import type { Metadata } from 'next';
+// Removed: import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { ShieldCheck } from 'lucide-react';
 import Link from 'next/link'; 
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy | Grittrix AI Solutions',
-  description: 'Read the Grittrix AI Solutions privacy policy to understand how we collect, use, and protect your personal information.',
-};
+// Removed the metadata export block as it's not allowed in "use client" components.
+// The page will inherit metadata from the parent layout.
 
 export default function PrivacyPolicyPage() {
   const breadcrumbs = [{ name: 'Privacy Policy' }];
