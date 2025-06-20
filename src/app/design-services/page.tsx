@@ -90,7 +90,7 @@ export default function DesignServicesPage() {
                       alt={item.altText}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      data-ai-hint="portfolio item"
+                      data-ai-hint="portfolio item app interface"
                     />
                   </div>
                 </CardHeader>

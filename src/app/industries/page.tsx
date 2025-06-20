@@ -3,7 +3,6 @@ import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { IndustryCard } from '@/components/sections/IndustryCard';
-// import type { Industry as LibIndustryType } from '@/lib/types'; // No longer needed directly
 import { HeartPulse, ShoppingCart, Leaf, BookOpen } from 'lucide-react';
 import type { ElementType } from 'react';
 
@@ -22,10 +21,10 @@ interface IndustryOverviewType {
 }
 
 const industriesOverview: IndustryOverviewType[] = [
-  { id: 'healthcare', name: 'Healthcare', description: 'Revolutionizing patient care with AI-driven diagnostics, personalized medicine, and operational efficiency.', icon: HeartPulse, imageUrl: '/media/health.webp', altText: 'AI in Healthcare illustration: advanced diagnostics and patient care by Grittrix' },
-  { id: 'retail', name: 'Retail & E-commerce', description: 'Transforming customer experiences through AI-powered personalization, supply chain optimization, and intelligent inventory management.', icon: ShoppingCart, imageUrl: '/media/retail.webp', altText: 'AI in Retail illustration: personalized e-commerce experiences by Grittrix' },
-  { id: 'agriculture', name: 'Agriculture', description: 'Enhancing food security with AI-driven precision farming, crop monitoring, and yield prediction for sustainable agriculture.', icon: Leaf, imageUrl: '/media/agriculture.webp', altText: 'AI in Agriculture illustration: precision farming and crop monitoring by Grittrix' },
-  { id: 'education', name: 'Education', description: 'Personalizing learning journeys with adaptive AI tutors, intelligent content delivery, and data-driven insights for educators.', icon: BookOpen, imageUrl: '/media/education.webp', altText: 'AI in Education illustration: adaptive learning and intelligent tutoring by Grittrix' },
+  { id: 'healthcare', name: 'Healthcare', description: 'Revolutionizing patient care with AI-driven diagnostics, personalized medicine, and operational efficiency.', icon: HeartPulse as ElementType, imageUrl: '/media/health.webp', altText: 'AI in Healthcare illustration: advanced diagnostics and patient care by Grittrix' },
+  { id: 'retail', name: 'Retail & E-commerce', description: 'Transforming customer experiences through AI-powered personalization, supply chain optimization, and intelligent inventory management.', icon: ShoppingCart as ElementType, imageUrl: '/media/retail.webp', altText: 'AI in Retail illustration: personalized e-commerce experiences by Grittrix' },
+  { id: 'agriculture', name: 'Agriculture', description: 'Enhancing food security with AI-driven precision farming, crop monitoring, and yield prediction for sustainable agriculture.', icon: Leaf as ElementType, imageUrl: '/media/agriculture.webp', altText: 'AI in Agriculture illustration: precision farming and crop monitoring by Grittrix' },
+  { id: 'education', name: 'Education', description: 'Personalizing learning journeys with adaptive AI tutors, intelligent content delivery, and data-driven insights for educators.', icon: BookOpen as ElementType, imageUrl: '/media/education.webp', altText: 'AI in Education illustration: adaptive learning and intelligent tutoring by Grittrix' },
 ];
 
 export default function IndustriesPage() {
@@ -51,11 +50,11 @@ export default function IndustriesPage() {
             {industriesOverview.map((industry) => (
               <IndustryCard
                 key={industry.id}
-                industry={{ // Constructing the prop for IndustryCard
+                industry={{ 
                   id: industry.id,
                   name: industry.name,
                   description: industry.description,
-                  icon: industry.icon,
+                  icon: industry.icon, // Already ElementType here
                   imageUrl: industry.imageUrl,
                 }}
                 altText={industry.altText} 

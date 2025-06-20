@@ -11,9 +11,10 @@ import Link from 'next/link';
 import type { ElementType } from 'react';
 
 interface IndustryData extends Omit<Industry, 'icon' | 'imageHint'> {
-  icon: ElementType;
+  icon: ElementType; // Lucide icon component
 }
 
+// This data should ideally be managed more centrally, but for the fix, it's kept here.
 const industriesData: { [key: string]: IndustryData } = {
   healthcare: {
     id: 'healthcare',
@@ -106,19 +107,20 @@ export async function generateMetadata({
 }: {
   params: { industrySlug: string };
 }): Promise<Metadata> {
-  if (!params || !params.industrySlug) {
+  const industrySlugParam = params?.industrySlug;
+
+  if (!industrySlugParam) {
     return {
-      title: 'Industry Not Found | Grittrix',
-      description: 'This industry page is not available or the URL is invalid.',
+      title: 'Industry Not Found | Grittrix AI Solutions',
+      description: 'The requested industry page could not be found or the URL is invalid.',
     };
   }
-  const industrySlug = params.industrySlug;
-  const industry = industriesData[industrySlug];
+  const industry = industriesData[industrySlugParam];
 
   if (!industry) {
     return {
-      title: 'Industry Not Found | Grittrix',
-      description: 'This industry page is not available.',
+      title: 'Industry Not Found | Grittrix AI Solutions',
+      description: `The industry page for "${industrySlugParam}" does not exist.`,
     };
   }
   
@@ -136,16 +138,17 @@ export async function generateMetadata({
   };
 }
 
-interface IndustryDetailPageProps {
-  params: { industrySlug: string };
-  // searchParams?: { [key: string]: string | string[] | undefined };
+export async function generateStaticParams() {
+  return Object.keys(industriesData).map((slug) => ({
+    industrySlug: slug,
+  }));
 }
 
-export default function IndustryDetailPage(props: IndustryDetailPageProps) {
-  const industrySlug = props?.params?.industrySlug;
+export default function IndustryDetailPage(props: any) {
+  const params = props?.params;
+  const industrySlug = params?.industrySlug as string | undefined;
 
   if (!industrySlug) {
-    console.error("IndustryDetailPage: industrySlug is missing from props.params", props);
     notFound();
     return null;
   }
@@ -227,10 +230,4 @@ export default function IndustryDetailPage(props: IndustryDetailPageProps) {
       </section>
     </>
   );
-}
-
-export async function generateStaticParams() {
-  return Object.keys(industriesData).map((slug) => ({
-    industrySlug: slug,
-  }));
 }

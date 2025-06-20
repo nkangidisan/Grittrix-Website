@@ -27,7 +27,7 @@ export interface Industry {
   description: string;
   painPoints: string[];
   solutions: string[];
-  icon: ElementType;
+  icon: ElementType; // Lucide icon component
   imageUrl: string; // e.g., /media/industry-name.jpg
 }
 
@@ -36,7 +36,7 @@ export interface Product {
   name: string;
   tagline: string;
   description: string;
-  icon: ElementType;
+  icon: ElementType; // Lucide icon component
   imageUrl: string; // e.g., /media/product-name.jpg
   features: string[];
 }
@@ -64,7 +64,7 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   author: string;
-  date: string;
+  date: string; // Should be a string parseable by new Date() e.g., "YYYY-MM-DD"
   imageUrl: string; // e.g., /media/blog-slug-name.jpg
   category: string;
   contentHtml?: string; // Optional: if full content is pre-rendered

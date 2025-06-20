@@ -121,18 +121,20 @@ export async function generateMetadata({
 }: {
   params: { jobId: string };
 }): Promise<Metadata> {
-  if (!params || !params.jobId) {
+  const jobIdParam = params?.jobId;
+
+  if (!jobIdParam) {
     return {
       title: 'Job Not Found | Grittrix Careers',
       description: 'The requested job opening could not be found or the URL is invalid.',
     };
   }
-  const job = jobDetailsMap[params.jobId];
+  const job = jobDetailsMap[jobIdParam];
 
   if (!job) {
     return {
       title: 'Job Not Found | Grittrix Careers',
-      description: 'The requested job does not exist.',
+      description: `The job with ID "${jobIdParam}" does not exist.`,
     };
   }
 
@@ -142,16 +144,15 @@ export async function generateMetadata({
   };
 }
 
-interface ApplyJobPageProps {
-  params: { jobId: string };
-  // searchParams?: { [key: string]: string | string[] | undefined }; // Keep if needed, or remove if not used
+export async function generateStaticParams() {
+  return Object.keys(jobDetailsMap).map((jobId) => ({ jobId }));
 }
 
-export default function ApplyJobPage(props: ApplyJobPageProps) {
-  const jobId = props?.params?.jobId;
+export default function ApplyJobPage(props: any) {
+  const params = props?.params;
+  const jobId = params?.jobId as string | undefined;
 
   if (!jobId) {
-    console.error("ApplyJobPage: jobId is missing from props.params", props);
     notFound();
     return null;
   }
@@ -216,8 +217,4 @@ export default function ApplyJobPage(props: ApplyJobPageProps) {
       </section>
     </>
   );
-}
-
-export async function generateStaticParams() {
-  return Object.keys(jobDetailsMap).map((jobId) => ({ jobId }));
 }

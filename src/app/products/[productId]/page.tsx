@@ -2,7 +2,6 @@
 import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
-import type { Product } from '@/lib/types';
 import { productsList } from '@/app/products/page'; 
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -16,19 +15,20 @@ export async function generateMetadata({
 }: {
   params: { productId: string };
 }): Promise<Metadata> {
-  if (!params || !params.productId) {
+  const productIdParam = params?.productId;
+
+  if (!productIdParam) {
     return {
-      title: 'Product Not Found | Grittrix',
-      description: 'This product is not available or the URL is invalid.',
+      title: 'Product Not Found | Grittrix AI Solutions',
+      description: 'The requested product could not be found or the URL is invalid.',
     };
   }
-  const productId = params.productId.toLowerCase();
-  const product = productsList.find(p => p.id.toLowerCase() === productId);
+  const product = productsList.find(p => p.id.toLowerCase() === productIdParam.toLowerCase());
 
   if (!product) {
     return {
-      title: 'Product Not Found | Grittrix',
-      description: 'This product is not available.',
+      title: 'Product Not Found | Grittrix AI Solutions',
+      description: `The product with ID "${productIdParam}" does not exist.`,
     };
   }
 
@@ -46,21 +46,22 @@ export async function generateMetadata({
   };
 }
 
-interface ProductDetailPageProps {
-  params: { productId: string };
-  // searchParams?: { [key: string]: string | string[] | undefined };
+export async function generateStaticParams() {
+  return productsList.map(product => ({
+    productId: product.id.toLowerCase(),
+  }));
 }
 
-export default function ProductDetailPage(props: ProductDetailPageProps) {
-  const productId = props?.params?.productId?.toLowerCase();
+export default function ProductDetailPage(props: any) {
+  const params = props?.params;
+  const productId = params?.productId as string | undefined;
 
   if (!productId) {
-    console.error("ProductDetailPage: productId is missing from props.params", props);
     notFound();
     return null;
   }
   
-  const product = productsList.find(p => p.id.toLowerCase() === productId);
+  const product = productsList.find(p => p.id.toLowerCase() === productId.toLowerCase());
 
   if (!product) {
     notFound();
@@ -150,10 +151,4 @@ export default function ProductDetailPage(props: ProductDetailPageProps) {
       </section>
     </>
   );
-}
-
-export async function generateStaticParams() {
-  return productsList.map(product => ({
-    productId: product.id.toLowerCase(),
-  }));
 }

@@ -10,17 +10,18 @@ import Link from 'next/link';
 import { CheckCircle, Zap } from 'lucide-react';
 import type { ElementType } from 'react';
 
-interface ServiceDetail {
+interface ServiceDetailData {
   title: string;
   description: string; 
   longDescription: string;
   features: string[];
   imageUrl: string; 
   imageAlt: string;
-  icon?: ElementType; 
+  icon?: ElementType; // This can be derived from servicesList
 }
 
-const serviceDetailsData: { [key: string]: ServiceDetail } = {
+// This data should ideally be managed more centrally, but for the fix, it's kept here.
+const serviceDetailsData: { [key: string]: ServiceDetailData } = {
     'ai-dashboards': { 
         title: 'AI Dashboards & Reporting Tools', 
         description: 'Unlock actionable insights with custom-built AI dashboards that transform raw data into strategic assets.', 
@@ -56,7 +57,7 @@ const serviceDetailsData: { [key: string]: ServiceDetail } = {
     'cloud-services': {
         title: 'Cloud Hosting & Deployment',
         description: 'Securely host and deploy your applications on optimized, scalable cloud infrastructure with expert management.',
-        longDescription: 'Leverage the power and flexibility of the cloud with our expert hosting and deployment services. We help you choose the right cloud platform, configure robust environments, and manage your applications for optimal performance, security, and cost-efficiency. Our services cover migration, CI/CD pipeline setup, and ongoing infrastructure management.',
+        longDescription: 'Leverage the power and flexibility of the cloud with our expert hosting and deployment services. We help you choose the right cloud platform, configure robust environments, and manage your applications for optimal performance, security,and cost-efficiency. Our services cover migration, CI/CD pipeline setup, and ongoing infrastructure management.',
         features: ['Cloud strategy & consultation', 'Infrastructure setup & configuration', 'Automated deployment (CI/CD)', 'Scalability & load balancing', 'Security & compliance management', 'Cost optimization'],
         imageUrl: '/media/CloudHosting&Deployment.webp', 
         imageAlt: 'Illustration of cloud servers representing hosting and deployment services'
@@ -92,19 +93,20 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  if (!params || !params.slug) {
+  const slugParam = params?.slug;
+
+  if (!slugParam) {
     return {
-      title: 'Service Not Found | Grittrix',
-      description: 'This service is not available or the URL is invalid.',
+      title: 'Service Not Found | Grittrix AI Solutions',
+      description: 'The requested service could not be found or the URL is invalid.',
     };
   }
-  const slug = params.slug;
-  const service = serviceDetailsData[slug];
+  const service = serviceDetailsData[slugParam];
 
   if (!service) {
     return {
-      title: 'Service Not Found | Grittrix',
-      description: 'This service is not available.',
+      title: 'Service Not Found | Grittrix AI Solutions',
+      description: `The service with ID "${slugParam}" does not exist.`,
     };
   }
   const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://grittrix.com';
@@ -121,16 +123,15 @@ export async function generateMetadata({
   };
 }
 
-interface ServiceDetailPageProps {
-  params: { slug: string };
-  // searchParams?: { [key: string]: string | string[] | undefined };
+export async function generateStaticParams() {
+  return Object.keys(serviceDetailsData).map(slug => ({ slug }));
 }
 
-export default function ServiceDetailPage(props: ServiceDetailPageProps) {
-  const slug = props?.params?.slug;
+export default function ServiceDetailPage(props: any) {
+  const params = props?.params;
+  const slug = params?.slug as string | undefined;
 
   if (!slug) {
-    console.error("ServiceDetailPage: slug is missing from props.params", props);
     notFound();
     return null;
   }
@@ -216,8 +217,4 @@ export default function ServiceDetailPage(props: ServiceDetailPageProps) {
       </section>
     </>
   );
-}
-
-export async function generateStaticParams() {
-  return Object.keys(serviceDetailsData).map(slug => ({ slug }));
 }
