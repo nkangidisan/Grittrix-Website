@@ -31,7 +31,9 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div className="bg-card p-8 rounded-lg shadow-xl">
               <h2 className="text-2xl font-bold font-headline text-primary mb-6">Send Us a Message</h2>
-              <ContactForm />
+              <React.Suspense fallback={<p className="text-foreground/80">Loading form...</p>}>
+                <ContactForm />
+              </React.Suspense>
             </div>
             
             <div className="space-y-8">

@@ -2,7 +2,7 @@
 'use client';
 
 import * as React from 'react';
-import type { Metadata } from 'next';
+// import type { Metadata } from 'next'; // Metadata cannot be exported from Client Components
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -125,7 +125,9 @@ export default function DesignServicesPage() {
                 <div className="bg-card p-8 rounded-lg shadow-xl">
                     <h2 className="text-2xl font-bold font-headline text-primary mb-6">Request a Quote</h2>
                     <p className="text-sm text-foreground/70 mb-6">Have a project in mind? Tell us about your requirements, and we'll get back to you with a tailored proposal.</p>
-                    <ContactForm />
+                    <React.Suspense fallback={<p className="text-foreground/80">Loading form...</p>}>
+                      <ContactForm />
+                    </React.Suspense>
                 </div>
             </div>
         </div>
