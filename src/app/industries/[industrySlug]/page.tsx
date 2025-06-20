@@ -1,16 +1,18 @@
 
 import * as React from 'react';
 import type { Metadata } from 'next';
-import type { Industry } from '@/lib/types';
+import type { Industry } from '@/lib/types'; // Assuming this has ElementType for icon
 import { HeartPulse, ShoppingCart, Leaf, BookOpen, AlertTriangle, CheckCircle, Lightbulb } from 'lucide-react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { PageHeader } from '@/components/PageHeader'; // Assuming PageHeader might be used
 import type { ElementType } from 'react';
 
 interface IndustryData extends Omit<Industry, 'icon' | 'imageHint'> {
   icon: ElementType; // Lucide icon component
+  imageUrl: string; // Ensure this is present
 }
 
 const industriesData: { [key: string]: IndustryData } = {
@@ -101,9 +103,9 @@ const industriesData: { [key: string]: IndustryData } = {
 };
 
 export async function generateMetadata(
-  props: any 
+  { params }: { params: { industrySlug: string } }
 ): Promise<Metadata> {
-  const industrySlug = props?.params?.industrySlug;
+  const industrySlug = params?.industrySlug;
 
   if (!industrySlug) {
     return {
@@ -155,27 +157,43 @@ export default function IndustryDetailPage(props: any) {
     return null;
   }
 
+  const breadcrumbs = [
+    { name: 'Industries', href: '/industries' },
+    { name: industry.name },
+  ];
+  
+  const IconComponent = industry.icon;
+
+
   return (
+    <>
+    <PageHeader
+        title={industry.name}
+        description={industry.description}
+        breadcrumbs={breadcrumbs}
+      />
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-4xl font-bold text-primary mb-4">{industry.name}</h1>
-      <p className="text-lg text-foreground/80 mb-6">{industry.description}</p>
+      
+      <div className="flex justify-center mb-8">
+        <IconComponent className="h-16 w-16 text-primary" />
+      </div>
       
       <div className="relative h-auto md:h-[calc(800px*9/16)] w-full aspect-[4/3] md:aspect-auto md:max-h-[500px] my-8">
         <Image
             src={industry.imageUrl}
             alt={`Concept illustration for AI applications in ${industry.name}`}
             fill
-            className="object-contain rounded-lg shadow-xl"
+            className="object-cover rounded-lg shadow-xl" // Changed to object-cover
             priority
             data-ai-hint={`${industry.name.toLowerCase()} technology`}
         />
       </div>
 
-      <div className="grid md:grid-cols-2 gap-16">
+      <div className="grid md:grid-cols-2 gap-16 mt-12">
         <div>
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center">
             <AlertTriangle className="h-8 w-8 text-destructive mr-3" />
-            Key Challenges
+            Key Challenges in {industry.name}
           </h2>
           <ul className="space-y-3">
             {industry.painPoints.map((point, index) => (
@@ -189,7 +207,7 @@ export default function IndustryDetailPage(props: any) {
         <div>
           <h2 className="text-2xl font-bold text-primary mb-6 flex items-center">
             <Lightbulb className="h-8 w-8 text-primary mr-3" />
-            Our AI Solutions
+            Our AI-Powered Solutions
           </h2>
           <ul className="space-y-3">
             {industry.solutions.map((solution, index) => (
@@ -210,5 +228,6 @@ export default function IndustryDetailPage(props: any) {
         </Button>
       </div>
     </div>
+    </>
   );
 }

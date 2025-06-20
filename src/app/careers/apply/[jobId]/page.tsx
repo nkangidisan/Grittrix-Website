@@ -85,12 +85,12 @@ export default function ApplyJobPage(props: any) {
 
   if (!job) {
     notFound();
-    return null; // Ensure notFound stops execution
+    return null; 
   }
 
   const breadcrumbs = [
     { name: 'Careers', href: '/careers' },
-    { name: job.title, href: `/careers/apply/${job.id}` }, // Corrected href, though not strictly needed for apply page
+    { name: job.title, href: `/careers#${job.id}` }, // Link to section on careers page
     { name: 'Apply' },
   ];
 
