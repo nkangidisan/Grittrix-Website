@@ -78,7 +78,6 @@ export async function generateStaticParams() {
   }));
 }
 
-// Using (props: any) as a workaround for the specific build environment PageProps constraint
 export default function ApplyJobPage(props: any) {
   const jobId = props?.params?.jobId;
   const job = jobListings.find((j) => j.id === jobId);
@@ -124,7 +123,9 @@ export default function ApplyJobPage(props: any) {
 
           <div className="bg-card p-8 rounded-lg shadow-xl">
             <h2 className="text-2xl font-bold font-headline text-primary mb-6">Application Form</h2>
-            <JobApplicationForm jobTitle={job.title} />
+            <React.Suspense fallback={<p className="text-foreground/80">Loading form...</p>}>
+              <JobApplicationForm jobTitle={job.title} />
+            </React.Suspense>
           </div>
         </div>
       </section>
