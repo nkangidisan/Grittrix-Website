@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import type { Metadata } from 'next';
-import { productsList } from '@/app/products/page'; // Import productsList
+import { productsList } from '@/app/products/page'; 
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -9,9 +9,7 @@ import Link from 'next/link';
 import { CheckCircle } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 
-export async function generateMetadata(
-  { params }: { params: { productId: string } }
-): Promise<Metadata> {
+export async function generateMetadata({ params }): Promise<Metadata> { // Changed params typing
   const productIdParam = params?.productId;
 
   if (!productIdParam) {
@@ -49,7 +47,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProductDetailPage(props: any) { // Changed to props: any
+export default function ProductDetailPage(props: any) { 
   const productId = props?.params?.productId as string | undefined;
 
   if (!productId) {

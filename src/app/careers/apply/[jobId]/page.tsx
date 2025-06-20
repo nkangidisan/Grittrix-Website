@@ -6,7 +6,6 @@ import { JobApplicationForm } from '@/components/forms/JobApplicationForm';
 import { notFound } from 'next/navigation';
 import type { JobListing } from '@/lib/types';
 
-// Define jobListings directly in this file
 const jobListings: JobListing[] = [
   {
     id: 'software-engineer',
@@ -55,7 +54,7 @@ const jobListings: JobListing[] = [
   },
 ];
 
-export async function generateMetadata({ params }: { params: { jobId: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }): Promise<Metadata> { // Changed params typing
   const jobId = params?.jobId;
   const job = jobListings.find((j) => j.id === jobId);
 
@@ -79,7 +78,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ApplyJobPage(props: any) {
+export default function ApplyJobPage(props: any) { 
   const jobId = props?.params?.jobId;
   const job = jobListings.find((j) => j.id === jobId);
 
@@ -90,7 +89,7 @@ export default function ApplyJobPage(props: any) {
 
   const breadcrumbs = [
     { name: 'Careers', href: '/careers' },
-    { name: job.title, href: `/careers#${job.id}` }, // Link to section on careers page
+    { name: job.title, href: `/careers#${job.id}` }, 
     { name: 'Apply' },
   ];
 

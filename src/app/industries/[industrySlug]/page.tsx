@@ -1,18 +1,18 @@
 
 import * as React from 'react';
 import type { Metadata } from 'next';
-import type { Industry } from '@/lib/types'; // Assuming this has ElementType for icon
+import type { Industry } from '@/lib/types'; 
 import { HeartPulse, ShoppingCart, Leaf, BookOpen, AlertTriangle, CheckCircle, Lightbulb } from 'lucide-react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { PageHeader } from '@/components/PageHeader'; // Assuming PageHeader might be used
+import { PageHeader } from '@/components/PageHeader'; 
 import type { ElementType } from 'react';
 
 interface IndustryData extends Omit<Industry, 'icon' | 'imageHint'> {
-  icon: ElementType; // Lucide icon component
-  imageUrl: string; // Ensure this is present
+  icon: ElementType; 
+  imageUrl: string; 
 }
 
 const industriesData: { [key: string]: IndustryData } = {
@@ -102,9 +102,7 @@ const industriesData: { [key: string]: IndustryData } = {
   },
 };
 
-export async function generateMetadata(
-  { params }: { params: { industrySlug: string } }
-): Promise<Metadata> {
+export async function generateMetadata({ params }): Promise<Metadata> { // Changed params typing
   const industrySlug = params?.industrySlug;
 
   if (!industrySlug) {
@@ -142,7 +140,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function IndustryDetailPage(props: any) {
+export default function IndustryDetailPage(props: any) { 
   const industrySlug = props?.params?.industrySlug;
 
   if (!industrySlug) {
@@ -164,7 +162,6 @@ export default function IndustryDetailPage(props: any) {
   
   const IconComponent = industry.icon;
 
-
   return (
     <>
     <PageHeader
@@ -183,7 +180,7 @@ export default function IndustryDetailPage(props: any) {
             src={industry.imageUrl}
             alt={`Concept illustration for AI applications in ${industry.name}`}
             fill
-            className="object-cover rounded-lg shadow-xl" // Changed to object-cover
+            className="object-cover rounded-lg shadow-xl" 
             priority
             data-ai-hint={`${industry.name.toLowerCase()} technology`}
         />
