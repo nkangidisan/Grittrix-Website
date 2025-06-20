@@ -3,11 +3,11 @@ import * as React from 'react';
 import type { Metadata } from 'next';
 import { productsList } from '@/app/products/page'; // Import productsList
 import { notFound } from 'next/navigation';
-// import Image from 'next/image';
-// import { Button } from '@/components/ui/button';
-// import Link from 'next/link';
-// import { CheckCircle } from 'lucide-react';
-// import { PageHeader } from '@/components/PageHeader';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { CheckCircle } from 'lucide-react';
+import { PageHeader } from '@/components/PageHeader';
 
 export async function generateMetadata(
   { params }: { params: { productId: string } }
@@ -49,8 +49,7 @@ export async function generateStaticParams() {
   }));
 }
 
-// Using props: any to work around potential PageProps build issues
-export default function ProductDetailPage(props: any) {
+export default function ProductDetailPage(props: any) { // Changed to props: any
   const productId = props?.params?.productId as string | undefined;
 
   if (!productId) {
@@ -65,25 +64,21 @@ export default function ProductDetailPage(props: any) {
     return null;
   }
 
-  // const breadcrumbs = [
-  //   { name: 'Products', href: '/products' },
-  //   { name: product.name },
-  // ];
+  const breadcrumbs = [
+    { name: 'Products', href: '/products' },
+    { name: product.name },
+  ];
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-3xl font-bold text-primary mb-2">{product.name}</h1>
-      <p className="text-xl text-foreground/80 mb-4">{product.tagline}</p>
-      <p className="text-md text-foreground/70">Simplified content for debugging. Full product details, image, and features will be restored.</p>
-      <p className="mt-4 text-foreground/70">{product.description}</p>
-      {/* 
-        Temporarily removed for diagnostics:
-        <PageHeader
-          title={product.name}
-          description={product.tagline}
-          breadcrumbs={breadcrumbs}
-        />
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+    <>
+      <PageHeader
+        title={product.name}
+        description={product.tagline}
+        breadcrumbs={breadcrumbs}
+      />
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl animate-fade-in">
               <Image
                   src={product.imageUrl}
@@ -110,16 +105,17 @@ export default function ProductDetailPage(props: any) {
                     </div>
                 )}
             </div>
-        </div>
+          </div>
 
-        <div className="mt-16 text-center">
+          <div className="mt-16 text-center">
             <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
             <Link href={`/contact?subject=${encodeURIComponent('Inquiry about ' + product.name)}`}>
                 <span>Request Info for {product.name}</span>
             </Link>
             </Button>
+          </div>
         </div>
-      */}
-    </div>
+      </section>
+    </>
   );
 }
