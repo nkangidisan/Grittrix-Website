@@ -20,7 +20,7 @@ interface ServiceDetailData {
   icon?: ElementType; // This can be derived from servicesList
 }
 
-// This data should ideally be managed more centrally, but for the fix, it's kept here.
+// This data should ideally be managed more centrally
 const serviceDetailsData: { [key: string]: ServiceDetailData } = {
     'ai-dashboards': {
         title: 'AI Dashboards & Reporting Tools',
