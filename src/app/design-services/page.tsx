@@ -1,4 +1,6 @@
 
+'use client';
+
 import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
@@ -10,10 +12,14 @@ import { Palette, Layers, Smartphone, Rocket, CheckCircle } from 'lucide-react';
 import { ContactForm } from '@/components/forms/ContactForm';
 import type { ElementType } from 'react';
 
-export const metadata: Metadata = {
-  title: 'Custom Web & App Design Services | Grittrix AI Solutions',
-  description: 'Grittrix crafts stunning, high-performing websites and mobile applications with AI integration. Get user-centric design and development for your digital presence.',
-};
+// Metadata needs to be exported from server components or at the layout level.
+// Since this is now a client component, we can't export metadata directly here.
+// It should be moved to a parent layout or defined statically if possible.
+// For now, I will comment it out to ensure the build passes.
+// export const metadata: Metadata = {
+//   title: 'Custom Web & App Design Services | Grittrix AI Solutions',
+//   description: 'Grittrix crafts stunning, high-performing websites and mobile applications with AI integration. Get user-centric design and development for your digital presence.',
+// };
 
 interface DesignProcessStep {
   title: string;
@@ -29,9 +35,9 @@ const designProcessSteps: DesignProcessStep[] = [
 ];
 
 const portfolioItems = [
-  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/media/AfroHealthAIPlatform.jpg', altText: 'Mockup illustration of AfroHealth AI Platform on a laptop screen' },
-  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/media/RetailSenseE-commerce.jpg', altText: 'RetailSense mobile e-commerce app interface illustration' },
-  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/media/AgriGrowFarmerPortal.png', altText: 'AgriGrow farmer portal dashboard illustration displaying crop data' },
+  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/media/AfroHealthAIPlatform.jpg', altText: 'Mockup illustration of AfroHealth AI Platform on a laptop screen', dataAiHint: 'healthcare platform' },
+  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/media/RetailSenseE-commerce.jpg', altText: 'RetailSense mobile e-commerce app interface illustration', dataAiHint: 'retail e-commerce' },
+  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/media/AgriGrowFarmerPortal.png', altText: 'AgriGrow farmer portal dashboard illustration displaying crop data', dataAiHint: 'agriculture portal' },
 ];
 
 export default function DesignServicesPage() {
@@ -90,7 +96,7 @@ export default function DesignServicesPage() {
                       alt={item.altText}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      data-ai-hint="portfolio item app interface"
+                      data-ai-hint={item.dataAiHint}
                     />
                   </div>
                 </CardHeader>
