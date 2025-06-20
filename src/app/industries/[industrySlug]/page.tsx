@@ -1,8 +1,9 @@
 
 import * as React from 'react';
 import type { Metadata } from 'next';
-import { PageHeader } from '@/components/PageHeader';
-import type { Industry } from '@/lib/types'; 
+// Removed PageHeader to simplify for debugging
+// import { PageHeader } from '@/components/PageHeader'; 
+import type { Industry } from '@/lib/types';
 import { HeartPulse, ShoppingCart, Leaf, BookOpen, AlertTriangle, CheckCircle, Lightbulb } from 'lucide-react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -14,14 +15,13 @@ interface IndustryData extends Omit<Industry, 'icon' | 'imageHint'> {
   icon: ElementType; // Lucide icon component
 }
 
-// This data should ideally be managed more centrally, but for the fix, it's kept here.
 const industriesData: { [key: string]: IndustryData } = {
   healthcare: {
     id: 'healthcare',
     name: 'Healthcare',
     description: 'Empowering healthcare providers with AI to improve patient outcomes, enhance diagnostics, and streamline operations.',
     icon: HeartPulse as ElementType,
-    imageUrl: '/media/health.webp', 
+    imageUrl: '/media/health.webp',
     painPoints: [
       'Late disease detection and diagnosis',
       'Inefficient patient data management',
@@ -42,7 +42,7 @@ const industriesData: { [key: string]: IndustryData } = {
     name: 'Retail & E-commerce',
     description: 'Transforming the retail landscape with AI for personalized experiences, optimized supply chains, and smarter operations.',
     icon: ShoppingCart as ElementType,
-    imageUrl: '/media/retail.webp', 
+    imageUrl: '/media/retail.webp',
     painPoints: [
       'Understanding customer behavior and preferences',
       'Inventory mismanagement (overstocking/understocking)',
@@ -63,7 +63,7 @@ const industriesData: { [key: string]: IndustryData } = {
     name: 'Agriculture',
     description: 'Driving sustainable agriculture and food security with AI-powered precision farming and data analytics.',
     icon: Leaf as ElementType,
-    imageUrl: '/media/agriculture.webp', 
+    imageUrl: '/media/agriculture.webp',
     painPoints: [
       'Unpredictable weather patterns and climate change impact',
       'Crop diseases and pest infestations',
@@ -102,17 +102,15 @@ const industriesData: { [key: string]: IndustryData } = {
   },
 };
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { industrySlug: string };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: { industrySlug: string } }
+): Promise<Metadata> {
   const industrySlugParam = params?.industrySlug;
 
   if (!industrySlugParam) {
     return {
-      title: 'Industry Not Found | Grittrix AI Solutions',
-      description: 'The requested industry page could not be found or the URL is invalid.',
+      title: 'Industry Details | Grittrix AI Solutions',
+      description: 'Learn more about our industry-specific AI solutions.',
     };
   }
   const industry = industriesData[industrySlugParam];
@@ -120,7 +118,7 @@ export async function generateMetadata({
   if (!industry) {
     return {
       title: 'Industry Not Found | Grittrix AI Solutions',
-      description: `The industry page for "${industrySlugParam}" does not exist.`,
+      description: `Details for industry "${industrySlugParam}" could not be found.`,
     };
   }
   
@@ -144,11 +142,13 @@ export async function generateStaticParams() {
   }));
 }
 
+// Using props: any and safe access for runtime robustness
 export default function IndustryDetailPage(props: any) {
-  const params = props?.params;
-  const industrySlug = params?.industrySlug as string | undefined;
+  const industrySlug = props?.params?.industrySlug;
 
   if (!industrySlug) {
+    // This case should ideally be caught by routing or generateStaticParams,
+    // but as a fallback, trigger notFound.
     notFound();
     return null;
   }
@@ -160,25 +160,16 @@ export default function IndustryDetailPage(props: any) {
     return null;
   }
 
-  const breadcrumbs = [
-    { name: 'Industries', href: '/industries' },
-    { name: industry.name }
-  ];
-
-  const imageAltText = `Concept illustration for AI applications in the ${industry.name} sector by Grittrix.`;
-
+  // Simplified rendering for debugging
   return (
-    <>
-      <PageHeader
-        title={industry.name}
-        description={industry.description}
-        breadcrumbs={breadcrumbs}
-      />
-
-      <div className="relative h-auto md:h-[calc(800px*9/16)] w-full aspect-[4/3] md:aspect-auto md:max-h-[500px] my-8 container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h1 className="text-4xl font-bold text-primary mb-4">{industry.name}</h1>
+      <p className="text-lg text-foreground/80 mb-6">{industry.description}</p>
+      
+      <div className="relative h-auto md:h-[calc(800px*9/16)] w-full aspect-[4/3] md:aspect-auto md:max-h-[500px] my-8">
         <Image
-            src={industry.imageUrl} 
-            alt={imageAltText}
+            src={industry.imageUrl}
+            alt={`Concept illustration for AI applications in ${industry.name}`}
             fill
             className="object-contain rounded-lg shadow-xl"
             priority
@@ -186,48 +177,46 @@ export default function IndustryDetailPage(props: any) {
         />
       </div>
 
-      <section className="pb-16 md:pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold font-headline text-primary mb-6 flex items-center">
-                <AlertTriangle className="h-8 w-8 text-destructive mr-3" />
-                Key Challenges in {industry.name}
-              </h2>
-              <ul className="space-y-3">
-                {industry.painPoints.map((point, index) => (
-                  <li key={index} className="flex items-start">
-                    <AlertTriangle className="h-5 w-5 text-destructive/70 mr-3 mt-1 shrink-0" />
-                    <span className="text-foreground/80">{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold font-headline text-primary mb-6 flex items-center">
-                <Lightbulb className="h-8 w-8 text-primary mr-3" />
-                Our AI-Powered Solutions
-              </h2>
-              <ul className="space-y-3">
-                {industry.solutions.map((solution, index) => (
-                  <li key={index} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" />
-                    <span className="text-foreground/80">{solution}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-16 text-center">
-            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link href={`/contact?subject=${encodeURIComponent('Inquiry about ' + industry.name + ' solutions')}`}>
-                <span>Discuss Your {industry.name} Needs</span>
-              </Link>
-            </Button>
-          </div>
+      <div className="grid md:grid-cols-2 gap-16">
+        <div>
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center">
+            <AlertTriangle className="h-8 w-8 text-destructive mr-3" />
+            Key Challenges
+          </h2>
+          <ul className="space-y-3">
+            {industry.painPoints.map((point, index) => (
+              <li key={index} className="flex items-start">
+                <AlertTriangle className="h-5 w-5 text-destructive/70 mr-3 mt-1 shrink-0" />
+                <span className="text-foreground/80">{point}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-      </section>
-    </>
+        <div>
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center">
+            <Lightbulb className="h-8 w-8 text-primary mr-3" />
+            Our AI Solutions
+          </h2>
+          <ul className="space-y-3">
+            {industry.solutions.map((solution, index) => (
+              <li key={index} className="flex items-start">
+                <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" />
+                <span className="text-foreground/80">{solution}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="mt-16 text-center">
+        <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Link href={`/contact?subject=${encodeURIComponent('Inquiry about ' + industry.name + ' solutions')}`}>
+            <span>Discuss Your {industry.name} Needs</span>
+          </Link>
+        </Button>
+      </div>
+    </div>
   );
 }
+
+    
