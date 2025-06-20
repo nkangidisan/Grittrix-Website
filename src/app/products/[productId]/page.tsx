@@ -1,14 +1,15 @@
 
 import * as React from 'react';
 import type { Metadata } from 'next';
-import { PageHeader } from '@/components/PageHeader';
-import { productsList } from '@/app/products/page'; 
+import { productsList } from '@/app/products/page';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { CheckCircle, Zap } from 'lucide-react';
 import type { ElementType } from 'react';
+
+// ProductDetailPageProps interface definition is removed as component will use props: any
 
 export async function generateMetadata({
   params,
@@ -53,8 +54,7 @@ export async function generateStaticParams() {
 }
 
 export default function ProductDetailPage(props: any) {
-  const params = props?.params;
-  const productId = params?.productId as string | undefined;
+  const productId = props?.params?.productId;
 
   if (!productId) {
     notFound();
@@ -68,87 +68,49 @@ export default function ProductDetailPage(props: any) {
     return null;
   }
 
-  const breadcrumbs = [
-    { name: 'Products', href: '/products' },
-    { name: product.name }
-  ];
-
-  const IconComponent = product.icon as ElementType; 
-  const imageAltText = `${product.name} illustration - ${product.tagline}`;
-  const productImageUrl = product.imageUrl; 
-
+  // Simplified rendering for diagnostics
   return (
-    <>
-      <PageHeader
-        title={product.name}
-        description={product.tagline}
-        breadcrumbs={breadcrumbs}
-      />
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h1 className="text-4xl font-bold text-primary mb-4">{product.name}</h1>
+      <p className="text-lg text-foreground/80 mb-6">{product.tagline}</p>
+      
+      <div className="relative h-auto md:h-[calc(800px*9/16)] w-full aspect-[4/3] md:aspect-auto md:max-h-[500px] my-8">
+        <Image
+            src={product.imageUrl}
+            alt={`Concept illustration for ${product.name}`}
+            fill
+            className="object-contain rounded-lg shadow-xl"
+            priority={product.id === 'CORE'}
+            data-ai-hint={`${product.name.toLowerCase()} interface`}
+        />
+      </div>
 
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="sticky top-24">
-              <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl mb-8">
-                <Image
-                  src={productImageUrl} 
-                  alt={imageAltText}
-                  fill
-                  className="object-cover"
-                  priority={product.id === 'CORE'} 
-                  data-ai-hint={`${product.name.toLowerCase()} interface`}
-                />
-              </div>
-              <div className="flex items-center space-x-3 mb-4 p-4 bg-secondary/10 rounded-lg">
-                <div className="p-3 bg-primary/20 rounded-lg">
-                    <IconComponent className="h-10 w-10 text-primary" />
-                </div>
-                <div>
-                    <h2 className="text-2xl font-bold font-headline text-primary">{product.name}</h2>
-                    <p className="text-md text-primary font-semibold">{product.tagline}</p>
-                </div>
-              </div>
-            </div>
+      <p className="text-foreground/80 leading-relaxed mb-8">{product.description}</p>
 
-            <div>
-              <h3 className="text-xl font-semibold font-headline text-primary mb-3">Product Overview</h3>
-              <p className="text-foreground/80 leading-relaxed mb-8">{product.description}</p>
-
-              {product.features && product.features.length > 0 && (
-                <div className="mb-8">
-                  <h3 className="text-xl font-semibold font-headline text-primary mb-4">Key Features & Benefits</h3>
-                  <ul className="space-y-3">
-                    {product.features.map((feature, index) => (
-                      <li key={index} className="flex items-start text-foreground/80">
-                        <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              <div className="p-6 bg-card rounded-lg shadow-md mb-8">
-                <h3 className="text-lg font-semibold font-headline text-primary mb-3 flex items-center">
-                    <Zap className="h-6 w-6 text-primary mr-2"/>
-                    Transform Your Business
-                </h3>
-                <p className="text-sm text-foreground/70 mb-4">
-                  {product.name} is designed to integrate seamlessly into your operations, providing immediate value and long-term strategic advantages.
-                </p>
-                <Button size="lg" asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                  <Link href={`/contact?subject=${encodeURIComponent('Inquiry about ' + product.name)}`}><span>Request a Demo or Consultation</span></Link>
-                </Button>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold font-headline text-primary mb-3">Potential Use Cases</h3>
-                <p className="text-foreground/80 text-sm">Detailed use cases and success stories coming soon. Contact us to learn how {product.name} can be applied to your specific challenges.</p>
-              </div>
-            </div>
-          </div>
+      {product.features && product.features.length > 0 && (
+        <div className="mb-8">
+          <h3 className="text-xl font-semibold font-headline text-primary mb-4">Key Features & Benefits</h3>
+          <ul className="space-y-3">
+            {product.features.map((feature, index) => (
+              <li key={index} className="flex items-start text-foreground/80">
+                <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" />
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-      </section>
-    </>
+      )}
+
+      <div className="mt-12 text-center">
+        <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Link href={`/contact?subject=${encodeURIComponent('Inquiry about ' + product.name)}`}>
+            <span>Request a Demo or Consultation</span>
+          </Link>
+        </Button>
+      </div>
+       <p className="mt-8 text-center text-sm text-muted-foreground">
+        This is a simplified page for diagnosing an Internal Server Error. Full content and layout will be restored once the error is resolved.
+      </p>
+    </div>
   );
 }

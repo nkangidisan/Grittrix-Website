@@ -1,8 +1,6 @@
 
 import * as React from 'react';
 import type { Metadata } from 'next';
-// Removed PageHeader to simplify for debugging
-// import { PageHeader } from '@/components/PageHeader'; 
 import type { Industry } from '@/lib/types';
 import { HeartPulse, ShoppingCart, Leaf, BookOpen, AlertTriangle, CheckCircle, Lightbulb } from 'lucide-react';
 import Image from 'next/image';
@@ -103,22 +101,22 @@ const industriesData: { [key: string]: IndustryData } = {
 };
 
 export async function generateMetadata(
-  { params }: { params: { industrySlug: string } }
+  props: any 
 ): Promise<Metadata> {
-  const industrySlugParam = params?.industrySlug;
+  const industrySlug = props?.params?.industrySlug;
 
-  if (!industrySlugParam) {
+  if (!industrySlug) {
     return {
       title: 'Industry Details | Grittrix AI Solutions',
       description: 'Learn more about our industry-specific AI solutions.',
     };
   }
-  const industry = industriesData[industrySlugParam];
+  const industry = industriesData[industrySlug];
 
   if (!industry) {
     return {
       title: 'Industry Not Found | Grittrix AI Solutions',
-      description: `Details for industry "${industrySlugParam}" could not be found.`,
+      description: `Details for industry "${industrySlug}" could not be found.`,
     };
   }
   
@@ -142,13 +140,10 @@ export async function generateStaticParams() {
   }));
 }
 
-// Using props: any and safe access for runtime robustness
 export default function IndustryDetailPage(props: any) {
   const industrySlug = props?.params?.industrySlug;
 
   if (!industrySlug) {
-    // This case should ideally be caught by routing or generateStaticParams,
-    // but as a fallback, trigger notFound.
     notFound();
     return null;
   }
@@ -160,7 +155,6 @@ export default function IndustryDetailPage(props: any) {
     return null;
   }
 
-  // Simplified rendering for debugging
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <h1 className="text-4xl font-bold text-primary mb-4">{industry.name}</h1>
@@ -218,5 +212,3 @@ export default function IndustryDetailPage(props: any) {
     </div>
   );
 }
-
-    

@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
@@ -6,7 +5,6 @@ import { JobApplicationForm } from '@/components/forms/JobApplicationForm';
 import { notFound } from 'next/navigation';
 import type { JobListing } from '@/lib/types';
 
-// Define jobListings directly in this file
 const jobListings: JobListing[] = [
   {
     id: 'software-engineer',
@@ -41,7 +39,7 @@ const jobListings: JobListing[] = [
     location: 'Remote',
     type: 'Full-time',
     description:
-      "Drive Grittrix's growth by identifying new opportunities, building partnerships, and expanding our client base in emerging markets. Passion for technology and excellent communication skills required.",
+      "Drive Grittrix\'s growth by identifying new opportunities, building partnerships, and expanding our client base in emerging markets. Passion for technology and excellent communication skills required.",
     applyUrl: '/careers/apply/business-development-sales',
   },
   {
@@ -55,8 +53,8 @@ const jobListings: JobListing[] = [
   },
 ];
 
-export async function generateMetadata({ params }: { params: { jobId: string } }): Promise<Metadata> {
-  const jobId = params?.jobId;
+export async function generateMetadata(props: any): Promise<Metadata> {
+  const jobId = props?.params?.jobId;
   const job = jobListings.find((j) => j.id === jobId);
 
   if (!job) {
@@ -79,18 +77,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ApplyJobPage(props: any) {
-  const jobId = props?.params?.jobId;
-  const job = jobListings.find((j) => j.id === jobId);
-
-  if (!job) {
-    notFound();
-    return null; // Ensure notFound stops execution
-  }
+export default function ApplyJobPage({ params }: { params: { jobId: string } }) {
+  const job = jobListings.find((j) => j.id === params.jobId);
+  if (!job) notFound();
 
   const breadcrumbs = [
     { name: 'Careers', href: '/careers' },
-    { name: job.title, href: `/careers/apply/${job.id}` }, // Corrected href, though not strictly needed for apply page
+    { name: job.title, href: `/careers/apply/${job.id}` },
     { name: 'Apply' },
   ];
 

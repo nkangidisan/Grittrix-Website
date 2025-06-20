@@ -88,18 +88,14 @@ const serviceDetailsData: { [key: string]: ServiceDetailData } = {
     }
 };
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
-  if (!params || !params.slug) {
-    return {
+export async function generateMetadata(props: any): Promise<Metadata> {
+  const slugParam = props?.params?.slug || props?.params?.jobId || props?.params?.productId;
+  if (!slugParam) {
+ return {
       title: 'Service Not Found | Grittrix AI Solutions',
       description: 'The requested service could not be found or the URL is invalid.',
     };
   }
-  const slugParam = params.slug;
   const service = serviceDetailsData[slugParam];
 
   if (!service) {
@@ -114,7 +110,7 @@ export async function generateMetadata({
   return {
     title: `${service.title} | Grittrix Services`,
     description: service.description,
-     openGraph: {
+    openGraph: {
         title: `${service.title} | Grittrix Services`,
         description: service.description,
         images: [{ url: absoluteImageUrl, alt: service.imageAlt }],
