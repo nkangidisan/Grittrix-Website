@@ -78,6 +78,7 @@ export async function generateStaticParams() {
   }));
 }
 
+// Using (props: any) as a workaround for the specific build environment PageProps constraint
 export default function ApplyJobPage(props: any) {
   const jobId = props?.params?.jobId;
   const job = jobListings.find((j) => j.id === jobId);

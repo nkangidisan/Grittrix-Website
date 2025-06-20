@@ -89,14 +89,14 @@ const serviceDetailsData: { [key: string]: ServiceDetailData } = {
 };
 
 export async function generateMetadata(props: any): Promise<Metadata> {
-  const slugParam = props?.params?.slug || props?.params?.jobId || props?.params?.productId;
+  const slugParam = props?.params?.slug || props?.params?.jobId || props?.params?.productId; // Making it more robust for any slug-like param
   if (!slugParam) {
- return {
+    return {
       title: 'Service Not Found | Grittrix AI Solutions',
       description: 'The requested service could not be found or the URL is invalid.',
     };
   }
-  const service = serviceDetailsData[slugParam];
+  const service = serviceDetailsData[slugParam as string]; // Cast as string after check
 
   if (!service) {
     return {
@@ -104,8 +104,27 @@ export async function generateMetadata(props: any): Promise<Metadata> {
       description: `The service with slug "${slugParam}" does not exist. This content is not available.`,
     };
   }
-  const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://grittrix.com';
-  const absoluteImageUrl = service.imageUrl.startsWith('http') ? service.imageUrl : new URL(service.imageUrl, domainBase).toString();
+  
+  const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL;
+  let openGraphImages: Array<{ url: string; alt?: string; width?: number; height?: number; }> = [];
+
+  if (domainBase && service.imageUrl) {
+    try {
+      const absoluteImageUrl = service.imageUrl.startsWith('http') 
+        ? service.imageUrl 
+        : new URL(service.imageUrl, domainBase).toString();
+      openGraphImages = [{ url: absoluteImageUrl, alt: service.imageAlt }];
+    } catch (e) {
+      console.warn(`[generateMetadata service] Failed to construct absolute image URL for ${slugParam}: ${(e as Error).message}. NEXT_PUBLIC_DOMAIN_URL: "${domainBase}", image: "${service.imageUrl}"`);
+    }
+  } else {
+    if (!domainBase) {
+      console.warn(`[generateMetadata service] NEXT_PUBLIC_DOMAIN_URL is not set. Open Graph images will be relative or omitted for ${slugParam}.`);
+    }
+     if (service.imageUrl) {
+       openGraphImages = [{ url: service.imageUrl, alt: service.imageAlt }];
+     }
+  }
 
   return {
     title: `${service.title} | Grittrix Services`,
@@ -113,7 +132,7 @@ export async function generateMetadata(props: any): Promise<Metadata> {
     openGraph: {
         title: `${service.title} | Grittrix Services`,
         description: service.description,
-        images: [{ url: absoluteImageUrl, alt: service.imageAlt }],
+        images: openGraphImages,
     }
   };
 }

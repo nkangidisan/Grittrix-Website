@@ -1,9 +1,10 @@
 
 import * as React from 'react';
 import type { Metadata } from 'next';
-// PageHeader, Image, Link, Button, ArrowLeft were removed for diagnostics
+// PageHeader, Image, Link, Button, ArrowLeft, CheckCircle, ExternalLink are temporarily removed for diagnostics
 import { notFound } from 'next/navigation';
-import type { IndustryDetails, UseCase, RelatedServiceLink } from '@/lib/types';
+import type { IndustryDetails, UseCase, RelatedServiceLink } from '@/lib/types'; // Correctly import exported types
+
 
 const industryDetailsData: { [key: string]: IndustryDetails } = {
   healthcare: {
@@ -11,37 +12,39 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     title: 'AI in Healthcare',
     description:
       'Leveraging AI for improved patient care, diagnostics, drug discovery, and operational efficiency in healthcare.',
-    image: '/media/health.webp', // Ensure this path is correct
+    image: '/media/health.webp',
     dataAiHint: 'healthcare technology',
     fullDescription:
-      'Our AI solutions for healthcare focus on accelerating diagnostics through image analysis, personalizing treatment plans based on genetic and historical data, and optimizing hospital workflows. We aim to reduce costs, improve patient outcomes, and support healthcare professionals with intelligent tools.',
+      'Our AI solutions for healthcare focus on accelerating diagnostics through image analysis, personalizing treatment plans based on genetic and historical data, and optimizing hospital workflows. We aim to reduce costs, improve patient outcomes, and support healthcare professionals with intelligent tools. Our Grittrix Health™ platform offers predictive patient triage, smart pharmacy inventory management, AI-assisted medical image analysis, and seamless EHR integration.',
     keyFeatures: [
-      'AI-powered diagnostic tools',
-      'Personalized treatment planning',
-      'Predictive analytics for patient outcomes',
-      'Operational efficiency optimization',
-      'Drug discovery and research support',
+      'AI-powered diagnostic tools (e.g., medical image analysis)',
+      'Personalized treatment planning & adherence monitoring',
+      'Predictive analytics for patient outcomes & risk stratification',
+      'Operational efficiency optimization (e.g., hospital workflows)',
+      'Drug discovery and research support with AI',
+      'Smart pharmacy inventory and expiry management',
+      'Telemedicine platform integration with AI chatbots'
     ],
     useCases: [
       {
         title: 'AfroHealth AI Platform',
         description:
           'An integrated platform for African healthcare providers to access AI-driven insights for diagnosis and patient management, tailored to local needs and data scarcity.',
-        image: '/media/AfroHealthAIPlatform.jpg', // Ensure this path is correct
+        image: '/media/AfroHealthAIPlatform.jpg',
         dataAiHint: 'healthcare platform',
       },
       {
         title: 'AI Dashboards and Reporting Tools',
         description:
           'Interactive dashboards providing real-time insights into hospital performance, resource allocation, and patient flow, enabling data-driven decision-making.',
-        image: '/media/AIDashboardsandReportingTools.png', // Ensure this path is correct
+        image: '/media/AIDashboardsandReportingTools.png',
         dataAiHint: 'healthcare dashboard',
       },
     ],
     relatedServices: [
-      { name: 'Custom Web & Mobile Applications', href: '/services/custom-web-mobile-applications' },
-      { name: 'Data Collection, Cleaning, and Analysis', href: '/services/data-collection-cleaning-analysis' },
-      { name: 'Software Integrations (POS, EHR, LMS, CRMs)', href: '/services/software-integrations' },
+      { name: 'Custom Web & Mobile Applications', href: '/services/custom-applications' },
+      { name: 'Data Collection, Cleaning, and Analysis', href: '/services/data-analytics-services' },
+      { name: 'Software Integrations (POS, EHR, LMS, CRMs)', href: '/services/integrations' },
     ],
   },
   agriculture: {
@@ -49,37 +52,39 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     title: 'AI in Agriculture',
     description:
       'Applying AI for smart farming, crop yield prediction, pest and disease detection, and resource optimization in agriculture.',
-    image: '/media/agriculture.webp', // Ensure this path is correct
+    image: '/media/agriculture.webp',
     dataAiHint: 'agriculture technology',
     fullDescription:
-      "We provide AI solutions that empower farmers and agribusinesses with predictive insights and automation. Our technologies help optimize planting and harvesting schedules, manage resources like water and fertilizer more efficiently, and detect issues like pests or diseases early, leading to increased yields and reduced waste.",
+      "We provide AI solutions that empower farmers and agribusinesses with predictive insights and automation. Grittrix Agro™ technologies help optimize planting and harvesting schedules, manage resources like water and fertilizer more efficiently, and detect issues like pests or diseases early, leading to increased yields and reduced waste. This includes crop health monitoring via satellite/drone imagery and market linkage tools.",
     keyFeatures: [
-      'Crop yield prediction models',
-      'Pest and disease detection',
-      'Resource optimization (water, fertilizer)',
-      'Automated monitoring and analysis',
-      'Supply chain forecasting',
+      'Crop yield prediction models and harvest planning',
+      'Pest and disease detection using image recognition',
+      'Resource optimization (water, fertilizer, pesticides)',
+      'Automated monitoring and analysis (e.g., drone/satellite imagery)',
+      'Supply chain forecasting and logistics optimization',
+      'Soil data analysis and nutrient management',
+      'Weather pattern analysis and climate adaptation strategies'
     ],
     useCases: [
       {
         title: 'AgriGrow Farmer Portal',
         description:
           'A web and mobile portal providing farmers with personalized insights, weather forecasts, market prices, and AI-driven recommendations for optimal farming practices.',
-        image: '/media/AgriGrowFarmerPortal.png', // Ensure this path is correct
+        image: '/media/AgriGrowFarmerPortal.png',
         dataAiHint: 'agriculture portal',
       },
       {
         title: 'Disease and Stock Prediction Models',
         description:
           'AI models that predict potential crop diseases or livestock health issues based on environmental data and historical patterns, allowing for proactive intervention.',
-        image: '/media/DiseaseandStockPredictionModels.webp', // Ensure this path is correct
+        image: '/media/DiseaseandStockPredictionModels.webp',
         dataAiHint: 'crop prediction',
       },
     ],
     relatedServices: [
-      { name: 'Data Collection, Cleaning, and Analysis', href: '/services/data-collection-cleaning-analysis' },
-      { name: 'Smart Forecasting Engines', href: '/services/smart-forecasting-engines' },
-      { name: 'Cloud Hosting & Deployment', href: '/services/cloud-hosting-deployment' },
+      { name: 'Data Collection, Cleaning, and Analysis', href: '/services/data-analytics-services' },
+      { name: 'Smart Forecasting Engines', href: '/services/forecasting' },
+      { name: 'Cloud Hosting & Deployment', href: '/services/cloud-services' },
     ],
   },
   education: {
@@ -87,23 +92,25 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     title: 'AI in Education',
     description:
       'Transforming education with AI for personalized learning, automated grading, administrative efficiency, and student support.',
-    image: '/media/education.webp', // Ensure this path is correct
+    image: '/media/education.webp',
     dataAiHint: 'education technology',
     fullDescription:
-      'Our AI solutions for education aim to create more engaging and effective learning environments. We offer tools for personalized learning paths adapted to individual student needs, automated assessment and feedback systems, and AI assistants to support educators and administrators, improving efficiency and student outcomes.',
+      'Our Grittrix Learn™ AI solutions for education aim to create more engaging and effective learning environments. We offer tools for personalized learning paths adapted to individual student needs, automated assessment and feedback systems, 24/7 AI tutoring, and AI assistants to support educators and administrators, improving efficiency and student outcomes.',
     keyFeatures: [
-      'Personalized learning platforms',
-      'Automated grading and feedback',
-      'Student performance analytics',
-      'AI-powered tutoring and support',
-      'Administrative task automation',
+      'Personalized learning platforms with adaptive content',
+      'Automated grading and feedback systems',
+      'Student performance analytics and progress dashboards',
+      'AI-powered intelligent tutoring systems (24/7 support)',
+      'Administrative task automation for educational institutions',
+      'Personalized skill gap analysis and learning recommendations',
+      'Teacher support tools and resource optimization'
     ],
     useCases: [
       {
         title: 'AI-Powered Learning Platforms',
         description:
           'Adaptive learning platforms that tailor content and pace to each student\'s learning style and progress, providing a truly personalized educational experience.',
-        image: '/media/ExperienceswithAI.png', // Ensure this path is correct
+        image: '/media/ExperienceswithAI.png',
         dataAiHint: 'learning platform',
       },
       {
@@ -115,47 +122,49 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
       },
     ],
     relatedServices: [
-      { name: 'Custom Web & Mobile Applications', href: '/services/custom-web-mobile-applications' },
-      { name: 'Software Integrations (POS, EHR, LMS, CRMs)', href: '/services/software-integrations' },
-      { name: 'Staff Training & Technical Support', href: '/services/staff-training-technical-support' },
+      { name: 'Custom Web & Mobile Applications', href: '/services/custom-applications' },
+      { name: 'Software Integrations (POS, EHR, LMS, CRMs)', href: '/services/integrations' },
+      { name: 'Staff Training & Technical Support', href: '/services/training-support' },
     ],
   },
   retail: {
     slug: 'retail',
-    title: 'AI in Retail',
+    title: 'AI in Retail & E-commerce',
     description:
       'Enhancing customer experience, optimizing inventory, predicting sales trends, and personalizing marketing in the retail sector using AI.',
-    image: '/media/retail.webp', // Ensure this path is correct
+    image: '/media/retail.webp',
     dataAiHint: 'retail technology',
     fullDescription:
-      'We help retail businesses thrive in a competitive landscape with AI-driven insights. Our solutions include AI for personalized product recommendations, demand forecasting to optimize inventory, customer sentiment analysis, and automation of pricing and promotions, leading to increased sales and customer satisfaction.',
+      'We help retail businesses thrive in a competitive landscape with AI-driven insights from Grittrix Retail™. Our solutions include AI for personalized product recommendations, demand forecasting to optimize inventory, customer sentiment analysis, and automation of pricing and promotions, leading to increased sales and customer satisfaction. We also offer smart store layout insights.',
     keyFeatures: [
-      'Personalized product recommendations',
+      'Personalized product recommendations and marketing',
       'Demand forecasting and inventory optimization',
-      'Customer sentiment analysis',
-      'Automated pricing and promotions',
-      'Fraud detection',
+      'Customer sentiment analysis and churn prediction',
+      'Automated dynamic pricing and promotion strategies',
+      'Fraud detection and prevention systems',
+      'Supply chain visibility and logistics optimization',
+      'Smart store layout and shelf management insights'
     ],
     useCases: [
       {
         title: 'RetailSense E-commerce',
         description:
           'An AI-enhanced e-commerce platform providing personalized shopping experiences, intelligent search, and predictive insights for online retailers.',
-        image: '/media/RetailSenseE-commerce.jpg', // Ensure this path is correct
+        image: '/media/RetailSenseE-commerce.jpg',
         dataAiHint: 'retail e-commerce',
       },
       {
         title: 'Smart Forecasting Engines',
         description:
           'AI models that analyze sales data, market trends, and external factors to provide accurate demand forecasts, enabling better inventory management and reducing stockouts or overstock.',
-        image: '/media/SmartForecastingEngines.png', // Ensure this path is correct
+        image: '/media/SmartForecastingEngines.png',
         dataAiHint: 'retail forecast',
       },
     ],
     relatedServices: [
-      { name: 'Custom Web & Mobile Applications', href: '/services/custom-web-mobile-applications' },
-      { name: 'Data Collection, Cleaning, and Analysis', href: '/services/data-collection-cleaning-analysis' },
-      { name: 'Software Integrations (POS, EHR, LMS, CRMs)', href: '/services/software-integrations' },
+      { name: 'Custom Web & Mobile Applications', href: '/services/custom-applications' },
+      { name: 'Data Collection, Cleaning, and Analysis', href: '/services/data-analytics-services' },
+      { name: 'Software Integrations (POS, EHR, LMS, CRMs)', href: '/services/integrations' },
     ],
   },
 };
@@ -172,7 +181,8 @@ export async function generateMetadata({ params }: { params: { industrySlug: str
   }
   
   const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL;
-  let openGraphImages;
+  let openGraphImages: Array<{ url: string; alt?: string; width?: number; height?: number; }> = [];
+
 
   if (domainBase && industry.image) {
     try {
@@ -181,14 +191,15 @@ export async function generateMetadata({ params }: { params: { industrySlug: str
         : new URL(industry.image, domainBase).toString();
       openGraphImages = [{ url: absoluteImageUrl, alt: industry.title }];
     } catch (e) {
-      console.warn(`[generateMetadata] Failed to construct absolute image URL for ${industry.slug}: ${(e as Error).message}. NEXT_PUBLIC_DOMAIN_URL: "${domainBase}", image: "${industry.image}"`);
-      openGraphImages = []; // Or skip images property
+      console.warn(`[generateMetadata industry] Failed to construct absolute image URL for ${industry.slug}: ${(e as Error).message}. NEXT_PUBLIC_DOMAIN_URL: "${domainBase}", image: "${industry.image}"`);
     }
   } else {
     if (!domainBase) {
-      console.warn(`[generateMetadata] NEXT_PUBLIC_DOMAIN_URL is not set. Open Graph images will be relative or omitted for ${industry.slug}.`);
+      console.warn(`[generateMetadata industry] NEXT_PUBLIC_DOMAIN_URL is not set. Open Graph images will be relative or omitted for ${industry.slug}.`);
     }
-    openGraphImages = industry.image ? [{ url: industry.image, alt: industry.title }] : [];
+     if (industry.image) {
+       openGraphImages = [{ url: industry.image, alt: industry.title }];
+     }
   }
 
   return {
@@ -208,13 +219,20 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function IndustryPage({ params }: { params: { industrySlug: string } }) {
-  const industry = industryDetailsData[params.industrySlug];
+export default function IndustryPage(props: any) {
+  const industrySlug = props?.params?.industrySlug;
+  const industry = industryDetailsData[industrySlug];
 
   if (!industry) {
     notFound();
     return null; 
   }
+
+  // Breadcrumbs data would be used by PageHeader, which is currently removed for diagnostics
+  // const breadcrumbs = [
+  //   { name: 'Industries', href: '/industries' },
+  //   { name: industry.title },
+  // ];
 
   return (
     <>
@@ -229,13 +247,14 @@ export default function IndustryPage({ params }: { params: { industrySlug: strin
           <hr className="my-8 border-border" />
           <h2 className="text-2xl font-bold font-headline text-primary mb-6">Detailed Overview</h2>
           <p className="text-lg md:text-xl text-foreground/90 mb-12">{industry.fullDescription}</p>
-          <p className="text-sm text-foreground/70">
-            Further details, key features, use cases, and related services have been temporarily simplified for diagnostics.
-          </p>
         </div>
       </section>
+
+      {/* The following sections are temporarily removed for diagnostics: */}
+      {/* Top Image section */}
+      {/* Key Features and Related Services grid */}
+      {/* Use Cases section */}
+      {/* Explore Further CTA section */}
     </>
   );
 }
-
-    
