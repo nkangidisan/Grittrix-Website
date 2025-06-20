@@ -22,7 +22,7 @@ export interface Service {
 }
 
 export interface Industry {
-  id: string;
+  id:string;
   name: string;
   description: string;
   painPoints: string[];
@@ -35,9 +35,10 @@ interface UseCase {
   title: string;
   description: string;
   image: string;
+  dataAiHint: string; 
 }
 
-interface RelatedService {
+interface RelatedServiceLink { // Renamed from RelatedService to avoid conflict if used elsewhere
   name: string;
   href: string;
 }
@@ -47,10 +48,11 @@ export interface IndustryDetails {
   title: string;
   description: string;
   image: string;
+  dataAiHint: string; 
   fullDescription: string;
   keyFeatures: string[];
   useCases: UseCase[];
-  relatedServices: RelatedService[];
+  relatedServices: RelatedServiceLink[];
 }
 
 export interface Product {

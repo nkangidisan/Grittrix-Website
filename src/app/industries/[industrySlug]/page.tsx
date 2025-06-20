@@ -3,10 +3,10 @@ import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { notFound } from 'next/navigation';
-import type { IndustryDetails } from '@/lib/types'; // Corrected: This type should now be available
+import type { IndustryDetails, UseCase as LibUseCase, RelatedServiceLink as LibRelatedServiceLink } from '@/lib/types'; // Updated import
 import Image from 'next/image';
 
-// Dummy data for industry details - Assuming this data structure matches IndustryDetails type
+// Ensured IndustryDetails matches the definition in lib/types.ts
 const industryDetailsData: { [key: string]: IndustryDetails } = {
   healthcare: {
     slug: 'healthcare',
@@ -105,14 +105,14 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
         title: 'AI-Powered Learning Platforms',
         description:
           'Adaptive learning platforms that tailor content and pace to each student\'s learning style and progress, providing a truly personalized educational experience.',
-        image: '/media/ExperienceswithAI.png',
+        image: '/media/ExperienceswithAI.png', 
         dataAiHint: 'education platform',
       },
       {
         title: 'Smart Administrative Assistants',
         description:
           'AI tools that automate routine administrative tasks for educators and institutions, such as scheduling, communication, and data entry, freeing up time for teaching and student interaction.',
-        image: '/media/SmartForecastingEngines.png',
+        image: '/media/SmartForecastingEngines.png', 
         dataAiHint: 'education admin',
       },
     ],
@@ -185,32 +185,23 @@ export async function generateStaticParams() {
   }));
 }
 
-// Using props: any to be robust against specific build environment PageProps constraints
-export default function IndustryPage(props: any) {
+export default function IndustryPage(props: any) { // Using (props: any)
   const industrySlug = props?.params?.industrySlug;
   const industry = industrySlug ? industryDetailsData[industrySlug] : undefined;
 
   if (!industry) {
     notFound();
-    return null; // Ensure notFound stops execution
+    return null; 
   }
 
   // Simplified rendering for diagnostics
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-primary mb-4">{industry.title}</h1>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <h1 className="text-3xl font-bold text-primary mb-4">{industry.title}</h1>
       <p className="text-lg text-foreground/80 mb-2">{industry.description}</p>
-      <hr className="my-4" />
-      <h2 className="text-2xl font-semibold text-primary mb-2">Full Description (Simplified)</h2>
+      <hr className="my-6 border-border" />
+      <h2 className="text-2xl font-bold text-primary mb-3">Full Description</h2>
       <p className="text-md text-foreground/70">{industry.fullDescription}</p>
-      {/* 
-        Temporarily removed complex rendering:
-        - PageHeader
-        - Hero Image section
-        - Key Features list
-        - Related Services list
-        - Use Cases section
-      */}
     </div>
   );
 }

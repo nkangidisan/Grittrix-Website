@@ -89,7 +89,7 @@ export default function ApplyJobPage(props: any) {
 
   const breadcrumbs = [
     { name: 'Careers', href: '/careers' },
-    { name: job.title, href: `/careers#${job.id}` },
+    { name: job.title, href: `/careers#${job.id}` }, 
     { name: 'Apply' },
   ];
 
