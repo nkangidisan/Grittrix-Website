@@ -1,10 +1,12 @@
 
+import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { TeamMemberCard } from '@/components/sections/TeamMemberCard';
 import type { TeamMember } from '@/lib/types';
 import { Lightbulb, UsersRound, ShieldCheck, Mountain, Eye } from 'lucide-react';
 import Image from 'next/image';
+import type { ElementType } from 'react';
 
 export const metadata: Metadata = {
   title: 'About Grittrix AI Solutions | Our Mission, Vision, and Team',
@@ -19,11 +21,17 @@ const teamMembers: TeamMember[] = [
   { id: '5', name: 'Iradukunda Pacifique', role: 'Managing Director East Africa & Senior Graphics Designer', bio: 'Leading East African operations and spearheading creative design to ensure Grittrix solutions are impactful and visually compelling.', imageUrl: '/media/PacifiqueIradukunda.jpg', socials: { linkedin: 'https://www.linkedin.com/in/iradukunda-pacifique-75618221b/' } },
 ];
 
-const coreValues = [
-    { title: "Innovation with purpose", description: "We constantly push the boundaries of AI to create novel solutions that address real-world needs effectively.", icon: Lightbulb },
-    { title: "Inclusion through simplicity", description: "We design intuitive technology accessible to everyone, fostering broad participation and benefit.", icon: UsersRound },
-    { title: "Transparency and trust", description: "We operate with openness and ethical considerations, building lasting relationships based on integrity.", icon: ShieldCheck },
-    { title: "Resilience and grit", description: "We embrace challenges and persevere, committed to delivering impactful solutions even in complex environments.", icon: Mountain },
+interface CoreValue {
+  title: string;
+  description: string;
+  icon: ElementType;
+}
+
+const coreValues: CoreValue[] = [
+    { title: "Innovation with purpose", description: "We constantly push the boundaries of AI to create novel solutions that address real-world needs effectively.", icon: Lightbulb as ElementType },
+    { title: "Inclusion through simplicity", description: "We design intuitive technology accessible to everyone, fostering broad participation and benefit.", icon: UsersRound as ElementType },
+    { title: "Transparency and trust", description: "We operate with openness and ethical considerations, building lasting relationships based on integrity.", icon: ShieldCheck as ElementType },
+    { title: "Resilience and grit", description: "We embrace challenges and persevere, committed to delivering impactful solutions even in complex environments.", icon: Mountain as ElementType },
 ];
 
 
@@ -85,17 +93,20 @@ export default function AboutUsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold font-headline text-primary text-center mb-12">Our Core Values</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {coreValues.map((value, index) => (
-              <div key={value.title} className="p-6 bg-card rounded-lg shadow-md text-center hover:shadow-primary/20 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
-                <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-primary/10 rounded-full">
-                    <value.icon className="h-8 w-8 text-primary" />
+            {coreValues.map((value, index) => {
+              const IconComponent = value.icon;
+              return (
+                <div key={value.title} className="p-6 bg-card rounded-lg shadow-md text-center hover:shadow-primary/20 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
+                  <div className="flex justify-center mb-4">
+                    <div className="p-3 bg-primary/10 rounded-full">
+                      <IconComponent className="h-8 w-8 text-primary" />
+                    </div>
                   </div>
+                  <h3 className="text-xl font-semibold font-headline text-primary mb-2">{value.title}</h3>
+                  <p className="text-sm text-foreground/70">{value.description}</p>
                 </div>
-                <h3 className="text-xl font-semibold font-headline text-primary mb-2">{value.title}</h3>
-                <p className="text-sm text-foreground/70">{value.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

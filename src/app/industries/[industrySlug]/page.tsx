@@ -1,5 +1,6 @@
 
-import type { Metadata, ResolvingMetadata } from 'next';
+import * as React from 'react';
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import type { Industry } from '@/lib/types'; 
 import { HeartPulse, ShoppingCart, Leaf, BookOpen, AlertTriangle, CheckCircle, Lightbulb } from 'lucide-react';
@@ -7,14 +8,14 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import type { ElementType } from 'react';
 
-// Props for generateMetadata
-interface GenerateMetadataProps {
-  params: { industrySlug: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+
+interface IndustryData extends Omit<Industry, 'icon' | 'imageHint'> {
+  icon: ElementType;
 }
 
-const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
+const industriesData: { [key: string]: IndustryData } = {
   healthcare: {
     id: 'healthcare',
     name: 'Healthcare',
@@ -101,9 +102,13 @@ const industriesData: { [key: string]: Omit<Industry, 'imageHint'> } = {
   },
 };
 
+interface GenerateMetadataProps {
+  params: { industrySlug: string };
+  // searchParams: { [key: string]: string | string[] | undefined }; // Removed if not used
+}
+
 export async function generateMetadata(
-  { params }: GenerateMetadataProps,
-  parent: ResolvingMetadata
+  { params }: GenerateMetadataProps
 ): Promise<Metadata> {
   const industrySlug = params.industrySlug;
   const industry = industriesData[industrySlug];
@@ -115,8 +120,8 @@ export async function generateMetadata(
     };
   }
   
-  const domain = (await parent).metadataBase || new URL('https://grittrix.com');
-  const absoluteImageUrl = industry.imageUrl.startsWith('http') ? industry.imageUrl : new URL(industry.imageUrl, domain).toString();
+  const domainBase = 'https://grittrix.com'; // Fallback, ideally from parent or env
+  const absoluteImageUrl = industry.imageUrl.startsWith('http') ? industry.imageUrl : new URL(industry.imageUrl, domainBase).toString();
 
   return {
     title: `${industry.name} Solutions | Grittrix AI`,
@@ -129,9 +134,13 @@ export async function generateMetadata(
   };
 }
 
-export default function IndustryDetailPage(props: any) {
-  const params = props?.params;
-  const industrySlug = typeof params?.industrySlug === 'string' ? params.industrySlug : undefined;
+interface IndustryDetailPageProps {
+  params: { industrySlug: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+export default function IndustryDetailPage({ params, searchParams }: IndustryDetailPageProps) {
+  const industrySlug = params?.industrySlug;
 
   if (!industrySlug) {
     console.error("IndustryDetailPage: industrySlug is missing or invalid from params", params);

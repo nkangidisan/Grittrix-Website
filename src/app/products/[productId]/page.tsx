@@ -1,23 +1,23 @@
 
-import type { Metadata, ResolvingMetadata } from 'next';
+import * as React from 'react';
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import type { Product } from '@/lib/types';
-import { productsList } from '@/app/products/page';
+import { productsList } from '@/app/products/page'; // productsList is exported from here
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { CheckCircle, Zap } from 'lucide-react';
+import type { ElementType } from 'react';
 
-// Props for generateMetadata
 interface GenerateMetadataProps {
   params: { productId: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  // searchParams: { [key: string]: string | string[] | undefined }; // Removed if not used
 }
 
 export async function generateMetadata(
-  { params }: GenerateMetadataProps,
-  parent: ResolvingMetadata
+  { params }: GenerateMetadataProps
 ): Promise<Metadata> {
   const productId = params.productId.toLowerCase();
   const product = productsList.find(p => p.id.toLowerCase() === productId);
@@ -29,8 +29,8 @@ export async function generateMetadata(
     };
   }
 
-  const domain = (await parent).metadataBase || new URL('https://grittrix.com');
-  const absoluteImageUrl = product.imageUrl.startsWith('http') ? product.imageUrl : new URL(product.imageUrl, domain).toString();
+  const domainBase = 'https://grittrix.com'; // Fallback
+  const absoluteImageUrl = product.imageUrl.startsWith('http') ? product.imageUrl : new URL(product.imageUrl, domainBase).toString();
 
   return {
     title: `${product.name} | Grittrix Products`,
@@ -43,9 +43,13 @@ export async function generateMetadata(
   };
 }
 
-export default function ProductDetailPage(props: any) {
-  const params = props?.params;
-  const productId = typeof params?.productId === 'string' ? params.productId.toLowerCase() : undefined;
+interface ProductDetailPageProps {
+  params: { productId: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+export default function ProductDetailPage({ params, searchParams }: ProductDetailPageProps) {
+  const productId = params?.productId?.toLowerCase();
 
   if (!productId) {
     console.error("ProductDetailPage: productId is missing or invalid from params", params);
@@ -63,7 +67,7 @@ export default function ProductDetailPage(props: any) {
     { name: product.name }
   ];
 
-  const IconComponent = product.icon;
+  const IconComponent = product.icon as ElementType; // Cast to ElementType
   const imageAltText = `${product.name} illustration - ${product.tagline}`;
   const productImageUrl = product.imageUrl; 
 

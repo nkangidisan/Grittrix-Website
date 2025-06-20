@@ -1,4 +1,5 @@
 
+import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { MerchandiseItemCard } from '@/components/sections/MerchandiseItem';

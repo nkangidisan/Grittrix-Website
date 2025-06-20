@@ -1,10 +1,12 @@
 
+import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Industry as LibIndustryType } from '@/lib/types'; 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
+import type { ElementType } from 'react';
 
 interface IndustryCardProps {
   industry: Pick<LibIndustryType, 'id' | 'name' | 'description' | 'icon' | 'imageUrl'>;
@@ -13,7 +15,7 @@ interface IndustryCardProps {
 }
 
 export function IndustryCard({ industry, altText, linkHref }: IndustryCardProps) {
-  const IconComponent = industry.icon;
+  const IconComponent = industry.icon as ElementType; // Cast to ElementType
   
   return (
     <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group">

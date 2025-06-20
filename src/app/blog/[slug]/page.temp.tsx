@@ -1,5 +1,3 @@
-
-import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { CalendarDays, UserCircle, Tag as TagIcon } from 'lucide-react';
@@ -9,7 +7,6 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import type { BlogPost } from '@/lib/types';
 
-// Moved blogPosts data into this file to avoid import issues and for self-containment
 const blogPosts: BlogPost[] = [
   {
     id: '1',
@@ -20,7 +17,6 @@ const blogPosts: BlogPost[] = [
     date: '2024-03-15',
     imageUrl: '/media/AfricanHealthcare.jpg',
     category: 'Healthcare AI',
-    contentHtml: '<p>Detailed content on AI in African Healthcare. AI algorithms are increasingly used for analyzing medical images like X-rays and MRIs, often detecting diseases with accuracy comparable to human radiologists. This is particularly vital in regions with a shortage of specialists.</p><p>Furthermore, AI-powered chatbots can provide initial patient triage and health information, easing the burden on clinics and making healthcare more accessible, especially in remote areas.</p>'
   },
   {
     id: '2',
@@ -31,7 +27,6 @@ const blogPosts: BlogPost[] = [
     date: '2024-04-02',
     imageUrl: '/media/ExperienceswithAI.png',
     category: 'Retail Tech',
-    contentHtml: '<p>AI algorithms analyze vast amounts of customer data – purchase history, browsing behavior, demographics – to create highly personalized shopping experiences. This includes tailored product recommendations, targeted promotions, and even dynamic pricing.</p><p>Inventory management is another area where AI shines. Predictive analytics help retailers forecast demand, optimize stock levels, and reduce waste, leading to significant cost savings and improved customer satisfaction.</p>'
   },
   {
     id: '3',
@@ -42,7 +37,6 @@ const blogPosts: BlogPost[] = [
     date: '2024-04-20',
     imageUrl: '/media/FarmingAfrica.png',
     category: 'AgriTech',
-    contentHtml: '<p>AI combined with drone and satellite imagery allows for precise monitoring of crop health, soil conditions, and pest infestations. This enables farmers to apply resources like water and fertilizer more efficiently, reducing environmental impact and increasing yields.</p><p>Predictive models can forecast weather patterns and crop yields, helping farmers make informed decisions about planting, harvesting, and market strategies, ultimately contributing to food security.</p>'
   },
   {
     id: '4',
@@ -53,17 +47,12 @@ const blogPosts: BlogPost[] = [
     date: '2024-05-05',
     imageUrl: '/media/EmergingMarket.jpg',
     category: 'EdTech AI',
-    contentHtml: '<p>Adaptive learning platforms powered by AI can tailor educational content to individual student needs and learning paces. This personalized approach can significantly improve engagement and outcomes, especially in diverse classrooms.</p><p>AI tutors and automated grading systems can provide students with immediate feedback and support, while also freeing up teachers to focus on more complex instructional tasks and student interaction.</p>'
   },
 ];
 
-interface GenerateMetadataProps {
-  params: { slug: string };
-  // searchParams: { [key: string]: string | string[] | undefined }; // Removed if not used
-}
-
+// ✅ FIXED: No parent / ResolvingMetadata
 export async function generateMetadata(
-  { params }: GenerateMetadataProps
+  { params }: { params: { slug: string } }
 ): Promise<Metadata> {
   const post = blogPosts.find((p) => p.slug === params.slug);
 
@@ -80,28 +69,20 @@ export async function generateMetadata(
   };
 }
 
-interface BlogPostPageProps {
-  params: { slug: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
-
-export default function BlogPostPage({ params, searchParams }: BlogPostPageProps) {
-  const slug = params?.slug;
-  if (!slug) {
-    notFound();
-  }
-  const post = blogPosts.find((p) => p.slug === slug);
-
-  if (!post) {
-    notFound();
-  }
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+  const post = blogPosts.find((p) => p.slug === params.slug);
+  if (!post) notFound();
 
   const breadcrumbs = [
     { name: 'Blog', href: '/blog' },
     { name: post.title },
   ];
 
-  const finalContentHtml = post.contentHtml || `<p>${post.excerpt}</p><p>More content coming soon for this article. Stay tuned for in-depth insights and discussions on ${post.category}.</p>`;
+  const postContentHtml = `
+    <p>${post.excerpt}</p>
+    <p>More content coming soon for this article. Stay tuned for in-depth insights and discussions on ${post.category}.</p>
+  `;
+
   const imageAltText = `Blog post illustration for "${post.title}" by ${post.author}`;
 
   return (
@@ -122,7 +103,6 @@ export default function BlogPostPage({ params, searchParams }: BlogPostPageProps
                 fill
                 className="object-cover"
                 priority
-                data-ai-hint={`${post.category.toLowerCase()} technology`}
               />
             </div>
 
@@ -134,7 +114,7 @@ export default function BlogPostPage({ params, searchParams }: BlogPostPageProps
 
             <div
               className="prose prose-lg prose-invert text-foreground/80 max-w-none space-y-6"
-              dangerouslySetInnerHTML={{ __html: finalContentHtml }}
+              dangerouslySetInnerHTML={{ __html: postContentHtml }}
             />
 
             <div className="mt-12 pt-8 border-t border-border">
@@ -155,10 +135,4 @@ export default function BlogPostPage({ params, searchParams }: BlogPostPageProps
       </article>
     </>
   );
-}
-
-export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
-  }));
 }

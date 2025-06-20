@@ -1,4 +1,5 @@
 
+import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { ShieldCheck } from 'lucide-react';
@@ -11,7 +12,11 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   const breadcrumbs = [{ name: 'Privacy Policy' }];
-  const currentDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  const [currentDate, setCurrentDate] = React.useState('');
+
+  React.useEffect(() => {
+    setCurrentDate(new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }));
+  }, []);
 
 
   return (
@@ -28,7 +33,7 @@ export default function PrivacyPolicyPage() {
                 <h2 className="text-3xl font-bold font-headline text-primary mb-4">Our Commitment to Your Privacy</h2>
             </div>
           <div className="prose prose-lg prose-invert text-foreground/80 max-w-none space-y-6">
-            <p><strong>Last Updated: {currentDate}</strong></p>
+            <p><strong>Last Updated: {currentDate || new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</strong></p>
             
             <p>Grittrix AI Solutions ("Grittrix", "we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website grittrix.com (the "Site") and use our services (the "Services"). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site or use our services.</p>
 

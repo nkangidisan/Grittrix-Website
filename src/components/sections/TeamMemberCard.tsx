@@ -1,4 +1,5 @@
 
+import * as React from 'react';
 import Image from 'next/image';
 import type { TeamMember } from '@/lib/types';
 import { Linkedin, Twitter } from 'lucide-react';
@@ -20,12 +21,13 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
             alt={imageAltText}
             fill
             className="object-cover rounded-t-lg"
+            data-ai-hint="team member"
           />
         </div>
       </CardHeader>
       <CardContent className="p-6 flex-grow">
         <CardTitle className="font-headline text-xl text-primary mb-1">{member.name}</CardTitle>
-        <p className="text-sm text-primary font-medium mb-3">{member.role}</p> {/* Changed accent to primary */}
+        <p className="text-sm text-primary font-medium mb-3">{member.role}</p>
         <p className="text-xs text-foreground/70 leading-relaxed line-clamp-3">{member.bio}</p>
       </CardContent>
       {(member.socials?.linkedin || member.socials?.twitter) && (

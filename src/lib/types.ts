@@ -1,4 +1,6 @@
 
+import type { ElementType } from 'react';
+
 export interface TeamMember {
   id: string;
   name: string;
@@ -15,7 +17,7 @@ export interface Service {
   id: string;
   title: string;
   description: string;
-  icon: React.ElementType; // Lucide icon component
+  icon: ElementType; // Lucide icon component
   detailsUrl?: string;
 }
 
@@ -25,7 +27,7 @@ export interface Industry {
   description: string;
   painPoints: string[];
   solutions: string[];
-  icon: React.ElementType;
+  icon: ElementType;
   imageUrl: string; // e.g., /media/industry-name.jpg
 }
 
@@ -34,7 +36,7 @@ export interface Product {
   name: string;
   tagline: string;
   description: string;
-  icon: React.ElementType;
+  icon: ElementType;
   imageUrl: string; // e.g., /media/product-name.jpg
   features: string[];
 }
@@ -65,5 +67,5 @@ export interface BlogPost {
   date: string;
   imageUrl: string; // e.g., /media/blog-slug-name.jpg
   category: string;
+  contentHtml?: string; // Optional: if full content is pre-rendered
 }
-

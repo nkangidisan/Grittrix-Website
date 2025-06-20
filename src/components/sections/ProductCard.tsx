@@ -1,17 +1,19 @@
 
+import * as React from 'react';
 import Image from 'next/image';
 import type { Product } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import type { ElementType } from 'react';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const IconComponent = product.icon;
+  const IconComponent = product.icon as ElementType; // Cast to ElementType
   const imageAltText = `Grittrix Product: ${product.name} - ${product.tagline}`;
   const productImageUrl = product.imageUrl; 
 

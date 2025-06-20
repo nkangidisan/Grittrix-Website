@@ -1,16 +1,18 @@
 
+import * as React from 'react';
 import type { Service } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import type { ElementType } from 'react';
 
 interface ServiceItemProps {
   service: Service;
 }
 
 export function ServiceItem({ service }: ServiceItemProps) {
-  const IconComponent = service.icon;
+  const IconComponent = service.icon as ElementType; // Cast to ElementType
   return (
     <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group">
       <CardHeader className="flex-row items-center space-x-4 pb-4">

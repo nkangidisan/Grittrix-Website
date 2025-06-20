@@ -1,4 +1,5 @@
 
+import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -57,7 +58,7 @@ export default function FAQPage() {
                 <HelpCircle className="h-16 w-16 text-primary mx-auto mb-6" />
                 <h2 className="text-3xl font-bold font-headline text-primary mb-4">Have Questions? We Have Answers.</h2>
                 <p className="text-lg text-foreground/80">
-                    If you don't find what you're looking for, please feel free to <Link href="/contact" className="text-primary hover:underline">contact us</Link>. {/* Changed accent to primary */}
+                    If you don't find what you're looking for, please feel free to <Link href="/contact" className="text-primary hover:underline">contact us</Link>.
                 </p>
             </div>
           <Accordion type="single" collapsible className="w-full">

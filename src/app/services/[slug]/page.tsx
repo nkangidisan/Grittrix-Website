@@ -1,5 +1,6 @@
 
-import type { Metadata, ResolvingMetadata } from 'next';
+import * as React from 'react';
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { servicesList } from '@/app/services/page'; 
 import { notFound } from 'next/navigation';
@@ -7,24 +8,19 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { CheckCircle, Zap } from 'lucide-react';
+import type { ElementType } from 'react';
 
-// Props for generateMetadata
-interface GenerateMetadataProps {
-  params: { slug: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+interface ServiceDetail {
+  title: string;
+  description: string; 
+  longDescription: string;
+  features: string[];
+  imageUrl: string; 
+  imageAlt: string;
+  icon?: ElementType; 
 }
 
-const serviceDetailsData: { 
-  [key: string]: {
-    title: string;
-    description: string; 
-    longDescription: string;
-    features: string[];
-    imageUrl: string; 
-    imageAlt: string;
-    icon?: React.ElementType; 
-  } 
-} = {
+const serviceDetailsData: { [key: string]: ServiceDetail } = {
     'ai-dashboards': { 
         title: 'AI Dashboards & Reporting Tools', 
         description: 'Unlock actionable insights with custom-built AI dashboards that transform raw data into strategic assets.', 
@@ -91,9 +87,13 @@ const serviceDetailsData: {
     }
 };
 
+interface GenerateMetadataProps {
+  params: { slug: string };
+  // searchParams: { [key: string]: string | string[] | undefined }; // Removed if not used
+}
+
 export async function generateMetadata(
-  { params }: GenerateMetadataProps,
-  parent: ResolvingMetadata
+  { params }: GenerateMetadataProps
 ): Promise<Metadata> {
   const slug = params.slug;
   const service = serviceDetailsData[slug];
@@ -104,8 +104,8 @@ export async function generateMetadata(
       description: 'The service you are looking for could not be found.',
     };
   }
-  const domain = (await parent).metadataBase || new URL('https://grittrix.com');
-  const absoluteImageUrl = service.imageUrl.startsWith('http') ? service.imageUrl : new URL(service.imageUrl, domain).toString(); 
+  const domainBase = 'https://grittrix.com'; // Fallback
+  const absoluteImageUrl = service.imageUrl.startsWith('http') ? service.imageUrl : new URL(service.imageUrl, domainBase).toString(); 
 
   return {
     title: `${service.title} | Grittrix Services`,
@@ -118,9 +118,13 @@ export async function generateMetadata(
   };
 }
 
-export default function ServiceDetailPage(props: any) {
-  const params = props?.params;
-  const slug = typeof params?.slug === 'string' ? params.slug : undefined;
+interface ServiceDetailPageProps {
+  params: { slug: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+export default function ServiceDetailPage({ params, searchParams }: ServiceDetailPageProps) {
+  const slug = params?.slug;
 
   if (!slug) {
     console.error("ServiceDetailPage: slug is missing or invalid from params", params);
@@ -139,7 +143,7 @@ export default function ServiceDetailPage(props: any) {
     { name: details.title }
   ];
   
-  const IconComponent = serviceInfoFromList?.icon; 
+  const IconComponent = serviceInfoFromList?.icon as ElementType | undefined; // Cast to ElementType
 
   return (
     <>

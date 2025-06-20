@@ -1,4 +1,5 @@
 
+import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { Youtube } from 'lucide-react';
@@ -10,8 +11,6 @@ export const metadata: Metadata = {
   title: 'Grittrix Insights | AI, Technology & Innovation',
   description: 'Explore Grittrix\'s thoughts on AI, technology, and innovation in emerging markets. Stay updated with the latest trends, research, and Grittrix news.',
 };
-
-// Removed blogPosts array as "Latest Articles" section is being removed.
 
 const youtubeVideos = [
   { id: 'OdloIv_IX4k', title: 'AI for African Startups', description: 'Exploring AI integration in African startups for growth and innovation.'},
@@ -88,12 +87,9 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Separator can be kept if desired, or removed if the page feels too empty now */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 my-8 md:my-12">
         <Separator />
       </div>
-
-      {/* "Latest Articles" section has been removed */}
 
     </>
   );

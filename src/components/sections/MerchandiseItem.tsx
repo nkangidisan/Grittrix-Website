@@ -1,4 +1,5 @@
 
+import * as React from 'react';
 import Image from 'next/image';
 import type { MerchandiseItem } from '@/lib/types';
 import { Button } from '@/components/ui/button';
@@ -20,6 +21,7 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
+            data-ai-hint="merchandise item"
           />
            <div className="absolute top-2 right-2 bg-primary/80 text-primary-foreground px-2 py-1 text-xs font-semibold rounded">
             GRITTRIX
@@ -29,10 +31,10 @@ export function MerchandiseItemCard({ item }: MerchandiseItemProps) {
       <CardContent className="p-4 flex-grow">
         <CardTitle className="font-headline text-lg text-primary mb-1 group-hover:text-primary/90 transition-colors">{item.name}</CardTitle>
         {item.description && <CardDescription className="text-xs text-foreground/70 mb-2 line-clamp-2">{item.description}</CardDescription>}
-        {item.price && <p className="text-md font-semibold text-primary">{item.price}</p>} {/* Changed accent to primary */}
+        {item.price && <p className="text-md font-semibold text-primary">{item.price}</p>}
       </CardContent>
       <CardFooter className="p-4 pt-0">
-        <Button variant="outline" className="w-full hover:bg-primary/10 hover:text-primary border-primary/50 text-primary"> {/* Changed accent to primary for hover and text */}
+        <Button variant="outline" className="w-full hover:bg-primary/10 hover:text-primary border-primary/50 text-primary">
           <ShoppingCart className="mr-2 h-4 w-4" />
           View Item
         </Button>

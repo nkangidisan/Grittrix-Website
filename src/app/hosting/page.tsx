@@ -1,25 +1,43 @@
 
+import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Zap, ShieldCheck, Database, BarChart, Gift, Server, Globe, Users } from 'lucide-react';
 import Link from 'next/link';
+import type { ElementType } from 'react';
 
 export const metadata: Metadata = {
   title: 'AI-Optimized Hosting Solutions | Grittrix',
   description: 'Reliable, scalable, and secure hosting specifically designed for AI-powered applications and high-traffic websites by Grittrix.',
 };
 
-const hostingFeatures = [
-  { title: "Blazing Fast Performance", description: "Leverage our optimized infrastructure for rapid load times and smooth user experiences, critical for AI applications.", icon: Zap },
-  { title: "Rock-Solid Security", description: "State-of-the-art security measures to protect your data and applications, ensuring compliance and peace of mind.", icon: ShieldCheck },
-  { title: "Scalable Resources", description: "Easily scale your hosting resources up or down based on demand, ensuring your applications always perform optimally.", icon: BarChart },
-  { title: "Reliable Infrastructure", description: "High uptime guarantees and robust infrastructure built for the demands of modern AI and web applications.", icon: Database },
-  { title: "Expert Support", description: "Access to our team of hosting experts for any assistance you may need, 24/7.", icon: Users },
+interface HostingFeature {
+  title: string;
+  description: string;
+  icon: ElementType;
+}
+
+const hostingFeatures: HostingFeature[] = [
+  { title: "Blazing Fast Performance", description: "Leverage our optimized infrastructure for rapid load times and smooth user experiences, critical for AI applications.", icon: Zap as ElementType },
+  { title: "Rock-Solid Security", description: "State-of-the-art security measures to protect your data and applications, ensuring compliance and peace of mind.", icon: ShieldCheck as ElementType },
+  { title: "Scalable Resources", description: "Easily scale your hosting resources up or down based on demand, ensuring your applications always perform optimally.", icon: BarChart as ElementType },
+  { title: "Reliable Infrastructure", description: "High uptime guarantees and robust infrastructure built for the demands of modern AI and web applications.", icon: Database as ElementType },
+  { title: "Expert Support", description: "Access to our team of hosting experts for any assistance you may need, 24/7.", icon: Users as ElementType },
 ];
 
-const pricingPlans = [
+interface PricingPlan {
+  name: string;
+  price: string;
+  period: string;
+  features: string[];
+  recommended: boolean;
+  cta: string;
+  icon: ElementType;
+}
+
+const pricingPlans: PricingPlan[] = [
   { 
     name: "Free Trial", 
     price: "$0", 
@@ -35,7 +53,7 @@ const pricingPlans = [
     ], 
     recommended: false, 
     cta: "Start Free Trial",
-    icon: Gift 
+    icon: Gift as ElementType
   },
   { 
     name: "Starter AI", 
@@ -54,7 +72,7 @@ const pricingPlans = [
     ], 
     recommended: false, 
     cta: "Get Started",
-    icon: Server
+    icon: Server as ElementType
   },
   { 
     name: "Pro AI", 
@@ -73,7 +91,7 @@ const pricingPlans = [
     ], 
     recommended: true, 
     cta: "Choose Pro",
-    icon: Zap 
+    icon: Zap as ElementType 
   },
   { 
     name: "Enterprise AI", 
@@ -92,7 +110,7 @@ const pricingPlans = [
     ], 
     recommended: false, 
     cta: "Contact Sales",
-    icon: Globe
+    icon: Globe as ElementType
   },
 ];
 
@@ -116,17 +134,20 @@ export default function HostingPage() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {hostingFeatures.map(feature => (
-              <div key={feature.title} className="p-6 bg-card rounded-lg shadow-md hover:shadow-primary/20 transition-shadow">
-                <div className="flex items-center mb-3">
-                    <div className="p-2 bg-primary/10 rounded-md mr-3">
-                        <feature.icon className="h-7 w-7 text-primary" />
-                    </div>
-                    <h3 className="text-lg font-semibold font-headline text-primary">{feature.title}</h3>
+            {hostingFeatures.map(feature => {
+              const IconComponent = feature.icon;
+              return (
+                <div key={feature.title} className="p-6 bg-card rounded-lg shadow-md hover:shadow-primary/20 transition-shadow">
+                  <div className="flex items-center mb-3">
+                      <div className="p-2 bg-primary/10 rounded-md mr-3">
+                          <IconComponent className="h-7 w-7 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-semibold font-headline text-primary">{feature.title}</h3>
+                  </div>
+                  <p className="text-sm text-foreground/70">{feature.description}</p>
                 </div>
-                <p className="text-sm text-foreground/70">{feature.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 
+import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
@@ -7,17 +8,24 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Palette, Layers, Smartphone, Rocket, CheckCircle } from 'lucide-react';
 import { ContactForm } from '@/components/forms/ContactForm';
+import type { ElementType } from 'react';
 
 export const metadata: Metadata = {
   title: 'Custom Web & App Design Services | Grittrix AI Solutions',
   description: 'Grittrix crafts stunning, high-performing websites and mobile applications with AI integration. Get user-centric design and development for your digital presence.',
 };
 
-const designProcessSteps = [
-  { title: "Discovery & Strategy", description: "Understanding your vision, audience, and goals to craft a tailored design strategy.", icon: Palette },
-  { title: "UI/UX Design", description: "Creating intuitive user interfaces and engaging user experiences with a focus on usability and aesthetics.", icon: Layers },
-  { title: "Development", description: "Bringing designs to life with clean, efficient code and modern technologies for web and mobile platforms.", icon: Smartphone },
-  { title: "Launch & Optimization", description: "Deploying your application and continuously optimizing for performance and user satisfaction.", icon: Rocket },
+interface DesignProcessStep {
+  title: string;
+  description: string;
+  icon: ElementType;
+}
+
+const designProcessSteps: DesignProcessStep[] = [
+  { title: "Discovery & Strategy", description: "Understanding your vision, audience, and goals to craft a tailored design strategy.", icon: Palette as ElementType },
+  { title: "UI/UX Design", description: "Creating intuitive user interfaces and engaging user experiences with a focus on usability and aesthetics.", icon: Layers as ElementType },
+  { title: "Development", description: "Bringing designs to life with clean, efficient code and modern technologies for web and mobile platforms.", icon: Smartphone as ElementType },
+  { title: "Launch & Optimization", description: "Deploying your application and continuously optimizing for performance and user satisfaction.", icon: Rocket as ElementType },
 ];
 
 const portfolioItems = [
@@ -46,17 +54,20 @@ export default function DesignServicesPage() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {designProcessSteps.map(step => (
-              <div key={step.title} className="p-6 bg-card rounded-lg shadow-md text-center hover:shadow-primary/20 transition-shadow">
-                 <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-primary/10 rounded-full">
-                        <step.icon className="h-8 w-8 text-primary" />
-                    </div>
+            {designProcessSteps.map(step => {
+              const IconComponent = step.icon;
+              return (
+                <div key={step.title} className="p-6 bg-card rounded-lg shadow-md text-center hover:shadow-primary/20 transition-shadow">
+                  <div className="flex justify-center mb-4">
+                      <div className="p-3 bg-primary/10 rounded-full">
+                          <IconComponent className="h-8 w-8 text-primary" />
+                      </div>
+                  </div>
+                  <h3 className="text-lg font-semibold font-headline text-primary mb-2">{step.title}</h3>
+                  <p className="text-sm text-foreground/70">{step.description}</p>
                 </div>
-                <h3 className="text-lg font-semibold font-headline text-primary mb-2">{step.title}</h3>
-                <p className="text-sm text-foreground/70">{step.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -79,6 +90,7 @@ export default function DesignServicesPage() {
                       alt={item.altText}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      data-ai-hint="portfolio item"
                     />
                   </div>
                 </CardHeader>
