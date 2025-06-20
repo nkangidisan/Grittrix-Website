@@ -1,12 +1,12 @@
 
 import * as React from 'react';
-import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Link from 'next/link'; // Keep for breadcrumbs/back button if needed
-import { PageHeader } from '@/components/PageHeader';
-import { Button } from '@/components/ui/button'; // Keep for back button if needed
+import Link from 'next/link';
+import { PageHeader } from '@/components/PageHeader'; // Assuming this component is robust
+import { Button } from '@/components/ui/button';
 
-// Minimal data for testing, to avoid complex lookups during build
+// Minimal data for testing, to avoid complex lookups during build.
+// This is NOT used by the simplified component below but kept for context if we reintroduce functionality.
 const minimalBlogData: { [key: string]: { title: string; excerpt: string } } = {
   'ai-in-african-healthcare': {
     title: 'AI in African Healthcare (Minimal)',
@@ -18,69 +18,47 @@ const minimalBlogData: { [key: string]: { title: string; excerpt: string } } = {
   },
 };
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
-  if (!params || !params.slug) {
-    return {
-      title: 'Post Not Found | Grittrix AI Solutions',
-      description: 'The requested blog post could not be found or the URL is invalid.',
-    };
-  }
-  const slug = params.slug;
-  const postData = minimalBlogData[slug];
+// generateMetadata has been removed to simplify and diagnose the build error.
+// The page will inherit metadata from parent layouts.
 
-  if (!postData) {
-    return {
-      title: 'Post Not Found | Grittrix AI Solutions',
-      description: `The blog post with slug "${slug}" does not exist.`,
-    };
-  }
-
-  return {
-    title: `${postData.title} | Grittrix Blog`,
-    description: postData.excerpt,
-  };
-}
-
+// generateStaticParams remains commented out to reduce complexity.
 // export async function generateStaticParams() {
 //   return Object.keys(minimalBlogData).map((slug) => ({
 //     slug: slug,
 //   }));
 // }
 
+// Page component props are typed as `any` as a workaround for the persistent build error.
 const DynamicBlogPage = (props: any) => {
   const slug = props?.params?.slug as string | undefined;
 
-  if (!slug) {
-    notFound();
-    return null;
+  // Basic check for slug, actual data fetching is removed for this minimal version.
+  if (!slug || !minimalBlogData[slug]) {
+     // If you want to show a 404 for invalid slugs even in this minimal version:
+     // notFound();
+     // return null;
+     // For now, let's render a generic message if slug is bad to ensure the component itself can render.
   }
 
-  const postData = minimalBlogData[slug];
+  const postTitle = minimalBlogData[slug]?.title || "Blog Post";
+  const postExcerpt = minimalBlogData[slug]?.excerpt || "Content is being processed.";
 
-  if (!postData) {
-    notFound();
-    return null;
-  }
 
   return (
     <>
       <PageHeader
-        title={postData.title}
-        description={postData.excerpt}
-        breadcrumbs={[{ name: 'Blog', href: '/blog' }, { name: postData.title }]}
+        title={postTitle}
+        description="A blog post."
+        breadcrumbs={[{ name: 'Blog', href: '/blog' }, { name: postTitle }]}
       />
       <article className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl font-bold mb-4">{postData.title}</h1>
-            <p className="mb-8">{postData.excerpt}</p>
+            <h1 className="text-3xl font-bold mb-4">{postTitle}</h1>
+            <p className="mb-8">{postExcerpt}</p>
             <div className="prose prose-lg prose-invert text-foreground/90 max-w-none space-y-6">
-              <p>This is simplified content for the blog post titled "{postData.title}".</p>
-              <p>Actual blog post content rendering is temporarily simplified to isolate build issues. If this builds, the original content structure can be carefully reintroduced.</p>
+              <p>This is a simplified content placeholder for the blog post: {slug}</p>
+              <p>If this page builds and deploys, the issue is highly specific to the interaction of more complex data fetching or rendering logic with the build environment's type system for this route.</p>
             </div>
             <div className="mt-12 text-center">
               <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
