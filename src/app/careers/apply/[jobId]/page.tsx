@@ -1,14 +1,14 @@
 
 import * as React from 'react';
 import type { Metadata } from 'next';
-// import { PageHeader } from '@/components/PageHeader'; // Temporarily remove for simplification
-// import { JobApplicationForm } from '@/components/forms/JobApplicationForm'; // Temporarily remove
+import { PageHeader } from '@/components/PageHeader';
+import { JobApplicationForm } from '@/components/forms/JobApplicationForm';
 import type { JobListing } from '@/lib/types';
 import { notFound } from 'next/navigation';
-// import { AlertTriangle } from 'lucide-react'; // Temporarily remove
+import { AlertTriangle } from 'lucide-react'; // For displaying message if job not found before notFound() kicks in
 
 // Data normally fetched or imported from a central source
-// Copied here for simplicity for generateMetadata and generateStaticParams
+// Copied here for simplicity for generateMetadata, generateStaticParams, and page rendering
 const jobListings: JobListing[] = [
   {
     id: 'software-engineer',
@@ -78,7 +78,7 @@ export async function generateMetadata(
   return {
     title: `Apply for ${job.title} | Grittrix Careers`,
     description: `Submit your application for the ${job.title} position at Grittrix AI Solutions. ${job.description.substring(0, 120)}...`,
-    robots: { index: false, follow: false },
+    robots: { index: false, follow: false }, // No-index application forms
   };
 }
 
@@ -89,9 +89,11 @@ export async function generateStaticParams() {
 }
 
 export default function ApplyJobPage(props: any) {
+  // Use props: any to try and bypass the PageProps build constraint
   const jobId = props?.params?.jobId as string | undefined;
 
   if (!jobId) {
+    // This case should ideally be caught by routing, but as a fallback:
     notFound();
     return null; // Should be unreachable due to notFound()
   }
@@ -99,33 +101,52 @@ export default function ApplyJobPage(props: any) {
   const job = jobListings.find(j => j.id.toLowerCase() === jobId.toLowerCase());
 
   if (!job) {
+    // If job not found for the given jobId
     notFound();
     return null; // Should be unreachable due to notFound()
   }
 
-  // Simplified content for diagnosis
-  return (
-    <div className="container mx-auto px-4 py-16">
-      <h1 className="text-3xl font-bold text-primary mb-4">Apply for: {job.title}</h1>
-      <p className="text-lg text-foreground/80 mb-2">Location: {job.location}</p>
-      <p className="text-lg text-foreground/80 mb-6">Type: {job.type}</p>
-      
-      <div className="bg-card p-8 rounded-lg shadow-xl">
-        <h2 className="text-2xl font-bold font-headline text-primary mb-2">Job Details</h2>
-        <p className="text-foreground/80 mb-1"><strong className="text-foreground">Role:</strong> {job.title}</p>
-        <p className="text-foreground/80 mb-1"><strong className="text-foreground">Location:</strong> {job.location}</p>
-        <p className="text-foreground/80 mb-1"><strong className="text-foreground">Type:</strong> {job.type}</p>
-        <p className="text-sm text-foreground/70 mt-2 mb-6">{job.description}</p>
-        
-        <hr className="my-6 border-border" />
+  const breadcrumbs = [
+    { name: 'Careers', href: '/careers' },
+    { name: job.title, href: `/careers/apply/${job.id}` }, // Link to itself or just the name
+    { name: 'Apply' }
+  ];
 
-        <h2 className="text-2xl font-bold font-headline text-primary mb-6">Application Form (Simplified)</h2>
-        <p className="text-foreground/80">
-          The job application form (`JobApplicationForm` component) would normally be displayed here. 
-          This simplified view is for diagnosing server errors.
-        </p>
-        {/* <JobApplicationForm jobTitle={job.title} /> */}
-      </div>
-    </div>
+  return (
+    <>
+      <PageHeader
+        title={`Apply for: ${job.title}`}
+        description={`Submit your application for the ${job.type} ${job.title} position based in ${job.location}.`}
+        breadcrumbs={breadcrumbs}
+      />
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
+          <div className="bg-card p-8 rounded-lg shadow-xl mb-8">
+            <h2 className="text-2xl font-bold font-headline text-primary mb-2">Job Details</h2>
+            <p className="text-foreground/80 mb-1"><strong className="text-foreground">Role:</strong> {job.title}</p>
+            <p className="text-foreground/80 mb-1"><strong className="text-foreground">Location:</strong> {job.location}</p>
+            <p className="text-foreground/80 mb-1"><strong className="text-foreground">Type:</strong> {job.type}</p>
+            <p className="text-sm text-foreground/70 mt-2 mb-6">{job.description}</p>
+            
+            <hr className="my-6 border-border" />
+            
+            <h3 className="text-xl font-bold font-headline text-primary mb-2">Our Commitment at Grittrix</h3>
+            <p className="text-sm text-foreground/70 mb-4">
+              At Grittrix, we value talent, passion, and a drive to make an impact. We believe in skills over formal degrees and foster a remote-first, inclusive environment. We are excited to learn more about you and how you can contribute to our mission of redefining industries with technology in emerging markets.
+            </p>
+            <ul className="space-y-1 text-sm text-foreground/70 mb-6">
+                <li>✓ Meaningful Impact</li>
+                <li>✓ Innovation Culture</li>
+                <li>✓ Remote-First</li>
+                <li>✓ Skills Over Degrees</li>
+            </ul>
+          </div>
+          
+          <div className="bg-card p-8 rounded-lg shadow-xl">
+             <h2 className="text-2xl font-bold font-headline text-primary mb-6">Application Form</h2>
+            <JobApplicationForm jobTitle={job.title} />
+          </div>
+        </div>
+      </section>
+    </>
   );
-}
