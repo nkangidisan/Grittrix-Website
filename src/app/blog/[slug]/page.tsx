@@ -94,12 +94,12 @@ export async function generateMetadata(
   };
 }
 
-export default function BlogPostPage(props: any) { // Changed props type to any
+export default function BlogPostPage(props: any) {
   const params = props?.params;
   const slug = typeof params?.slug === 'string' ? params.slug : undefined;
 
   if (!slug) {
-    console.error("BlogPostPage: slug is missing or invalid from params", params);
+    console.error("BlogPostPage: slug is missing or invalid from props", params);
     notFound();
   }
 

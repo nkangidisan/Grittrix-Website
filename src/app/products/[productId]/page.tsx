@@ -44,9 +44,11 @@ export async function generateMetadata(
 }
 
 export default function ProductDetailPage(props: any) {
-  const productId = props.params && typeof props.params.productId === 'string' ? props.params.productId.toLowerCase() : undefined;
+  const params = props?.params;
+  const productId = typeof params?.productId === 'string' ? params.productId.toLowerCase() : undefined;
 
   if (!productId) {
+    console.error("ProductDetailPage: productId is missing or invalid from params", params);
     notFound();
   }
   

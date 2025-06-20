@@ -119,9 +119,11 @@ export async function generateMetadata(
 }
 
 export default function ServiceDetailPage(props: any) {
-  const slug = props.params && typeof props.params.slug === 'string' ? props.params.slug : undefined;
+  const params = props?.params;
+  const slug = typeof params?.slug === 'string' ? params.slug : undefined;
 
   if (!slug) {
+    console.error("ServiceDetailPage: slug is missing or invalid from params", params);
     notFound();
   }
 

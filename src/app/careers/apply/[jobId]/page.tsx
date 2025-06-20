@@ -148,10 +148,11 @@ export async function generateMetadata(
 }
 
 export default function ApplyJobPage(props: any) {
-  const jobId = props.params && typeof props.params.jobId === 'string' ? props.params.jobId : undefined;
+  const params = props?.params;
+  const jobId = typeof params?.jobId === 'string' ? params.jobId : undefined;
 
   if (!jobId) {
-    console.error("ApplyJobPage: jobId is missing or invalid from params", props.params);
+    console.error("ApplyJobPage: jobId is missing or invalid from params", params);
     notFound();
   }
   

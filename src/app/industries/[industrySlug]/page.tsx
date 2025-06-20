@@ -130,9 +130,11 @@ export async function generateMetadata(
 }
 
 export default function IndustryDetailPage(props: any) {
-  const industrySlug = props.params && typeof props.params.industrySlug === 'string' ? props.params.industrySlug : undefined;
+  const params = props?.params;
+  const industrySlug = typeof params?.industrySlug === 'string' ? params.industrySlug : undefined;
 
   if (!industrySlug) {
+    console.error("IndustryDetailPage: industrySlug is missing or invalid from params", params);
     notFound();
   }
 
