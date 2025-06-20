@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { CheckCircle } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 
+// generateMetadata uses explicit params typing
 export async function generateMetadata({ params }: { params: { productId: string } }): Promise<Metadata> {
   const productIdParam = params?.productId;
 
@@ -47,73 +48,37 @@ export async function generateStaticParams() {
   }));
 }
 
+// Page component uses (props: any) to bypass PageProps build constraint
 export default function ProductDetailPage(props: any) {
   const productId = props?.params?.productId as string | undefined;
 
   if (!productId) {
     notFound();
-    return null;
+    return null; // Ensure notFound stops execution
   }
 
   const product = productsList.find(p => p.id.toLowerCase() === productId.toLowerCase());
 
   if (!product) {
     notFound();
-    return null;
+    return null; // Ensure notFound stops execution
   }
 
-  const breadcrumbs = [
-    { name: 'Products', href: '/products' },
-    { name: product.name },
-  ];
-
+  // Simplified rendering for diagnostics
   return (
-    <>
-      <PageHeader
-        title={product.name}
-        description={product.tagline}
-        breadcrumbs={breadcrumbs}
-      />
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl animate-fade-in">
-              <Image
-                  src={product.imageUrl}
-                  alt={`Concept illustration for ${product.name}`}
-                  fill
-                  className="object-cover"
-                  priority={product.id === 'CORE'}
-                  data-ai-hint={`${product.name.toLowerCase()} interface`}
-              />
-            </div>
-            <div className="animate-slide-in-up">
-                <p className="text-foreground/80 leading-relaxed mb-8">{product.description}</p>
-                {product.features && product.features.length > 0 && (
-                    <div className="mb-8">
-                    <h3 className="text-xl font-semibold font-headline text-primary mb-4">Key Features & Benefits</h3>
-                    <ul className="space-y-3">
-                        {product.features.map((feature, index) => (
-                        <li key={index} className="flex items-start text-foreground/80">
-                            <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" />
-                            <span>{feature}</span>
-                        </li>
-                        ))}
-                    </ul>
-                    </div>
-                )}
-            </div>
-          </div>
-
-          <div className="mt-16 text-center">
-            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Link href={`/contact?subject=${encodeURIComponent('Inquiry about ' + product.name)}`}>
-                <span>Request Info for {product.name}</span>
-            </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-    </>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold text-primary mb-4">{product.name}</h1>
+      <p className="text-lg text-foreground/80 mb-2">{product.tagline}</p>
+      <hr className="my-4" />
+      <h2 className="text-2xl font-semibold text-primary mb-2">Description (Simplified)</h2>
+      <p className="text-md text-foreground/70">{product.description}</p>
+      {/* 
+        Temporarily removed complex rendering:
+        - PageHeader
+        - Image component and its container
+        - Key Features list
+        - CTA button section
+      */}
+    </div>
   );
 }
