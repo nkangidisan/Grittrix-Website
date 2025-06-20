@@ -88,15 +88,15 @@ const serviceDetailsData: { [key: string]: ServiceDetailData } = {
     }
 };
 
-export async function generateMetadata(props: any): Promise<Metadata> {
-  const slugParam = props?.params?.slug || props?.params?.jobId || props?.params?.productId; // Making it more robust for any slug-like param
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const slugParam = params?.slug;
   if (!slugParam) {
     return {
       title: 'Service Not Found | Grittrix AI Solutions',
       description: 'The requested service could not be found or the URL is invalid.',
     };
   }
-  const service = serviceDetailsData[slugParam as string]; // Cast as string after check
+  const service = serviceDetailsData[slugParam]; 
 
   if (!service) {
     return {
@@ -121,7 +121,7 @@ export async function generateMetadata(props: any): Promise<Metadata> {
     if (!domainBase) {
       console.warn(`[generateMetadata service] NEXT_PUBLIC_DOMAIN_URL is not set. Open Graph images will be relative or omitted for ${slugParam}.`);
     }
-     if (service.imageUrl) {
+     if (service.imageUrl) { // Use relative URL if domainBase is not set but imageUrl exists
        openGraphImages = [{ url: service.imageUrl, alt: service.imageAlt }];
      }
   }
@@ -142,8 +142,7 @@ export async function generateStaticParams() {
 }
 
 export default function ServiceDetailPage(props: any) {
-  const params = props?.params;
-  const slug = params?.slug as string | undefined;
+  const slug = props?.params?.slug as string | undefined;
 
   if (!slug) {
     notFound();

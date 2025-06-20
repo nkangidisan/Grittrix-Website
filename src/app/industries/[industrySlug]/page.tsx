@@ -1,10 +1,13 @@
 
 import * as React from 'react';
 import type { Metadata } from 'next';
-// PageHeader, Image, Link, Button, ArrowLeft, CheckCircle, ExternalLink are temporarily removed for diagnostics
+import { PageHeader } from '@/components/PageHeader';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft, CheckCircle, ExternalLink } from 'lucide-react';
 import { notFound } from 'next/navigation';
-import type { IndustryDetails, UseCase, RelatedServiceLink } from '@/lib/types'; // Correctly import exported types
-
+import type { IndustryDetails, UseCase, RelatedServiceLink } from '@/lib/types';
 
 const industryDetailsData: { [key: string]: IndustryDetails } = {
   healthcare: {
@@ -197,7 +200,7 @@ export async function generateMetadata({ params }: { params: { industrySlug: str
     if (!domainBase) {
       console.warn(`[generateMetadata industry] NEXT_PUBLIC_DOMAIN_URL is not set. Open Graph images will be relative or omitted for ${industry.slug}.`);
     }
-     if (industry.image) {
+     if (industry.image) { // Use relative URL if domainBase is not set but imageUrl exists
        openGraphImages = [{ url: industry.image, alt: industry.title }];
      }
   }
@@ -228,33 +231,124 @@ export default function IndustryPage(props: any) {
     return null; 
   }
 
-  // Breadcrumbs data would be used by PageHeader, which is currently removed for diagnostics
-  // const breadcrumbs = [
-  //   { name: 'Industries', href: '/industries' },
-  //   { name: industry.title },
-  // ];
+  const breadcrumbs = [
+    { name: 'Industries', href: '/industries' },
+    { name: industry.title },
+  ];
 
   return (
     <>
-      {/* PageHeader is temporarily removed for diagnostics */}
-      {/* <PageHeader title={industry.title} description={industry.description} breadcrumbs={breadcrumbs} /> */}
+      <PageHeader title={industry.title} description={industry.description} breadcrumbs={breadcrumbs} />
 
-      {/* Simplified content for diagnostics */}
       <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <h1 className="text-4xl font-bold font-headline text-primary mb-4">{industry.title}</h1>
-          <p className="text-lg text-foreground/80 mb-8">{industry.description}</p>
-          <hr className="my-8 border-border" />
-          <h2 className="text-2xl font-bold font-headline text-primary mb-6">Detailed Overview</h2>
-          <p className="text-lg md:text-xl text-foreground/90 mb-12">{industry.fullDescription}</p>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl animate-fade-in">
+              <Image
+                src={industry.image}
+                alt={`Image showcasing AI applications in ${industry.title} by Grittrix`}
+                fill
+                className="object-cover"
+                priority
+                data-ai-hint={industry.dataAiHint}
+              />
+            </div>
+            <div className="animate-slide-in-up">
+              <h2 className="text-3xl font-bold font-headline text-primary mb-6">Detailed Overview</h2>
+              <p className="text-lg md:text-xl text-foreground/90 mb-8 whitespace-pre-line">
+                {industry.fullDescription}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
+      
+      {industry.keyFeatures && industry.keyFeatures.length > 0 && (
+        <section className="py-16 md:py-24 bg-secondary/10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold font-headline text-primary text-center mb-12">Key Features & Capabilities</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {industry.keyFeatures.map((feature, index) => (
+                <div key={index} className="bg-card p-6 rounded-lg shadow-lg hover:shadow-primary/30 transition-shadow">
+                  <div className="flex items-start">
+                    <CheckCircle className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" />
+                    <p className="text-md text-foreground/80">{feature}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
-      {/* The following sections are temporarily removed for diagnostics: */}
-      {/* Top Image section */}
-      {/* Key Features and Related Services grid */}
-      {/* Use Cases section */}
-      {/* Explore Further CTA section */}
+      {industry.useCases && industry.useCases.length > 0 && (
+        <section className="py-16 md:py-24 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold font-headline text-primary text-center mb-12">Example Use Cases</h2>
+            <div className="grid md:grid-cols-2 gap-10">
+              {industry.useCases.map((useCase) => (
+                <div key={useCase.title} className="bg-card rounded-xl overflow-hidden shadow-xl hover:shadow-primary/20 transition-shadow group">
+                  <div className="relative aspect-video">
+                    <Image
+                      src={useCase.image}
+                      alt={`Use case: ${useCase.title}`}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform"
+                      data-ai-hint={useCase.dataAiHint}
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold font-headline text-primary mb-3">{useCase.title}</h3>
+                    <p className="text-sm text-foreground/70">{useCase.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {industry.relatedServices && industry.relatedServices.length > 0 && (
+        <section className="py-16 md:py-24 bg-secondary/10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <h2 className="text-2xl font-bold font-headline text-primary text-center mb-10">Related Grittrix Services</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {industry.relatedServices.map((service) => (
+                <Link
+                  key={service.name}
+                  href={service.href}
+                  className="group bg-card p-6 rounded-lg shadow-md hover:shadow-primary/20 hover:border-primary/50 border border-transparent transition-all flex items-center space-x-3"
+                >
+                  <ExternalLink className="h-5 w-5 text-primary/70 group-hover:text-primary transition-colors" />
+                  <span className="font-medium text-primary group-hover:text-primary/90 transition-colors">{service.name}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
+          <h2 className="text-2xl font-bold font-headline text-primary mb-6">Ready to Transform Your {industry.title.replace('AI in ','')} Operations?</h2>
+          <p className="text-lg text-foreground/80 mb-8">
+            Contact Grittrix today to learn how our AI-powered solutions can be tailored to meet the specific challenges and opportunities in the {industry.title.replace('AI in ','').toLowerCase()} sector.
+          </p>
+          <div className="space-x-4">
+            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Link href={`/contact?subject=${encodeURIComponent('Inquiry for ' + industry.title)}`}>
+                <span>Request a Consultation</span>
+              </Link>
+            </Button>
+            <Button variant="outline" size="lg" asChild>
+              <Link href="/industries">
+                <ArrowLeft className="mr-2 h-5 w-5" />
+                <span>Back to All Industries</span>
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

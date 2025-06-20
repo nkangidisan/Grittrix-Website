@@ -2,9 +2,9 @@
 import * as React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Image from 'next/image'; // Restored for basic image display
-import { Button } from '@/components/ui/button'; // Restored for basic CTA
-import Link from 'next/link'; // Restored for basic CTA
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import { productsList } from '@/app/products/page';
 
 export async function generateMetadata({ params }: { params: { productId: string } }): Promise<Metadata> {
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: { productId: string
     if (!domainBase) {
       console.warn(`[generateMetadata product] NEXT_PUBLIC_DOMAIN_URL is not set. Open Graph images will be relative or omitted for ${product.id}.`);
     }
-    if (product.imageUrl) {
+    if (product.imageUrl) { // Use relative URL if domainBase is not set but imageUrl exists
       openGraphImages = [{ url: product.imageUrl, alt: `Image for ${product.name}` }];
     }
   }
