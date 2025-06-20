@@ -4,7 +4,7 @@ import Image from 'next/image';
 import type { Product } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle, Info } from 'lucide-react'; // Changed ArrowRight to Info
 import Link from 'next/link';
 import type { ElementType } from 'react';
 
@@ -13,7 +13,7 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const IconComponent = product.icon as ElementType; // Cast to ElementType
+  const IconComponent = product.icon as ElementType;
   const imageAltText = `Grittrix Product: ${product.name} - ${product.tagline}`;
   const productImageUrl = product.imageUrl; 
 
@@ -26,7 +26,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </div>
             <CardTitle className="font-headline text-2xl text-primary group-hover:text-primary/90 transition-colors">{product.name}</CardTitle>
         </div>
-        <CardDescription className="text-sm font-semibold text-primary">{product.tagline}</CardDescription>
+        <CardDescription className="text-sm font-semibold text-primary h-10">{product.tagline}</CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">
         <div className="relative aspect-video w-full mb-4 rounded-md overflow-hidden">
@@ -35,7 +35,7 @@ export function ProductCard({ product }: ProductCardProps) {
             alt={imageAltText}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
-            data-ai-hint={`${product.name.toLowerCase()} interface`}
+            data-ai-hint={`${product.id.toLowerCase()} interface`}
           />
         </div>
         <p className="text-sm text-foreground/70 mb-4 leading-relaxed line-clamp-4">{product.description}</p>
@@ -43,10 +43,10 @@ export function ProductCard({ product }: ProductCardProps) {
           <div>
             <h4 className="text-xs font-semibold text-foreground/90 mb-2">Key Features:</h4>
             <ul className="space-y-1">
-              {product.features.slice(0, 3).map((feature, index) => (
-                <li key={index} className="flex items-center text-xs text-foreground/70">
-                  <CheckCircle className="h-3.5 w-3.5 text-primary mr-2 shrink-0" />
-                  {feature}
+              {product.features.map((feature, index) => ( // Show all features
+                <li key={index} className="flex items-start text-xs text-foreground/70">
+                  <CheckCircle className="h-3.5 w-3.5 text-primary mr-2 mt-0.5 shrink-0" />
+                  <span>{feature}</span>
                 </li>
               ))}
             </ul>
@@ -55,9 +55,10 @@ export function ProductCard({ product }: ProductCardProps) {
       </CardContent>
       <CardFooter>
         <Button variant="outline" asChild className="w-full hover:bg-primary/10 hover:text-primary border-primary/50 text-primary">
-          <Link href={`/products/${product.id.toLowerCase()}`}>
+          {/* Updated Link to point to contact page */}
+          <Link href={`/contact?subject=${encodeURIComponent('Inquiry about ' + product.name)}`}>
             <span>
-              Learn More <ArrowRight className="ml-2 h-4 w-4" />
+              Request Info <Info className="ml-2 h-4 w-4" />
             </span>
           </Link>
         </Button>

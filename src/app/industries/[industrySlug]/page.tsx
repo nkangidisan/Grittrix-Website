@@ -3,8 +3,11 @@ import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { notFound } from 'next/navigation';
-import type { IndustryDetails, UseCase as LibUseCase, RelatedServiceLink as LibRelatedServiceLink } from '@/lib/types'; // Updated import
+import type { IndustryDetails, UseCase, RelatedServiceLink } from '@/lib/types';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 
 // Ensured IndustryDetails matches the definition in lib/types.ts
 const industryDetailsData: { [key: string]: IndustryDetails } = {
@@ -16,7 +19,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     image: '/media/health.webp',
     dataAiHint: 'healthcare technology',
     fullDescription:
-      'Our AI solutions for healthcare focus on accelerating diagnostics through image analysis, personalizing treatment plans based on genetic and historical data, and optimizing hospital workflows. We aim to reduce costs, improve patient outcomes, and support healthcare professionals with intelligent tools.',
+      'Our AI solutions for healthcare focus on accelerating diagnostics through image analysis, personalizing treatment plans based on genetic and historical data, and optimizing hospital workflows. We aim to reduce costs, improve patient outcomes, and support healthcare professionals with intelligent tools. Grittrix Health™ offers predictive patient triage, smart pharmacy inventory management, and AI-assisted medical image analysis. We are committed to integrating with existing EHR systems and providing platforms for telemedicine enhanced by AI chatbots, aiming to make healthcare more accessible and efficient across emerging markets.',
     keyFeatures: [
       'AI-powered diagnostic tools',
       'Personalized treatment planning',
@@ -54,7 +57,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     image: '/media/agriculture.webp',
     dataAiHint: 'agriculture technology',
     fullDescription:
-      "We provide AI solutions that empower farmers and agribusinesses with predictive insights and automation. Our technologies help optimize planting and harvesting schedules, manage resources like water and fertilizer more efficiently, and detect issues like pests or diseases early, leading to increased yields and reduced waste.",
+      "We provide AI solutions that empower farmers and agribusinesses with predictive insights and automation. Grittrix Agro™ technologies help optimize planting and harvesting schedules, manage resources like water and fertilizer more efficiently, and detect issues like pests or diseases early. Our platform supports AI-driven crop health monitoring using satellite/drone imagery, provides precision irrigation recommendations, and offers market linkage with price trend forecasting, leading to increased yields and reduced waste in agricultural practices.",
     keyFeatures: [
       'Crop yield prediction models',
       'Pest and disease detection',
@@ -92,7 +95,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     image: '/media/education.webp',
     dataAiHint: 'education technology',
     fullDescription:
-      'Our AI solutions for education aim to create more engaging and effective learning environments. We offer tools for personalized learning paths adapted to individual student needs, automated assessment and feedback systems, and AI assistants to support educators and administrators, improving efficiency and student outcomes.',
+      'Our AI solutions for education aim to create more engaging and effective learning environments. Grittrix Learn™ offers tools for personalized learning paths adapted to individual student needs, automated assessment and feedback systems, and AI assistants to support educators and administrators. Features include adaptive learning content, AI-powered intelligent tutoring, student performance analytics, and teacher support tools, all designed to improve efficiency and student outcomes globally.',
     keyFeatures: [
       'Personalized learning platforms',
       'Automated grading and feedback',
@@ -130,7 +133,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     image: '/media/retail.webp',
     dataAiHint: 'retail technology',
     fullDescription:
-      'We help retail businesses thrive in a competitive landscape with AI-driven insights. Our solutions include AI for personalized product recommendations, demand forecasting to optimize inventory, customer sentiment analysis, and automation of pricing and promotions, leading to increased sales and customer satisfaction.',
+      'We help retail businesses thrive in a competitive landscape with AI-driven insights. Grittrix Retail™ solutions include AI for personalized product recommendations, demand forecasting to optimize inventory, customer sentiment analysis, and automation of pricing and promotions. Our platform offers features like AI-powered sales forecasting, automated inventory replenishment, dynamic pricing strategies, and supply chain visibility, leading to increased sales and customer satisfaction for both online and brick-and-mortar stores.',
     keyFeatures: [
       'Personalized product recommendations',
       'Demand forecasting and inventory optimization',
@@ -172,10 +175,17 @@ export async function generateMetadata({ params }: { params: { industrySlug: str
       description: 'This industry page does not exist.',
     };
   }
+  const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://grittrix.com';
+  const absoluteImageUrl = industry.image.startsWith('http') ? industry.image : new URL(industry.image, domainBase).toString();
 
   return {
     title: `${industry.title} | Grittrix AI Solutions`,
     description: industry.description,
+    openGraph: {
+        title: `${industry.title} | Grittrix AI Solutions`,
+        description: industry.description,
+        images: [{ url: absoluteImageUrl, alt: industry.title }],
+    }
   };
 }
 
@@ -185,7 +195,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function IndustryPage(props: any) { // Using (props: any)
+export default function IndustryPage(props: any) {
   const industrySlug = props?.params?.industrySlug;
   const industry = industrySlug ? industryDetailsData[industrySlug] : undefined;
 
@@ -194,14 +204,51 @@ export default function IndustryPage(props: any) { // Using (props: any)
     return null; 
   }
 
-  // Simplified rendering for diagnostics
+  const breadcrumbs = [
+    { name: 'Industries', href: '/industries' },
+    { name: industry.title },
+  ];
+
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <h1 className="text-3xl font-bold text-primary mb-4">{industry.title}</h1>
-      <p className="text-lg text-foreground/80 mb-2">{industry.description}</p>
-      <hr className="my-6 border-border" />
-      <h2 className="text-2xl font-bold text-primary mb-3">Full Description</h2>
-      <p className="text-md text-foreground/70">{industry.fullDescription}</p>
-    </div>
+    <>
+      <PageHeader title={industry.title} description={industry.description} breadcrumbs={breadcrumbs} />
+       <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+          <div className="relative aspect-video w-full mb-8 rounded-lg overflow-hidden shadow-xl">
+            <Image
+              src={industry.image}
+              alt={`${industry.title} - ${industry.description}`}
+              fill
+              className="object-cover"
+              priority
+              data-ai-hint={industry.dataAiHint}
+            />
+          </div>
+          <h2 className="text-2xl font-bold font-headline text-primary mb-4">Transforming {industry.title}</h2>
+          <p className="text-lg text-foreground/80 leading-relaxed mb-8">
+            {industry.fullDescription}
+          </p>
+          
+          <div className="bg-card p-6 rounded-lg shadow-md">
+             <p className="text-foreground/70 mb-4">
+              Explore how Grittrix AI Solutions can revolutionize your operations. For a detailed overview of solutions for all sectors, please visit our main industries page or contact us.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
+                <Link href="/industries" className="flex items-center">
+                    <ArrowLeft className="mr-2 h-5 w-5" />
+                    Back to All Industries
+                </Link>
+                </Button>
+                <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Link href={`/contact?subject=Solutions%20for%20${encodeURIComponent(industry.title)}`}>
+                    Contact Us for Solutions
+                </Link>
+                </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

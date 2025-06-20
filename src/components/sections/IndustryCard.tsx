@@ -5,17 +5,17 @@ import Link from 'next/link';
 import type { Industry as LibIndustryType } from '@/lib/types'; 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight } from 'lucide-react';
+import { Mail } from 'lucide-react'; // Changed ArrowRight to Mail
 import type { ElementType } from 'react';
 
 interface IndustryCardProps {
   industry: Pick<LibIndustryType, 'id' | 'name' | 'description' | 'icon' | 'imageUrl'>;
   altText: string; 
-  linkHref: string;
+  // linkHref is removed as we will link to contact page directly
 }
 
-export function IndustryCard({ industry, altText, linkHref }: IndustryCardProps) {
-  const IconComponent = industry.icon as ElementType; // Cast to ElementType
+export function IndustryCard({ industry, altText }: IndustryCardProps) {
+  const IconComponent = industry.icon as ElementType;
   
   return (
     <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group">
@@ -37,13 +37,15 @@ export function IndustryCard({ industry, altText, linkHref }: IndustryCardProps)
         </div>
       </CardHeader>
       <CardContent className="flex-grow">
-        <CardDescription className="text-sm text-foreground/70 leading-relaxed">{industry.description}</CardDescription>
+        {/* Display more of the description directly */}
+        <CardDescription className="text-sm text-foreground/70 leading-relaxed line-clamp-6">{industry.description}</CardDescription>
       </CardContent>
       <CardFooter>
         <Button variant="link" asChild className="text-primary p-0 h-auto group-hover:underline">
-          <Link href={linkHref}>
+           {/* Link to contact page with industry subject */}
+          <Link href={`/contact?subject=${encodeURIComponent('Solutions for ' + industry.name)}`}>
             <span>
-                Explore Solutions <ArrowRight className="ml-1 h-4 w-4" />
+                Contact Us for Solutions <Mail className="ml-1 h-4 w-4" />
             </span>
           </Link>
         </Button>
