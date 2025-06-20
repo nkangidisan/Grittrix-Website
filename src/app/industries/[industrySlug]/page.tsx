@@ -1,230 +1,216 @@
 
 import * as React from 'react';
 import type { Metadata } from 'next';
-import type { Industry } from '@/lib/types'; 
-import { HeartPulse, ShoppingCart, Leaf, BookOpen, AlertTriangle, CheckCircle, Lightbulb } from 'lucide-react';
-import Image from 'next/image';
+import { PageHeader } from '@/components/PageHeader';
 import { notFound } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { PageHeader } from '@/components/PageHeader'; 
-import type { ElementType } from 'react';
+import type { IndustryDetails } from '@/lib/types'; // Corrected: This type should now be available
+import Image from 'next/image';
 
-interface IndustryData extends Omit<Industry, 'icon' | 'imageHint'> {
-  icon: ElementType; 
-  imageUrl: string; 
-}
-
-const industriesData: { [key: string]: IndustryData } = {
+// Dummy data for industry details - Assuming this data structure matches IndustryDetails type
+const industryDetailsData: { [key: string]: IndustryDetails } = {
   healthcare: {
-    id: 'healthcare',
-    name: 'Healthcare',
-    description: 'Empowering healthcare providers with AI to improve patient outcomes, enhance diagnostics, and streamline operations.',
-    icon: HeartPulse as ElementType,
-    imageUrl: '/media/health.webp',
-    painPoints: [
-      'Late disease detection and diagnosis',
-      'Inefficient patient data management',
-      'Resource allocation challenges in hospitals',
-      'High operational costs',
-      'Limited access to specialized medical expertise in remote areas'
+    slug: 'healthcare',
+    title: 'AI in Healthcare',
+    description:
+      'Leveraging AI for improved patient care, diagnostics, drug discovery, and operational efficiency in healthcare.',
+    image: '/media/health.webp',
+    dataAiHint: 'healthcare technology',
+    fullDescription:
+      'Our AI solutions for healthcare focus on accelerating diagnostics through image analysis, personalizing treatment plans based on genetic and historical data, and optimizing hospital workflows. We aim to reduce costs, improve patient outcomes, and support healthcare professionals with intelligent tools.',
+    keyFeatures: [
+      'AI-powered diagnostic tools',
+      'Personalized treatment planning',
+      'Predictive analytics for patient outcomes',
+      'Operational efficiency optimization',
+      'Drug discovery and research support',
     ],
-    solutions: [
-      'AI-powered diagnostic tools for early disease detection (e.g., medical image analysis)',
-      'Personalized treatment plans based on patient data and predictive analytics',
-      'Intelligent systems for hospital operations management and resource optimization',
-      'AI-driven platforms for remote patient monitoring and telemedicine',
-      'Drug discovery and development acceleration using AI models'
+    useCases: [
+      {
+        title: 'AfroHealth AI Platform',
+        description:
+          'An integrated platform for African healthcare providers to access AI-driven insights for diagnosis and patient management, tailored to local needs and data scarcity.',
+        image: '/media/AfroHealthAIPlatform.jpg',
+        dataAiHint: 'healthcare platform',
+      },
+      {
+        title: 'AI Dashboards and Reporting Tools',
+        description:
+          'Interactive dashboards providing real-time insights into hospital performance, resource allocation, and patient flow, enabling data-driven decision-making.',
+        image: '/media/AIDashboardsandReportingTools.png',
+        dataAiHint: 'healthcare dashboard',
+      },
     ],
-  },
-  retail: {
-    id: 'retail',
-    name: 'Retail & E-commerce',
-    description: 'Transforming the retail landscape with AI for personalized experiences, optimized supply chains, and smarter operations.',
-    icon: ShoppingCart as ElementType,
-    imageUrl: '/media/retail.webp',
-    painPoints: [
-      'Understanding customer behavior and preferences',
-      'Inventory mismanagement (overstocking/understocking)',
-      'Inefficient supply chain and logistics',
-      'High customer churn rates',
-      'Competition from online and offline players'
-    ],
-    solutions: [
-      'AI-driven personalization engines for product recommendations and targeted marketing',
-      'Demand forecasting and inventory optimization models',
-      'Intelligent supply chain management and route optimization',
-      'AI-powered chatbots for customer service and support',
-      'Customer segmentation and churn prediction analytics'
+    relatedServices: [
+      { name: 'Custom Web & Mobile Applications', href: '/services/custom-web-mobile-applications' },
+      { name: 'Data Collection, Cleaning, and Analysis', href: '/services/data-collection-cleaning-analysis' },
+      { name: 'Software Integrations (POS, EHR, LMS, CRMs)', href: '/services/software-integrations' },
     ],
   },
   agriculture: {
-    id: 'agriculture',
-    name: 'Agriculture',
-    description: 'Driving sustainable agriculture and food security with AI-powered precision farming and data analytics.',
-    icon: Leaf as ElementType,
-    imageUrl: '/media/agriculture.webp',
-    painPoints: [
-      'Unpredictable weather patterns and climate change impact',
-      'Crop diseases and pest infestations',
-      'Inefficient use of resources (water, fertilizers)',
-      'Lack of access to timely market information',
-      'Post-harvest losses'
+    slug: 'agriculture',
+    title: 'AI in Agriculture',
+    description:
+      'Applying AI for smart farming, crop yield prediction, pest and disease detection, and resource optimization in agriculture.',
+    image: '/media/agriculture.webp',
+    dataAiHint: 'agriculture technology',
+    fullDescription:
+      "We provide AI solutions that empower farmers and agribusinesses with predictive insights and automation. Our technologies help optimize planting and harvesting schedules, manage resources like water and fertilizer more efficiently, and detect issues like pests or diseases early, leading to increased yields and reduced waste.",
+    keyFeatures: [
+      'Crop yield prediction models',
+      'Pest and disease detection',
+      'Resource optimization (water, fertilizer)',
+      'Automated monitoring and analysis',
+      'Supply chain forecasting',
     ],
-    solutions: [
-      'AI-based crop monitoring using satellite imagery and drone technology',
-      'Precision agriculture for optimized irrigation and fertilization',
-      'Early detection of crop diseases and pest outbreaks through image analysis',
-      'Yield prediction models to aid planning and market access',
-      'AI-driven platforms for connecting farmers to markets and supply chains'
+    useCases: [
+      {
+        title: 'AgriGrow Farmer Portal',
+        description:
+          'A web and mobile portal providing farmers with personalized insights, weather forecasts, market prices, and AI-driven recommendations for optimal farming practices.',
+        image: '/media/AgriGrowFarmerPortal.png',
+        dataAiHint: 'agriculture portal',
+      },
+      {
+        title: 'Disease and Stock Prediction Models',
+        description:
+          'AI models that predict potential crop diseases or livestock health issues based on environmental data and historical patterns, allowing for proactive intervention.',
+        image: '/media/DiseaseandStockPredictionModels.webp',
+        dataAiHint: 'agriculture prediction',
+      },
+    ],
+    relatedServices: [
+      { name: 'Data Collection, Cleaning, and Analysis', href: '/services/data-collection-cleaning-analysis' },
+      { name: 'Smart Forecasting Engines', href: '/services/smart-forecasting-engines' },
+      { name: 'Cloud Hosting & Deployment', href: '/services/cloud-hosting-deployment' },
     ],
   },
   education: {
-    id: 'education',
-    name: 'Education',
-    description: 'Personalizing learning and enhancing educational outcomes with adaptive AI technologies.',
-    icon: BookOpen as ElementType,
-    imageUrl: '/media/education.webp',
-    painPoints: [
-      'One-size-fits-all learning approaches',
-      'Difficulty in catering to diverse student needs',
-      'High dropout rates in certain segments',
-      'Administrative burden on educators',
-      'Skill gaps between education and industry demands'
+    slug: 'education',
+    title: 'AI in Education',
+    description:
+      'Transforming education with AI for personalized learning, automated grading, administrative efficiency, and student support.',
+    image: '/media/education.webp',
+    dataAiHint: 'education technology',
+    fullDescription:
+      'Our AI solutions for education aim to create more engaging and effective learning environments. We offer tools for personalized learning paths adapted to individual student needs, automated assessment and feedback systems, and AI assistants to support educators and administrators, improving efficiency and student outcomes.',
+    keyFeatures: [
+      'Personalized learning platforms',
+      'Automated grading and feedback',
+      'Student performance analytics',
+      'AI-powered tutoring and support',
+      'Administrative task automation',
     ],
-    solutions: [
-      'AI-powered adaptive learning platforms that personalize content and pace for each student',
-      'Intelligent tutoring systems providing individualized support',
-      'Automated grading and feedback tools to reduce teacher workload',
-      'AI-driven analytics to identify at-risk students and provide interventions',
-      'Personalized career guidance and skill development platforms'
+    useCases: [
+      {
+        title: 'AI-Powered Learning Platforms',
+        description:
+          'Adaptive learning platforms that tailor content and pace to each student\'s learning style and progress, providing a truly personalized educational experience.',
+        image: '/media/ExperienceswithAI.png',
+        dataAiHint: 'education platform',
+      },
+      {
+        title: 'Smart Administrative Assistants',
+        description:
+          'AI tools that automate routine administrative tasks for educators and institutions, such as scheduling, communication, and data entry, freeing up time for teaching and student interaction.',
+        image: '/media/SmartForecastingEngines.png',
+        dataAiHint: 'education admin',
+      },
+    ],
+    relatedServices: [
+      { name: 'Custom Web & Mobile Applications', href: '/services/custom-web-mobile-applications' },
+      { name: 'Software Integrations (POS, EHR, LMS, CRMs)', href: '/services/software-integrations' },
+      { name: 'Staff Training & Technical Support', href: '/services/staff-training-technical-support' },
+    ],
+  },
+  retail: {
+    slug: 'retail',
+    title: 'AI in Retail',
+    description:
+      'Enhancing customer experience, optimizing inventory, predicting sales trends, and personalizing marketing in the retail sector using AI.',
+    image: '/media/retail.webp',
+    dataAiHint: 'retail technology',
+    fullDescription:
+      'We help retail businesses thrive in a competitive landscape with AI-driven insights. Our solutions include AI for personalized product recommendations, demand forecasting to optimize inventory, customer sentiment analysis, and automation of pricing and promotions, leading to increased sales and customer satisfaction.',
+    keyFeatures: [
+      'Personalized product recommendations',
+      'Demand forecasting and inventory optimization',
+      'Customer sentiment analysis',
+      'Automated pricing and promotions',
+      'Fraud detection',
+    ],
+    useCases: [
+      {
+        title: 'RetailSense E-commerce',
+        description:
+          'An AI-enhanced e-commerce platform providing personalized shopping experiences, intelligent search, and predictive insights for online retailers.',
+        image: '/media/RetailSenseE-commerce.jpg',
+        dataAiHint: 'retail ecommerce',
+      },
+      {
+        title: 'Smart Forecasting Engines',
+        description:
+          'AI models that analyze sales data, market trends, and external factors to provide accurate demand forecasts, enabling better inventory management and reducing stockouts or overstock.',
+        image: '/media/SmartForecastingEngines.png',
+        dataAiHint: 'retail forecasting',
+      },
+    ],
+    relatedServices: [
+      { name: 'Custom Web & Mobile Applications', href: '/services/custom-web-mobile-applications' },
+      { name: 'Data Collection, Cleaning, and Analysis', href: '/services/data-collection-cleaning-analysis' },
+      { name: 'Software Integrations (POS, EHR, LMS, CRMs)', href: '/services/software-integrations' },
     ],
   },
 };
 
-export async function generateMetadata({ params }): Promise<Metadata> { // Changed params typing
+export async function generateMetadata({ params }: { params: { industrySlug: string } }): Promise<Metadata> {
   const industrySlug = params?.industrySlug;
-
-  if (!industrySlug) {
-    return {
-      title: 'Industry Details | Grittrix AI Solutions',
-      description: 'Learn more about our industry-specific AI solutions.',
-    };
-  }
-  const industry = industriesData[industrySlug];
+  const industry = industrySlug ? industryDetailsData[industrySlug] : undefined;
 
   if (!industry) {
     return {
       title: 'Industry Not Found | Grittrix AI Solutions',
-      description: `Details for industry "${industrySlug}" could not be found.`,
+      description: 'This industry page does not exist.',
     };
   }
-  
-  const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://grittrix.com';
-  const absoluteImageUrl = industry.imageUrl.startsWith('http') ? industry.imageUrl : new URL(industry.imageUrl, domainBase).toString();
 
   return {
-    title: `${industry.name} Solutions | Grittrix AI`,
+    title: `${industry.title} | Grittrix AI Solutions`,
     description: industry.description,
-    openGraph: {
-        title: `${industry.name} Solutions | Grittrix AI`,
-        description: industry.description,
-        images: [{ url: absoluteImageUrl, alt: `AI in ${industry.name} illustration` }],
-    }
   };
 }
 
 export async function generateStaticParams() {
-  return Object.keys(industriesData).map((slug) => ({
+  return Object.keys(industryDetailsData).map((slug) => ({
     industrySlug: slug,
   }));
 }
 
-export default function IndustryDetailPage(props: any) { 
+// Using props: any to be robust against specific build environment PageProps constraints
+export default function IndustryPage(props: any) {
   const industrySlug = props?.params?.industrySlug;
-
-  if (!industrySlug) {
-    notFound();
-    return null;
-  }
-
-  const industry = industriesData[industrySlug];
+  const industry = industrySlug ? industryDetailsData[industrySlug] : undefined;
 
   if (!industry) {
     notFound();
-    return null;
+    return null; // Ensure notFound stops execution
   }
 
-  const breadcrumbs = [
-    { name: 'Industries', href: '/industries' },
-    { name: industry.name },
-  ];
-  
-  const IconComponent = industry.icon;
-
+  // Simplified rendering for diagnostics
   return (
-    <>
-    <PageHeader
-        title={industry.name}
-        description={industry.description}
-        breadcrumbs={breadcrumbs}
-      />
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      
-      <div className="flex justify-center mb-8">
-        <IconComponent className="h-16 w-16 text-primary" />
-      </div>
-      
-      <div className="relative h-auto md:h-[calc(800px*9/16)] w-full aspect-[4/3] md:aspect-auto md:max-h-[500px] my-8">
-        <Image
-            src={industry.imageUrl}
-            alt={`Concept illustration for AI applications in ${industry.name}`}
-            fill
-            className="object-cover rounded-lg shadow-xl" 
-            priority
-            data-ai-hint={`${industry.name.toLowerCase()} technology`}
-        />
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-16 mt-12">
-        <div>
-          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center">
-            <AlertTriangle className="h-8 w-8 text-destructive mr-3" />
-            Key Challenges in {industry.name}
-          </h2>
-          <ul className="space-y-3">
-            {industry.painPoints.map((point, index) => (
-              <li key={index} className="flex items-start">
-                <AlertTriangle className="h-5 w-5 text-destructive/70 mr-3 mt-1 shrink-0" />
-                <span className="text-foreground/80">{point}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center">
-            <Lightbulb className="h-8 w-8 text-primary mr-3" />
-            Our AI-Powered Solutions
-          </h2>
-          <ul className="space-y-3">
-            {industry.solutions.map((solution, index) => (
-              <li key={index} className="flex items-start">
-                <CheckCircle className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" />
-                <span className="text-foreground/80">{solution}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div className="mt-16 text-center">
-        <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-          <Link href={`/contact?subject=${encodeURIComponent('Inquiry about ' + industry.name + ' solutions')}`}>
-            <span>Discuss Your {industry.name} Needs</span>
-          </Link>
-        </Button>
-      </div>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold text-primary mb-4">{industry.title}</h1>
+      <p className="text-lg text-foreground/80 mb-2">{industry.description}</p>
+      <hr className="my-4" />
+      <h2 className="text-2xl font-semibold text-primary mb-2">Full Description (Simplified)</h2>
+      <p className="text-md text-foreground/70">{industry.fullDescription}</p>
+      {/* 
+        Temporarily removed complex rendering:
+        - PageHeader
+        - Hero Image section
+        - Key Features list
+        - Related Services list
+        - Use Cases section
+      */}
     </div>
-    </>
   );
 }

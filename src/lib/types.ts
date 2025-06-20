@@ -31,6 +31,28 @@ export interface Industry {
   imageUrl: string; // e.g., /media/industry-name.jpg
 }
 
+interface UseCase {
+  title: string;
+  description: string;
+  image: string;
+}
+
+interface RelatedService {
+  name: string;
+  href: string;
+}
+
+export interface IndustryDetails {
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  fullDescription: string;
+  keyFeatures: string[];
+  useCases: UseCase[];
+  relatedServices: RelatedService[];
+}
+
 export interface Product {
   id: string;
   name: string;
