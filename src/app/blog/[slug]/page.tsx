@@ -18,6 +18,7 @@ const blogPosts = [
     author: 'Nkangi Disan',
     date: '2024-03-15',
     imageUrl: '/media/AfricanHealthcare.jpg',
+    dataAiHint: 'healthcare technology',
     category: 'Healthcare AI',
     contentHtml: '<p>Detailed content about AI in African Healthcare will explore how machine learning algorithms are being used for diagnostics, patient data management, and resource allocation in various African countries. It will also touch upon challenges like data privacy, infrastructure, and the need for localized solutions.</p><p>Grittrix is at the forefront, developing AI tools that are specifically designed to address these unique challenges, aiming to make healthcare more accessible and efficient across the continent. Our solutions focus on empowering local healthcare professionals with cutting-edge technology.</p>'
   },
@@ -28,6 +29,7 @@ const blogPosts = [
     author: 'Lubega Mahad',
     date: '2024-04-02',
     imageUrl: '/media/ExperienceswithAI.png',
+    dataAiHint: 'retail technology',
     category: 'Retail Tech',
     contentHtml: '<p>The retail sector is undergoing a massive transformation, thanks to Artificial Intelligence. This post delves into how AI is enabling businesses to offer hyper-personalized shopping experiences, optimize supply chains, manage inventory effectively, and improve customer engagement through smart chatbots and recommendation engines.</p><p>Grittrix provides AI-powered retail solutions that help businesses understand customer behavior, predict trends, and automate key operations, ultimately driving sales and customer loyalty in competitive markets.</p>'
   },
@@ -38,14 +40,13 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const slug = params?.slug;
-
-  if (!slug) {
+  if (!params || !params.slug) {
     return {
       title: 'Post Not Found | Grittrix AI Solutions',
       description: 'The requested blog post could not be found or the URL is invalid.',
     };
   }
+  const slug = params.slug;
   const post = blogPosts.find((p) => p.slug === slug);
 
   if (!post) {
@@ -67,20 +68,20 @@ export async function generateMetadata({
 //   }));
 // }
 
-export default function BlogPostPage(props: any) {
+const BlogPostPage = (props: any) => {
   const params = props?.params;
   const slug = params?.slug as string | undefined;
 
   if (!slug) {
     notFound();
-    return null;
+    return null; 
   }
 
   const post = blogPosts.find((p) => p.slug === slug);
 
   if (!post) {
     notFound();
-    return null;
+    return null; 
   }
 
   return (
@@ -101,7 +102,7 @@ export default function BlogPostPage(props: any) {
                 fill
                 className="object-cover"
                 priority
-                data-ai-hint={`${post.category.toLowerCase()} technology`}
+                data-ai-hint={post.dataAiHint || `${post.category.toLowerCase()} technology`}
               />
             </div>
 
@@ -132,4 +133,6 @@ export default function BlogPostPage(props: any) {
       </article>
     </>
   );
-}
+};
+
+export default BlogPostPage;
