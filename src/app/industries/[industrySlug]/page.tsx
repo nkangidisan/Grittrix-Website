@@ -1,11 +1,11 @@
 
 import * as React from 'react';
 import type { Metadata } from 'next';
-import { PageHeader } from '@/components/PageHeader';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { ArrowLeft, CheckCircle, ExternalLink } from 'lucide-react';
+// import { PageHeader } from '@/components/PageHeader'; // Temporarily removed
+// import Image from 'next/image'; // Temporarily removed
+// import Link from 'next/link'; // Temporarily removed
+// import { Button } from '@/components/ui/button'; // Temporarily removed
+// import { ArrowLeft, CheckCircle, ExternalLink } from 'lucide-react'; // Temporarily removed
 import { notFound } from 'next/navigation';
 import type { IndustryDetails, UseCase, RelatedServiceLink } from '@/lib/types';
 
@@ -186,7 +186,6 @@ export async function generateMetadata({ params }: { params: { industrySlug: str
   const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL;
   let openGraphImages: Array<{ url: string; alt?: string; width?: number; height?: number; }> = [];
 
-
   if (domainBase && industry.image) {
     try {
       const absoluteImageUrl = industry.image.startsWith('http') 
@@ -195,6 +194,9 @@ export async function generateMetadata({ params }: { params: { industrySlug: str
       openGraphImages = [{ url: absoluteImageUrl, alt: industry.title }];
     } catch (e) {
       console.warn(`[generateMetadata industry] Failed to construct absolute image URL for ${industry.slug}: ${(e as Error).message}. NEXT_PUBLIC_DOMAIN_URL: "${domainBase}", image: "${industry.image}"`);
+       if (industry.image) { // Fallback to relative if URL construction fails
+         openGraphImages = [{ url: industry.image, alt: industry.title }];
+       }
     }
   } else {
     if (!domainBase) {
@@ -231,15 +233,32 @@ export default function IndustryPage(props: any) {
     return null; 
   }
 
-  const breadcrumbs = [
-    { name: 'Industries', href: '/industries' },
-    { name: industry.title },
-  ];
+  // const breadcrumbs = [ // Temporarily removed
+  //   { name: 'Industries', href: '/industries' },
+  //   { name: industry.title },
+  // ];
 
   return (
     <>
-      <PageHeader title={industry.title} description={industry.description} breadcrumbs={breadcrumbs} />
+      {/* <PageHeader title={industry.title} description={industry.description} breadcrumbs={breadcrumbs} /> // Temporarily removed */}
 
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <h1 className="text-4xl font-bold font-headline text-primary mb-4">{industry.title}</h1>
+          <p className="text-lg text-foreground/80 mb-8">{industry.description}</p>
+          <hr className="my-8 border-border" />
+          <h2 className="text-2xl font-bold font-headline text-primary mb-6">Detailed Overview</h2>
+          <p className="text-lg md:text-xl text-foreground/90 mb-12 whitespace-pre-line">{industry.fullDescription}</p>
+        </div>
+      </section>
+
+      {/* The following sections are temporarily removed for diagnostics: */}
+      {/* Top Image section */}
+      {/* Key Features and Related Services grid */}
+      {/* Use Cases section */}
+      {/* Explore Further CTA section */}
+
+      {/* 
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -349,6 +368,7 @@ export default function IndustryPage(props: any) {
           </div>
         </div>
       </section>
+      */}
     </>
   );
 }
