@@ -31,14 +31,14 @@ export interface Industry {
   imageUrl: string; // e.g., /media/industry-name.jpg
 }
 
-interface UseCase {
+export interface UseCase { // Added export
   title: string;
   description: string;
   image: string;
-  dataAiHint: string; 
+  dataAiHint: string;
 }
 
-interface RelatedServiceLink { // Renamed from RelatedService to avoid conflict if used elsewhere
+export interface RelatedServiceLink { // Added export
   name: string;
   href: string;
 }
@@ -48,7 +48,7 @@ export interface IndustryDetails {
   title: string;
   description: string;
   image: string;
-  dataAiHint: string; 
+  dataAiHint: string;
   fullDescription: string;
   keyFeatures: string[];
   useCases: UseCase[];

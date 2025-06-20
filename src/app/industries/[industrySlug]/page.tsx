@@ -1,17 +1,13 @@
 
 import * as React from 'react';
 import type { Metadata } from 'next';
-// import { PageHeader } from '@/components/PageHeader'; // Temporarily removed
+import { PageHeader } from '@/components/PageHeader';
 import { notFound } from 'next/navigation';
-import type { IndustryDetails, UseCase as LibUseCase, RelatedServiceLink as LibRelatedServiceLink } from '@/lib/types'; // Ensured correct import
-// import Image from 'next/image'; // Temporarily removed
-// import { Button } from '@/components/ui/button'; // Temporarily removed
-// import Link from 'next/link'; // Temporarily removed
-// import { ArrowLeft } from 'lucide-react'; // Temporarily removed
-
-// Ensure this matches the structure in lib/types.ts
-interface UseCase extends LibUseCase {}
-interface RelatedServiceLink extends LibRelatedServiceLink {}
+import type { IndustryDetails, UseCase, RelatedServiceLink } from '@/lib/types';
+import Image from 'next/image';
+import Link from 'next/link'; // Added Link import
+import { Button } from '@/components/ui/button'; // Added Button import
+import { ArrowLeft } from 'lucide-react'; // Added ArrowLeft import
 
 const industryDetailsData: { [key: string]: IndustryDetails } = {
   healthcare: {
@@ -118,7 +114,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
         title: 'Smart Administrative Assistants',
         description:
           'AI tools that automate routine administrative tasks for educators and institutions, such as scheduling, communication, and data entry, freeing up time for teaching and student interaction.',
-        image: '/media/SmartForecastingEngines.png',
+        image: '/media/SmartForecastingEngines.png', // Replace with an education-specific image if available
         dataAiHint: 'education admin',
       },
     ],
@@ -178,19 +174,19 @@ export async function generateMetadata({ params }: { params: { industrySlug: str
       description: 'This industry page does not exist.',
     };
   }
-
+  
   const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://grittrix.com';
-  const absoluteImageUrl = industry.image.startsWith('http')
-    ? industry.image
+  const absoluteImageUrl = industry.image.startsWith('http') 
+    ? industry.image 
     : new URL(industry.image, domainBase).toString();
 
   return {
     title: `${industry.title} | Grittrix AI Solutions`,
     description: industry.description,
     openGraph: {
-      title: `${industry.title} | Grittrix AI Solutions`,
-      description: industry.description,
-      images: [{ url: absoluteImageUrl, alt: industry.title }],
+        title: `${industry.title} | Grittrix AI Solutions`,
+        description: industry.description,
+        images: [{ url: absoluteImageUrl, alt: industry.title }],
     },
   };
 }
@@ -206,22 +202,18 @@ export default function IndustryPage({ params }: { params: { industrySlug: strin
 
   if (!industry) {
     notFound();
-    return null;
+    return null; 
   }
 
-  // const breadcrumbs = [ // Temporarily removed
-  //   { name: 'Industries', href: '/industries' },
-  //   { name: industry.title },
-  // ];
+  const breadcrumbs = [
+    { name: 'Industries', href: '/industries' },
+    { name: industry.title },
+  ];
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      {/* <PageHeader title={industry.title} description={industry.description} breadcrumbs={breadcrumbs} /> // Temporarily removed */}
-      
-      <h1 className="text-4xl font-bold font-headline text-primary mb-4">{industry.title}</h1>
-      <p className="text-lg text-foreground/80 mb-6">{industry.description}</p>
-      
-      {/* Temporarily remove image section
+    <>
+      <PageHeader title={industry.title} description={industry.description} breadcrumbs={breadcrumbs} />
+
       <section className="relative w-full h-96 overflow-hidden">
         <Image
           src={industry.image}
@@ -234,13 +226,11 @@ export default function IndustryPage({ params }: { params: { industrySlug: strin
         />
         <div className="absolute inset-0 bg-black opacity-50"></div>
       </section>
-      */}
 
-      <section className="py-16 md:py-8 bg-background"> {/* Adjusted padding */}
-        <div className="max-w-4xl"> {/* Simplified container */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <p className="text-lg md:text-xl text-foreground/90 mb-12">{industry.fullDescription}</p>
 
-          {/* Temporarily remove key features, related services, and use cases sections
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold font-headline text-primary mb-6">Key Features</h2>
@@ -301,11 +291,9 @@ export default function IndustryPage({ params }: { params: { industrySlug: strin
               </div>
             </div>
           )}
-          */}
         </div>
       </section>
-
-      {/* Temporarily remove Explore Further section
+      
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
             <h2 className="text-2xl font-bold font-headline text-primary mb-6">Explore Further</h2>
@@ -327,7 +315,6 @@ export default function IndustryPage({ params }: { params: { industrySlug: strin
             </div>
         </div>
       </section>
-      */}
-    </div>
+    </>
   );
 }
