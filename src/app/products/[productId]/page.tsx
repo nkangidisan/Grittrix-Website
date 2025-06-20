@@ -3,7 +3,7 @@ import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import type { Product } from '@/lib/types';
-import { productsList } from '@/app/products/page'; // productsList is exported from here
+import { productsList } from '@/app/products/page'; 
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -11,25 +11,22 @@ import Link from 'next/link';
 import { CheckCircle, Zap } from 'lucide-react';
 import type { ElementType } from 'react';
 
-interface GenerateMetadataProps {
+export async function generateMetadata({
+  params,
+}: {
   params: { productId: string };
-  // searchParams: { [key: string]: string | string[] | undefined }; // Removed if not used
-}
-
-export async function generateMetadata(
-  { params }: GenerateMetadataProps
-): Promise<Metadata> {
+}): Promise<Metadata> {
   const productId = params.productId.toLowerCase();
   const product = productsList.find(p => p.id.toLowerCase() === productId);
 
   if (!product) {
     return {
-      title: 'Product Not Found | Grittrix AI Solutions',
-      description: 'The product you are looking for could not be found.',
+      title: 'Product Not Found | Grittrix',
+      description: 'This product is not available.',
     };
   }
 
-  const domainBase = 'https://grittrix.com'; // Fallback
+  const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://grittrix.com';
   const absoluteImageUrl = product.imageUrl.startsWith('http') ? product.imageUrl : new URL(product.imageUrl, domainBase).toString();
 
   return {
@@ -67,7 +64,7 @@ export default function ProductDetailPage({ params, searchParams }: ProductDetai
     { name: product.name }
   ];
 
-  const IconComponent = product.icon as ElementType; // Cast to ElementType
+  const IconComponent = product.icon as ElementType; 
   const imageAltText = `${product.name} illustration - ${product.tagline}`;
   const productImageUrl = product.imageUrl; 
 

@@ -10,7 +10,6 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import type { ElementType } from 'react';
 
-
 interface IndustryData extends Omit<Industry, 'icon' | 'imageHint'> {
   icon: ElementType;
 }
@@ -102,25 +101,22 @@ const industriesData: { [key: string]: IndustryData } = {
   },
 };
 
-interface GenerateMetadataProps {
+export async function generateMetadata({
+  params,
+}: {
   params: { industrySlug: string };
-  // searchParams: { [key: string]: string | string[] | undefined }; // Removed if not used
-}
-
-export async function generateMetadata(
-  { params }: GenerateMetadataProps
-): Promise<Metadata> {
+}): Promise<Metadata> {
   const industrySlug = params.industrySlug;
   const industry = industriesData[industrySlug];
 
   if (!industry) {
     return {
-      title: 'Industry Not Found | Grittrix AI Solutions',
-      description: 'The industry you are looking for could not be found.',
+      title: 'Industry Not Found | Grittrix',
+      description: 'This industry page is not available.',
     };
   }
   
-  const domainBase = 'https://grittrix.com'; // Fallback, ideally from parent or env
+  const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://grittrix.com';
   const absoluteImageUrl = industry.imageUrl.startsWith('http') ? industry.imageUrl : new URL(industry.imageUrl, domainBase).toString();
 
   return {

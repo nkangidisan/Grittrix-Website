@@ -87,24 +87,21 @@ const serviceDetailsData: { [key: string]: ServiceDetail } = {
     }
 };
 
-interface GenerateMetadataProps {
+export async function generateMetadata({
+  params,
+}: {
   params: { slug: string };
-  // searchParams: { [key: string]: string | string[] | undefined }; // Removed if not used
-}
-
-export async function generateMetadata(
-  { params }: GenerateMetadataProps
-): Promise<Metadata> {
+}): Promise<Metadata> {
   const slug = params.slug;
   const service = serviceDetailsData[slug];
 
   if (!service) {
     return {
-      title: 'Service Not Found | Grittrix AI Solutions',
-      description: 'The service you are looking for could not be found.',
+      title: 'Service Not Found | Grittrix',
+      description: 'This service is not available.',
     };
   }
-  const domainBase = 'https://grittrix.com'; // Fallback
+  const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://grittrix.com';
   const absoluteImageUrl = service.imageUrl.startsWith('http') ? service.imageUrl : new URL(service.imageUrl, domainBase).toString(); 
 
   return {
@@ -143,7 +140,7 @@ export default function ServiceDetailPage({ params, searchParams }: ServiceDetai
     { name: details.title }
   ];
   
-  const IconComponent = serviceInfoFromList?.icon as ElementType | undefined; // Cast to ElementType
+  const IconComponent = serviceInfoFromList?.icon as ElementType | undefined; 
 
   return (
     <>

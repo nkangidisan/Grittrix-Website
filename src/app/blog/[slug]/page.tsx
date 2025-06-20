@@ -1,82 +1,92 @@
 
 import * as React from 'react';
 import type { Metadata } from 'next';
-import { PageHeader } from '@/components/PageHeader';
-import { CalendarDays, UserCircle, Tag as TagIcon } from 'lucide-react';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import type { BlogPost } from '@/lib/types';
 
-// Moved blogPosts data into this file to avoid import issues and for self-containment
+import { PageHeader } from '../../../components/PageHeader';
+import { Button } from '../../../components/ui/button';
+
+import { CalendarDays, UserCircle, Tag as TagIcon } from 'lucide-react';
+
+// Data is now self-contained in this file
+type BlogPost = {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  imageUrl: string;
+  category: string;
+};
+
 const blogPosts: BlogPost[] = [
   {
     id: '1',
     slug: 'ai-in-african-healthcare',
     title: 'The Transformative Power of AI in African Healthcare',
-    excerpt: 'Exploring how AI is bridging gaps in healthcare accessibility and diagnostics across Africa...',
+    excerpt: 'Exploring how AI is bridging gaps in healthcare accessibility and diagnostics across Africa.',
     author: 'Nkangi Disan',
     date: '2024-03-15',
     imageUrl: '/media/AfricanHealthcare.jpg',
     category: 'Healthcare AI',
-    contentHtml: '<p>Detailed content on AI in African Healthcare. AI algorithms are increasingly used for analyzing medical images like X-rays and MRIs, often detecting diseases with accuracy comparable to human radiologists. This is particularly vital in regions with a shortage of specialists.</p><p>Furthermore, AI-powered chatbots can provide initial patient triage and health information, easing the burden on clinics and making healthcare more accessible, especially in remote areas.</p>'
   },
   {
     id: '2',
     slug: 'future-of-retail-ai',
     title: 'The Future of Retail: Personalized Experiences with AI',
-    excerpt: 'AI is revolutionizing the retail sector by enabling hyper-personalized customer experiences...',
+    excerpt: 'AI is revolutionizing the retail sector by enabling hyper-personalized customer experiences.',
     author: 'Lubega Mahad',
     date: '2024-04-02',
     imageUrl: '/media/ExperienceswithAI.png',
     category: 'Retail Tech',
-    contentHtml: '<p>AI algorithms analyze vast amounts of customer data – purchase history, browsing behavior, demographics – to create highly personalized shopping experiences. This includes tailored product recommendations, targeted promotions, and even dynamic pricing.</p><p>Inventory management is another area where AI shines. Predictive analytics help retailers forecast demand, optimize stock levels, and reduce waste, leading to significant cost savings and improved customer satisfaction.</p>'
   },
   {
     id: '3',
     slug: 'precision-agriculture-africa',
     title: 'Precision Agriculture: AI for Sustainable Farming in Africa',
-    excerpt: 'Learn how AI-driven precision agriculture techniques are empowering African farmers...',
+    excerpt: 'Learn how AI-driven precision agriculture techniques are empowering African farmers.',
     author: 'Ashumbusha Emmanuel',
     date: '2024-04-20',
     imageUrl: '/media/FarmingAfrica.png',
     category: 'AgriTech',
-    contentHtml: '<p>AI combined with drone and satellite imagery allows for precise monitoring of crop health, soil conditions, and pest infestations. This enables farmers to apply resources like water and fertilizer more efficiently, reducing environmental impact and increasing yields.</p><p>Predictive models can forecast weather patterns and crop yields, helping farmers make informed decisions about planting, harvesting, and market strategies, ultimately contributing to food security.</p>'
   },
   {
     id: '4',
     slug: 'ai-edtech-emerging-markets',
     title: 'AI in EdTech: Bridging Educational Gaps in Emerging Markets',
-    excerpt: 'AI is redefining education in emerging markets through personalized learning tools...',
+    excerpt: 'AI is set to redefine education in emerging markets with personalized learning tools.',
     author: 'Juma Bakari',
     date: '2024-05-05',
     imageUrl: '/media/EmergingMarket.jpg',
     category: 'EdTech AI',
-    contentHtml: '<p>Adaptive learning platforms powered by AI can tailor educational content to individual student needs and learning paces. This personalized approach can significantly improve engagement and outcomes, especially in diverse classrooms.</p><p>AI tutors and automated grading systems can provide students with immediate feedback and support, while also freeing up teachers to focus on more complex instructional tasks and student interaction.</p>'
   },
 ];
 
-interface GenerateMetadataProps {
+export async function generateMetadata({
+  params,
+}: {
   params: { slug: string };
-  // searchParams: { [key: string]: string | string[] | undefined }; // Removed if not used
-}
-
-export async function generateMetadata(
-  { params }: GenerateMetadataProps
-): Promise<Metadata> {
+}): Promise<Metadata> {
   const post = blogPosts.find((p) => p.slug === params.slug);
 
   if (!post) {
     return {
-      title: 'Blog Post Not Found | Grittrix AI Solutions',
-      description: 'The blog post you are looking for could not be found.',
+      title: 'Post Not Found | Grittrix Blog',
+      description: 'This blog post could not be found.',
     };
   }
 
   return {
     title: `${post.title} | Grittrix Blog`,
     description: post.excerpt,
+    openGraph: {
+      title: `${post.title} | Grittrix Blog`,
+      description: post.excerpt,
+      images: [{ url: post.imageUrl, alt: `Image for ${post.title}` }],
+    }
   };
 }
 
@@ -90,26 +100,20 @@ export default function BlogPostPage({ params, searchParams }: BlogPostPageProps
   if (!slug) {
     notFound();
   }
-  const post = blogPosts.find((p) => p.slug === slug);
 
+  const post = blogPosts.find((p) => p.slug === slug);
   if (!post) {
     notFound();
   }
 
-  const breadcrumbs = [
-    { name: 'Blog', href: '/blog' },
-    { name: post.title },
-  ];
-
-  const finalContentHtml = post.contentHtml || `<p>${post.excerpt}</p><p>More content coming soon for this article. Stay tuned for in-depth insights and discussions on ${post.category}.</p>`;
-  const imageAltText = `Blog post illustration for "${post.title}" by ${post.author}`;
+  const postContentHtml = `<p>${post.excerpt}</p><p>More insights and updates will be added soon. Stay tuned! This page uses static data defined within the file.</p>`;
 
   return (
     <>
       <PageHeader
         title={post.title}
         description={post.excerpt}
-        breadcrumbs={breadcrumbs}
+        breadcrumbs={[{ name: 'Blog', href: '/blog' }, { name: post.title }]}
       />
 
       <article className="py-16 md:py-24">
@@ -118,7 +122,7 @@ export default function BlogPostPage({ params, searchParams }: BlogPostPageProps
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl mb-8">
               <Image
                 src={post.imageUrl}
-                alt={imageAltText}
+                alt={`Image for ${post.title}`}
                 fill
                 className="object-cover"
                 priority
@@ -127,14 +131,23 @@ export default function BlogPostPage({ params, searchParams }: BlogPostPageProps
             </div>
 
             <div className="flex flex-wrap items-center text-sm text-foreground/70 gap-x-4 gap-y-2 mb-6">
-              <span className="flex items-center"><UserCircle className="h-4 w-4 mr-1.5 text-primary" /> {post.author}</span>
-              <span className="flex items-center"><CalendarDays className="h-4 w-4 mr-1.5 text-primary" /> {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-              <span className="flex items-center"><TagIcon className="h-4 w-4 mr-1.5 text-primary" /> {post.category}</span>
+              <span className="flex items-center">
+                <UserCircle className="h-4 w-4 mr-1.5 text-primary" />
+                {post.author}
+              </span>
+              <span className="flex items-center">
+                <CalendarDays className="h-4 w-4 mr-1.5 text-primary" />
+                {new Date(post.date).toLocaleDateString()}
+              </span>
+              <span className="flex items-center">
+                <TagIcon className="h-4 w-4 mr-1.5 text-primary" />
+                {post.category}
+              </span>
             </div>
 
             <div
               className="prose prose-lg prose-invert text-foreground/80 max-w-none space-y-6"
-              dangerouslySetInnerHTML={{ __html: finalContentHtml }}
+              dangerouslySetInnerHTML={{ __html: postContentHtml }}
             />
 
             <div className="mt-12 pt-8 border-t border-border">
@@ -147,7 +160,7 @@ export default function BlogPostPage({ params, searchParams }: BlogPostPageProps
 
             <div className="mt-12 text-center">
               <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link href="/blog"><span>Back to Blog</span></Link>
+                <Link href="/blog">Back to Blog</Link>
               </Button>
             </div>
           </div>
@@ -157,6 +170,7 @@ export default function BlogPostPage({ params, searchParams }: BlogPostPageProps
   );
 }
 
+// Reinstating generateStaticParams if needed for SSG
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
     slug: post.slug,

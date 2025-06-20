@@ -116,13 +116,12 @@ const jobDetailsMap: Record<
   },
 };
 
-interface GenerateMetadataProps {
-  params: { jobId: string };
-}
 
-export async function generateMetadata(
-  { params }: GenerateMetadataProps
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { jobId: string };
+}): Promise<Metadata> {
   const job = jobDetailsMap[params.jobId];
 
   if (!job) {
