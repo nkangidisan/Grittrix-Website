@@ -3,11 +3,7 @@ import * as React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import type { IndustryDetails, UseCase, RelatedServiceLink } from '@/lib/types';
-// import Image from 'next/image'; // Temporarily removed
-// import Link from 'next/link'; // Temporarily removed
-// import { Button } from '@/components/ui/button'; // Temporarily removed
-// import { ArrowLeft, CheckCircle, ExternalLink } from 'lucide-react'; // Temporarily removed
-// import { PageHeader } from '@/components/PageHeader'; // Temporarily removed
+// PageHeader, Image, Link, Button, ArrowLeft are temporarily removed for diagnostics
 
 const industryDetailsData: { [key: string]: IndustryDetails } = {
   healthcare: {
@@ -173,8 +169,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
 };
 
 export async function generateMetadata({ params }: { params: { industrySlug: string } }): Promise<Metadata> {
-  const industrySlug = params?.industrySlug;
-  const industry = industryDetailsData[industrySlug];
+  const industry = industryDetailsData[params.industrySlug];
 
   if (!industry) {
     return {
@@ -224,9 +219,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function IndustryPage(props: any) {
-  const industrySlug = props?.params?.industrySlug;
-  const industry = industryDetailsData[industrySlug];
+export default function IndustryPage({ params }: { params: { industrySlug: string } }) {
+  const industry = industryDetailsData[params.industrySlug];
 
   if (!industry) {
     notFound();
@@ -239,30 +233,9 @@ export default function IndustryPage(props: any) {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <h1 className="text-4xl font-bold font-headline text-primary mb-4">{industry.title}</h1>
           <p className="text-lg text-foreground/80 mb-8">{industry.description}</p>
-          
-          {/* Image component temporarily removed for diagnostics */}
-          {/* {industry.image && (
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl my-8 animate-fade-in">
-                <Image
-                  src={industry.image}
-                  alt={`Image showcasing AI applications in ${industry.title} by Grittrix`}
-                  fill
-                  className="object-cover"
-                  priority
-                  data-ai-hint={industry.dataAiHint}
-                />
-              </div>
-          )} */}
-
           <hr className="my-8 border-border" />
           <h2 className="text-2xl font-bold font-headline text-primary mb-6">Detailed Overview</h2>
-          <div className="text-lg md:text-xl text-foreground/90 mb-12 whitespace-pre-line">
-            {industry.fullDescription.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="mb-4">{paragraph}</p>
-            ))}
-          </div>
-        
-          {/* Key Features, Use Cases, Related Services, and CTA sections are temporarily removed for diagnostics */}
+          <p className="text-lg md:text-xl text-foreground/90 mb-12">{industry.fullDescription}</p>
         </div>
       </section>
     </>

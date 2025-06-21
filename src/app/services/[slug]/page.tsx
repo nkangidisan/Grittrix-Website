@@ -153,8 +153,8 @@ export async function generateStaticParams() {
   return Object.keys(serviceDetailsData).map(slug => ({ slug }));
 }
 
-export default function ServiceDetailPage(props: any) {
-  const slug = props?.params?.slug;
+export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
+  const slug = params?.slug;
 
   if (!slug) {
     notFound();

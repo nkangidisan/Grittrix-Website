@@ -78,18 +78,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ApplyJobPage(props: any) {
-  const jobId = props?.params?.jobId;
-  const job = jobListings.find((j) => j.id === jobId);
-
-  if (!job) {
-    notFound();
-    return null;
-  }
+export default function ApplyJobPage({ params }: { params: { jobId: string } }) {
+  const job = jobListings.find((j) => j.id === params.jobId);
+  if (!job) notFound();
 
   const breadcrumbs = [
     { name: 'Careers', href: '/careers' },
-    { name: job.title, href: `/careers#${job.id}` }, 
+    { name: job.title, href: `/careers#${job.id}` },
     { name: 'Apply' },
   ];
 

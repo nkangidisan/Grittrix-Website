@@ -3,16 +3,11 @@
 import * as React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-// import Image from 'next/image'; // Temporarily removed
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 import { productsList } from '@/app/products/page';
-// PageHeader is intentionally removed for simplification during diagnostics
 
 export async function generateMetadata({ params }: { params: { productId: string } }): Promise<Metadata> {
-  const productId = params?.productId;
   const product = productsList.find(
-    (p) => p.id.toLowerCase() === productId?.toLowerCase()
+    (p) => p.id.toLowerCase() === params.productId?.toLowerCase()
   );
 
   if (!product) {
@@ -32,14 +27,14 @@ export async function generateMetadata({ params }: { params: { productId: string
         : new URL(product.imageUrl, domainBase).toString();
       openGraphImages = [{ url: absoluteImageUrl, alt: `Image for ${product.name}` }];
     } catch (e) {
-      console.warn(`[generateMetadata product] Failed to construct absolute image URL for ${productId}: ${(e as Error).message}. NEXT_PUBLIC_DOMAIN_URL: "${domainBase}", image: "${product.imageUrl}"`);
+      console.warn(`[generateMetadata product] Failed to construct absolute image URL for ${params.productId}: ${(e as Error).message}. NEXT_PUBLIC_DOMAIN_URL: "${domainBase}", image: "${product.imageUrl}"`);
        if (product.imageUrl) {
          openGraphImages = [{ url: product.imageUrl, alt: `Image for ${product.name}` }];
        }
     }
   } else {
     if (!domainBase) {
-      console.warn(`[generateMetadata product] NEXT_PUBLIC_DOMAIN_URL is not set. Open Graph images will be relative or omitted for ${productId}.`);
+      console.warn(`[generateMetadata product] NEXT_PUBLIC_DOMAIN_URL is not set. Open Graph images will be relative or omitted for ${params.productId}.`);
     }
      if (product.imageUrl) {
        openGraphImages = [{ url: product.imageUrl, alt: `Image for ${product.name}` }];
@@ -63,10 +58,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProductDetailPage(props: any) {
-  const productId = props?.params?.productId;
+export default function ProductDetailPage({ params }: { params: { productId: string } }) {
   const product = productsList.find(
-    (p) => p.id.toLowerCase() === productId?.toLowerCase()
+    (p) => p.id.toLowerCase() === params.productId?.toLowerCase()
   );
 
   if (!product) {
@@ -75,48 +69,16 @@ export default function ProductDetailPage(props: any) {
   }
 
   return (
-    <>
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <h1 className="text-4xl font-bold font-headline text-primary mb-4">{product.name}</h1>
-          <p className="text-xl text-foreground/80 mb-6">{product.tagline}</p>
-          
-          {/* Image component temporarily removed for diagnostics */}
-          {/* {product.imageUrl && (
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl my-8">
-              <Image
-                src={product.imageUrl}
-                alt={`Image of ${product.name}`}
-                fill
-                className="object-cover"
-                data-ai-hint={`${product.id.toLowerCase()} interface`}
-                priority
-              />
-            </div>
-          )} */}
-          
-          <hr className="my-8 border-border" />
-          <h2 className="text-2xl font-bold font-headline text-primary mb-4">
-            About {product.name}
-          </h2>
-          <div className="text-lg text-foreground/80 leading-relaxed mb-6 whitespace-pre-line">
-            {product.description.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="mb-4">{paragraph}</p>
-            ))}
-          </div>
-          
-          <div className="mt-12 text-center">
-            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link href={`/contact?subject=${encodeURIComponent('Inquiry about ' + product.name)}`}>
-                Request More Information
-              </Link>
-            </Button>
-            <Button variant="outline" size="lg" asChild className="ml-4">
-              <Link href="/products">Back to All Products</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-    </>
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+         <h1 className="text-4xl font-bold font-headline text-primary mb-4">{product.name}</h1>
+         <p className="text-lg font-semibold text-primary/90 mb-6">{product.tagline}</p>
+         <div className="text-lg text-foreground/80 leading-relaxed mb-6 whitespace-pre-line">
+           {product.description.split('\n\n').map((paragraph, index) => (
+             <p key={index} className="mb-4">{paragraph}</p>
+           ))}
+         </div>
+      </div>
+    </section>
   );
 }
