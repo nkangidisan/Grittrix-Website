@@ -8,19 +8,24 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { ElementType } from 'react';
+
+const iconMap: { [key: string]: ElementType } = {
+  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, CheckCircle, Building, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ShoppingBag, ServerCog, MonitorPlay
+};
 
 const keyFeatures = [
-  { name: 'Insight Dashboards', description: 'Get real-time analytics and forecasts tailored to your sector.', icon: BarChartBig },
-  { name: 'AI Modules', description: 'Plug in smart tools to predict sales, manage stock, or detect diseases.', icon: BrainCircuit },
-  { name: 'Modular Design', description: 'Only pay for the features you need — scale as you grow.', icon: Puzzle },
-  { name: 'Data-Driven Decisions', description: 'Stop guessing. Start acting with data-backed intelligence.', icon: DatabaseZap },
-  { name: 'Secure & Private', description: 'Your data is encrypted and securely hosted.', icon: CheckCircle },
+  { name: 'Insight Dashboards', description: 'Get real-time analytics and forecasts tailored to your sector.', icon: 'BarChartBig' },
+  { name: 'AI Modules', description: 'Plug in smart tools to predict sales, manage stock, or detect diseases.', icon: 'BrainCircuit' },
+  { name: 'Modular Design', description: 'Only pay for the features you need — scale as you grow.', icon: 'Puzzle' },
+  { name: 'Data-Driven Decisions', description: 'Stop guessing. Start acting with data-backed intelligence.', icon: 'DatabaseZap' },
+  { name: 'Secure & Private', description: 'Your data is encrypted and securely hosted.', icon: 'CheckCircle' },
 ];
 
 const industriesServed = [
   { 
     name: 'Healthcare', 
-    icon: HeartPulse, 
+    icon: 'HeartPulse', 
     link: '/industries/healthcare', 
     imageSrc: '/media/health.webp',
     altText: 'Grittrix AI for Healthcare - advanced medical diagnostics illustration',
@@ -33,7 +38,7 @@ const industriesServed = [
   },
   { 
     name: 'Retail', 
-    icon: ShoppingCart, 
+    icon: 'ShoppingCart', 
     link: '/industries/retail', 
     imageSrc: '/media/retail.webp',
     altText: 'Grittrix AI for Retail - e-commerce optimization illustration',
@@ -46,7 +51,7 @@ const industriesServed = [
   },
   { 
     name: 'Agriculture', 
-    icon: Leaf, 
+    icon: 'Leaf', 
     link: '/industries/agriculture', 
     imageSrc: '/media/agriculture.webp',
     altText: 'Grittrix AI for Agriculture - smart farming solutions illustration',
@@ -59,7 +64,7 @@ const industriesServed = [
   },
   { 
     name: 'Education', 
-    icon: BookOpen, 
+    icon: 'BookOpen', 
     link: '/industries/education', 
     imageSrc: '/media/education.webp',
     altText: 'Grittrix AI for Education - personalized learning platforms illustration',
@@ -73,11 +78,11 @@ const industriesServed = [
 ];
 
 const whoWeWorkWith = [
-  { name: 'Clinics and pharmacies', icon: HeartPulse },
-  { name: 'Small-to-medium retail businesses', icon: ShoppingCart },
-  { name: 'Farmer cooperatives and agri-entrepreneurs', icon: Leaf },
-  { name: 'Schools and educational NGOs', icon: BookOpen },
-  { name: 'Local governments and development partners', icon: Building },
+  { name: 'Clinics and pharmacies', icon: 'HeartPulse' },
+  { name: 'Small-to-medium retail businesses', icon: 'ShoppingCart' },
+  { name: 'Farmer cooperatives and agri-entrepreneurs', icon: 'Leaf' },
+  { name: 'Schools and educational NGOs', icon: 'BookOpen' },
+  { name: 'Local governments and development partners', icon: 'Building' },
 ];
 
 const whyWorkWithGrittrix = [
@@ -94,15 +99,15 @@ const testimonials = [
 ];
 
 const quickNavLinks = [
-  { href: '/about', label: 'About Us', icon: Info },
-  { href: '/services', label: 'Services', icon: Settings },
-  { href: '/industries', label: 'Industries', icon: Building },
-  { href: '/careers', label: 'Careers', icon: BriefcaseBusiness },
-  { href: '/blog', label: 'Blog', icon: PencilLine },
-  { href: '/merch', label: 'Grittrix Merch', icon: Tag },
-  { href: '/products', label: 'Products', icon: ShoppingBag },
-  { href: '/hosting', label: 'Hosting', icon: ServerCog },
-  { href: '/design-services', label: 'Need a Website / Web App?', icon: MonitorPlay },
+  { href: '/about', label: 'About Us', icon: 'Info' },
+  { href: '/services', label: 'Services', icon: 'Settings' },
+  { href: '/industries', label: 'Industries', icon: 'Building' },
+  { href: '/careers', label: 'Careers', icon: 'BriefcaseBusiness' },
+  { href: '/blog', label: 'Blog', icon: 'PencilLine' },
+  { href: '/merch', label: 'Grittrix Merch', icon: 'Tag' },
+  { href: '/products', label: 'Products', icon: 'ShoppingBag' },
+  { href: '/hosting', label: 'Hosting', icon: 'ServerCog' },
+  { href: '/design-services', label: 'Need a Website / Web App?', icon: 'MonitorPlay' },
 ];
 
 
@@ -159,19 +164,22 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Key Features</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {keyFeatures.map((feature, index) => (
-              <Card key={feature.name} className="bg-card hover:shadow-xl transition-shadow duration-300 group animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
-                <CardHeader className="items-center text-center">
-                  <div className="p-4 bg-primary/10 rounded-full mb-3 group-hover:bg-primary/20 transition-colors">
-                    <feature.icon className="h-10 w-10 text-primary" />
-                  </div>
-                  <CardTitle className="font-headline text-xl text-primary group-hover:text-primary/90 transition-colors">{feature.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-foreground/70 text-sm">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+            {keyFeatures.map((feature, index) => {
+              const FeatureIcon = iconMap[feature.icon];
+              return (
+                <Card key={feature.name} className="bg-card hover:shadow-xl transition-shadow duration-300 group animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
+                  <CardHeader className="items-center text-center">
+                    <div className="p-4 bg-primary/10 rounded-full mb-3 group-hover:bg-primary/20 transition-colors">
+                      {FeatureIcon && <FeatureIcon className="h-10 w-10 text-primary" />}
+                    </div>
+                    <CardTitle className="font-headline text-xl text-primary group-hover:text-primary/90 transition-colors">{feature.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <p className="text-foreground/70 text-sm">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -183,7 +191,9 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Industries We Serve</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-            {industriesServed.map((industry, index) => (
+            {industriesServed.map((industry, index) => {
+              const IndustryIcon = iconMap[industry.icon];
+              return (
               <Card key={industry.name} className="bg-card hover:shadow-2xl transition-all duration-300 group flex flex-col md:flex-row overflow-hidden animate-slide-in-up" style={{ animationDelay: `${index * 150}ms`}}>
                 <div className="md:w-1/3 relative h-48 md:h-auto">
                   <Image 
@@ -195,7 +205,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent md:bg-gradient-to-r md:from-black/70 md:to-transparent"></div>
                   <div className="absolute bottom-4 left-4 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:transform p-2 bg-primary/20 rounded-full">
-                     <industry.icon className="h-10 w-10 text-primary" />
+                     {IndustryIcon && <IndustryIcon className="h-10 w-10 text-primary" />}
                   </div>
                 </div>
                 <div className="md:w-2/3 p-6 flex flex-col justify-center">
@@ -215,7 +225,7 @@ export default function Home() {
                   </Button>
                 </div>
               </Card>
-            ))}
+            )})}
           </div>
         </div>
       </section>
@@ -230,16 +240,18 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-            {whoWeWorkWith.map((partner, index) => (
+            {whoWeWorkWith.map((partner, index) => {
+              const PartnerIcon = iconMap[partner.icon];
+              return (
               <div key={partner.name} className="text-center p-6 bg-card rounded-lg shadow-md hover:shadow-primary/20 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
                 <div className="flex justify-center mb-4">
                   <div className="p-3 bg-primary/10 rounded-full">
-                    <partner.icon className="h-8 w-8 text-primary" />
+                    {PartnerIcon && <PartnerIcon className="h-8 w-8 text-primary" />}
                   </div>
                 </div>
                 <h3 className="font-headline text-md font-semibold text-primary">{partner.name}</h3>
               </div>
-            ))}
+            )})}
           </div>
         </div>
       </section>
@@ -305,7 +317,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-slide-in-up">
             {quickNavLinks.map((link) => {
-              const LinkIcon = link.icon;
+              const LinkIcon = iconMap[link.icon];
               return (
                 <Link
                   key={link.label}
@@ -313,7 +325,7 @@ export default function Home() {
                   className="group bg-card p-6 rounded-lg shadow-md hover:shadow-primary/20 hover:border-primary/50 border border-transparent transition-all flex items-center space-x-4"
                 >
                   <div className="p-2 bg-primary/10 rounded-md group-hover:bg-primary/20 transition-colors">
-                     <LinkIcon className="h-6 w-6 text-primary" />
+                     {LinkIcon && <LinkIcon className="h-6 w-6 text-primary" />}
                   </div>
                   <span className="font-medium text-primary group-hover:text-primary/90 transition-colors">{link.label}</span>
                   <ArrowRight className="ml-auto h-5 w-5 text-primary/70 group-hover:text-primary transition-colors opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1" />

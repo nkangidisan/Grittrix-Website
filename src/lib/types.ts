@@ -26,7 +26,7 @@ export interface Industry {
   description: string;
   painPoints: string[];
   solutions: string[];
-  icon: ElementType; // Lucide icon component
+  icon: string; // Lucide icon component name
   imageUrl: string; // e.g., /media/industry-name.jpg
 }
 
@@ -59,7 +59,7 @@ export interface Product {
   name: string;
   tagline: string;
   description: string;
-  icon: ElementType; // e.g., 'Cpu', 'Stethoscope'
+  icon: string; // e.g., 'Cpu', 'Stethoscope'
   imageUrl: string; // e.g., /media/product-name.jpg
   features: string[];
 }

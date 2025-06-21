@@ -24,14 +24,18 @@ const teamMembers: TeamMember[] = [
 interface CoreValue {
   title: string;
   description: string;
-  icon: ElementType;
+  icon: string;
 }
 
+const iconMap: { [key: string]: ElementType } = {
+  Lightbulb, UsersRound, ShieldCheck, Mountain
+};
+
 const coreValues: CoreValue[] = [
-    { title: "Innovation with purpose", description: "We constantly push the boundaries of AI to create novel solutions that address real-world needs effectively.", icon: Lightbulb as ElementType },
-    { title: "Inclusion through simplicity", description: "We design intuitive technology accessible to everyone, fostering broad participation and benefit.", icon: UsersRound as ElementType },
-    { title: "Transparency and trust", description: "We operate with openness and ethical considerations, building lasting relationships based on integrity.", icon: ShieldCheck as ElementType },
-    { title: "Resilience and grit", description: "We embrace challenges and persevere, committed to delivering impactful solutions even in complex environments.", icon: Mountain as ElementType },
+    { title: "Innovation with purpose", description: "We constantly push the boundaries of AI to create novel solutions that address real-world needs effectively.", icon: "Lightbulb" },
+    { title: "Inclusion through simplicity", description: "We design intuitive technology accessible to everyone, fostering broad participation and benefit.", icon: "UsersRound" },
+    { title: "Transparency and trust", description: "We operate with openness and ethical considerations, building lasting relationships based on integrity.", icon: "ShieldCheck" },
+    { title: "Resilience and grit", description: "We embrace challenges and persevere, committed to delivering impactful solutions even in complex environments.", icon: "Mountain" },
 ];
 
 
@@ -94,12 +98,12 @@ export default function AboutUsPage() {
           <h2 className="text-3xl font-bold font-headline text-primary text-center mb-12">Our Core Values</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {coreValues.map((value, index) => {
-              const IconComponent = value.icon;
+              const IconComponent = iconMap[value.icon];
               return (
                 <div key={value.title} className="p-6 bg-card rounded-lg shadow-md text-center hover:shadow-primary/20 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
                   <div className="flex justify-center mb-4">
                     <div className="p-3 bg-primary/10 rounded-full">
-                      <IconComponent className="h-8 w-8 text-primary" />
+                      {IconComponent && <IconComponent className="h-8 w-8 text-primary" />}
                     </div>
                   </div>
                   <h3 className="text-xl font-semibold font-headline text-primary mb-2">{value.title}</h3>

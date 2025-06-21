@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
 import { Linkedin, Twitter, Facebook, Instagram, Youtube, Mail, Phone, MessageCircle, Building, Users, Briefcase, Cpu, Server, Tv, ShoppingBag, BookOpen, Layers, HelpCircle, ShieldAlert as PrivacyIcon } from 'lucide-react';
+import type { ElementType } from 'react';
 
 const socialLinks = [
   { href: 'https://www.linkedin.com/company/grittrix/', label: 'LinkedIn', icon: Linkedin },
@@ -11,34 +12,38 @@ const socialLinks = [
   { href: 'https://www.youtube.com/@AI_in_White_Coats', label: 'YouTube', icon: Youtube },
 ];
 
+const iconMap: { [key: string]: ElementType } = {
+  Building, Users, Briefcase, BookOpen, Cpu, Server, Tv, ShoppingBag, Layers, HelpCircle, PrivacyIcon
+};
+
 const footerNavs = [
   {
     label: 'Company',
-    icon: Building,
+    icon: 'Building',
     items: [
-      { href: '/about', name: 'About Us', icon: Users },
-      { href: '/careers', name: 'Careers', icon: Briefcase },
-      { href: '/blog', name: 'Blog', icon: BookOpen },
+      { href: '/about', name: 'About Us', icon: 'Users' },
+      { href: '/careers', name: 'Careers', icon: 'Briefcase' },
+      { href: '/blog', name: 'Blog', icon: 'BookOpen' },
     ],
   },
   {
     label: 'Offerings',
-    icon: Cpu,
+    icon: 'Cpu',
     items: [
-      { href: '/services', name: 'AI Services', icon: Briefcase },
-      { href: '/products', name: 'Products', icon: Cpu },
-      { href: '/industries', name: 'Industries', icon: Layers },
-      { href: '/design-services', name: 'Web/App Design', icon: Tv },
-      { href: '/hosting', name: 'Hosting', icon: Server },
+      { href: '/services', name: 'AI Services', icon: 'Briefcase' },
+      { href: '/products', name: 'Products', icon: 'Cpu' },
+      { href: '/industries', name: 'Industries', icon: 'Layers' },
+      { href: '/design-services', name: 'Web/App Design', icon: 'Tv' },
+      { href: '/hosting', name: 'Hosting', icon: 'Server' },
     ],
   },
   {
     label: 'Resources',
-    icon: BookOpen,
+    icon: 'BookOpen',
     items: [
-      { href: '/merch', name: 'Grittrix Merch', icon: ShoppingBag },
-      { href: '/faq', name: 'FAQ', icon: HelpCircle },
-      { href: '/privacy', name: 'Privacy Policy', icon: PrivacyIcon },
+      { href: '/merch', name: 'Grittrix Merch', icon: 'ShoppingBag' },
+      { href: '/faq', name: 'FAQ', icon: 'HelpCircle' },
+      { href: '/privacy', name: 'Privacy Policy', icon: 'PrivacyIcon' },
     ],
   },
 ];
@@ -75,27 +80,33 @@ export function Footer() {
             </div>
           </div>
 
-          {footerNavs.map((nav) => (
-            <div key={nav.label}>
-              <h3 className="text-md font-semibold font-headline text-primary mb-4 flex items-center">
-                <nav.icon className="h-5 w-5 mr-2" />
-                {nav.label}
-              </h3>
-              <ul className="space-y-3">
-                {nav.items.map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-foreground/70 hover:text-primary transition-colors flex items-center group"
-                    >
-                      <item.icon className="h-4 w-4 mr-2 text-primary/70 group-hover:text-primary transition-colors" />
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {footerNavs.map((nav) => {
+            const NavIcon = iconMap[nav.icon];
+            return (
+              <div key={nav.label}>
+                <h3 className="text-md font-semibold font-headline text-primary mb-4 flex items-center">
+                  {NavIcon && <NavIcon className="h-5 w-5 mr-2" />}
+                  {nav.label}
+                </h3>
+                <ul className="space-y-3">
+                  {nav.items.map((item) => {
+                    const ItemIcon = iconMap[item.icon];
+                    return (
+                      <li key={item.name}>
+                        <Link
+                          href={item.href}
+                          className="text-sm text-foreground/70 hover:text-primary transition-colors flex items-center group"
+                        >
+                          {ItemIcon && <ItemIcon className="h-4 w-4 mr-2 text-primary/70 group-hover:text-primary transition-colors" />}
+                          {item.name}
+                        </Link>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            )
+          })}
           
           <div>
             <h3 className="text-md font-semibold font-headline text-primary mb-4 flex items-center"><Phone className="h-5 w-5 mr-2" />Contact Us</h3>

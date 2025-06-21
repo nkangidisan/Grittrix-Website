@@ -5,8 +5,12 @@ import Link from 'next/link';
 import type { Industry as LibIndustryType } from '@/lib/types'; 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, HeartPulse, ShoppingCart, Leaf, BookOpen, HelpCircle } from 'lucide-react';
 import type { ElementType } from 'react';
+
+const iconMap: { [key: string]: ElementType } = {
+  HeartPulse, ShoppingCart, Leaf, BookOpen
+};
 
 interface IndustryCardProps {
   industry: Pick<LibIndustryType, 'id' | 'name' | 'description' | 'icon' | 'imageUrl'>;
@@ -14,7 +18,7 @@ interface IndustryCardProps {
 }
 
 export function IndustryCard({ industry, altText }: IndustryCardProps) {
-  const IconComponent = industry.icon as ElementType;
+  const IconComponent = iconMap[industry.icon] || HelpCircle;
   
   return (
     <Card className="flex flex-col h-full bg-card hover:shadow-xl transition-shadow duration-300 group">
