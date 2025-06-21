@@ -68,7 +68,7 @@ export default function ServicesPage() {
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
                <Image 
-                src="/media/servicepage.webp"
+                src="https://placehold.co/800x450.png"
                 data-ai-hint="custom solution"
                 alt="Grittrix - Custom AI Solutions" 
                 fill 

@@ -30,7 +30,7 @@ const industriesOverview: IndustryOverviewType[] = [
     name: 'Healthcare', 
     description: 'Revolutionizing patient care with AI-driven diagnostics, personalized medicine, and operational efficiency. Our Grittrix Health™ platform offers predictive patient triage, smart pharmacy inventory management, AI-assisted medical image analysis, and seamless EHR integration for enhanced healthcare delivery in emerging markets.', 
     icon: HeartPulse as ElementType, 
-    imageUrl: '/media/health.webp', 
+    imageUrl: 'https://placehold.co/600x338.png', 
     altText: 'AI in Healthcare illustration: advanced diagnostics and patient care by Grittrix' 
   },
   { 
@@ -38,7 +38,7 @@ const industriesOverview: IndustryOverviewType[] = [
     name: 'Retail & E-commerce', 
     description: 'Transforming customer experiences with AI-powered personalization, supply chain optimization, and intelligent inventory management. Grittrix Retail™ provides AI sales forecasting, automated inventory replenishment, dynamic pricing, and customer sentiment analysis to boost sales and efficiency for online and physical stores.', 
     icon: ShoppingCart as ElementType, 
-    imageUrl: '/media/retail.webp', 
+    imageUrl: 'https://placehold.co/600x338.png', 
     altText: 'AI in Retail illustration: personalized e-commerce experiences by Grittrix' 
   },
   { 
@@ -46,7 +46,7 @@ const industriesOverview: IndustryOverviewType[] = [
     name: 'Agriculture', 
     description: 'Enhancing food security with AI-driven precision farming, crop monitoring, and yield prediction. Grittrix Agro™ features AI crop health monitoring via satellite/drone imagery, precision irrigation/fertilization advice, automated pest detection, and market linkage tools for sustainable and productive agriculture.', 
     icon: Leaf as ElementType, 
-    imageUrl: '/media/agriculture.webp', 
+    imageUrl: 'https://placehold.co/600x338.png', 
     altText: 'AI in Agriculture illustration: precision farming and crop monitoring by Grittrix' 
   },
   { 
@@ -54,7 +54,7 @@ const industriesOverview: IndustryOverviewType[] = [
     name: 'Education', 
     description: 'Personalizing learning journeys with adaptive AI tutors, intelligent content delivery, and data-driven insights. Grittrix Learn™ offers adaptive learning paths, 24/7 AI tutoring, student performance analytics, automated assessment assistance, and teacher support tools to improve educational outcomes and efficiency.', 
     icon: BookOpen as ElementType, 
-    imageUrl: '/media/education.webp', 
+    imageUrl: 'https://placehold.co/600x338.png', 
     altText: 'AI in Education illustration: adaptive learning and intelligent tutoring by Grittrix' 
   },
 ];
