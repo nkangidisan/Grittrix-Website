@@ -3,7 +3,7 @@ import * as React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import type { IndustryDetails, UseCase, RelatedServiceLink } from '@/lib/types';
-// PageHeader, Image, Link, Button, ArrowLeft are temporarily removed for diagnostics
+// PageHeader, Image, Link, Button, ArrowLeft, CheckCircle, ArrowRight are temporarily removed for diagnostics
 
 const industryDetailsData: { [key: string]: IndustryDetails } = {
   healthcare: {
@@ -219,17 +219,17 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function IndustryPage({ params }: { params: { industrySlug: string } }) {
-  const industry = industryDetailsData[params.industrySlug];
+export default function IndustryPage(props: any) {
+  const industrySlug = props?.params?.industrySlug;
+  const industry = industryDetailsData[industrySlug];
 
   if (!industry) {
     notFound();
-    return null; 
+    return null;
   }
 
   return (
-    <>
-      <section className="py-16 md:py-24 bg-background">
+    <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <h1 className="text-4xl font-bold font-headline text-primary mb-4">{industry.title}</h1>
           <p className="text-lg text-foreground/80 mb-8">{industry.description}</p>
@@ -238,6 +238,5 @@ export default function IndustryPage({ params }: { params: { industrySlug: strin
           <p className="text-lg md:text-xl text-foreground/90 mb-12">{industry.fullDescription}</p>
         </div>
       </section>
-    </>
   );
 }

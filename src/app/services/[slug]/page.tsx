@@ -18,10 +18,9 @@ interface ServiceDetailData {
   imageUrl: string;
   imageAlt: string;
   dataAiHint: string;
-  icon?: ElementType; // This can be derived from servicesList
+  icon?: ElementType; 
 }
 
-// This data should ideally be managed more centrally
 const serviceDetailsData: { [key: string]: ServiceDetailData } = {
     'ai-dashboards': {
         title: 'AI Dashboards & Reporting Tools',
@@ -153,8 +152,8 @@ export async function generateStaticParams() {
   return Object.keys(serviceDetailsData).map(slug => ({ slug }));
 }
 
-export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
-  const slug = params?.slug;
+export default function ServiceDetailPage(props: any) {
+  const slug = props?.params?.slug;
 
   if (!slug) {
     notFound();
