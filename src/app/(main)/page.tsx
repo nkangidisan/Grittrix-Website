@@ -122,6 +122,11 @@ export default function Home() {
             <p className="text-lg text-foreground/80 leading-relaxed animate-fade-in animation-delay-300">
               Whether you're a business looking to scale, a government solving public-sector problems, or an entrepreneur building from scratch, we are your innovation partner.
             </p>
+            <div className="mt-8 animate-fade-in animation-delay-500">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                    <Link href="/hosting">See Pricing Plans</Link>
+                </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -248,6 +253,11 @@ export default function Home() {
             <p className="text-lg text-foreground/80 leading-relaxed">
               We don’t just build products; we build trust. Grittrix empowers people to work for themselves, take control of their futures, and drive sustainable development through accessible technology.
             </p>
+            <div className="mt-8">
+                <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10 hover:text-primary">
+                    <Link href="/merch">Wear the Vision. Own the Mission.</Link>
+                </Button>
+            </div>
           </div>
         </div>
       </section>
