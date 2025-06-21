@@ -16,7 +16,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     title: 'AI in Healthcare',
     description:
       'Leveraging AI for improved patient care, diagnostics, drug discovery, and operational efficiency in healthcare.',
-    image: 'https://placehold.co/800x450.png',
+    image: '/media/health.webp',
     dataAiHint: 'healthcare technology',
     fullDescription:
       'Our AI solutions for healthcare focus on accelerating diagnostics through image analysis, personalizing treatment plans based on genetic and historical data, and optimizing hospital workflows. We aim to reduce costs, improve patient outcomes, and support healthcare professionals with intelligent tools.',
@@ -32,14 +32,14 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
         title: 'AfroHealth AI Platform',
         description:
           'An integrated platform for African healthcare providers to access AI-driven insights for diagnosis and patient management, tailored to local needs and data scarcity.',
-        image: 'https://placehold.co/600x338.png',
+        image: '/media/AfroHealthAIPlatform.jpg',
         dataAiHint: 'healthcare platform',
       },
       {
         title: 'AI Dashboards and Reporting Tools',
         description:
           'Interactive dashboards providing real-time insights into hospital performance, resource allocation, and patient flow, enabling data-driven decision-making.',
-        image: 'https://placehold.co/600x338.png',
+        image: '/media/AIDashboardsandReportingTools.png',
         dataAiHint: 'healthcare dashboard',
       },
     ],
@@ -54,7 +54,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     title: 'AI in Agriculture',
     description:
       'Applying AI for smart farming, crop yield prediction, pest and disease detection, and resource optimization in agriculture.',
-    image: 'https://placehold.co/800x450.png',
+    image: '/media/agriculture.webp',
     dataAiHint: 'agriculture technology',
     fullDescription:
       "We provide AI solutions that empower farmers and agribusinesses with predictive insights and automation. Our technologies help optimize planting and harvesting schedules, manage resources like water and fertilizer more efficiently, and detect issues like pests or diseases early, leading to increased yields and reduced waste.",
@@ -70,14 +70,14 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
         title: 'AgriGrow Farmer Portal',
         description:
           'A web and mobile portal providing farmers with personalized insights, weather forecasts, market prices, and AI-driven recommendations for optimal farming practices.',
-        image: 'https://placehold.co/600x338.png',
+        image: '/media/AgriGrowFarmerPortal.png',
         dataAiHint: 'agriculture portal',
       },
       {
         title: 'Disease and Stock Prediction Models',
         description:
           'AI models that predict potential crop diseases or livestock health issues based on environmental data and historical patterns, allowing for proactive intervention.',
-        image: 'https://placehold.co/600x338.png',
+        image: '/media/DiseaseandStockPredictionModels.webp',
         dataAiHint: 'crop prediction',
       },
     ],
@@ -92,7 +92,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     title: 'AI in Education',
     description:
       'Transforming education with AI for personalized learning, automated grading, administrative efficiency, and student support.',
-    image: 'https://placehold.co/800x450.png',
+    image: '/media/education.webp',
     dataAiHint: 'education technology',
     fullDescription:
       'Our AI solutions for education aim to create more engaging and effective learning environments. We offer tools for personalized learning paths adapted to individual student needs, automated assessment and feedback systems, and AI assistants to support educators and administrators, improving efficiency and student outcomes.',
@@ -108,14 +108,14 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
         title: 'AI-Powered Learning Platforms',
         description:
           'Adaptive learning platforms that tailor content and pace to each student\'s learning style and progress, providing a truly personalized educational experience.',
-        image: 'https://placehold.co/600x338.png',
+        image: '/media/ExperienceswithAI.png',
         dataAiHint: 'learning platform',
       },
       {
         title: 'Smart Administrative Assistants',
         description:
           'AI tools that automate routine administrative tasks for educators and institutions, such as scheduling, communication, and data entry, freeing up time for teaching and student interaction.',
-        image: 'https://placehold.co/600x338.png', 
+        image: '/media/SmartForecastingEngines.png', 
         dataAiHint: 'education admin',
       },
     ],
@@ -130,7 +130,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
     title: 'AI in Retail',
     description:
       'Enhancing customer experience, optimizing inventory, predicting sales trends, and personalizing marketing in the retail sector using AI.',
-    image: 'https://placehold.co/800x450.png',
+    image: '/media/retail.webp',
     dataAiHint: 'retail technology',
     fullDescription:
       'We help retail businesses thrive in a competitive landscape with AI-driven insights. Our solutions include AI for personalized product recommendations, demand forecasting to optimize inventory, customer sentiment analysis, and automation of pricing and promotions, leading to increased sales and customer satisfaction.',
@@ -146,14 +146,14 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
         title: 'RetailSense E-commerce',
         description:
           'An AI-enhanced e-commerce platform providing personalized shopping experiences, intelligent search, and predictive insights for online retailers.',
-        image: 'https://placehold.co/600x338.png',
+        image: '/media/RetailSenseE-commerce.jpg',
         dataAiHint: 'retail e-commerce',
       },
       {
         title: 'Smart Forecasting Engines',
         description:
           'AI models that analyze sales data, market trends, and external factors to provide accurate demand forecasts, enabling better inventory management and reducing stockouts or overstock.',
-        image: 'https://placehold.co/600x338.png',
+        image: '/media/SmartForecastingEngines.png',
         dataAiHint: 'retail forecast',
       },
     ],

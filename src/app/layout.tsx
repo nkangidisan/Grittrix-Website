@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: 'Grittrix AI Solutions',
     images: [
       {
-        url: 'https://placehold.co/1200x630.png', 
+        url: '/media/GrittrixMerchandise.png', 
         width: 1200,
         height: 630,
         alt: 'Grittrix AI Solutions - Transforming Industries with Advanced Technology',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Grittrix AI Solutions | AI for Emerging Markets',
     description: 'Pioneering AI-Powered Solutions for Healthcare, Retail,Agriculture, and Education in Africa and other emerging markets.',
-    images: ['https://placehold.co/1200x630.png'], 
+    images: ['/media/GrittrixMerchandise.png'], 
   },
   robots: {
     index: true,
