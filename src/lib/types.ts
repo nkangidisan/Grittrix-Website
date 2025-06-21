@@ -59,7 +59,7 @@ export interface Product {
   name: string;
   tagline: string;
   description: string;
-  icon: string; // e.g., 'Cpu', 'Stethoscope'
+  icon: ElementType; // e.g., 'Cpu', 'Stethoscope'
   imageUrl: string; // e.g., /media/product-name.jpg
   features: string[];
 }

@@ -4,23 +4,17 @@ import Image from 'next/image';
 import type { Product } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Info, Cpu, Stethoscope, Store, Sprout, GraduationCap, type LucideIcon } from 'lucide-react';
+import { CheckCircle, Info } from 'lucide-react';
 import Link from 'next/link';
+import type { ElementType } from 'react';
 
-const iconMap: { [key: string]: LucideIcon } = {
-  Cpu,
-  Stethoscope,
-  Store,
-  Sprout,
-  GraduationCap,
-};
 
 interface ProductCardProps {
   product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const IconComponent = iconMap[product.icon];
+  const IconComponent = product.icon as ElementType;
   const imageAltText = `Grittrix Product: ${product.name} - ${product.tagline}`;
   const productImageUrl = product.imageUrl; 
 
