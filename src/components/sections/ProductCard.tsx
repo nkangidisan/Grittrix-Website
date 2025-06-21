@@ -55,10 +55,10 @@ export function ProductCard({ product }: ProductCardProps) {
         )}
       </CardContent>
       <CardFooter>
-        <Button variant="outline" asChild className="w-full hover:bg-primary/10 hover:text-primary border-primary/50 text-primary">
-          <Link href={`/contact?subject=${encodeURIComponent('Inquiry about ' + product.name)}`}>
+        <Button variant="link" asChild className="text-primary p-0 h-auto group-hover:underline">
+          <Link href={`/products/${product.id}`}>
             <span>
-              Request Info <Info className="ml-2 h-4 w-4" />
+              View Details <Info className="ml-2 h-4 w-4" />
             </span>
           </Link>
         </Button>

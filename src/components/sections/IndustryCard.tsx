@@ -5,7 +5,7 @@ import Link from 'next/link';
 import type { Industry as LibIndustryType } from '@/lib/types'; 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import type { ElementType } from 'react';
 
 interface IndustryCardProps {
@@ -40,9 +40,9 @@ export function IndustryCard({ industry, altText }: IndustryCardProps) {
       </CardContent>
       <CardFooter>
         <Button variant="link" asChild className="text-primary p-0 h-auto group-hover:underline">
-          <Link href={`/contact?subject=${encodeURIComponent('Solutions for ' + industry.name)}`}>
+          <Link href={`/industries/${industry.id}`}>
             <span>
-                Contact Us for Solutions <Mail className="ml-1 h-4 w-4" />
+                Learn More <ArrowRight className="ml-1 h-4 w-4" />
             </span>
           </Link>
         </Button>

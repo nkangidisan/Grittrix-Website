@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import type { Service } from '@/lib/types';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
@@ -24,7 +24,17 @@ export function ServiceItem({ service }: ServiceItemProps) {
       <CardContent className="flex-grow">
         <p className="text-sm text-foreground/70 leading-relaxed">{service.description}</p>
       </CardContent>
-      {/* The detail link has been removed to prevent errors while the detail pages are disabled. */}
+      {service.detailsUrl && (
+        <CardFooter>
+            <Button variant="link" asChild className="text-primary p-0 h-auto group-hover:underline mt-auto">
+              <Link href={service.detailsUrl}>
+                <span>
+                  Learn More <ArrowRight className="ml-1 h-4 w-4 inline" />
+                </span>
+              </Link>
+            </Button>
+        </CardFooter>
+      )}
     </Card>
   );
 }
