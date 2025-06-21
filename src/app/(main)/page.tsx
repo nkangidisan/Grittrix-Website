@@ -14,7 +14,7 @@ const keyFeatures = [
   { name: 'AI Modules', description: 'Plug in smart tools to predict sales, manage stock, or detect diseases.', icon: BrainCircuit },
   { name: 'Modular Design', description: 'Only pay for the features you need — scale as you grow.', icon: Puzzle },
   { name: 'Data-Driven Decisions', description: 'Stop guessing. Start acting with data-backed intelligence.', icon: DatabaseZap },
-  { name: 'Secure & Private', description: 'Your data is encrypted and securely hosted.', icon: CheckCircle }, // Updated from ShieldCheck to CheckCircle for consistency
+  { name: 'Secure & Private', description: 'Your data is encrypted and securely hosted.', icon: CheckCircle },
 ];
 
 const industriesServed = [
@@ -80,11 +80,11 @@ const whoWeWorkWith = [
   { name: 'Local governments and development partners', icon: Building },
 ];
 
-const whyGrittrixPoints = [
-  { name: 'Fast Setup', description: 'No need for coding or deep tech knowledge. Start using our tools in minutes.', icon: Zap },
-  { name: 'Local Context', description: 'Built specifically for Africa and emerging markets — we understand your challenges.', icon: Globe },
-  { name: 'Affordable Pricing', description: 'Enterprise-grade AI at prices made for small and growing businesses.', icon: DollarSign },
-  { name: 'Expert Support', description: 'We don’t just sell tools. We walk with you. Real humans. Real impact.', icon: LifeBuoy },
+const whyWorkWithGrittrix = [
+    { name: 'Deep understanding of emerging market dynamics' },
+    { name: 'Culturally and contextually relevant tech' },
+    { name: 'Transparent collaboration and agile delivery' },
+    { name: 'Focused on impact, not just innovation' },
 ];
 
 const testimonials = [
@@ -111,26 +111,44 @@ export default function Home() {
     <>
       <HeroSection />
 
-      {/* What We Do Section */}
+      {/* Welcome Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-6 animate-fade-in">What We Do</h2>
-            <p className="text-lg text-foreground/80 leading-relaxed animate-fade-in animation-delay-200">
-              Grittrix is a plug-and-play AI platform for businesses and institutions in emerging markets. We provide industry-specific tools powered by AI, data science, and machine learning — designed to deliver real-time insights, automate workflows, and enhance performance without requiring a full tech team.
+          <div className="text-center max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-6 animate-fade-in">Welcome to Grittrix: AI Solutions for the Real World.</h2>
+            <p className="text-lg text-foreground/80 leading-relaxed mb-4 animate-fade-in animation-delay-200">
+              At Grittrix, we believe technology should be intelligent, inclusive, and deeply connected to the communities it serves. That’s why we’re on a mission to transform lives and economies in emerging markets through locally-adapted AI solutions that address real-world challenges across healthcare, agriculture, education, and retail.
+            </p>
+            <p className="text-lg text-foreground/80 leading-relaxed animate-fade-in animation-delay-300">
+              Whether you're a business looking to scale, a government solving public-sector problems, or an entrepreneur building from scratch, we are your innovation partner.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 
-        The following sections have been temporarily removed for diagnostics.
-        If the Internal Server Error disappears, the issue is within one of these sections.
-      */}
-
-      {/* Key Features Section */}
-      {/*
+      {/* Why Work With Grittrix Section */}
       <section className="py-16 md:py-24 bg-secondary/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Why Work With Grittrix?</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyWorkWithGrittrix.map((point, index) => (
+              <Card key={point.name} className="text-center p-6 bg-card rounded-lg shadow-lg hover:shadow-primary/30 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
+                <CardHeader className="items-center p-0 mb-4">
+                  <div className="p-4 bg-primary/10 rounded-full mb-3">
+                    <CheckCircle className="h-10 w-10 text-primary" />
+                  </div>
+                  <CardTitle className="font-headline text-lg text-primary">{point.name}</CardTitle>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* Key Features Section */}
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Key Features</h2>
@@ -152,11 +170,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      */}
 
       {/* Industries We Serve Section */}
-      {/*
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Industries We Serve</h2>
@@ -198,11 +214,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      */}
 
       {/* Who We Work With Section */}
-      {/*
-      <section className="py-16 md:py-24 bg-secondary/10">
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Who We Work With</h2>
@@ -224,37 +238,23 @@ export default function Home() {
           </div>
         </div>
       </section>
-      */}
       
-      {/* Why Grittrix Section */}
-      {/*
-      <section className="py-16 md:py-24 bg-background">
+       {/* Driven by Purpose Section */}
+      <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Why Grittrix?</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyGrittrixPoints.map((point, index) => (
-              <Card key={point.name} className="text-center p-6 bg-card rounded-lg shadow-lg hover:shadow-primary/30 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
-                <CardHeader className="items-center p-0 mb-4">
-                  <div className="p-4 bg-primary/10 rounded-full mb-3">
-                    <point.icon className="h-10 w-10 text-primary" />
-                  </div>
-                  <CardTitle className="font-headline text-xl text-primary">{point.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="p-0">
-                  <p className="text-foreground/70 text-sm">{point.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="text-center max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-xl shadow-2xl animate-fade-in">
+            <Globe className="h-16 w-16 text-primary mx-auto mb-6" />
+            <h2 className="text-3xl font-headline font-bold text-primary mb-4">Driven by Purpose, Built with Passion</h2>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              We don’t just build products; we build trust. Grittrix empowers people to work for themselves, take control of their futures, and drive sustainable development through accessible technology.
+            </p>
           </div>
         </div>
       </section>
-      */}
+
 
       {/* Proven Impact Section */}
-      {/*
-      <section className="py-16 md:py-24 bg-secondary/10">
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Proven Impact</h2>
@@ -280,19 +280,17 @@ export default function Home() {
           </div>
         </div>
       </section>
-      */}
 
       {/* Explore Grittrix Section */}
-      {/*
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
             <div className="inline-block mb-6">
                <GrittrixLogo className="h-12 md:h-16" width={192} height={40}/>
             </div>
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Explore Grittrix</h2>
-            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-              Discover how our solutions and services can help you achieve your goals.
+            <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
+              We Exist to help anyone work for themselves. Discover how our solutions and services can help you achieve your goals.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-slide-in-up">
@@ -315,7 +313,7 @@ export default function Home() {
           </div>
           <div className="mt-12 text-center space-y-4 animate-fade-in animation-delay-300">
              <h3 className="text-xl font-headline font-semibold text-primary">Connect With Us</h3>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-8 text-foreground/80">
+            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-foreground/80">
               <a href="tel:+919714688324" className="flex items-center hover:text-primary transition-colors">
                 <Phone className="h-5 w-5 mr-2 text-primary" /> +91 9714688324
               </a>
@@ -328,15 +326,19 @@ export default function Home() {
               <a href="mailto:info@grittrix.com" className="flex items-center hover:text-primary transition-colors">
                 <Mail className="h-5 w-5 mr-2 text-primary" /> info@grittrix.com
               </a>
+              <a href="mailto:careers@grittrix.com" className="flex items-center hover:text-primary transition-colors">
+                <Mail className="h-5 w-5 mr-2 text-primary" /> careers@grittrix.com
+              </a>
+              <a href="mailto:support@grittrix.com" className="flex items-center hover:text-primary transition-colors">
+                <Mail className="h-5 w-5 mr-2 text-primary" /> support@grittrix.com
+              </a>
             </div>
           </div>
         </div>
       </section>
-      */}
 
       {/* Our Promise Section */}
-      {/*
-      <section className="py-16 md:py-24 bg-secondary/10">
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-xl shadow-2xl animate-fade-in">
             <CheckCircle className="h-16 w-16 text-primary mx-auto mb-6" />
@@ -347,7 +349,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      */}
     </>
   );
 }
+
+    
