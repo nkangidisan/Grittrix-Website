@@ -3,7 +3,7 @@ import * as React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { PageHeader } from '@/components/PageHeader';
-import { servicesList } from '@/app/services/page';
+import { servicesList } from '@/lib/servicesData';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
