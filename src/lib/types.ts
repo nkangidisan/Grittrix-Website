@@ -16,7 +16,7 @@ export interface Service {
   id: string;
   title: string;
   description: string;
-  icon: ElementType; // Lucide icon component
+  icon: string; // Changed from ElementType to string
   detailsUrl?: string;
 }
 

@@ -6,8 +6,19 @@ import { PageHeader } from '@/components/PageHeader';
 import { servicesList } from '@/lib/servicesData';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, LayoutDashboard, TrendingUp, Activity, MonitorSmartphone, CloudCog, Cable, DatabaseZap, UsersRound, HelpCircle } from 'lucide-react';
 import type { ElementType } from 'react';
+
+const iconMap: { [key: string]: ElementType } = {
+  LayoutDashboard,
+  TrendingUp,
+  Activity,
+  MonitorSmartphone,
+  CloudCog,
+  Cable,
+  DatabaseZap,
+  UsersRound,
+};
 
 // Dummy data for related services/products, as this wasn't defined
 const relatedContent: Record<string, {name: string, href: string}[]> = {
@@ -48,7 +59,7 @@ export default function ServiceDetailPage(props: any) {
   const service = servicesList.find((s) => s.detailsUrl === `/services/${slug}`);
   if (!service) notFound();
 
-  const IconComponent = service.icon as ElementType;
+  const IconComponent = iconMap[service.icon] || HelpCircle;
   const relatedLinks = relatedContent[slug] || [];
 
   const breadcrumbs = [
