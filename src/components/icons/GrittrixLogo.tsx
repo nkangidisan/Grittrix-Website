@@ -22,4 +22,3 @@ export function GrittrixLogo({ className, width = 150, height = 33 }: GrittrixLo
     </div>
   );
 }
-
