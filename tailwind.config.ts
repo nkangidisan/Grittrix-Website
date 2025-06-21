@@ -1,12 +1,20 @@
-
 import type { Config } from 'tailwindcss';
 
-const config: Config = {
+const config = {
   darkMode: ['class'],
   content: [
-    './src/**/*.{js,ts,jsx,tsx,mdx}', // This ensures all files in the src directory are scanned.
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  prefix: "",
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px',
+      },
+    },
     extend: {
       fontFamily: {
         body: ['Inter', 'sans-serif'],
@@ -97,6 +105,6 @@ const config: Config = {
     },
   },
   plugins: [require('tailwindcss-animate')],
-};
+} satisfies Config;
 
 export default config;
