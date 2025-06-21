@@ -2,16 +2,10 @@
 'use client';
 
 import * as React from 'react';
-// import type { Metadata } from 'next'; // Metadata cannot be exported from Client Components
 import { PageHeader } from '@/components/PageHeader';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { Mail, Phone, MapPin, MessageCircle, Linkedin, Twitter, Facebook } from 'lucide-react';
 import Link from 'next/link';
-
-// export const metadata: Metadata = { // Cannot export Metadata from a Client Component
-//   title: 'Contact Grittrix AI Solutions | Get in Touch',
-//   description: 'Reach out to Grittrix for inquiries about our AI solutions, services, careers, or partnerships. We look forward to hearing from you!',
-// };
 
 export default function ContactPage() {
   const breadcrumbs = [{ name: 'Contact Us' }];

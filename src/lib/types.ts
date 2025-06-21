@@ -1,3 +1,4 @@
+
 import type { ElementType } from 'react';
 
 export interface TeamMember {
@@ -16,7 +17,7 @@ export interface Service {
   id: string;
   title: string;
   description: string;
-  icon: string; // Changed from ElementType to string
+  icon: string; 
   detailsUrl?: string;
 }
 
@@ -24,20 +25,18 @@ export interface Industry {
   id:string;
   name: string;
   description: string;
-  painPoints: string[];
-  solutions: string[];
   icon: string; // Lucide icon component name
   imageUrl: string; // e.g., /media/industry-name.jpg
 }
 
-export interface UseCase { // Added export
+export interface UseCase {
   title: string;
   description: string;
   image: string;
   dataAiHint: string;
 }
 
-export interface RelatedServiceLink { // Added export
+export interface RelatedServiceLink {
   name: string;
   href: string;
 }

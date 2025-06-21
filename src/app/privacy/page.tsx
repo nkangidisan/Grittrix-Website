@@ -1,13 +1,10 @@
+
 "use client";
 
 import * as React from 'react';
-// Removed: import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { ShieldCheck } from 'lucide-react';
 import Link from 'next/link'; 
-
-// Removed the metadata export block as it's not allowed in "use client" components.
-// The page will inherit metadata from the parent layout.
 
 export default function PrivacyPolicyPage() {
   const breadcrumbs = [{ name: 'Privacy Policy' }];
@@ -16,7 +13,6 @@ export default function PrivacyPolicyPage() {
   React.useEffect(() => {
     setCurrentDate(new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }));
   }, []);
-
 
   return (
     <>

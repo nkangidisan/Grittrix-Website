@@ -2,7 +2,6 @@
 'use client';
 
 import * as React from 'react';
-// import type { Metadata } from 'next'; // Metadata cannot be exported from Client Components
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,15 +10,6 @@ import Link from 'next/link';
 import { Palette, Layers, Smartphone, Rocket, CheckCircle } from 'lucide-react';
 import { ContactForm } from '@/components/forms/ContactForm';
 import type { ElementType } from 'react';
-
-// Metadata needs to be exported from server components or at the layout level.
-// Since this is now a client component, we can't export metadata directly here.
-// It should be moved to a parent layout or defined statically if possible.
-// For now, I will comment it out to ensure the build passes.
-// export const metadata: Metadata = {
-//   title: 'Custom Web & App Design Services | Grittrix AI Solutions',
-//   description: 'Grittrix crafts stunning, high-performing websites and mobile applications with AI integration. Get user-centric design and development for your digital presence.',
-// };
 
 interface DesignProcessStep {
   title: string;

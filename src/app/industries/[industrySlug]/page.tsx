@@ -108,7 +108,7 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
         title: 'AI-Powered Learning Platforms',
         description:
           'Adaptive learning platforms that tailor content and pace to each student\'s learning style and progress, providing a truly personalized educational experience.',
-        image: '/media/ExperienceswithAI.png',
+        image: '/media/education.webp',
         dataAiHint: 'learning platform',
       },
       {
@@ -198,9 +198,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function IndustryPage(props: any) {
-  const industrySlug = props?.params?.industrySlug;
-  const industry = industryDetailsData[industrySlug];
+export default function IndustryPage({ params }: { params: { industrySlug: string } }) {
+  const industry = industryDetailsData[params.industrySlug];
 
   if (!industry) {
     notFound();
