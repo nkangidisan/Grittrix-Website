@@ -1,4 +1,3 @@
-
 import type { ElementType } from 'react';
 
 export interface TeamMember {
@@ -60,7 +59,7 @@ export interface Product {
   name: string;
   tagline: string;
   description: string;
-  icon: ElementType; // Lucide icon component
+  icon: string; // e.g., 'Cpu', 'Stethoscope'
   imageUrl: string; // e.g., /media/product-name.jpg
   features: string[];
 }

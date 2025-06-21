@@ -4,22 +4,19 @@ import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { ProductCard } from '@/components/sections/ProductCard';
 import type { Product } from '@/lib/types';
-import { Cpu, Stethoscope, Store, Sprout, GraduationCap } from 'lucide-react';
-import type { ElementType } from 'react';
 
 export const metadata: Metadata = {
   title: 'Our AI Products Suite | Grittrix AI Solutions',
   description: 'Discover Grittrix\'s industry-leading AI-powered products for Healthcare, Retail, Agriculture, and Education, built on our CORE AI engine. Each product offers comprehensive features to drive transformation.',
 };
 
-// Ensure Product type in types.ts uses ElementType from 'react'
 export const productsList: Product[] = [
   {
     id: 'CORE',
     name: 'Grittrix CORE™',
     tagline: 'AI Operating System for Industry.',
     description: 'The foundational AI engine powering Grittrix solutions. CORE provides a robust, scalable, and secure platform for developing, deploying, and managing AI models and applications across diverse industrial use cases. It enables seamless data integration, advanced analytics, and intelligent automation for transformative business outcomes. This includes a unified AI development environment, scalable model deployment, advanced data ingestion pipelines, enterprise-grade security, modular microservices architecture, real-time analytics APIs, and multi-cloud compatibility.',
-    icon: Cpu as ElementType,
+    icon: 'Cpu',
     imageUrl: '/media/core.png', 
     features: [
       'Unified AI Development Environment',
@@ -36,7 +33,7 @@ export const productsList: Product[] = [
     name: 'Grittrix Health™',
     tagline: 'For clinics and pharmacies.',
     description: 'Empowering healthcare providers with intelligent tools. Grittrix Health™ streamlines clinic workflows, optimizes pharmacy inventory, enhances diagnostic support through AI-assisted image analysis, and enables personalized patient care via predictive analytics. Key features include AI-assisted medical image analysis (X-rays, Scans), predictive patient triage, smart pharmacy inventory management, personalized treatment adherence monitoring, automated health record summarization, telemedicine platform integration with AI chatbots, and disease outbreak prediction.',
-    icon: Stethoscope as ElementType,
+    icon: 'Stethoscope',
     imageUrl: '/media/health.webp', 
     features: [
       'AI-Assisted Medical Image Analysis (X-rays, Scans)',
@@ -53,7 +50,7 @@ export const productsList: Product[] = [
     name: 'Grittrix Retail™',
     tagline: 'For retail shops and FMCG.',
     description: 'Transforming retail operations and customer experiences with AI. Grittrix Retail™ offers solutions for intelligent demand forecasting, dynamic inventory optimization, hyper-personalized customer engagement, and streamlined supply chain management. This encompasses AI-powered demand & sales forecasting, automated inventory replenishment, personalized product recommendations, dynamic pricing strategies, supply chain visibility, customer sentiment analysis, and smart store layout insights, helping businesses boost sales and efficiency.',
-    icon: Store as ElementType,
+    icon: 'Store',
     imageUrl: '/media/retail.webp', 
     features: [
       'AI-Powered Demand & Sales Forecasting',
@@ -70,7 +67,7 @@ export const productsList: Product[] = [
     name: 'Grittrix Agro™',
     tagline: 'Smart agriculture insights.',
     description: 'Revolutionizing agriculture with data-driven intelligence. Grittrix Agro™ provides advanced tools for real-time crop monitoring, precise yield prediction, early pest and disease detection, and optimized resource management. Capabilities include AI-driven crop health monitoring (Satellite/Drone Imagery), precision irrigation/fertilization recommendations, automated pest/disease detection, accurate yield prediction, soil data analysis, weather pattern analysis, and market linkage with price trend forecasting, promoting sustainable and productive farming.',
-    icon: Sprout as ElementType,
+    icon: 'Sprout',
     imageUrl: '/media/agriculture.webp', 
     features: [
       'AI-Driven Crop Health Monitoring (Satellite/Drone Imagery)',
@@ -87,7 +84,7 @@ export const productsList: Product[] = [
     name: 'Grittrix Learn™',
     tagline: 'Education analytics & AI tutors.',
     description: 'Personalizing education and empowering learners with AI. Grittrix Learn™ offers adaptive learning platforms, intelligent AI tutoring systems, and comprehensive analytics to enhance student engagement and outcomes. It features adaptive learning paths, an AI-powered intelligent tutoring system (24/7), student performance analytics dashboards, automated assessment assistance, personalized skill gap analysis, teacher support tools, and corporate training modules, supporting educators in creating impactful experiences.',
-    icon: GraduationCap as ElementType,
+    icon: 'GraduationCap',
     imageUrl: '/media/education.webp', 
     features: [
       'Adaptive Learning Paths & Personalized Content Delivery',
