@@ -4,7 +4,7 @@ import Image from 'next/image';
 import type { Product } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Info } from 'lucide-react'; // Changed ArrowRight to Info
+import { CheckCircle, Info } from 'lucide-react';
 import Link from 'next/link';
 import type { ElementType } from 'react';
 
@@ -43,7 +43,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <div>
             <h4 className="text-xs font-semibold text-foreground/90 mb-2">Key Features:</h4>
             <ul className="space-y-1">
-              {product.features.map((feature, index) => ( // Show all features
+              {product.features.map((feature, index) => (
                 <li key={index} className="flex items-start text-xs text-foreground/70">
                   <CheckCircle className="h-3.5 w-3.5 text-primary mr-2 mt-0.5 shrink-0" />
                   <span>{feature}</span>
@@ -55,7 +55,6 @@ export function ProductCard({ product }: ProductCardProps) {
       </CardContent>
       <CardFooter>
         <Button variant="outline" asChild className="w-full hover:bg-primary/10 hover:text-primary border-primary/50 text-primary">
-          {/* Updated Link to point to contact page */}
           <Link href={`/contact?subject=${encodeURIComponent('Inquiry about ' + product.name)}`}>
             <span>
               Request Info <Info className="ml-2 h-4 w-4" />

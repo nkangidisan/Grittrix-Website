@@ -24,17 +24,7 @@ export function ServiceItem({ service }: ServiceItemProps) {
       <CardContent className="flex-grow">
         <p className="text-sm text-foreground/70 leading-relaxed">{service.description}</p>
       </CardContent>
-      {service.detailsUrl && (
-        <div className="p-6 pt-0">
-          <Button variant="link" asChild className="text-primary p-0 h-auto group-hover:underline">
-            <Link href={service.detailsUrl} className="flex items-center">
-              <span>
-                Learn More <ArrowRight className="ml-1 h-4 w-4" />
-              </span>
-            </Link>
-          </Button>
-        </div>
-      )}
+      {/* The detail link has been removed to prevent errors while the detail pages are disabled. */}
     </Card>
   );
 }

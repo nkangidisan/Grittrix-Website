@@ -123,7 +123,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 
+        The following sections have been temporarily removed for diagnostics.
+        If the Internal Server Error disappears, the issue is within one of these sections.
+      */}
+
       {/* Key Features Section */}
+      {/*
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -146,8 +152,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Industries We Serve Section */}
+      {/*
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -190,8 +198,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Who We Work With Section */}
+      {/*
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -214,8 +224,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
       
       {/* Why Grittrix Section */}
+      {/*
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -238,8 +250,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Proven Impact Section */}
+      {/*
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -266,8 +280,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Explore Grittrix Section */}
+      {/*
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
@@ -316,12 +332,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Our Promise Section */}
+      {/*
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-xl shadow-2xl animate-fade-in">
-            <CheckCircle className="h-16 w-16 text-primary mx-auto mb-6" /> {/* Replaced ShieldCheck for consistency */}
+            <CheckCircle className="h-16 w-16 text-primary mx-auto mb-6" />
             <h2 className="text-3xl font-headline font-bold text-primary mb-4">Our Promise</h2>
             <p className="text-lg text-foreground/80 leading-relaxed">
               We believe in technology with trust. Your data stays yours. Our platform is secure, compliant, and constantly improving.
@@ -329,6 +347,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
     </>
   );
 }
