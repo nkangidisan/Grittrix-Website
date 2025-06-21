@@ -68,22 +68,19 @@ export default function ProductDetailPage(props: any) {
     notFound();
     return null;
   }
-
+  
   return (
-    <>
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <h1 className="text-4xl font-bold font-headline text-primary mb-4">{product.name}</h1>
-          <p className="text-lg text-foreground/80 mb-8">{product.tagline}</p>
-          <hr className="my-8 border-border" />
-          <h2 className="text-2xl font-bold font-headline text-primary mb-6">Product Overview</h2>
-          <div className="prose prose-lg prose-invert text-foreground/80 max-w-none space-y-4">
-            {product.description.split('\n\n').map((paragraph, index) => (
-                <p key={index}>{paragraph.trim()}</p>
-            ))}
-          </div>
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary mb-3">{product.name}</h1>
+        <p className="text-lg text-foreground/80 max-w-3xl mb-8">{product.tagline}</p>
+        <hr className="border-border my-8" />
+        <div className="prose prose-lg prose-invert text-foreground/80 max-w-none">
+          {product.description.split('\n\n').map((paragraph, index) => (
+            <p key={index}>{paragraph.trim()}</p>
+          ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

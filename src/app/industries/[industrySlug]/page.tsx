@@ -3,7 +3,7 @@ import * as React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import type { IndustryDetails, UseCase, RelatedServiceLink } from '@/lib/types';
-// PageHeader, Image, Link, Button, ArrowLeft are temporarily removed for diagnostics
+// PageHeader, Image, Link, Button, ArrowLeft etc are removed for diagnostics
 
 const industryDetailsData: { [key: string]: IndustryDetails } = {
   healthcare: {
@@ -39,9 +39,9 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
       },
     ],
     relatedServices: [
-      { name: 'Custom Web & Mobile Applications', href: '/services/custom-web-mobile-applications' },
-      { name: 'Data Collection, Cleaning, and Analysis', href: '/services/data-collection-cleaning-analysis' },
-      { name: 'Software Integrations (POS, EHR, LMS, CRMs)', href: '/services/software-integrations' },
+      { name: 'Custom Web & Mobile Applications', href: '/services/custom-applications' },
+      { name: 'Data Collection, Cleaning, & Analysis', href: '/services/data-analytics-services' },
+      { name: 'Software Integrations', href: '/services/integrations' },
     ],
   },
   agriculture: {
@@ -77,9 +77,9 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
       },
     ],
     relatedServices: [
-      { name: 'Data Collection, Cleaning, and Analysis', href: '/services/data-collection-cleaning-analysis' },
-      { name: 'Smart Forecasting Engines', href: '/services/smart-forecasting-engines' },
-      { name: 'Cloud Hosting & Deployment', href: '/services/cloud-hosting-deployment' },
+      { name: 'Data Collection, Cleaning, & Analysis', href: '/services/data-analytics-services' },
+      { name: 'Smart Forecasting Engines', href: '/services/forecasting' },
+      { name: 'Cloud Hosting & Deployment', href: '/services/cloud-services' },
     ],
   },
   education: {
@@ -115,9 +115,9 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
       },
     ],
     relatedServices: [
-      { name: 'Custom Web & Mobile Applications', href: '/services/custom-web-mobile-applications' },
-      { name: 'Software Integrations (POS, EHR, LMS, CRMs)', href: '/services/software-integrations' },
-      { name: 'Staff Training & Technical Support', href: '/services/staff-training-technical-support' },
+      { name: 'Custom Web & Mobile Applications', href: '/services/custom-applications' },
+      { name: 'Software Integrations', href: '/services/integrations' },
+      { name: 'Staff Training & Technical Support', href: '/services/training-support' },
     ],
   },
   retail: {
@@ -153,9 +153,9 @@ const industryDetailsData: { [key: string]: IndustryDetails } = {
       },
     ],
     relatedServices: [
-      { name: 'Custom Web & Mobile Applications', href: '/services/custom-web-mobile-applications' },
-      { name: 'Data Collection, Cleaning, and Analysis', href: '/services/data-collection-cleaning-analysis' },
-      { name: 'Software Integrations (POS, EHR, LMS, CRMs)', href: '/services/software-integrations' },
+      { name: 'Custom Web & Mobile Applications', href: '/services/custom-applications' },
+      { name: 'Data Collection, Cleaning, & Analysis', href: '/services/data-analytics-services' },
+      { name: 'Software Integrations', href: '/services/integrations' },
     ],
   },
 };
@@ -171,10 +171,29 @@ export async function generateMetadata({ params }: { params: { industrySlug: str
     };
   }
   
-  const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://grittrix.com';
-  const absoluteImageUrl = industry.image.startsWith('http') 
-    ? industry.image 
-    : new URL(industry.image, domainBase).toString();
+  const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL;
+  let openGraphImages: Array<{ url: string; alt?: string; width?: number; height?: number; }> = [];
+
+  if (domainBase && industry.image) {
+    try {
+      const absoluteImageUrl = industry.image.startsWith('http') 
+        ? industry.image 
+        : new URL(industry.image, domainBase).toString();
+      openGraphImages = [{ url: absoluteImageUrl, alt: industry.title }];
+    } catch (e) {
+      console.warn(`[generateMetadata industry] Failed to construct absolute image URL for ${industrySlug}: ${(e as Error).message}. NEXT_PUBLIC_DOMAIN_URL: "${domainBase}", image: "${industry.image}"`);
+       if (industry.image) {
+         openGraphImages = [{ url: industry.image, alt: industry.title }];
+       }
+    }
+  } else {
+    if (!domainBase) {
+      console.warn(`[generateMetadata industry] NEXT_PUBLIC_DOMAIN_URL is not set. Open Graph images will be relative or omitted for ${industrySlug}.`);
+    }
+     if (industry.image) {
+       openGraphImages = [{ url: industry.image, alt: industry.title }];
+     }
+  }
 
   return {
     title: `${industry.title} | Grittrix AI Solutions`,
@@ -182,7 +201,7 @@ export async function generateMetadata({ params }: { params: { industrySlug: str
     openGraph: {
         title: `${industry.title} | Grittrix AI Solutions`,
         description: industry.description,
-        images: [{ url: absoluteImageUrl, alt: industry.title }],
+        images: openGraphImages,
     },
   };
 }
@@ -201,18 +220,17 @@ export default function IndustryPage(props: any) {
     notFound();
     return null; 
   }
-
+  
   return (
-    <>
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <h1 className="text-4xl font-bold font-headline text-primary mb-4">{industry.title}</h1>
-          <p className="text-lg text-foreground/80 mb-8">{industry.description}</p>
-          <hr className="my-8 border-border" />
-          <h2 className="text-2xl font-bold font-headline text-primary mb-6">Detailed Overview</h2>
-          <p className="text-lg md:text-xl text-foreground/90 mb-12">{industry.fullDescription}</p>
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary mb-3">{industry.title}</h1>
+        <p className="text-lg text-foreground/80 max-w-3xl mb-8">{industry.description}</p>
+        <hr className="border-border my-8" />
+        <div className="prose prose-lg prose-invert text-foreground/80 max-w-none">
+          <p>{industry.fullDescription}</p>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
