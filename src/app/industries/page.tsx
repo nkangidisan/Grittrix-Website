@@ -3,60 +3,12 @@ import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { IndustryCard } from '@/components/sections/IndustryCard';
-import type { ElementType } from 'react';
-import type { IndustryDetails } from '@/lib/types'; // Import IndustryDetails
+import { industriesOverview } from '@/lib/industriesData';
 
 export const metadata: Metadata = {
   title: 'Industries We Serve | Grittrix AI Solutions',
   description: 'Grittrix delivers specialized AI solutions for Healthcare, Retail, Agriculture, and Education, tailored to emerging markets. Discover how we transform these key sectors.',
 };
-
-// Use a simplified version for the overview, full details are in [industrySlug]/page.tsx
-interface IndustryOverviewType {
-  id: string;
-  name: string;
-  description: string; // This will be the more comprehensive description for the card
-  icon: string;
-  imageUrl: string; 
-  altText: string;
-}
-
-// Data for the overview cards on /industries page
-// Descriptions are made more comprehensive here
-const industriesOverview: IndustryOverviewType[] = [
-  { 
-    id: 'healthcare', 
-    name: 'Healthcare', 
-    description: 'Revolutionizing patient care with AI-driven diagnostics, personalized medicine, and operational efficiency. Our Grittrix Health™ platform offers predictive patient triage, smart pharmacy inventory management, AI-assisted medical image analysis, and seamless EHR integration for enhanced healthcare delivery in emerging markets.', 
-    icon: 'HeartPulse', 
-    imageUrl: '/media/health.webp', 
-    altText: 'AI in Healthcare illustration: advanced diagnostics and patient care by Grittrix' 
-  },
-  { 
-    id: 'retail', 
-    name: 'Retail & E-commerce', 
-    description: 'Transforming customer experiences with AI-powered personalization, supply chain optimization, and intelligent inventory management. Grittrix Retail™ provides AI sales forecasting, automated inventory replenishment, dynamic pricing, and customer sentiment analysis to boost sales and efficiency for online and physical stores.', 
-    icon: 'ShoppingCart', 
-    imageUrl: '/media/retail.webp', 
-    altText: 'AI in Retail illustration: personalized e-commerce experiences by Grittrix' 
-  },
-  { 
-    id: 'agriculture', 
-    name: 'Agriculture', 
-    description: 'Enhancing food security with AI-driven precision farming, crop monitoring, and yield prediction. Grittrix Agro™ features AI crop health monitoring via satellite/drone imagery, precision irrigation/fertilization advice, automated pest detection, and market linkage tools for sustainable and productive agriculture.', 
-    icon: 'Leaf', 
-    imageUrl: '/media/agriculture.webp', 
-    altText: 'AI in Agriculture illustration: precision farming and crop monitoring by Grittrix' 
-  },
-  { 
-    id: 'education', 
-    name: 'Education', 
-    description: 'Personalizing learning journeys with adaptive AI tutors, intelligent content delivery, and data-driven insights. Grittrix Learn™ offers adaptive learning paths, 24/7 AI tutoring, student performance analytics, automated assessment assistance, and teacher support tools to improve educational outcomes and efficiency.', 
-    icon: 'BookOpen', 
-    imageUrl: '/media/education.webp', 
-    altText: 'AI in Education illustration: adaptive learning and intelligent tutoring by Grittrix' 
-  },
-];
 
 export default function IndustriesPage() {
   const breadcrumbs = [{ name: 'Industries' }];
@@ -84,7 +36,7 @@ export default function IndustriesPage() {
                 industry={{ 
                   id: industry.id,
                   name: industry.name,
-                  description: industry.description, // Passing the more detailed description
+                  description: industry.description,
                   icon: industry.icon,
                   imageUrl: industry.imageUrl,
                 }}
