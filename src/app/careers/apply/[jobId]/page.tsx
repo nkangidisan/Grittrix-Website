@@ -1,9 +1,11 @@
+
 import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { JobApplicationForm } from '@/components/forms/JobApplicationForm';
 import { notFound } from 'next/navigation';
 import type { JobListing } from '@/lib/types';
+import { Suspense } from 'react';
 
 const jobListings: JobListing[] = [
   {
@@ -39,7 +41,7 @@ const jobListings: JobListing[] = [
     location: 'Remote',
     type: 'Full-time',
     description:
-      "Drive Grittrix\'s growth by identifying new opportunities, building partnerships, and expanding our client base in emerging markets. Passion for technology and excellent communication skills required.",
+      "Drive Grittrix's growth by identifying new opportunities, building partnerships, and expanding our client base in emerging markets. Passion for technology and excellent communication skills required.",
     applyUrl: '/careers/apply/business-development-sales',
   },
   {
@@ -121,7 +123,9 @@ export default function ApplyJobPage({ params }: PageProps) {
 
           <div className="bg-card p-8 rounded-lg shadow-xl">
             <h2 className="text-2xl font-bold font-headline text-primary mb-6">Application Form</h2>
-            <JobApplicationForm jobTitle={job.title} />
+            <Suspense fallback={<div className="text-center text-foreground/80">Loading form...</div>}>
+              <JobApplicationForm jobTitle={job.title} />
+            </Suspense>
           </div>
         </div>
       </section>
