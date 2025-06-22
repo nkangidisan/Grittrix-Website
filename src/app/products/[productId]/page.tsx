@@ -3,15 +3,19 @@ import * as React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { PageHeader } from '@/components/PageHeader';
-import { productsList } from '@/app/products/page';
+import { productsList } from '@/lib/productsData';
 import Image from 'next/image';
-import { CheckCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle, ArrowRight, Cpu, Stethoscope, Store, Sprout, GraduationCap, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import type { ElementType } from 'react';
 
-export async function generateMetadata(props: any): Promise<Metadata> {
-  const productId = props?.params?.productId;
+const iconMap: { [key: string]: ElementType } = {
+  Cpu, Stethoscope, Store, Sprout, GraduationCap
+};
+
+export async function generateMetadata({ params }: { params: { productId: string } }): Promise<Metadata> {
+  const { productId } = params;
   const product = productsList.find((p) => p.id === productId);
 
   if (!product) {
@@ -32,12 +36,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProductDetailPage(props: any) {
-  const productId = props?.params?.productId;
+export default function ProductDetailPage({ params }: { params: { productId: string } }) {
+  const { productId } = params;
   const product = productsList.find((p) => p.id === productId);
   if (!product) notFound();
 
-  const IconComponent = product.icon as ElementType;
+  const IconComponent = iconMap[product.icon] || HelpCircle;
 
   const breadcrumbs = [
     { name: 'Products', href: '/products' },

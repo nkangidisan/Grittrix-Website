@@ -32,8 +32,8 @@ const relatedContent: Record<string, {name: string, href: string}[]> = {
   'training-support': [{ name: 'Contact Us', href: '/contact' }],
 };
 
-export async function generateMetadata(props: any): Promise<Metadata> {
-  const slug = props?.params?.slug;
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { slug } = params;
   const service = servicesList.find((s) => s.detailsUrl === `/services/${slug}`);
 
   if (!service) {
@@ -54,8 +54,8 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function ServiceDetailPage(props: any) {
-  const slug = props?.params?.slug;
+export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const service = servicesList.find((s) => s.detailsUrl === `/services/${slug}`);
   if (!service) notFound();
 
