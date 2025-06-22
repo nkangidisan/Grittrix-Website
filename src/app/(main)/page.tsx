@@ -1,5 +1,4 @@
-// This page is intentionally left blank to resolve a build conflict.
-// The primary homepage content has been moved to /src/app/page.tsx
-export default function BlankMainPage() {
-  return null;
-}
+// This file is intentionally left non-functional to resolve a build conflict.
+// By not exporting a default component, we prevent Next.js from treating this as a page,
+// which resolves the routing conflict with the main src/app/page.tsx.
+const Placeholder = () => null;

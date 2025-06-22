@@ -1,6 +1,3 @@
-import type { ReactNode } from 'react';
-
-// This layout is intentionally minimal to resolve a build conflict.
-export default function MinimalLayout({ children }: { children: ReactNode }) {
-  return <>{children}</>;
-}
+// This file is intentionally left non-functional to resolve a build conflict.
+// By not exporting a default component, we prevent Next.js from treating this as a layout.
+const PlaceholderLayout = () => null;

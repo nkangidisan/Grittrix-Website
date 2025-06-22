@@ -7,17 +7,18 @@ import admin from 'firebase-admin';
 // process.env.GOOGLE_APPLICATION_CREDENTIALS should point to the key file if used locally.
 
 if (!admin.apps.length) {
-  if (process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
-    // For environments where the service account key is passed as a JSON string
+  const serviceAccountKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
+
+  // Check if the service account key is provided and is a non-empty string
+  if (serviceAccountKey && serviceAccountKey.trim().length > 0) {
     try {
-      const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
+      const serviceAccount = JSON.parse(serviceAccountKey);
       admin.initializeApp({
         credential: admin.credential.cert(serviceAccount),
         // databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL, // If using Realtime Database
       });
     } catch (e) {
-      console.error("Failed to parse FIREBASE_SERVICE_ACCOUNT_KEY. Ensure it's a valid JSON string.", e);
-      // Attempt default initialization as a fallback
+      console.error("Failed to parse FIREBASE_SERVICE_ACCOUNT_KEY. It might not be a valid JSON object. Ensure it's a valid JSON string.", e);
       console.warn("Falling back to default Firebase Admin SDK initialization due to parsing error.");
       admin.initializeApp();
     }
