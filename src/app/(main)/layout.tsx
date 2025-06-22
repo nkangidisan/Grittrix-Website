@@ -1,12 +1,11 @@
 
 import * as React from 'react';
 
-// This layout is intentionally left without a default export to resolve a routing conflict.
-// The main root layout is in `src/app/layout.tsx`.
-const PlaceholderMainLayout = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+/**
+ * This is a pass-through layout for the (main) route group.
+ * It ensures the directory is a valid route segment without adding any UI.
+ * The primary layout is in `src/app/layout.tsx`.
+ */
+export default function MainLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
-};
+}

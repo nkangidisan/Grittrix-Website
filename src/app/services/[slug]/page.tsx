@@ -9,6 +9,10 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, LayoutDashboard, TrendingUp, Activity, MonitorSmartphone, CloudCog, Cable, DatabaseZap, UsersRound, HelpCircle } from 'lucide-react';
 import type { ElementType } from 'react';
 
+interface PageProps {
+  params: { slug: string };
+}
+
 const iconMap: { [key: string]: ElementType } = {
   LayoutDashboard,
   TrendingUp,
@@ -32,7 +36,7 @@ const relatedContent: Record<string, {name: string, href: string}[]> = {
   'training-support': [{ name: 'Contact Us', href: '/contact' }],
 };
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = params;
   const service = servicesList.find((s) => s.detailsUrl === `/services/${slug}`);
 
@@ -54,7 +58,7 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
+export default function ServiceDetailPage({ params }: PageProps) {
   const { slug } = params;
   const service = servicesList.find((s) => s.detailsUrl === `/services/${slug}`);
   if (!service) notFound();
