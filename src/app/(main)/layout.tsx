@@ -1,3 +1,11 @@
-// This file is intentionally left non-functional to resolve a build conflict.
-// By not exporting a default component, we prevent Next.js from treating this as a layout.
-const PlaceholderLayout = () => null;
+import * as React from 'react';
+
+// This layout is intentionally left minimal to resolve a routing conflict.
+// The main root layout is in `src/app/layout.tsx`.
+export default function PlaceholderMainLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
+}
