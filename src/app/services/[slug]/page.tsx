@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -32,7 +31,11 @@ const relatedContent: Record<string, {name: string, href: string}[]> = {
   'training-support': [{ name: 'Contact Us', href: '/contact' }],
 };
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+interface PageProps {
+  params: { slug: string };
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = params;
   const service = servicesList.find((s) => s.detailsUrl === `/services/${slug}`);
 
@@ -54,7 +57,7 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
+export default function ServiceDetailPage({ params }: PageProps) {
   const { slug } = params;
   const service = servicesList.find((s) => s.detailsUrl === `/services/${slug}`);
   if (!service) notFound();

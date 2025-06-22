@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
@@ -54,8 +53,12 @@ const jobListings: JobListing[] = [
   },
 ];
 
-export async function generateMetadata({ params }: { params: { jobId: string } }): Promise<Metadata> {
-  const jobId = params?.jobId;
+interface PageProps {
+  params: { jobId: string };
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { jobId } = params;
   const job = jobListings.find((j) => j.id === jobId);
 
   if (!job) {
@@ -78,14 +81,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ApplyJobPage({ params }: { params: { jobId: string } }) {
-  const { jobId } = params;
-  const job = jobListings.find((j) => j.id === jobId);
+export default function ApplyJobPage({ params }: PageProps) {
+  const job = jobListings.find((j) => j.id === params.jobId);
   if (!job) notFound();
 
   const breadcrumbs = [
     { name: 'Careers', href: '/careers' },
-    { name: job.title, href: `/careers#${job.id}` },
+    { name: job.title, href: `/careers/apply/${job.id}` },
     { name: 'Apply' },
   ];
 
@@ -119,9 +121,7 @@ export default function ApplyJobPage({ params }: { params: { jobId: string } }) 
 
           <div className="bg-card p-8 rounded-lg shadow-xl">
             <h2 className="text-2xl font-bold font-headline text-primary mb-6">Application Form</h2>
-            <React.Suspense fallback={<p className="text-foreground/80">Loading form...</p>}>
-              <JobApplicationForm jobTitle={job.title} />
-            </React.Suspense>
+            <JobApplicationForm jobTitle={job.title} />
           </div>
         </div>
       </section>
