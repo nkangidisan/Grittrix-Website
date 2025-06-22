@@ -1,5 +1,6 @@
-// This page is intentionally left blank to resolve a routing conflict.
-// The main homepage content is now in `src/app/page.tsx`.
-export default function PlaceholderPage() {
+
+// This page is intentionally left without a default export to resolve a routing conflict.
+// The main homepage content is in `src/app/page.tsx`.
+const PlaceholderPage = () => {
   return null;
-}
+};
