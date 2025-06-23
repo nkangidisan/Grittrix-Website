@@ -70,6 +70,15 @@ export default function ServicesPage() {
                 fill 
                 className="object-cover" 
                 />
+                 <div className="absolute -top-12 -right-12 w-32 h-32 animate-float opacity-80">
+                    <Image
+                      src="/media/sphere-white.webp"
+                      alt="Floating abstract white sphere"
+                      fill
+                      className="object-contain"
+                      data-ai-hint="abstract sphere"
+                    />
+                </div>
             </div>
           </div>
         </div>
