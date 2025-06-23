@@ -52,18 +52,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-up">
-              <div className="flex items-start gap-4 mb-6">
-                <h2 className="text-3xl font-bold font-headline text-primary">Custom Solutions for Unique Challenges</h2>
-                <div className="w-20 h-20 md:w-24 md:h-24 animate-float opacity-75 relative shrink-0">
-                  <Image
-                    src="/media/sphere-white.webp"
-                    alt="Floating abstract white sphere"
-                    fill
-                    className="object-contain"
-                    data-ai-hint="abstract sphere"
-                  />
-                </div>
-              </div>
+              <h2 className="text-3xl font-bold font-headline text-primary mb-6">Custom Solutions for Unique Challenges</h2>
               <p className="text-lg text-foreground/80 mb-6">
                 At Grittrix, we understand that one size doesn't fit all. Our approach is to deeply understand your specific business context, challenges, and goals. We then co-create tailored AI strategies and solutions that deliver maximum impact and value.
               </p>
@@ -81,6 +70,15 @@ export default function ServicesPage() {
                 fill 
                 className="object-cover" 
                 />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-20 md:w-24 md:h-24 animate-float opacity-75">
+                  <Image
+                    src="/media/sphere-white.webp"
+                    alt="Floating abstract white sphere"
+                    fill
+                    className="object-contain"
+                    data-ai-hint="abstract sphere"
+                  />
+                </div>
             </div>
           </div>
         </div>
