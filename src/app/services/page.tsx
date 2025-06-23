@@ -51,7 +51,7 @@ export default function ServicesPage() {
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="animate-slide-in-up relative">
+            <div className="animate-slide-in-up">
               <h2 className="text-3xl font-bold font-headline text-primary mb-6">Custom Solutions for Unique Challenges</h2>
               <p className="text-lg text-foreground/80 mb-6">
                 At Grittrix, we understand that one size doesn't fit all. Our approach is to deeply understand your specific business context, challenges, and goals. We then co-create tailored AI strategies and solutions that deliver maximum impact and value.
@@ -61,15 +61,6 @@ export default function ServicesPage() {
                 <li className="flex items-start"><Cable className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" /><span>Seamless integration with your existing systems and workflows.</span></li>
                 <li className="flex items-start"><TrendingUp className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" /><span>Scalable solutions that grow with your business.</span></li>
               </ul>
-              <div className="absolute -top-8 -right-8 w-20 h-20 md:w-24 md:h-24 animate-float opacity-75 hidden lg:block">
-                <Image
-                  src="/media/sphere-white.webp"
-                  alt="Floating abstract white sphere"
-                  fill
-                  className="object-contain"
-                  data-ai-hint="abstract sphere"
-                />
-              </div>
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
                <Image 

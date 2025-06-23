@@ -48,6 +48,15 @@ export function HeroSection() {
                 priority 
               />
             </div>
+             <div className="absolute -top-10 -left-10 w-24 h-24 md:w-32 md:h-32 animate-float opacity-75">
+                <Image
+                  src="/media/sphere-white.webp"
+                  alt="Floating abstract white sphere"
+                  fill
+                  className="object-contain"
+                  data-ai-hint="abstract sphere"
+                />
+            </div>
             <div className="absolute -top-8 -right-8 w-32 h-32 bg-primary/20 rounded-full filter blur-2xl animate-pulse"></div>
             <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-secondary/20 rounded-full filter blur-2xl animate-pulse animation-delay-500"></div>
           </div>
