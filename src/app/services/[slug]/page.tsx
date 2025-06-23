@@ -32,12 +32,7 @@ const relatedContent: Record<string, {name: string, href: string}[]> = {
   'training-support': [{ name: 'Contact Us', href: '/contact' }],
 };
 
-// Define the props type explicitly for clarity and type safety.
-interface ServiceDetailPageProps {
-  params: { slug: string };
-}
-
-export async function generateMetadata({ params }: ServiceDetailPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const { slug } = params;
   const service = servicesList.find((s) => s.detailsUrl === `/services/${slug}`);
 
@@ -59,7 +54,7 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
+export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const service = servicesList.find((s) => s.detailsUrl === `/services/${slug}`);
   if (!service) notFound();

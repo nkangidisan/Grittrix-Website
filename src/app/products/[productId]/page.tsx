@@ -14,12 +14,7 @@ const iconMap: { [key: string]: ElementType } = {
   Cpu, Stethoscope, Store, Sprout, GraduationCap
 };
 
-// Define the props type explicitly for clarity and type safety.
-interface ProductDetailPageProps {
-  params: { productId: string };
-}
-
-export async function generateMetadata({ params }: ProductDetailPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { productId: string } }): Promise<Metadata> {
   const { productId } = params;
   const product = productsList.find((p) => p.id === productId);
 
@@ -41,7 +36,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProductDetailPage({ params }: ProductDetailPageProps) {
+export default function ProductDetailPage({ params }: { params: { productId: string } }) {
   const { productId } = params;
   const product = productsList.find((p) => p.id === productId);
   if (!product) notFound();
