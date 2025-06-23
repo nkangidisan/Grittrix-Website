@@ -13,7 +13,7 @@ export function GrittrixLogo({ className, width = 150, height = 33 }: GrittrixLo
   return (
     <div className={cn("relative", className)} style={{ width, height }}>
       <Image
-        src="https://placehold.co/150x33.png" 
+        src="/media/grittrixlogo.png" 
         alt="Grittrix AI Solutions Logo"
         fill
         className="object-contain"

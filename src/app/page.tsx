@@ -27,7 +27,7 @@ const industriesServed = [
     name: 'Healthcare', 
     icon: 'HeartPulse', 
     link: '/industries/healthcare', 
-    imageSrc: 'https://placehold.co/600x338.png',
+    imageSrc: '/media/health.webp',
     altText: 'Grittrix AI for Healthcare - advanced medical diagnostics illustration',
     points: [
       'Smart patient triage',
@@ -40,7 +40,7 @@ const industriesServed = [
     name: 'Retail', 
     icon: 'ShoppingCart', 
     link: '/industries/retail', 
-    imageSrc: 'https://placehold.co/600x338.png',
+    imageSrc: '/media/retail.webp',
     altText: 'Grittrix AI for Retail - e-commerce optimization illustration',
     points: [
       'Inventory optimization',
@@ -53,7 +53,7 @@ const industriesServed = [
     name: 'Agriculture', 
     icon: 'Leaf', 
     link: '/industries/agriculture', 
-    imageSrc: 'https://placehold.co/600x338.png',
+    imageSrc: '/media/agriculture.webp',
     altText: 'Grittrix AI for Agriculture - smart farming solutions illustration',
     points: [
       'AI crop disease detection',
@@ -66,7 +66,7 @@ const industriesServed = [
     name: 'Education', 
     icon: 'BookOpen', 
     link: '/industries/education', 
-    imageSrc: 'https://placehold.co/600x338.png',
+    imageSrc: '/media/education.webp',
     altText: 'Grittrix AI for Education - personalized learning platforms illustration',
     points: [
       'AI-powered tutoring',
@@ -93,9 +93,9 @@ const whyWorkWithGrittrix = [
 ];
 
 const testimonials = [
-    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "https://placehold.co/400x300.png", altText: "Testimonial from a Grittrix Healthcare Partner using AI solutions" },
-    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "https://placehold.co/400x300.png", altText: "Testimonial from a Grittrix Agri-Business Owner using smart farming tools" },
-    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "https://placehold.co/400x300.png", altText: "Testimonial from an Education Leader using Grittrix AI in education" }
+    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner", imageSrc: "/media/healthcarepartner.webp", altText: "Testimonial from a Grittrix Healthcare Partner using AI solutions" },
+    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner", imageSrc: "/media/agribusinessowner.webp", altText: "Testimonial from a Grittrix Agri-Business Owner using smart farming tools" },
+    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader", imageSrc: "/media/educationleader.jpg", altText: "Testimonial from an Education Leader using Grittrix AI in education" }
 ];
 
 const quickNavLinks = [
