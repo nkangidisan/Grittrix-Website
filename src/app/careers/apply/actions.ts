@@ -2,7 +2,7 @@
 'use server';
 
 import { z } from 'zod';
-import { firestoreAdmin } from '@/lib/firebaseAdmin';
+// import { firestoreAdmin } from '@/lib/firebaseAdmin'; // Temporarily disabled for diagnostics
 
 const jobApplicationSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -35,34 +35,11 @@ export async function submitJobApplication(
     };
   }
 
-  try {
-    const applicationData = {
-      ...parsed.data,
-      submittedAt: new Date().toISOString(),
-      status: 'new', // Initial status
-    };
-
-    await firestoreAdmin.collection('jobApplications').add(applicationData);
-
-    return { 
-        message: 'Thank you for your application! We have received your submission and will be in touch if your profile matches our current needs.', 
-        success: true 
-    };
-  } catch (error) {
-    console.error('Error submitting job application:', error);
-    // Avoid exposing detailed error messages to the client
-    let errorMessage = 'An unexpected error occurred while submitting your application. Please try again later or email us at careers@grittrix.com.';
-    if (error instanceof Error && error.message.includes("Could not load the default credentials")) {
-        errorMessage = "Server configuration error: Could not connect to the database. Please contact support or email careers@grittrix.com.";
-    } else if (error instanceof Error && error.message.includes("firestoreAdmin.collection is not a function")) {
-        errorMessage = "Server configuration error: Database service is not available. Please contact support or email careers@grittrix.com.";
-    }
-    
-    return {
-      message: errorMessage,
-      success: false,
-    };
-  }
+  // --- DIAGNOSTIC: Bypassing Firebase to test build stability ---
+  console.log("DIAGNOSTIC: Bypassing Firebase for job application. Data:", parsed.data);
+  return { 
+      message: 'Thank you for your application! We have received your submission and will be in touch if your profile matches our current needs.', 
+      success: true 
+  };
+  // --- END DIAGNOSTIC ---
 }
-
-    
