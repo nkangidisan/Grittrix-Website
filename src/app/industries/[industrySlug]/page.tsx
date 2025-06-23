@@ -1,4 +1,5 @@
 
+
 import * as React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -10,11 +11,7 @@ import { CheckCircle, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { industryDetailsData } from '@/lib/industriesData';
 
-interface PageProps {
-  params: { industrySlug: string };
-}
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { industrySlug: string } }): Promise<Metadata> {
   const { industrySlug } = params;
   const industry = industryDetailsData[industrySlug];
 
@@ -47,7 +44,7 @@ export async function generateStaticParams() {
   }));
 }
 
-const IndustryPage: React.FC<PageProps> = ({ params }) => {
+export default function IndustryPage({ params }: { params: { industrySlug: string } }) {
   const industry = industryDetailsData[params.industrySlug];
 
   if (!industry) {
@@ -142,5 +139,3 @@ const IndustryPage: React.FC<PageProps> = ({ params }) => {
     </>
   );
 }
-
-export default IndustryPage;

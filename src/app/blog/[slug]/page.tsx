@@ -8,11 +8,7 @@ import * as React from 'react';
 // For this placeholder, we'll define a few possible slugs.
 const posts = [{ slug: 'ai-in-africa' }, { slug: 'future-of-retail-tech' }, { slug: 'democratizing-data' }];
 
-interface PageProps {
-  params: { slug: string };
-}
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const { slug } = params;
   const postExists = posts.some(p => p.slug === slug);
 
@@ -36,7 +32,7 @@ export async function generateStaticParams() {
   }));
 }
 
-const BlogSlugPage: React.FC<PageProps> = ({ params }) => {
+export default function BlogSlugPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
 
   // Verify the slug is one of our "valid" posts for this placeholder.
@@ -78,5 +74,3 @@ const BlogSlugPage: React.FC<PageProps> = ({ params }) => {
     </>
   );
 }
-
-export default BlogSlugPage;

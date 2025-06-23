@@ -55,11 +55,7 @@ const jobListings: JobListing[] = [
   },
 ];
 
-interface PageProps {
-  params: { jobId: string };
-}
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { jobId: string } }): Promise<Metadata> {
   const jobId = params?.jobId;
   const job = jobListings.find((j) => j.id === jobId);
 
@@ -83,7 +79,7 @@ export async function generateStaticParams() {
   }));
 }
 
-const ApplyJobPage: React.FC<PageProps> = ({ params }) => {
+export default function ApplyJobPage({ params }: { params: { jobId: string } }) {
   const job = jobListings.find((j) => j.id === params.jobId);
   if (!job) notFound();
 
@@ -132,5 +128,3 @@ const ApplyJobPage: React.FC<PageProps> = ({ params }) => {
     </>
   );
 }
-
-export default ApplyJobPage;

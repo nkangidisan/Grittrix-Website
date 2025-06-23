@@ -32,11 +32,7 @@ const relatedContent: Record<string, {name: string, href: string}[]> = {
   'training-support': [{ name: 'Contact Us', href: '/contact' }],
 };
 
-interface PageProps {
-  params: { slug: string };
-}
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const { slug } = params;
   const service = servicesList.find((s) => s.detailsUrl === `/services/${slug}`);
 
@@ -58,7 +54,7 @@ export async function generateStaticParams() {
     }));
 }
 
-const ServiceDetailPage: React.FC<PageProps> = ({ params }) => {
+export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const service = servicesList.find((s) => s.detailsUrl === `/services/${slug}`);
   if (!service) notFound();
@@ -112,5 +108,3 @@ const ServiceDetailPage: React.FC<PageProps> = ({ params }) => {
     </>
   );
 }
-
-export default ServiceDetailPage;
