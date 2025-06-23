@@ -7,10 +7,6 @@ import { notFound } from 'next/navigation';
 import type { JobListing } from '@/lib/types';
 import { Suspense } from 'react';
 
-interface PageProps {
-  params: { jobId: string };
-}
-
 const jobListings: JobListing[] = [
   {
     id: 'software-engineer',
@@ -59,7 +55,7 @@ const jobListings: JobListing[] = [
   },
 ];
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { jobId: string } }): Promise<Metadata> {
   const { jobId } = params;
   const job = jobListings.find((j) => j.id === jobId);
 
@@ -83,7 +79,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ApplyJobPage({ params }: PageProps) {
+export default function ApplyJobPage({ params }: { params: { jobId: string } }) {
   const job = jobListings.find((j) => j.id === params.jobId);
   if (!job) notFound();
 

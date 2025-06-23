@@ -2,11 +2,7 @@
 import { PageHeader } from '@/components/PageHeader';
 import { notFound } from 'next/navigation';
 
-interface PageProps {
-  params: { slug: string };
-}
-
-export default function BlogSlugPage({ params }: PageProps) {
+export default function BlogSlugPage({ params }: { params: { slug: string } }) {
   // In a real app, you would fetch blog post data based on the slug.
   // If not found, you'd call notFound().
   // For now, we'll just display a placeholder.
