@@ -10,7 +10,11 @@ import { CheckCircle, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { industryDetailsData } from '@/lib/industriesData';
 
-export async function generateMetadata({ params }: { params: { industrySlug: string } }): Promise<Metadata> {
+type PageProps = {
+  params: { industrySlug: string };
+};
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { industrySlug } = params;
   const industry = industryDetailsData[industrySlug];
 
@@ -43,7 +47,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function IndustryPage({ params }: { params: { industrySlug: string } }) {
+export default function IndustryPage({ params }: PageProps) {
   const industry = industryDetailsData[params.industrySlug];
 
   if (!industry) {

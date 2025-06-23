@@ -14,7 +14,11 @@ const iconMap: { [key: string]: ElementType } = {
   Cpu, Stethoscope, Store, Sprout, GraduationCap
 };
 
-export async function generateMetadata({ params }: { params: { productId: string } }): Promise<Metadata> {
+type PageProps = {
+  params: { productId: string };
+};
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { productId } = params;
   const product = productsList.find((p) => p.id === productId);
 
@@ -36,7 +40,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProductDetailPage({ params }: { params: { productId: string } }) {
+export default function ProductDetailPage({ params }: PageProps) {
   const { productId } = params;
   const product = productsList.find((p) => p.id === productId);
   if (!product) notFound();
