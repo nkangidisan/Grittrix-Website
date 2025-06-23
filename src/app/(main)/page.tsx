@@ -1,9 +1,4 @@
-
 /**
- * This is a placeholder page for the root route.
- * It renders null and exists to satisfy Next.js's routing structure
- * while the main homepage content resides in `src/app/page.tsx`.
+ * This file is intentionally left blank to resolve a build-time routing conflict.
+ * By not exporting a default component, it is ignored by the Next.js router.
  */
-export default function RootPage() {
-  return null;
-}
