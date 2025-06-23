@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 /**
- * This page component is part of a route group that previously caused build conflicts.
- * By exporting a valid, minimal component, we resolve the conflict and ensure a stable build.
- * This page does not render any content and does not affect the UI.
+ * This page component is part of a route group that was causing build conflicts.
+ * The default export has been removed to neutralize this file from the routing system,
+ * resolving the build error. This file can be ignored.
  */
-export default function MainRoutePage() {
+function MainRoutePage() {
   return null;
 }

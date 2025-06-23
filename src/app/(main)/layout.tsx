@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 /**
- * This layout component is part of a route group that previously caused build conflicts.
- * By exporting a valid, minimal layout, we resolve the conflict and ensure a stable build.
- * This layout simply renders its children and does not affect the UI.
+ * This layout component is part of a route group that was causing build conflicts.
+ * The default export has been removed to neutralize this file from the routing system,
+ * resolving the build error. This file can be ignored.
  */
-export default function MainRouteLayout({
+function MainRouteLayout({
   children,
 }: {
   children: React.ReactNode;
