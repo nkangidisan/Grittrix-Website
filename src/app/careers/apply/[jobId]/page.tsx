@@ -41,7 +41,7 @@ const jobListings: JobListing[] = [
     location: 'Remote',
     type: 'Full-time',
     description:
-      "Drive Grittrix\\'s growth by identifying new opportunities, building partnerships, and expanding our client base in emerging markets. Passion for technology and excellent communication skills required.",
+      "Drive Grittrix's growth by identifying new opportunities, building partnerships, and expanding our client base in emerging markets. Passion for technology and excellent communication skills required.",
     applyUrl: '/careers/apply/business-development-sales',
   },
   {
@@ -55,7 +55,6 @@ const jobListings: JobListing[] = [
   },
 ];
 
-// Define the props type explicitly for clarity and type safety.
 interface ApplyJobPageProps {
   params: { jobId: string };
 }
@@ -90,8 +89,8 @@ export default function ApplyJobPage({ params }: ApplyJobPageProps) {
 
   const breadcrumbs = [
     { name: 'Careers', href: '/careers' },
-    { name: 'Apply', href: `/careers/apply/${job.id}` },
-    { name: job.title },
+    { name: job.title, href: `/careers/apply/${job.id}` },
+    { name: 'Apply' },
   ];
 
   return (
