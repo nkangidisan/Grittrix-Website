@@ -50,11 +50,11 @@ export function HeroSection() {
             </div>
              <div className="absolute -top-10 -left-10 w-24 h-24 md:w-32 md:h-32 animate-float opacity-75">
                 <Image
-                  src="/media/sphere-white.webp"
-                  alt="Floating abstract white sphere"
+                  src="/media/shere.webp"
+                  alt="Floating world map illustration"
                   fill
                   className="object-contain"
-                  data-ai-hint="abstract sphere"
+                  data-ai-hint="world map"
                 />
             </div>
             <div className="absolute -top-8 -right-8 w-32 h-32 bg-primary/20 rounded-full filter blur-2xl animate-pulse"></div>
