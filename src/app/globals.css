@@ -127,6 +127,16 @@ body {
   animation: slideInUp 0.5s ease-out forwards;
 }
 
+/* Bounding/Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
 .animation-delay-200 {
   animation-delay: 200ms;
 }
