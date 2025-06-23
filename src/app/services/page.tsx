@@ -50,7 +50,16 @@ export default function ServicesPage() {
 
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative grid md:grid-cols-2 gap-12 items-center">
+            <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 animate-float opacity-80 z-10">
+                <Image
+                  src="/media/sphere-white.webp"
+                  alt="Floating abstract white sphere"
+                  fill
+                  className="object-contain"
+                  data-ai-hint="abstract sphere"
+                />
+            </div>
             <div className="animate-slide-in-up">
               <h2 className="text-3xl font-bold font-headline text-primary mb-6">Custom Solutions for Unique Challenges</h2>
               <p className="text-lg text-foreground/80 mb-6">
@@ -70,15 +79,6 @@ export default function ServicesPage() {
                 fill 
                 className="object-cover" 
                 />
-                 <div className="hidden md:block absolute -top-24 -left-12 w-40 h-40 animate-float opacity-80">
-                    <Image
-                      src="/media/sphere-white.webp"
-                      alt="Floating abstract white sphere"
-                      fill
-                      className="object-contain"
-                      data-ai-hint="abstract sphere"
-                    />
-                </div>
             </div>
           </div>
         </div>
