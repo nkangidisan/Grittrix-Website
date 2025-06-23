@@ -56,7 +56,7 @@ const jobListings: JobListing[] = [
 ];
 
 export async function generateMetadata({ params }: { params: { jobId: string } }): Promise<Metadata> {
-  const { jobId } = params;
+  const jobId = params?.jobId;
   const job = jobListings.find((j) => j.id === jobId);
 
   if (!job) {
