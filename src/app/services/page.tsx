@@ -70,7 +70,7 @@ export default function ServicesPage() {
                 fill 
                 className="object-cover" 
                 />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-20 md:w-24 md:h-24 animate-float opacity-75">
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-20 h-20 md:w-24 md:h-24 animate-float opacity-75">
                   <Image
                     src="/media/sphere-white.webp"
                     alt="Floating abstract white sphere"
