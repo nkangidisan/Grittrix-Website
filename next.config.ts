@@ -1,1 +1,15 @@
-// This file has been replaced by next.config.mjs to support the build environment.
+
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
+    ],
+  },
+};
+
+export default nextConfig;
