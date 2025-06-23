@@ -1,6 +1,7 @@
 
+'use client';
+
 import * as React from 'react';
-import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { ServiceItem } from '@/components/sections/ServiceItem';
 import { servicesList } from '@/lib/servicesData';
@@ -8,11 +9,6 @@ import {
   BrainCircuit, Cable, TrendingUp
 } from 'lucide-react';
 import Image from 'next/image';
-
-export const metadata: Metadata = {
-  title: 'AI-Powered Services & Platforms | Grittrix AI Solutions',
-  description: 'Explore Grittrix\'s comprehensive suite of AI services, including dashboards, forecasting, custom app development, cloud solutions, and data analytics.',
-};
 
 export default function ServicesPage() {
   const fallbackTitle = "Our AI-Powered Services & Platforms";
@@ -56,7 +52,18 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-up">
-              <h2 className="text-3xl font-bold font-headline text-primary mb-6">Custom Solutions for Unique Challenges</h2>
+              <div className="flex items-start gap-4 mb-6">
+                <h2 className="text-3xl font-bold font-headline text-primary">Custom Solutions for Unique Challenges</h2>
+                <div className="w-20 h-20 md:w-24 md:h-24 animate-float opacity-75 relative shrink-0">
+                  <Image
+                    src="/media/sphere-white.webp"
+                    alt="Floating abstract white sphere"
+                    fill
+                    className="object-contain"
+                    data-ai-hint="abstract sphere"
+                  />
+                </div>
+              </div>
               <p className="text-lg text-foreground/80 mb-6">
                 At Grittrix, we understand that one size doesn't fit all. Our approach is to deeply understand your specific business context, challenges, and goals. We then co-create tailored AI strategies and solutions that deliver maximum impact and value.
               </p>
@@ -74,15 +81,6 @@ export default function ServicesPage() {
                 fill 
                 className="object-cover" 
                 />
-                <div className="absolute -bottom-8 -right-8 w-32 h-32 md:w-40 md:h-40 animate-float opacity-75">
-                  <Image
-                    src="/media/sphere-white.webp"
-                    alt="Floating abstract white sphere"
-                    fill
-                    className="object-contain"
-                    data-ai-hint="abstract sphere"
-                  />
-                </div>
             </div>
           </div>
         </div>
