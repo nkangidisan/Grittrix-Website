@@ -51,7 +51,7 @@ export default function ServicesPage() {
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative grid md:grid-cols-2 gap-12 items-center">
-            <div className="animate-slide-in-up">
+            <div className="relative z-10 animate-slide-in-up">
               <h2 className="text-3xl font-bold font-headline text-primary mb-6">Custom Solutions for Unique Challenges</h2>
               <p className="text-lg text-foreground/80 mb-6">
                 At Grittrix, we understand that one size doesn't fit all. Our approach is to deeply understand your specific business context, challenges, and goals. We then co-create tailored AI strategies and solutions that deliver maximum impact and value.
@@ -63,22 +63,23 @@ export default function ServicesPage() {
               </ul>
             </div>
             <div className="relative">
-              <div className="relative aspect-video rounded-lg shadow-xl animate-fade-in animation-delay-300">
-                 <Image 
-                  src="/media/servicepage.webp"
-                  data-ai-hint="custom solution"
-                  alt="Grittrix - Custom AI Solutions" 
-                  fill 
-                  className="object-cover rounded-lg" 
-                  />
-              </div>
-              <div className="absolute -top-20 right-10 w-24 h-24 animate-float opacity-80 z-10 hidden md:block">
+                {/* Decorative Sphere - hidden on mobile */}
+                <div className="absolute -top-24 right-16 w-20 h-20 animate-float opacity-80 z-20 hidden md:block">
                   <Image
                     src="/media/sphere-white.webp"
                     alt="Floating abstract white sphere"
                     fill
                     className="object-contain"
                     data-ai-hint="abstract sphere"
+                  />
+              </div>
+              <div className="relative aspect-video rounded-lg shadow-xl animate-fade-in animation-delay-300 overflow-hidden">
+                 <Image 
+                  src="/media/servicepage.webp"
+                  data-ai-hint="custom solution"
+                  alt="Grittrix - Custom AI Solutions" 
+                  fill 
+                  className="object-cover rounded-lg" 
                   />
               </div>
             </div>
