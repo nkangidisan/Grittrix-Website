@@ -43,7 +43,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function IndustryPage({ params }: { params: { industrySlug: string } }) {
+export default function IndustryPage({ params }: { params: { industrySlug:string } }) {
   const industry = industryDetailsData[params.industrySlug];
 
   if (!industry) {

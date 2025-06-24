@@ -117,8 +117,8 @@ export function Header() {
                     <X className="h-6 w-6" />
                   </Button>
                 </div>
-                <ScrollArea className="flex-grow p-6">
-                  <nav className="flex flex-col space-y-3">
+                <ScrollArea className="flex-grow">
+                  <nav className="flex flex-col space-y-3 p-6">
                     {allMobileNavItems.map((item) => (
                       <NavLink key={item.href} href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="text-lg">
                         {item.label}
