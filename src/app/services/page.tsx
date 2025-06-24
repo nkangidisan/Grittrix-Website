@@ -51,15 +51,6 @@ export default function ServicesPage() {
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative grid md:grid-cols-2 gap-12 items-center">
-            <div className="absolute -top-16 left-1/2 -translate-x-full w-24 h-24 animate-float opacity-80 z-10">
-                <Image
-                  src="/media/sphere-white.webp"
-                  alt="Floating abstract white sphere"
-                  fill
-                  className="object-contain"
-                  data-ai-hint="abstract sphere"
-                />
-            </div>
             <div className="animate-slide-in-up">
               <h2 className="text-3xl font-bold font-headline text-primary mb-6">Custom Solutions for Unique Challenges</h2>
               <p className="text-lg text-foreground/80 mb-6">
@@ -71,14 +62,25 @@ export default function ServicesPage() {
                 <li className="flex items-start"><TrendingUp className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" /><span>Scalable solutions that grow with your business.</span></li>
               </ul>
             </div>
-            <div className="relative aspect-video rounded-lg shadow-xl animate-fade-in animation-delay-300">
-               <Image 
-                src="/media/servicepage.webp"
-                data-ai-hint="custom solution"
-                alt="Grittrix - Custom AI Solutions" 
-                fill 
-                className="object-cover rounded-lg" 
-                />
+            <div className="relative">
+              <div className="relative aspect-video rounded-lg shadow-xl animate-fade-in animation-delay-300">
+                 <Image 
+                  src="/media/servicepage.webp"
+                  data-ai-hint="custom solution"
+                  alt="Grittrix - Custom AI Solutions" 
+                  fill 
+                  className="object-cover rounded-lg" 
+                  />
+              </div>
+              <div className="absolute -top-20 right-10 w-24 h-24 animate-float opacity-80 z-10 hidden md:block">
+                  <Image
+                    src="/media/sphere-white.webp"
+                    alt="Floating abstract white sphere"
+                    fill
+                    className="object-contain"
+                    data-ai-hint="abstract sphere"
+                  />
+              </div>
             </div>
           </div>
         </div>

@@ -7,17 +7,35 @@ import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
 import { NavLink } from './NavLink';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
-const navItems = [
-  { href: '/', label: 'Home' },
+const mainNavItems = [
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/industries', label: 'Industries' },
   { href: '/products', label: 'Products' },
   { href: '/blog', label: 'Blog' },
-  { href: '/careers', label: 'Careers' },
+];
+
+const moreNavItems = [
+    { href: '/careers', label: 'Careers' },
+    { href: '/hosting', label: 'Hosting' },
+    { href: '/design-services', label: 'Design Services' },
+    { href: '/merch', label: 'Merchandise' },
+    { href: '/faq', label: 'FAQ' },
+];
+
+const allMobileNavItems = [
+  { href: '/', label: 'Home' },
+  ...mainNavItems,
+  ...moreNavItems,
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -47,22 +65,36 @@ export function Header() {
           </Link>
 
           <nav className="hidden lg:flex items-center space-x-1">
-            {navItems.map((item) => (
+            {mainNavItems.map((item) => (
               <NavLink key={item.href} href={item.href}>
                 {item.label}
               </NavLink>
             ))}
+             <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-primary hover:bg-primary/10 text-foreground/80 flex items-center gap-1">
+                  More <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                {moreNavItems.map((item) => (
+                    <DropdownMenuItem key={item.href} asChild>
+                    <Link href={item.href}>{item.label}</Link>
+                    </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
           
           <div className="hidden lg:flex items-center space-x-4">
             <Button variant="outline" size="sm" asChild>
-              <Link href={`/contact?subject=${encodeURIComponent('Demo Request')}`}>
-                <span>Request a Demo</span>
+              <Link href={`/contact?subject=${encodeURIComponent('Expert Consultation')}`}>
+                <span>Contact Us</span>
               </Link>
             </Button>
             <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
-              <Link href={`/contact?subject=${encodeURIComponent('Expert Consultation')}`}>
-                <span>Talk to Our Experts</span>
+              <Link href={`/contact?subject=${encodeURIComponent('Demo Request')}`}>
+                <span>Request a Demo</span>
               </Link>
             </Button>
           </div>
@@ -85,14 +117,11 @@ export function Header() {
                   </Button>
                 </div>
                 <nav className="flex flex-col space-y-3">
-                  {navItems.map((item) => (
+                  {allMobileNavItems.map((item) => (
                     <NavLink key={item.href} href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="text-lg">
                       {item.label}
                     </NavLink>
                   ))}
-                  <NavLink href="/hosting" onClick={() => setIsMobileMenuOpen(false)} className="text-lg">Hosting</NavLink>
-                  <NavLink href="/design-services" onClick={() => setIsMobileMenuOpen(false)} className="text-lg">Design Services</NavLink>
-                  <NavLink href="/merch" onClick={() => setIsMobileMenuOpen(false)} className="text-lg">Merch</NavLink>
                 </nav>
                 <div className="mt-8 flex flex-col space-y-3">
                    <Button variant="outline" asChild>
