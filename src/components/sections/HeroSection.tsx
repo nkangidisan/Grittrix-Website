@@ -48,17 +48,7 @@ export function HeroSection() {
                 priority 
               />
             </div>
-             <div className="absolute -top-10 -left-10 w-24 h-24 md:w-32 md:h-32 animate-float opacity-75 hidden md:block">
-                <Image
-                  src="/media/shere.webp"
-                  alt="Floating world map illustration"
-                  fill
-                  className="object-contain"
-                  data-ai-hint="world map"
-                />
-            </div>
-            <div className="absolute -top-8 -right-8 w-32 h-32 bg-primary/20 rounded-full filter blur-2xl animate-pulse hidden md:block"></div>
-            <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-secondary/20 rounded-full filter blur-2xl animate-pulse animation-delay-500 hidden md:block"></div>
+            {/* Decorative elements are temporarily removed to ensure build stability. They can be re-added once the main application is confirmed to be working. */}
           </div>
         </div>
       </div>
