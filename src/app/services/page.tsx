@@ -62,9 +62,10 @@ export default function ServicesPage() {
                 <li className="flex items-start"><TrendingUp className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" /><span>Scalable solutions that grow with your business.</span></li>
               </ul>
             </div>
+            
             <div className="relative">
-                {/* Decorative Sphere - hidden on mobile */}
-                <div className="absolute -top-24 right-16 w-20 h-20 animate-float opacity-80 z-20 hidden md:block">
+                {/* Decorative Sphere */}
+                <div className="absolute -top-20 -right-16 w-20 h-20 animate-float opacity-80 z-20 hidden md:block">
                   <Image
                     src="/media/sphere-white.webp"
                     alt="Floating abstract white sphere"
@@ -73,7 +74,7 @@ export default function ServicesPage() {
                     data-ai-hint="abstract sphere"
                   />
               </div>
-              <div className="relative aspect-video rounded-lg shadow-xl animate-fade-in animation-delay-300 overflow-hidden">
+              <div className="relative aspect-video rounded-lg shadow-xl animate-fade-in animation-delay-300">
                  <Image 
                   src="/media/servicepage.webp"
                   data-ai-hint="custom solution"
