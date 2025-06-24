@@ -100,9 +100,9 @@ export default function ApplyJobPage({ params }: { params: { jobId: string } }) 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
           <div className="bg-card p-8 rounded-lg shadow-xl mb-8">
             <h2 className="text-2xl font-bold font-headline text-primary mb-2">Job Details</h2>
-            <p className="text-foreground/80 mb-1"><strong>Role:</strong> {job.title}</p>
-            <p className="text-foreground/80 mb-1"><strong>Location:</strong> {job.location}</p>
-            <p className="text-foreground/80 mb-1"><strong>Type:</strong> {job.type}</p>
+            <p className="text-foreground/80 mb-1"><strong>Role:</strong> ${job.title}</p>
+            <p className="text-foreground/80 mb-1"><strong>Location:</strong> ${job.location}</p>
+            <p className="text-foreground/80 mb-1"><strong>Type:</strong> ${job.type}</p>
             <p className="text-sm text-foreground/70 mt-2 mb-6">{job.description}</p>
             <hr className="my-6 border-border" />
             <h3 className="text-xl font-bold font-headline text-primary mb-2">Our Commitment at Grittrix</h3>

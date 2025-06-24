@@ -51,7 +51,7 @@ export default function ServicesPage() {
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative grid md:grid-cols-2 gap-12 items-center">
-            <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 animate-float opacity-80 z-10">
+            <div className="absolute -top-16 left-1/2 -translate-x-full w-24 h-24 animate-float opacity-80 z-10">
                 <Image
                   src="/media/sphere-white.webp"
                   alt="Floating abstract white sphere"
@@ -71,13 +71,13 @@ export default function ServicesPage() {
                 <li className="flex items-start"><TrendingUp className="h-6 w-6 text-primary mr-3 mt-1 shrink-0" /><span>Scalable solutions that grow with your business.</span></li>
               </ul>
             </div>
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl animate-fade-in animation-delay-300">
+            <div className="relative aspect-video rounded-lg shadow-xl animate-fade-in animation-delay-300">
                <Image 
                 src="/media/servicepage.webp"
                 data-ai-hint="custom solution"
                 alt="Grittrix - Custom AI Solutions" 
                 fill 
-                className="object-cover" 
+                className="object-cover rounded-lg" 
                 />
             </div>
           </div>
