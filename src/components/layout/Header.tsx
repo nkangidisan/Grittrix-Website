@@ -86,7 +86,7 @@ export function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
           </nav>
-          
+
           <div className="hidden lg:flex items-center space-x-4">
             <Button variant="outline" size="sm" asChild>
               <Link href={`/contact?subject=${encodeURIComponent('Expert Consultation')}`}>
@@ -108,7 +108,7 @@ export function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-full max-w-xs bg-background p-0 flex flex-col">
-                <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle> 
+                <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
                 <div className="flex justify-between items-center p-6 border-b border-border">
                   <Link href="/" onClick={() => setIsMobileMenuOpen(false)} aria-label="Grittrix Home">
                     <GrittrixLogo className="h-8 w-auto" />

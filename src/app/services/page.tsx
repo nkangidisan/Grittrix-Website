@@ -50,7 +50,7 @@ export default function ServicesPage() {
 
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center relative">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative z-10 animate-slide-in-up">
               <h2 className="text-3xl font-bold font-headline text-primary mb-6">Custom Solutions for Unique Challenges</h2>
               <p className="text-lg text-foreground/80 mb-6">

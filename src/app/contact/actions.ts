@@ -2,7 +2,7 @@
 'use server';
 
 import { z } from 'zod';
-// import { firestoreAdmin } from '@/lib/firebaseAdmin'; // Temporarily disabled for diagnostics
+import { firestoreAdmin } from '@/lib/firebaseAdmin';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -33,9 +33,19 @@ export async function submitContactForm(
       success: false,
     };
   }
-
-  // --- DIAGNOSTIC: Bypassing Firebase to test build stability ---
-  console.log("DIAGNOSTIC: Bypassing Firebase for contact form. Data:", parsed.data);
-  return { message: 'Thank you! Your message has been received.', success: true };
-  // --- END DIAGNOSTIC ---
+  
+  try {
+    const docRef = await firestoreAdmin.collection('contactSubmissions').add({
+      ...parsed.data,
+      submittedAt: new Date(),
+    });
+    console.log('Contact form submission stored with ID:', docRef.id);
+    return { message: 'Thank you! Your message has been received.', success: true };
+  } catch (error) {
+    console.error('Error storing contact form submission to Firebase:', error);
+    return {
+      message: 'An internal error occurred. Please try again later.',
+      success: false,
+    };
+  }
 }

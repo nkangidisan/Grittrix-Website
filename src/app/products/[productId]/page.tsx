@@ -63,11 +63,11 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
              <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl">
-               <Image 
+               <Image
                 src={product.imageUrl}
-                alt={product.name} 
+                alt={product.name}
                 fill
-                className="object-cover" 
+                className="object-cover"
                 data-ai-hint={`${product.id.toLowerCase()} interface`}
                 priority
                 />
@@ -87,7 +87,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
               </Button>
             </div>
           </div>
-          
+
           <div className="mt-16 md:mt-24">
              <h3 className="text-2xl font-bold font-headline text-primary mb-6 text-center">Key Features</h3>
              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

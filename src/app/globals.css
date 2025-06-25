@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,29 +12,29 @@ body {
     --background: 228 82% 6.5%; /* Almost Black #03071E */
     --foreground: 210 40% 98%; /* White / Light Gray */
 
-    --muted: 228 70% 15%; 
-    --muted-foreground: 210 30% 75%; 
+    --muted: 228 70% 15%;
+    --muted-foreground: 210 30% 75%;
 
-    --popover: 228 80% 5%; 
+    --popover: 228 80% 5%;
     --popover-foreground: 210 40% 98%;
 
-    --card: 228 75% 10%; 
+    --card: 228 75% 10%;
     --card-foreground: 210 40% 98%;
 
-    --border: 228 60% 20%; 
-    --input: 228 70% 12%; 
+    --border: 228 60% 20%;
+    --input: 228 70% 12%;
 
     --primary: 182 100% 74.5%; /* Dark Electric Blue #7DF9FF */
     --primary-foreground: 228 80% 10%; /* Dark text for contrast on light blue */
 
-    --secondary: 228 50% 25%; 
+    --secondary: 228 50% 25%;
     --secondary-foreground: 210 40% 98%;
 
     --accent: 146 62% 55.3%; /* Sea Green #3DDC84 */
     --accent-foreground: 228 80% 10%; /* Dark text for contrast on sea green */
 
-    --destructive: 0 70% 50%; 
-    --destructive-foreground: 0 0% 100%; 
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
 
     --ring: 182 100% 60%; /* Ring for focus, related to primary */
 
@@ -77,7 +78,7 @@ body {
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
     --ring: 182 100% 60%;
-    
+
     --sidebar-background: 228 80% 5%;
     --sidebar-foreground: 210 40% 90%;
     --sidebar-primary: 182 100% 74.5%;

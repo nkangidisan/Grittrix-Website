@@ -24,10 +24,10 @@ export async function generateMetadata({ params }: IndustryPageProps): Promise<M
       description: 'This industry page does not exist.',
     };
   }
-  
+
   const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://grittrix.com';
-  const absoluteImageUrl = industry.image.startsWith('http') 
-    ? industry.image 
+  const absoluteImageUrl = industry.image.startsWith('http')
+    ? industry.image
     : new URL(industry.image, domainBase).toString();
 
   return {
@@ -52,7 +52,7 @@ export default function IndustryPage({ params }: IndustryPageProps) {
 
   if (!industry) {
     notFound();
-    return null; 
+    return null;
   }
 
   const breadcrumbs = [
@@ -72,18 +72,18 @@ export default function IndustryPage({ params }: IndustryPageProps) {
               <p className="text-lg text-foreground/80 leading-relaxed mb-8">{industry.fullDescription}</p>
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl">
-              <Image 
+              <Image
                 src={industry.image}
                 data-ai-hint={industry.dataAiHint}
-                alt={industry.title} 
+                alt={industry.title}
                 fill
-                className="object-cover" 
+                className="object-cover"
               />
             </div>
           </div>
         </div>
       </section>
-      
+
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -122,7 +122,7 @@ export default function IndustryPage({ params }: IndustryPageProps) {
                 <CardHeader className="p-0">
                   <div className="relative aspect-video w-full">
                     <Image
-                      src={useCase.image} 
+                      src={useCase.image}
                       alt={useCase.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"

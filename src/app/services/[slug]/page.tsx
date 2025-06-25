@@ -94,7 +94,7 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
               </Button>
             </div>
           </div>
-          
+
           {relatedLinks.length > 0 && (
             <div className="mt-16 md:mt-24">
               <h3 className="text-2xl font-bold font-headline text-primary mb-6 text-center">Related Products & Services</h3>

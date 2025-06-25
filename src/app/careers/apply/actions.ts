@@ -2,13 +2,13 @@
 'use server';
 
 import { z } from 'zod';
-// import { firestoreAdmin } from '@/lib/firebaseAdmin'; // Temporarily disabled for diagnostics
+import { firestoreAdmin } from '@/lib/firebaseAdmin';
 
 const jobApplicationSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Invalid email address.' }),
   roleApplyingFor: z.string().min(1, { message: 'Role is required.' }),
-  cvPortfolioLink: z.string().url({ message: 'Please enter a valid URL for your CV/Portfolio.' }).optional().or(z.literal('')),
+  cvPortfolioLink: z.string().url({ message: 'Please enter a valid URL.' }).optional().or(z.literal('')),
   coverLetter: z.string().optional(),
 });
 
@@ -35,11 +35,21 @@ export async function submitJobApplication(
     };
   }
 
-  // --- DIAGNOSTIC: Bypassing Firebase to test build stability ---
-  console.log("DIAGNOSTIC: Bypassing Firebase for job application. Data:", parsed.data);
-  return { 
-      message: 'Thank you for your application! We have received your submission and will be in touch if your profile matches our current needs.', 
-      success: true 
-  };
-  // --- END DIAGNOSTIC ---
+  try {
+    const docRef = await firestoreAdmin.collection('jobApplications').add({
+      ...parsed.data,
+      submittedAt: new Date(),
+    });
+    console.log('Job application stored with ID:', docRef.id);
+    return { 
+        message: 'Thank you for your application! We have received your submission and will be in touch if your profile matches our current needs.', 
+        success: true 
+    };
+  } catch (error) {
+    console.error('Error storing job application to Firebase:', error);
+    return {
+      message: 'An internal error occurred while submitting your application. Please try again later.',
+      success: false,
+    };
+  }
 }

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Admin Dashboard | Grittrix AI Solutions',
   description: 'Manage Grittrix content, users, and settings. Access restricted to authorized personnel.',
   robots: {
-    index: false, 
+    index: false,
     follow: false,
   },
 };

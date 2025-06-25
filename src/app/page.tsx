@@ -3,7 +3,7 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
-import { 
+import {
   HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Briefcase, Building, GitFork, Tv, Server, ShoppingBag, Phone, Mail, ArrowRight, Home as HomeIcon, Info, Settings, MessageSquare, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay, ExternalLink, Cpu, Stethoscope, Store, Sprout, GraduationCap
 } from 'lucide-react';
 import Image from 'next/image';
@@ -23,10 +23,10 @@ const keyFeatures = [
 ];
 
 const industriesServed = [
-  { 
-    name: 'Healthcare', 
-    icon: 'HeartPulse', 
-    link: '/industries/healthcare', 
+  {
+    name: 'Healthcare',
+    icon: 'HeartPulse',
+    link: '/industries/healthcare',
     imageSrc: '/media/health.webp',
     altText: 'Grittrix AI for Healthcare - advanced medical diagnostics illustration',
     points: [
@@ -34,12 +34,12 @@ const industriesServed = [
       'AI-assisted diagnostics',
       'Drug inventory forecasting',
       'Digital health records'
-    ] 
+    ]
   },
-  { 
-    name: 'Retail', 
-    icon: 'ShoppingCart', 
-    link: '/industries/retail', 
+  {
+    name: 'Retail',
+    icon: 'ShoppingCart',
+    link: '/industries/retail',
     imageSrc: '/media/retail.webp',
     altText: 'Grittrix AI for Retail - e-commerce optimization illustration',
     points: [
@@ -47,12 +47,12 @@ const industriesServed = [
       'Sales prediction',
       'Low-stock alerts',
       'Customer insights'
-    ] 
+    ]
   },
-  { 
-    name: 'Agriculture', 
-    icon: 'Leaf', 
-    link: '/industries/agriculture', 
+  {
+    name: 'Agriculture',
+    icon: 'Leaf',
+    link: '/industries/agriculture',
     imageSrc: '/media/agriculture.webp',
     altText: 'Grittrix AI for Agriculture - smart farming solutions illustration',
     points: [
@@ -60,12 +60,12 @@ const industriesServed = [
       'Weather-based yield prediction',
       'Market price forecasting',
       'Smart farm planning tools'
-    ] 
+    ]
   },
-  { 
-    name: 'Education', 
-    icon: 'BookOpen', 
-    link: '/industries/education', 
+  {
+    name: 'Education',
+    icon: 'BookOpen',
+    link: '/industries/education',
     imageSrc: '/media/education.webp',
     altText: 'Grittrix AI for Education - personalized learning platforms illustration',
     points: [
@@ -73,7 +73,7 @@ const industriesServed = [
       'Student performance analytics',
       'Lesson planning assistance',
       'Risk alerts for at-risk students'
-    ] 
+    ]
   },
 ];
 
@@ -116,7 +116,6 @@ export default function Home() {
     <>
       <HeroSection />
 
-      {/* Welcome Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
@@ -136,7 +135,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Work With Grittrix Section */}
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -156,8 +154,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-      {/* Key Features Section */}
+
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -184,7 +181,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Industries We Serve Section */}
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -196,8 +192,8 @@ export default function Home() {
               return (
               <Card key={industry.name} className="bg-card hover:shadow-2xl transition-all duration-300 group flex flex-col md:flex-row overflow-hidden animate-slide-in-up" style={{ animationDelay: `${index * 150}ms`}}>
                 <div className="md:w-1/3 relative h-48 md:h-auto">
-                  <Image 
-                    src={industry.imageSrc} 
+                  <Image
+                    src={industry.imageSrc}
                     alt={industry.altText}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -230,7 +226,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Who We Work With Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -255,9 +250,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-       {/* Driven by Purpose Section */}
-      <section className="py-16 md:py-24 bg-secondary/10">
+
+       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-xl shadow-2xl animate-fade-in">
             <Globe className="h-16 w-16 text-primary mx-auto mb-6" />
@@ -274,8 +268,6 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* Proven Impact Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -288,9 +280,9 @@ export default function Home() {
                   <blockquote className="text-lg text-foreground/80 italic mb-4">"{testimonial.quote}"</blockquote>
                   <p className="text-sm font-semibold text-primary">- {testimonial.source}</p>
                   <div className="mt-4 relative aspect-[4/3] rounded overflow-hidden">
-                    <Image 
-                      src={testimonial.imageSrc} 
-                      alt={testimonial.altText} 
+                    <Image
+                      src={testimonial.imageSrc}
+                      alt={testimonial.altText}
                       fill
                       className="object-cover"
                       data-ai-hint="business impact"
@@ -303,7 +295,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Explore Grittrix Section */}
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
@@ -359,7 +350,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Promise Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-xl shadow-2xl animate-fade-in">
