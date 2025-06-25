@@ -1,5 +1,5 @@
 
-// import { config } from 'dotenv';
-// config();
-
-// import '@/ai/flows/content-optimization.ts';
+/**
+ * This file was used to register Genkit flows for development.
+ * NOTE: AI functionality is temporarily disabled.
+ */
