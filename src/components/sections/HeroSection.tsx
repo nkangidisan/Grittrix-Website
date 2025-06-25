@@ -48,7 +48,6 @@ export function HeroSection() {
                 priority 
               />
             </div>
-            {/* Decorative elements are temporarily removed to ensure build stability. They can be re-added once the main application is confirmed to be working. */}
           </div>
         </div>
       </div>

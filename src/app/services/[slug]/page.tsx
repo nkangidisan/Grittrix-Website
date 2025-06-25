@@ -32,7 +32,11 @@ const relatedContent: Record<string, {name: string, href: string}[]> = {
   'training-support': [{ name: 'Contact Us', href: '/contact' }],
 };
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+interface ServiceDetailPageProps {
+  params: { slug: string };
+}
+
+export async function generateMetadata({ params }: ServiceDetailPageProps): Promise<Metadata> {
   const { slug } = params;
   const service = servicesList.find((s) => s.detailsUrl === `/services/${slug}`);
 
@@ -54,7 +58,7 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
+export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
   const { slug } = params;
   const service = servicesList.find((s) => s.detailsUrl === `/services/${slug}`);
   if (!service) notFound();

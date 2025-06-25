@@ -41,7 +41,7 @@ const jobListings: JobListing[] = [
     location: 'Remote',
     type: 'Full-time',
     description:
-      "Drive Grittrix's growth by identifying new opportunities, building partnerships, and expanding our client base in emerging markets. Passion for technology and excellent communication skills required.",
+      "Drive Grittrix\'s growth by identifying new opportunities, building partnerships, and expanding our client base in emerging markets. Passion for technology and excellent communication skills required.",
     applyUrl: '/careers/apply/business-development-sales',
   },
   {
@@ -55,7 +55,11 @@ const jobListings: JobListing[] = [
   },
 ];
 
-export async function generateMetadata({ params }: { params: { jobId: string } }): Promise<Metadata> {
+interface ApplyJobPageProps {
+  params: { jobId: string };
+}
+
+export async function generateMetadata({ params }: ApplyJobPageProps): Promise<Metadata> {
   const jobId = params?.jobId;
   const job = jobListings.find((j) => j.id === jobId);
 
@@ -79,7 +83,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ApplyJobPage({ params }: { params: { jobId: string } }) {
+export default function ApplyJobPage({ params }: ApplyJobPageProps) {
   const job = jobListings.find((j) => j.id === params.jobId);
   if (!job) notFound();
 
