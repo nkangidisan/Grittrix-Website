@@ -2,6 +2,7 @@
 'use client';
 
 import * as React from 'react';
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,6 +11,10 @@ import Link from 'next/link';
 import { Palette, Layers, Smartphone, Rocket, CheckCircle } from 'lucide-react';
 import { ContactForm } from '@/components/forms/ContactForm';
 import type { ElementType } from 'react';
+
+// Note: Metadata is defined in generateMetadata for server components,
+// but we can't do that in a 'use client' component.
+// We'll rely on the head tag in layout.tsx for general metadata and add specific structured data here.
 
 interface DesignProcessStep {
   title: string;
@@ -33,11 +38,32 @@ const portfolioItems = [
 export default function DesignServicesPage() {
   const breadcrumbs = [{ name: 'Web/App Design' }];
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Web & App Design and Development",
+    "provider": {
+      "@type": "Organization",
+      "name": "Grittrix AI Solutions"
+    },
+    "areaServed": "Worldwide",
+    "description": "Grittrix offers custom web and app design services, crafting high-performing websites and mobile applications that are intelligent, user-friendly, and future-ready. We are among the best website and webapp designers for businesses looking to integrate AI.",
+    "name": "Custom Web & App Design Services"
+  };
+
   return (
     <>
+      <head>
+          <title>Best Website & App Designers | AI-Integrated Solutions | Grittrix</title>
+          <meta name="description" content="Looking for the best website and webapp designers? Grittrix builds stunning, high-performing digital experiences with cutting-edge AI to automate your processes." />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+          />
+      </head>
       <PageHeader
         title="Custom Web & App Design Services"
-        description="We craft stunning, high-performing websites and mobile applications that not only look great but also drive results. Our AI-first approach ensures your digital presence is intelligent and future-ready."
+        description="We are among the best website and webapp designers, crafting stunning, high-performing digital experiences that not only look great but also drive results. Our AI-first approach ensures your project is intelligent and future-ready."
         breadcrumbs={breadcrumbs}
       />
 
@@ -46,7 +72,7 @@ export default function DesignServicesPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-headline text-primary mb-4">Our Design & Development Philosophy</h2>
             <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-              At Grittrix, we blend creative design with cutting-edge technology to build digital experiences that captivate users and achieve business objectives. We specialize in AI-integrated web and mobile solutions.
+              At Grittrix, we blend creative design with cutting-edge technology to build digital experiences that captivate users and achieve business objectives. We specialize in AI-integrated web and mobile solutions to automate your processes.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -104,11 +130,11 @@ export default function DesignServicesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
                 <div>
-                    <h2 className="text-3xl font-bold font-headline text-primary mb-6">Why Choose Grittrix for Your Design Needs?</h2>
+                    <h2 className="text-3xl font-bold font-headline text-primary mb-6">Why Choose Our Web & App Designers?</h2>
                     <ul className="space-y-4 text-foreground/80 text-lg">
-                        <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span><strong>AI-Integration Expertise:</strong> We build smart applications that leverage AI for enhanced functionality.</span></li>
+                        <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span><strong>AI-Integration Expertise:</strong> We build smart applications that leverage AI for enhanced functionality and process automation.</span></li>
                         <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span><strong>User-Centric Design:</strong> Our designs prioritize user experience, ensuring intuitiveness and engagement.</span></li>
-                        <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span><strong>Emerging Market Focus:</strong> We understand the unique contexts and needs of users in Africa and other emerging markets.</span></li>
+                        <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span><strong>Emerging Market Focus:</strong> We are among the best webapp designers for the unique contexts of users in Africa and emerging markets.</span></li>
                         <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span><strong>End-to-End Solutions:</strong> From concept to launch and beyond, we provide comprehensive design and development services.</span></li>
                     </ul>
                 </div>

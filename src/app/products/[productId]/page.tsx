@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: ProductDetailPageProps): Prom
   }
 
   return {
-    title: `${product.name} | Grittrix AI Products`,
+    title: `${product.name} | AI-Powered Tool for Business`,
     description: product.description,
   };
 }
@@ -52,8 +52,34 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
     { name: product.name },
   ];
 
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "description": product.description,
+    "brand": {
+      "@type": "Brand",
+      "name": "Grittrix"
+    },
+    "image": `https://grittrix.com${product.imageUrl}`,
+    "url": `https://grittrix.com/products/${product.id}`,
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": "0", // Price is custom, so set to 0 and indicate to contact for pricing
+      "availability": "https://schema.org/InStock",
+      "url": `https://grittrix.com/contact?subject=Inquiry%20about%20${encodeURIComponent(product.name)}`
+    }
+  };
+
   return (
     <>
+      <head>
+         <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+          />
+      </head>
       <PageHeader
         title={product.name}
         description={product.tagline}
@@ -89,7 +115,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
           </div>
 
           <div className="mt-16 md:mt-24">
-             <h3 className="text-2xl font-bold font-headline text-primary mb-6 text-center">Key Features</h3>
+             <h3 className="text-2xl font-bold font-headline text-primary mb-6 text-center">Key Features of This AI-Powered Tool</h3>
              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                  {product.features.map((feature, index) => (
                     <div key={index} className="flex items-start bg-card p-4 rounded-lg shadow-md">

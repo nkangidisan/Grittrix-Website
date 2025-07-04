@@ -9,8 +9,8 @@ import Image from 'next/image';
 import type { ElementType } from 'react';
 
 export const metadata: Metadata = {
-  title: 'About Grittrix AI Solutions | Our Mission, Vision, and Team',
-  description: 'Learn about Grittrix\'s mission to redefine industries with AI, our vision for emerging markets, core values, and the expert team driving innovation.',
+  title: 'About Grittrix | AI Solutions for Business Automation',
+  description: 'Learn about Grittrix\'s mission to provide AI-powered tools and automate processes for businesses in emerging markets. Meet our team and discover our core values.',
 };
 
 const teamMembers: TeamMember[] = [
@@ -40,8 +40,8 @@ const coreValues: CoreValue[] = [
 
 
 export default function AboutUsPage() {
-  const fallbackTitle = "About Grittrix: Redefining Industries with Technology";
-  const fallbackContent = "Grittrix is on a mission to redefine industries through accessible, scalable, and localized technology.\n\nBorn from a passion to solve real-world challenges in emerging markets, Grittrix develops intelligent systems for sectors that matter: health, retail, agriculture, and education.\n\nWe believe that powerful technology shouldn't just be for the privileged few. Our tools empower even the smallest organizations to thrive.";
+  const fallbackTitle = "About Grittrix: AI Solutions for Business Automation";
+  const fallbackContent = "Grittrix is on a mission to redefine industries with accessible, scalable, and localized AI-powered tools.\n\nBorn from a passion to solve real-world challenges, Grittrix develops intelligent systems that automate processes for sectors that matter: health, retail, agriculture, and education.\n\nWe believe that powerful technology shouldn't just be for the privileged few. Our AI solutions for business empower even the smallest organizations to thrive.";
   
   const breadcrumbs = [{ name: 'About Us' }];
   const pageTitle = fallbackTitle;
@@ -51,7 +51,7 @@ export default function AboutUsPage() {
     <>
       <PageHeader
         title={pageTitle}
-        description="Learn about our mission, vision, values, and the dedicated team driving AI innovation in emerging markets."
+        description="Learn about our mission to provide AI solutions for business, our vision, values, and the dedicated team driving process automation in emerging markets."
         breadcrumbs={breadcrumbs}
       />
 
@@ -71,7 +71,7 @@ export default function AboutUsPage() {
                <Image 
                 src="/media/aboutpage.jpg"
                 data-ai-hint="team collaboration"
-                alt="Grittrix - Our Story & Mission" 
+                alt="Grittrix team working on AI solutions for business" 
                 fill
                 className="object-cover" 
                 priority
@@ -88,7 +88,7 @@ export default function AboutUsPage() {
                 Our Vision
             </h2>
             <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed max-w-3xl mx-auto">
-                To be the engine that powers data-driven transformation in Africa and beyond.
+                To be the engine that powers data-driven transformation and process automation in Africa and beyond.
             </p>
         </div>
       </section>

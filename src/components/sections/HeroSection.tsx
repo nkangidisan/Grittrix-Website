@@ -14,16 +14,16 @@ export function HeroSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left animate-slide-in-up">
             <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-              Transforming Industries in
-              <span className="block text-primary">Africa and Beyond with</span>
-              Smart AI Infrastructure
+              AI-Powered Tools to
+              <span className="block text-primary">Automate Your Business</span>
+              and Drive Growth
             </h1>
             <p className="text-lg sm:text-xl text-foreground/80 mb-10 max-w-xl mx-auto md:mx-0">
-              At Grittrix, we build powerful, affordable AI and data solutions tailored for healthcare, retail, agriculture, and education — helping businesses and institutions unlock smarter decisions, automate operations, and scale with confidence.
+             Grittrix delivers intelligent, AI-powered tools and custom software solutions designed to automate processes, drive growth, and scale with confidence. Explore our AI solutions for businesses in healthcare, retail, agriculture, and education.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transform transition-transform hover:scale-105">
-                <Link href={`/contact?subject=${encodeURIComponent('Demo Request')}`}>
+                <Link href={`/contact?subject=${encodeURIComponent('Demo Request for AI Tools')}`}>
                   <span>
                     Request a Demo
                     <ArrowRight className="ml-2 h-5 w-5 inline" />
@@ -31,7 +31,7 @@ export function HeroSection() {
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild className="shadow-lg transform transition-transform hover:scale-105 border-primary/50 text-primary hover:bg-primary/10">
-                <Link href={`/contact?subject=${encodeURIComponent('Expert Consultation')}`}>
+                <Link href={`/contact?subject=${encodeURIComponent('Expert Consultation on Process Automation')}`}>
                   <span>Talk to Our Experts</span>
                 </Link>
               </Button>
@@ -41,10 +41,10 @@ export function HeroSection() {
             <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
                <Image
                 src="/media/homepage.jpg" 
-                alt="AI Powered Infrastructure displaying interconnected data nodes, representing Grittrix's smart solutions for emerging markets"
+                alt="AI-powered tools from Grittrix helping automate business processes across multiple devices"
                 fill 
                 className="object-cover"
-                data-ai-hint="AI infrastructure"
+                data-ai-hint="AI business automation"
                 priority 
               />
             </div>

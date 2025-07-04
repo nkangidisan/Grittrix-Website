@@ -6,8 +6,8 @@ import { IndustryCard } from '@/components/sections/IndustryCard';
 import { industriesOverview } from '@/lib/industriesData';
 
 export const metadata: Metadata = {
-  title: 'Industries We Serve | Grittrix AI Solutions',
-  description: 'Grittrix delivers specialized AI solutions for Healthcare, Retail, Agriculture, and Education, tailored to emerging markets. Discover how we transform these key sectors.',
+  title: 'Industries We Serve with AI Solutions | Grittrix',
+  description: 'Grittrix delivers specialized AI solutions to automate processes for Healthcare, Retail, Agriculture, and Education. Discover our AI-powered tools for these key sectors.',
 };
 
 export default function IndustriesPage() {
@@ -16,8 +16,8 @@ export default function IndustriesPage() {
   return (
     <>
       <PageHeader
-        title="Industries We Transform"
-        description="Grittrix delivers specialized AI solutions tailored to the unique challenges and opportunities within key sectors across Africa and emerging markets. Each solution is designed for maximum impact and efficiency."
+        title="Industries We Transform with AI Solutions"
+        description="Grittrix delivers specialized AI-powered tools to automate processes and solve unique challenges within key sectors across Africa and emerging markets."
         breadcrumbs={breadcrumbs}
       />
 
@@ -26,7 +26,7 @@ export default function IndustriesPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-headline text-primary mb-4">Our Sector Expertise</h2>
             <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-              We combine deep domain knowledge with cutting-edge AI to provide solutions that drive innovation, efficiency, and growth in your industry. More details on our approach and impact for each sector are provided below.
+              We combine deep domain knowledge with cutting-edge AI to provide solutions that drive innovation, efficiency, and growth in your industry. Discover our AI solutions for your business below.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

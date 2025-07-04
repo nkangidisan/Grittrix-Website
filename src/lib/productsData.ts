@@ -5,8 +5,8 @@ export const productsList: Product[] = [
   {
     id: 'CORE',
     name: 'Grittrix CORE™',
-    tagline: 'AI Operating System for Industry.',
-    description: 'The foundational AI engine powering Grittrix solutions. CORE provides a robust, scalable, and secure platform for developing, deploying, and managing AI models and applications across diverse industrial use cases. It enables seamless data integration, advanced analytics, and intelligent automation for transformative business outcomes. This includes a unified AI development environment, scalable model deployment, advanced data ingestion pipelines, enterprise-grade security, modular microservices architecture, real-time analytics APIs, and multi-cloud compatibility.',
+    tagline: 'The AI Operating System for Business Automation.',
+    description: 'The foundational AI engine powering Grittrix solutions. CORE is a robust AI-powered tool for developing and deploying applications that automate processes. It enables seamless data integration, advanced analytics, and intelligent automation for transformative business outcomes. A key AI solution for businesses aiming to scale.',
     icon: 'Cpu',
     imageUrl: '/media/core.png', 
     features: [
@@ -22,8 +22,8 @@ export const productsList: Product[] = [
   {
     id: 'Health',
     name: 'Grittrix Health™',
-    tagline: 'For clinics and pharmacies.',
-    description: 'Empowering healthcare providers with intelligent tools. Grittrix Health™ streamlines clinic workflows, optimizes pharmacy inventory, enhances diagnostic support through AI-assisted image analysis, and enables personalized patient care via predictive analytics. Key features include AI-assisted medical image analysis (X-rays, Scans), predictive patient triage, smart pharmacy inventory management, personalized treatment adherence monitoring, automated health record summarization, telemedicine platform integration with AI chatbots, and disease outbreak prediction.',
+    tagline: 'AI-Powered Tools for Clinics and Pharmacies.',
+    description: 'An AI-powered tool empowering healthcare providers. Grittrix Health™ streamlines clinic workflows, optimizes pharmacy inventory, enhances diagnostic support through AI-assisted image analysis, and enables personalized patient care via predictive analytics. A complete AI solution to automate healthcare processes.',
     icon: 'Stethoscope',
     imageUrl: '/media/health.webp', 
     features: [
@@ -39,8 +39,8 @@ export const productsList: Product[] = [
   {
     id: 'Retail',
     name: 'Grittrix Retail™',
-    tagline: 'For retail shops and FMCG.',
-    description: 'Transforming retail operations and customer experiences with AI. Grittrix Retail™ offers solutions for intelligent demand forecasting, dynamic inventory optimization, hyper-personalized customer engagement, and streamlined supply chain management. This encompasses AI-powered demand & sales forecasting, automated inventory replenishment, personalized product recommendations, dynamic pricing strategies, supply chain visibility, customer sentiment analysis, and smart store layout insights, helping businesses boost sales and efficiency.',
+    tagline: 'Automate Your Retail Processes with AI.',
+    description: 'Transform retail operations and customer experiences with this AI-powered tool. Grittrix Retail™ offers solutions for intelligent demand forecasting, dynamic inventory optimization, hyper-personalized customer engagement, and streamlined supply chain management. The perfect AI solution for businesses in retail.',
     icon: 'Store',
     imageUrl: '/media/retail.webp', 
     features: [
@@ -56,8 +56,8 @@ export const productsList: Product[] = [
   {
     id: 'Agro', 
     name: 'Grittrix Agro™',
-    tagline: 'Smart agriculture insights.',
-    description: 'Revolutionizing agriculture with data-driven intelligence. Grittrix Agro™ provides advanced tools for real-time crop monitoring, precise yield prediction, early pest and disease detection, and optimized resource management. Capabilities include AI-driven crop health monitoring (Satellite/Drone Imagery), precision irrigation/fertilization recommendations, automated pest/disease detection, accurate yield prediction, soil data analysis, weather pattern analysis, and market linkage with price trend forecasting, promoting sustainable and productive farming.',
+    tagline: 'AI-Powered Tools for Smart Agriculture.',
+    description: 'Revolutionizing agriculture with data-driven intelligence. Grittrix Agro™ is an AI-powered tool providing advanced capabilities for real-time crop monitoring, precise yield prediction, early pest and disease detection, and optimized resource management to automate farming processes.',
     icon: 'Sprout',
     imageUrl: '/media/agriculture.webp', 
     features: [
@@ -73,8 +73,8 @@ export const productsList: Product[] = [
   {
     id: 'Learn', 
     name: 'Grittrix Learn™',
-    tagline: 'Education analytics & AI tutors.',
-    description: 'Personalizing education and empowering learners with AI. Grittrix Learn™ offers adaptive learning platforms, intelligent AI tutoring systems, and comprehensive analytics to enhance student engagement and outcomes. It features adaptive learning paths, an AI-powered intelligent tutoring system (24/7), student performance analytics dashboards, automated assessment assistance, personalized skill gap analysis, teacher support tools, and corporate training modules, supporting educators in creating impactful experiences.',
+    tagline: 'AI-Powered Tools for Education.',
+    description: 'Personalizing education and empowering learners with AI. Grittrix Learn™ is an AI-powered tool offering adaptive learning platforms, intelligent AI tutoring systems, and comprehensive analytics to enhance student engagement and outcomes. Automate educational support and administration.',
     icon: 'GraduationCap',
     imageUrl: '/media/education.webp', 
     features: [
