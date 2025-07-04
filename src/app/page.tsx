@@ -253,8 +253,8 @@ export default function Home() {
 
        <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-xl shadow-2xl animate-fade-in">
-            <div className="mb-6">
+          <div className="max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-xl shadow-2xl animate-fade-in text-center">
+            <div className="inline-block mb-6">
               <GrittrixLogo />
             </div>
             <h2 className="text-3xl font-headline font-bold text-primary mb-4">Driven by Purpose, Built with Passion</h2>
@@ -300,15 +300,13 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
-            <div className="inline-block text-left">
-              <div className="mb-6">
-                 <GrittrixLogo />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Explore Grittrix</h2>
-              <p className="text-lg text-foreground/80 max-w-3xl">
-                We Exist to help anyone work for themselves. Discover how our solutions and services can help you achieve your goals.
-              </p>
+            <div className="inline-block mb-6">
+                <GrittrixLogo />
             </div>
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Explore Grittrix</h2>
+            <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
+              We Exist to help anyone work for themselves. Discover how our solutions and services can help you achieve your goals.
+            </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-slide-in-up">
             {quickNavLinks.map((link) => {
