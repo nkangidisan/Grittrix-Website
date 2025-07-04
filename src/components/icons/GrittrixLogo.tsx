@@ -8,7 +8,7 @@ interface GrittrixLogoProps {
 export function GrittrixLogo({ className }: GrittrixLogoProps) {
   return (
     <div className={cn("flex items-center gap-3", className)}>
-      <div className="relative h-16 w-16 flex-shrink-0">
+      <div className="relative h-32 w-32 flex-shrink-0">
         <Image
           src="/media/disanlogo.png"
           alt="Grittrix AI Solutions Logo"
