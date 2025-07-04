@@ -27,7 +27,7 @@ type JobApplicationFormData = z.infer<typeof jobApplicationSchema>;
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"> {/* Changed accent to primary */}
+    <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
       {pending ? 'Submitting Application...' : 'Submit Application'}
     </Button>
   );
@@ -43,7 +43,7 @@ export function JobApplicationForm({ jobTitle }: JobApplicationFormProps) {
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
-  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<JobApplicationFormData>({
+  const { register, formState: { errors }, reset, setValue } = useForm<JobApplicationFormData>({
     resolver: zodResolver(jobApplicationSchema),
     defaultValues: {
       roleApplyingFor: jobTitle,
@@ -58,30 +58,25 @@ export function JobApplicationForm({ jobTitle }: JobApplicationFormProps) {
     setValue('roleApplyingFor', jobTitle);
   }, [jobTitle, setValue]);
   
-
   useEffect(() => {
-    if (state.success) {
-      toast({
-        title: "Application Submitted!",
-        description: state.message,
-        variant: "default", 
-      });
-      reset(); 
-      formRef.current?.reset(); 
-    } else if (state.message && !state.success && (state.issues === undefined || state.issues.length === 0)) { 
-      toast({
-        title: "Submission Error",
-        description: state.message,
-        variant: "destructive",
-      });
-    } else if (state.message && !state.success && state.issues && state.issues.length > 0) {
-       toast({
-        title: "Validation Error",
-        description: state.message,
-        variant: "destructive",
-      });
+    if (state.message) {
+      if (state.success) {
+        toast({
+          title: "Application Submitted!",
+          description: state.message,
+          variant: "default", 
+        });
+        reset();
+        formRef.current?.reset();
+      } else {
+        toast({
+          title: "Submission Error",
+          description: state.message,
+          variant: "destructive",
+        });
+      }
     }
-  }, [state, reset, toast]);
+  }, [state, toast, reset]);
 
   return (
     <form ref={formRef} action={formAction} className="space-y-6">

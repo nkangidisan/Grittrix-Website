@@ -28,7 +28,7 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"> {/* Changed accent to primary */}
+    <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
       {pending ? 'Sending...' : 'Send Message'}
     </Button>
   );
@@ -43,7 +43,7 @@ export function ContactForm() {
   const initialSubject = searchParams.get('subject') || '';
 
 
-  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<ContactFormData>({
+  const { register, formState: { errors }, reset } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
       subject: initialSubject,
@@ -54,29 +54,24 @@ export function ContactForm() {
   });
 
   useEffect(() => {
-    if (initialSubject) {
-      setValue('subject', initialSubject);
+    if (state.message) {
+      if (state.success) {
+        toast({
+          title: "Message Sent!",
+          description: state.message,
+          variant: "default",
+        });
+        reset();
+        formRef.current?.reset();
+      } else {
+        toast({
+          title: "Submission Error",
+          description: state.message,
+          variant: "destructive",
+        });
+      }
     }
-  }, [initialSubject, setValue]);
-  
-
-  useEffect(() => {
-    if (state.success) {
-      toast({
-        title: "Message Sent!",
-        description: state.message,
-        variant: "default",
-      });
-      reset(); 
-      formRef.current?.reset(); 
-    } else if (state.message && !state.success && state.issues === undefined) { 
-      toast({
-        title: "Error",
-        description: state.message,
-        variant: "destructive",
-      });
-    }
-  }, [state, reset, toast]);
+  }, [state, toast, reset]);
 
   return (
     <form ref={formRef} action={formAction} className="space-y-6">
@@ -90,7 +85,6 @@ export function ContactForm() {
           aria-invalid={errors.name ? "true" : "false"}
         />
         {errors.name && <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>}
-        {state.issues && state.fields?.name === '' && <p className="mt-1 text-sm text-destructive">{state.issues.find(issue => issue.toLowerCase().includes('name'))}</p>}
       </div>
 
       <div>
@@ -103,7 +97,6 @@ export function ContactForm() {
           aria-invalid={errors.email ? "true" : "false"}
         />
         {errors.email && <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>}
-         {state.issues && state.fields?.email === '' && <p className="mt-1 text-sm text-destructive">{state.issues.find(issue => issue.toLowerCase().includes('email'))}</p>}
       </div>
 
       <div>
@@ -112,6 +105,7 @@ export function ContactForm() {
           id="subject"
           type="text"
           {...register('subject')}
+          defaultValue={initialSubject}
           className="mt-1 bg-input/50"
         />
       </div>
@@ -126,7 +120,6 @@ export function ContactForm() {
           aria-invalid={errors.message ? "true" : "false"}
         />
         {errors.message && <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>}
-        {state.issues && state.fields?.message === '' && <p className="mt-1 text-sm text-destructive">{state.issues.find(issue => issue.toLowerCase().includes('message'))}</p>}
       </div>
       
       <SubmitButton />

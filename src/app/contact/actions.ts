@@ -27,7 +27,7 @@ export async function submitContactForm(
 
   if (!parsed.success) {
     return {
-      message: 'Invalid form data.',
+      message: 'Invalid form data. Please check the fields below.',
       fields: formData as Record<string, string>,
       issues: parsed.error.issues.map((issue) => issue.message),
       success: false,
@@ -40,11 +40,14 @@ export async function submitContactForm(
       submittedAt: new Date(),
     });
     console.log('Contact form submission stored with ID:', docRef.id);
-    return { message: 'Thank you! Your message has been received.', success: true };
+    return { 
+        message: 'Thank you! Your message has been submitted successfully. We will get back to you shortly.', 
+        success: true 
+    };
   } catch (error) {
     console.error('Error storing contact form submission to Firebase:', error);
     return {
-      message: 'An internal error occurred. Please try again later.',
+      message: 'An internal server error occurred. Please try again later.',
       success: false,
     };
   }

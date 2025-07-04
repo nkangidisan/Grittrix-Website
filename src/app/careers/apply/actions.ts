@@ -42,13 +42,13 @@ export async function submitJobApplication(
     });
     console.log('Job application stored with ID:', docRef.id);
     return { 
-        message: 'Thank you for your application! We have received your submission and will be in touch if your profile matches our current needs.', 
+        message: 'Thank you! Your application has been submitted successfully. We will be in touch if your profile is a match.', 
         success: true 
     };
   } catch (error) {
     console.error('Error storing job application to Firebase:', error);
     return {
-      message: 'An internal error occurred while submitting your application. Please try again later.',
+      message: 'An internal server error occurred while submitting your application. Please try again later.',
       success: false,
     };
   }
