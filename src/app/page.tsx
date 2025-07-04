@@ -255,7 +255,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-xl shadow-2xl animate-fade-in">
             <div className="inline-block mb-6">
-              <GrittrixLogo className="h-12 md:h-16" />
+              <GrittrixLogo />
             </div>
             <h2 className="text-3xl font-headline font-bold text-primary mb-4">Driven by Purpose, Built with Passion</h2>
             <p className="text-lg text-foreground/80 leading-relaxed">

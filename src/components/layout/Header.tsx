@@ -62,7 +62,7 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" aria-label="Grittrix Home" onClick={() => setIsMobileMenuOpen(false)}>
-            <GrittrixLogo className="h-10 w-auto" />
+            <GrittrixLogo className="w-auto" />
           </Link>
 
           <nav className="hidden lg:flex items-center space-x-1">
@@ -111,7 +111,7 @@ export function Header() {
                 <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
                 <div className="flex justify-between items-center p-6 border-b border-border">
                   <Link href="/" onClick={() => setIsMobileMenuOpen(false)} aria-label="Grittrix Home">
-                    <GrittrixLogo className="h-8 w-auto" />
+                    <GrittrixLogo className="w-auto" />
                   </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)} aria-label="Close mobile menu">
                     <X className="h-6 w-6" />

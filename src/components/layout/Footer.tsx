@@ -59,7 +59,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           <div className="md:col-span-2 lg:col-span-2">
             <Link href="/" aria-label="Grittrix Home">
-              <GrittrixLogo className="h-10 w-auto mb-4" />
+              <GrittrixLogo className="w-auto mb-4" />
             </Link>
             <p className="text-sm text-foreground/70 leading-relaxed">
               🔍 Pioneering AI-driven solutions for Africa and emerging markets. We are Grittrix — Redefining Industries with Technology.
