@@ -254,7 +254,9 @@ export default function Home() {
        <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-xl shadow-2xl animate-fade-in">
-            <Globe className="h-16 w-16 text-primary mx-auto mb-6" />
+            <div className="inline-block mb-6">
+              <GrittrixLogo className="h-12 md:h-16" />
+            </div>
             <h2 className="text-3xl font-headline font-bold text-primary mb-4">Driven by Purpose, Built with Passion</h2>
             <p className="text-lg text-foreground/80 leading-relaxed">
               We don’t just build products; we build trust. Grittrix empowers people to work for themselves, take control of their futures, and drive sustainable development through accessible technology.
@@ -299,7 +301,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
             <div className="inline-block mb-6">
-               <GrittrixLogo className="h-12 md:h-16" width={192} height={40}/>
+               <GrittrixLogo />
             </div>
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Explore Grittrix</h2>
             <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
