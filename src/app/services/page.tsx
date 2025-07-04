@@ -1,22 +1,31 @@
 
-'use client';
-
 import * as React from 'react';
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { ServiceItem } from '@/components/sections/ServiceItem';
 import { servicesList } from '@/lib/servicesData';
+import { optimizeContent, OptimizeContentInput } from '@/ai/flows/content-optimization';
 import {
   BrainCircuit, Cable, TrendingUp
 } from 'lucide-react';
 import Image from 'next/image';
 
-export default function ServicesPage() {
-  const fallbackTitle = "Our AI-Powered Services & Platforms";
-  const fallbackContent = "Grittrix delivers a comprehensive suite of ready-to-use, AI-powered platforms and services designed to modernize your operations and drive growth.\n\nWe specialize in making advanced technology accessible and impactful for businesses in emerging markets.";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await optimizeContent({ pageType: 'Services' });
+  return {
+    title: content.title,
+    description: content.content.split('\n\n')[0] || "Explore our comprehensive suite of AI solutions designed to empower your business and drive innovation in emerging markets."
+  };
+}
+
+
+export default async function ServicesPage() {
+  const content = await optimizeContent({ pageType: 'Services' });
 
   const breadcrumbs = [{ name: 'Services' }];
-  const pageTitle = fallbackTitle;
-  const serviceIntroContent = fallbackContent;
+  const pageTitle = content.title;
+  const serviceIntroContent = content.content;
 
   return (
     <>
@@ -34,7 +43,7 @@ export default function ServicesPage() {
                  {serviceIntroContent.split('\n\n').map((paragraph, index) => (
                     <p key={index}>{paragraph.trim()}</p>
                  ))}
-                 {!fallbackContent.includes("We specialize in transforming businesses") && <p>We specialize in transforming businesses through a diverse range of AI-driven services. Our expertise spans data analytics, machine learning, custom software development, and strategic AI integration, helping you navigate the complexities of the digital age and achieve sustainable success.</p>}
+                 <p>We specialize in transforming businesses through a diverse range of AI-driven services. Our expertise spans data analytics, machine learning, custom software development, and strategic AI integration, helping you navigate the complexities of the digital age and achieve sustainable success.</p>
             </div>
           </div>
 

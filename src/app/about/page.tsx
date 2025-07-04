@@ -7,11 +7,17 @@ import type { TeamMember } from '@/lib/types';
 import { Lightbulb, UsersRound, ShieldCheck, Mountain, Eye } from 'lucide-react';
 import Image from 'next/image';
 import type { ElementType } from 'react';
+import { optimizeContent, OptimizeContentInput } from '@/ai/flows/content-optimization';
 
-export const metadata: Metadata = {
-  title: 'About Grittrix | AI Solutions for Business Automation',
-  description: 'Learn about Grittrix\'s mission to provide AI-powered tools and automate processes for businesses in emerging markets. Meet our team and discover our core values.',
-};
+
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await optimizeContent({ pageType: 'About Us' });
+  return {
+    title: content.title,
+    description: 'Learn about Grittrix\'s mission to provide AI-powered tools and automate processes for businesses in emerging markets. Meet our team and discover our core values.',
+  };
+}
+
 
 const teamMembers: TeamMember[] = [
   { id: '1', name: 'Nkangi Disan', role: 'Founder & CEO', bio: 'Visionary leader passionate about leveraging technology for social good.', imageUrl: '/media/NkangiDisan1234.jpg', socials: { linkedin: 'https://www.linkedin.com/in/disan-nkangi-7ab2b62a9/' } },
@@ -39,13 +45,12 @@ const coreValues: CoreValue[] = [
 ];
 
 
-export default function AboutUsPage() {
-  const fallbackTitle = "About Grittrix: AI Solutions for Business Automation";
-  const fallbackContent = "Grittrix is on a mission to redefine industries with accessible, scalable, and localized AI-powered tools.\n\nBorn from a passion to solve real-world challenges, Grittrix develops intelligent systems that automate processes for sectors that matter: health, retail, agriculture, and education.\n\nWe believe that powerful technology shouldn't just be for the privileged few. Our AI solutions for business empower even the smallest organizations to thrive.";
+export default async function AboutUsPage() {
+  const content = await optimizeContent({ pageType: 'About Us' });
   
   const breadcrumbs = [{ name: 'About Us' }];
-  const pageTitle = fallbackTitle;
-  const storyContent = fallbackContent;
+  const pageTitle = content.title;
+  const storyContent = content.content;
 
   return (
     <>
