@@ -1,95 +1,74 @@
 
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { useEffect, useRef } from 'react';
-
+import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from "@/hooks/use-toast";
-import { submitJobApplication, type JobApplicationFormState } from '@/app/careers/apply/actions';
-
-const jobApplicationSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
-  email: z.string().email({ message: 'Invalid email address.' }),
-  roleApplyingFor: z.string().min(1, { message: 'Role is required.' }),
-  cvPortfolioLink: z.string().url({ message: 'Please enter a valid URL (e.g., https://linkedin.com/in/yourprofile or a Google Drive link).' }).optional().or(z.literal('')),
-  coverLetter: z.string().optional(),
-});
-
-type JobApplicationFormData = z.infer<typeof jobApplicationSchema>;
-
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-      {pending ? 'Submitting Application...' : 'Submit Application'}
-    </Button>
-  );
-}
 
 interface JobApplicationFormProps {
   jobTitle: string;
 }
 
 export function JobApplicationForm({ jobTitle }: JobApplicationFormProps) {
-  const initialState: JobApplicationFormState = { message: '', success: false };
-  const [state, formAction] = useFormState(submitJobApplication, initialState);
-  const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
-
-  const { register, formState: { errors }, reset, setValue } = useForm<JobApplicationFormData>({
-    resolver: zodResolver(jobApplicationSchema),
-    defaultValues: {
-      roleApplyingFor: jobTitle,
-      name: '',
-      email: '',
-      cvPortfolioLink: '',
-      coverLetter: '',
-    }
-  });
-
-  useEffect(() => {
-    setValue('roleApplyingFor', jobTitle);
-  }, [jobTitle, setValue]);
   
-  useEffect(() => {
-    if (state.message) {
-      if (state.success) {
-        toast({
-          title: "Application Submitted!",
-          description: state.message,
-          variant: "default", 
-        });
-        reset();
-        formRef.current?.reset();
-      } else {
-        toast({
-          title: "Submission Error",
-          description: state.message,
-          variant: "destructive",
-        });
-      }
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [cvPortfolioLink, setCvPortfolioLink] = React.useState('');
+  const [coverLetter, setCoverLetter] = React.useState('');
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (!name || !email) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill out your name and email.",
+        variant: "destructive",
+      });
+      return;
     }
-  }, [state, toast, reset]);
+    
+    const mailtoSubject = `Job Application: ${jobTitle}`;
+    const mailtoBody = `
+      Dear Grittrix Hiring Team,
+
+      Please consider my application for the role of ${jobTitle}.
+
+      Name: ${name}
+      Email: ${email}
+      CV/Portfolio Link: ${cvPortfolioLink || 'Not provided'}
+
+      --- Cover Letter ---
+      ${coverLetter || 'Not provided'}
+      --- End Cover Letter ---
+
+      Thank you for your time and consideration.
+
+      Sincerely,
+      ${name}
+    `;
+
+    const mailtoLink = `mailto:careers@grittrix.com?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody.trim())}`;
+    
+    window.location.href = mailtoLink;
+  };
 
   return (
-    <form ref={formRef} action={formAction} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         <Label htmlFor="name">Full Name</Label>
         <Input
           id="name"
           type="text"
-          {...register('name')}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           className="mt-1 bg-input/50"
-          aria-invalid={errors.name ? "true" : "false"}
+          required
         />
-        {errors.name && <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>}
       </div>
 
       <div>
@@ -97,11 +76,11 @@ export function JobApplicationForm({ jobTitle }: JobApplicationFormProps) {
         <Input
           id="email"
           type="email"
-          {...register('email')}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="mt-1 bg-input/50"
-          aria-invalid={errors.email ? "true" : "false"}
+          required
         />
-        {errors.email && <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>}
       </div>
 
       <div>
@@ -109,11 +88,10 @@ export function JobApplicationForm({ jobTitle }: JobApplicationFormProps) {
         <Input
           id="roleApplyingFor"
           type="text"
-          {...register('roleApplyingFor')}
+          value={jobTitle}
           className="mt-1 bg-input/50"
           readOnly 
         />
-        {errors.roleApplyingFor && <p className="mt-1 text-sm text-destructive">{errors.roleApplyingFor.message}</p>}
       </div>
       
       <div>
@@ -122,11 +100,10 @@ export function JobApplicationForm({ jobTitle }: JobApplicationFormProps) {
           id="cvPortfolioLink"
           type="url"
           placeholder="https://example.com/your-cv"
-          {...register('cvPortfolioLink')}
+          value={cvPortfolioLink}
+          onChange={(e) => setCvPortfolioLink(e.target.value)}
           className="mt-1 bg-input/50"
-          aria-invalid={errors.cvPortfolioLink ? "true" : "false"}
         />
-        {errors.cvPortfolioLink && <p className="mt-1 text-sm text-destructive">{errors.cvPortfolioLink.message}</p>}
       </div>
 
       <div>
@@ -135,13 +112,15 @@ export function JobApplicationForm({ jobTitle }: JobApplicationFormProps) {
           id="coverLetter"
           rows={6}
           placeholder="Tell us why you're a great fit for Grittrix and this role..."
-          {...register('coverLetter')}
+          value={coverLetter}
+          onChange={(e) => setCoverLetter(e.target.value)}
           className="mt-1 bg-input/50"
         />
-        {errors.coverLetter && <p className="mt-1 text-sm text-destructive">{errors.coverLetter.message}</p>}
       </div>
       
-      <SubmitButton />
+      <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+        Submit Application via Email
+      </Button>
     </form>
   );
 }

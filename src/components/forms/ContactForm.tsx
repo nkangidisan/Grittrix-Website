@@ -1,90 +1,61 @@
 
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { useEffect, useRef } from 'react';
+import * as React from 'react';
 import { useSearchParams } from 'next/navigation';
-
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { submitContactForm, type ContactFormState } from '@/app/contact/actions';
 import { useToast } from "@/hooks/use-toast";
 
-
-const contactFormSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
-  email: z.string().email({ message: 'Invalid email address.' }),
-  subject: z.string().optional(),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
-});
-
-type ContactFormData = z.infer<typeof contactFormSchema>;
-
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-      {pending ? 'Sending...' : 'Send Message'}
-    </Button>
-  );
-}
-
 export function ContactForm() {
-  const initialState: ContactFormState = { message: '', success: false };
-  const [state, formAction] = useFormState(submitContactForm, initialState);
-  const formRef = useRef<HTMLFormElement>(null);
-  const { toast } = useToast();
   const searchParams = useSearchParams();
-  const initialSubject = searchParams.get('subject') || '';
+  const { toast } = useToast();
+  
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [subject, setSubject] = React.useState(searchParams.get('subject') || '');
+  const [message, setMessage] = React.useState('');
 
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
 
-  const { register, formState: { errors }, reset } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      subject: initialSubject,
-      name: '',
-      email: '',
-      message: '',
+    if (!name || !email || !message) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill out your name, email, and message.",
+        variant: "destructive",
+      });
+      return;
     }
-  });
 
-  useEffect(() => {
-    if (state.message) {
-      if (state.success) {
-        toast({
-          title: "Message Sent!",
-          description: state.message,
-          variant: "default",
-        });
-        reset();
-        formRef.current?.reset();
-      } else {
-        toast({
-          title: "Submission Error",
-          description: state.message,
-          variant: "destructive",
-        });
-      }
-    }
-  }, [state, toast, reset]);
+    const mailtoSubject = subject || `Contact Form Submission from ${name}`;
+    const mailtoBody = `
+      Name: ${name}
+      Email: ${email}
+      -------------------
+      Message:
+      ${message}
+    `;
+
+    const mailtoLink = `mailto:hello@grittrix.com?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody.trim())}`;
+    
+    window.location.href = mailtoLink;
+  };
 
   return (
-    <form ref={formRef} action={formAction} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         <Label htmlFor="name">Full Name</Label>
         <Input
           id="name"
           type="text"
-          {...register('name')}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           className="mt-1 bg-input/50"
-          aria-invalid={errors.name ? "true" : "false"}
+          required
         />
-        {errors.name && <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>}
       </div>
 
       <div>
@@ -92,11 +63,11 @@ export function ContactForm() {
         <Input
           id="email"
           type="email"
-          {...register('email')}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="mt-1 bg-input/50"
-          aria-invalid={errors.email ? "true" : "false"}
+          required
         />
-        {errors.email && <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>}
       </div>
 
       <div>
@@ -104,8 +75,8 @@ export function ContactForm() {
         <Input
           id="subject"
           type="text"
-          {...register('subject')}
-          defaultValue={initialSubject}
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
           className="mt-1 bg-input/50"
         />
       </div>
@@ -115,14 +86,16 @@ export function ContactForm() {
         <Textarea
           id="message"
           rows={5}
-          {...register('message')}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           className="mt-1 bg-input/50"
-          aria-invalid={errors.message ? "true" : "false"}
+          required
         />
-        {errors.message && <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>}
       </div>
       
-      <SubmitButton />
+      <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+        Send Message via Email
+      </Button>
     </form>
   );
 }
