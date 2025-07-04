@@ -2,7 +2,6 @@
 import { HeroSection } from '@/components/sections/HeroSection';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
 import {
   HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Briefcase, Building, GitFork, Tv, Server, ShoppingBag, Phone, Mail, ArrowRight, Home as HomeIcon, Info, Settings, MessageSquare, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay, ExternalLink, Cpu, Stethoscope, Store, Sprout, GraduationCap, Users, TrendingUp
 } from 'lucide-react';
@@ -264,7 +263,15 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto bg-card p-8 md:p-12 rounded-xl shadow-2xl animate-fade-in text-center">
             <div className="inline-block mb-6">
-              <GrittrixLogo />
+                <div className="relative h-32 w-32">
+                <Image
+                    src="/media/disanlogo.png"
+                    alt="Grittrix AI Solutions Logo"
+                    fill
+                    className="object-contain"
+                    data-ai-hint="logo"
+                />
+                </div>
             </div>
             <h2 className="text-3xl font-headline font-bold text-primary mb-4">Driven by Purpose, Built with Passion</h2>
             <p className="text-lg text-foreground/80 leading-relaxed">
@@ -310,7 +317,15 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
             <div className="inline-block mb-6">
-                <GrittrixLogo />
+                <div className="relative h-32 w-32">
+                <Image
+                    src="/media/disanlogo.png"
+                    alt="Grittrix AI Solutions Logo"
+                    fill
+                    className="object-contain"
+                    data-ai-hint="logo"
+                />
+                </div>
             </div>
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">Explore Grittrix</h2>
             <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
