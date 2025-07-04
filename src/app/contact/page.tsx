@@ -8,11 +8,39 @@ import Link from 'next/link';
 
 export default function ContactPage() {
   const breadcrumbs = [{ name: 'Contact Us' }];
-  const whatsappMessage = "Hello! I'm visiting grittrix.com and I'm interested in learning more about your AI solutions.";
+  const whatsappMessage = "Hello Grittrix, I'm interested in your AI solutions.";
   const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
+  
+  const contactSchema = {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Grittrix | AI Solutions for Your Business",
+      "description": "Get in touch with Grittrix for a free consultation on AI solutions, custom software, and process automation to drive growth for your business.",
+      "url": "https://grittrix.com/contact",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://grittrix.com/contact"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Grittrix AI Solutions",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://grittrix.com/media/disanlogo.png"
+        }
+      }
+  };
 
   return (
     <>
+      <head>
+        <title>Contact Grittrix | AI Solutions for Your Business</title>
+        <meta name="description" content="Get in touch with Grittrix for a free consultation on AI solutions, custom software, and process automation to drive growth for your business." />
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+          />
+      </head>
       <PageHeader
         title="Get in Touch"
         description="We're here to help and answer any question you might have. We look forward to hearing from you!"

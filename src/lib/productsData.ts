@@ -6,7 +6,7 @@ export const productsList: Product[] = [
     id: 'CORE',
     name: 'Grittrix CORE™',
     tagline: 'The AI Operating System for Business Automation.',
-    description: 'The foundational AI engine powering Grittrix solutions. CORE is a robust AI-powered tool for developing and deploying applications that automate processes. It enables seamless data integration, advanced analytics, and intelligent automation for transformative business outcomes. A key AI solution for businesses aiming to scale.',
+    description: 'The foundational AI engine powering all Grittrix solutions. CORE is a robust AI-powered tool for developing and deploying applications that automate processes. It enables seamless data integration, advanced analytics, and intelligent automation for transformative business outcomes. A key AI solution for businesses of all sizes, from small businesses to large enterprises.',
     icon: 'Cpu',
     imageUrl: '/media/core.png', 
     features: [
@@ -23,7 +23,7 @@ export const productsList: Product[] = [
     id: 'Health',
     name: 'Grittrix Health™',
     tagline: 'AI-Powered Tools for Clinics and Pharmacies.',
-    description: 'An AI-powered tool empowering healthcare providers. Grittrix Health™ streamlines clinic workflows, optimizes pharmacy inventory, enhances diagnostic support through AI-assisted image analysis, and enables personalized patient care via predictive analytics. A complete AI solution to automate healthcare processes.',
+    description: 'An AI-powered tool empowering healthcare providers in emerging markets. Grittrix Health™ streamlines clinic workflows, optimizes pharmacy inventory, enhances diagnostic support through AI-assisted image analysis, and enables personalized patient care via predictive analytics. A complete AI solution to automate healthcare processes.',
     icon: 'Stethoscope',
     imageUrl: '/media/health.webp', 
     features: [
@@ -40,7 +40,7 @@ export const productsList: Product[] = [
     id: 'Retail',
     name: 'Grittrix Retail™',
     tagline: 'Automate Your Retail Processes with AI.',
-    description: 'Transform retail operations and customer experiences with this AI-powered tool. Grittrix Retail™ offers solutions for intelligent demand forecasting, dynamic inventory optimization, hyper-personalized customer engagement, and streamlined supply chain management. The perfect AI solution for businesses in retail.',
+    description: 'Transform retail operations and customer experiences with this AI-powered tool. Grittrix Retail™ offers solutions for intelligent demand forecasting, dynamic inventory optimization, hyper-personalized customer engagement, and streamlined supply chain management. The perfect AI solution for businesses in retail, especially small businesses looking to drive growth.',
     icon: 'Store',
     imageUrl: '/media/retail.webp', 
     features: [

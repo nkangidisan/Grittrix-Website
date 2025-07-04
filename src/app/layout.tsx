@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: '%s | Grittrix AI Solutions',
   },
   description: 'Grittrix provides cutting-edge AI solutions and AI-powered tools for businesses in Healthcare, Retail, Agriculture, and Education. We specialize in automating processes, providing data-driven insights, and building custom web and mobile applications to help companies scale and succeed in emerging markets.',
-  keywords: ['AI solutions for business', 'AI-powered tools', 'automate processes with AI', 'best website designers', 'best webapp designers', 'AI in healthcare', 'AI in retail', 'AI in agriculture', 'AI in education', 'machine learning Africa', 'Grittrix'],
+  keywords: ['AI solutions for business', 'AI for small business', 'AI-powered tools', 'automate processes with AI', 'custom software solutions', 'process automation', 'drive growth', 'best website designers', 'best webapp designers', 'AI in healthcare', 'AI in retail', 'AI in agriculture', 'AI in education', 'machine learning Africa', 'Grittrix', 'emerging markets'],
   openGraph: {
     title: 'Grittrix | AI Solutions for Business & Process Automation',
     description: 'Discover AI-Powered tools and services to automate your processes and drive growth. Grittrix specializes in solutions for Healthcare, Retail, Agriculture, and Education.',
@@ -61,7 +61,7 @@ export default function RootLayout({
     "@type": "Organization",
     "name": "Grittrix AI Solutions",
     "url": "https://grittrix.com",
-    "logo": "https://grittrix.com/media/grittrix-logo.png",
+    "logo": "https://grittrix.com/media/disanlogo.png",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+256-756-693840",

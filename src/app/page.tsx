@@ -4,14 +4,14 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
 import {
-  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Briefcase, Building, GitFork, Tv, Server, ShoppingBag, Phone, Mail, ArrowRight, Home as HomeIcon, Info, Settings, MessageSquare, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay, ExternalLink, Cpu, Stethoscope, Store, Sprout, GraduationCap
+  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Briefcase, Building, GitFork, Tv, Server, ShoppingBag, Phone, Mail, ArrowRight, Home as HomeIcon, Info, Settings, MessageSquare, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay, ExternalLink, Cpu, Stethoscope, Store, Sprout, GraduationCap, Users, TrendingUp
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ElementType } from 'react';
 
 const iconMap: { [key: string]: ElementType } = {
-  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, CheckCircle, Building, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ShoppingBag, ServerCog, MonitorPlay, Cpu, Stethoscope, Store, Sprout, GraduationCap
+  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, CheckCircle, Building, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ShoppingBag, ServerCog, MonitorPlay, Cpu, Stethoscope, Store, Sprout, GraduationCap, Globe, Users, TrendingUp
 };
 
 const keyFeatures = [
@@ -86,10 +86,10 @@ const whoWeWorkWith = [
 ];
 
 const whyWorkWithGrittrix = [
-    { name: 'Deep understanding of emerging market dynamics' },
-    { name: 'Culturally and contextually relevant tech' },
-    { name: 'Transparent collaboration and agile delivery' },
-    { name: 'Focused on impact, not just innovation' },
+    { title: 'Emerging Market Expertise', description: 'Deep understanding of local dynamics to build culturally and contextually relevant AI solutions.', icon: 'Globe'},
+    { title: 'Localized AI Solutions', description: 'We don\'t just apply technology; we adapt it, ensuring our AI-powered tools are effective in your specific environment.', icon: 'Puzzle'},
+    { title: 'Agile & Transparent Partnership', description: 'We work with you every step of the way, ensuring our custom software solutions meet your exact needs on time.', icon: 'Users'},
+    { title: 'Impact-Driven Innovation', description: 'Our goal is tangible results. We build AI tools to drive growth, increase efficiency, and deliver real-world value.', icon: 'TrendingUp'},
 ];
 
 const testimonials = [
@@ -139,18 +139,27 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Why Work With Grittrix?</h2>
+             <p className="text-lg text-foreground/80 max-w-3xl mx-auto animate-fade-in animation-delay-200">
+              We provide more than just technology. We deliver custom software solutions and strategic partnerships to help you drive growth and automate your business.
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyWorkWithGrittrix.map((point, index) => (
-              <Card key={point.name} className="text-center p-6 bg-card rounded-lg shadow-lg hover:shadow-primary/30 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
-                <CardHeader className="items-center p-0 mb-4">
-                  <div className="p-4 bg-primary/10 rounded-full mb-3">
-                    <CheckCircle className="h-10 w-10 text-primary" />
-                  </div>
-                  <CardTitle className="font-headline text-lg text-primary">{point.name}</CardTitle>
-                </CardHeader>
-              </Card>
-            ))}
+            {whyWorkWithGrittrix.map((point, index) => {
+              const PointIcon = iconMap[point.icon];
+              return (
+                <Card key={point.title} className="text-center p-6 bg-card rounded-lg shadow-lg hover:shadow-primary/30 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
+                  <CardHeader className="items-center p-0 mb-4">
+                    <div className="p-4 bg-primary/10 rounded-full mb-3">
+                      {PointIcon && <PointIcon className="h-10 w-10 text-primary" />}
+                    </div>
+                    <CardTitle className="font-headline text-lg text-primary">{point.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <p className="text-sm text-foreground/70">{point.description}</p>
+                  </CardContent>
+                </Card>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -231,7 +240,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Who We Work With</h2>
             <p className="text-lg text-foreground/80 max-w-2xl mx-auto animate-fade-in animation-delay-200">
-              We partner with a diverse range of organizations committed to innovation and growth in emerging markets.
+              We partner with a diverse range of organizations committed to innovation and growth in emerging markets, from startups to large enterprises.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
