@@ -50,7 +50,7 @@ const footerNavs = [
 
 
 export function Footer() {
-  const whatsappMessage = "Welcome to Grittrix, Redefining Industries with Technology! We build powerful, websites, webapps and affordable AI and data solutions tailored for healthcare, retail, agriculture, and education helping businesses and institutions unlock smarter decisions, automate operations, and scale with confidence. Let us know how we can serve you at our best.";
+  const whatsappMessage = "Hello! I'm visiting grittrix.com and I'm interested in learning more about your AI solutions.";
   const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
 
   return (
