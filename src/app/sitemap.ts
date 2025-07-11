@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date().toISOString();
 
   // Static pages
-  const staticRoutes = [
+  const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${domain}/`, changeFrequency: 'daily', priority: 1.0 },
     { url: `${domain}/about`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${domain}/services`, changeFrequency: 'monthly', priority: 0.9 },
@@ -36,38 +36,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ].map(route => ({ ...route, lastModified }));
 
   // Dynamic product pages
-  const productRoutes = productsList.map((product) => ({
+  const productRoutes: MetadataRoute.Sitemap = productsList.map((product) => ({
     url: `${domain}/products/${product.id}`,
     lastModified,
-    changeFrequency: 'monthly' as const,
+    changeFrequency: 'monthly',
     priority: 0.8,
   }));
 
   // Dynamic industry pages
-  const industryRoutes = Object.keys(industryDetailsData).map((slug) => ({
+  const industryRoutes: MetadataRoute.Sitemap = Object.keys(industryDetailsData).map((slug) => ({
     url: `${domain}/industries/${slug}`,
     lastModified,
-    changeFrequency: 'monthly' as const,
+    changeFrequency: 'monthly',
     priority: 0.8,
   }));
 
   // Dynamic service pages
-  const serviceRoutes = servicesList
+  const serviceRoutes: MetadataRoute.Sitemap = servicesList
     .filter(service => service.detailsUrl)
     .map((service) => ({
       url: `${domain}${service.detailsUrl}`,
       lastModified,
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly',
       priority: 0.7,
   }));
   
   // Dynamic job application pages
-  const jobRoutes = jobListings
+  const jobRoutes: MetadataRoute.Sitemap = jobListings
     .filter(job => job.applyUrl)
     .map((job) => ({
         url: `${domain}${job.applyUrl}`,
         lastModified,
-        changeFrequency: 'weekly' as const,
+        changeFrequency: 'weekly',
         priority: 0.6,
   }));
 
