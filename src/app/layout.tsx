@@ -11,14 +11,14 @@ import { FinalCtaSection } from '@/components/layout/FinalCtaSection';
 export const metadata: Metadata = {
   metadataBase: new URL('https://grittrix.com'),
   title: {
-    default: 'Grittrix | AI Solutions for Business & Process Automation',
+    default: 'Grittrix | AI Solutions for Business | Automate Your Processes',
     template: '%s | Grittrix AI Solutions',
   },
-  description: 'Grittrix provides cutting-edge AI solutions and AI-powered tools for businesses in Healthcare, Retail, Agriculture, and Education. We specialize in automating processes, providing data-driven insights, and building custom web and mobile applications to help companies scale and succeed in emerging markets.',
-  keywords: ['AI solutions for business', 'AI for small business', 'AI-powered tools', 'automate processes with AI', 'custom software solutions', 'process automation', 'drive growth', 'best website designers', 'best webapp designers', 'AI in healthcare', 'AI in retail', 'AI in agriculture', 'AI in education', 'machine learning Africa', 'Grittrix', 'emerging markets'],
+  description: 'Grittrix delivers premier AI solutions for businesses seeking to automate processes and drive growth. We specialize in AI-powered tools, custom software solutions, and expert webapp design for companies in emerging markets.',
+  keywords: ['Grittrix', 'AI solutions', 'AI for small business', 'AI-powered tools', 'automate processes', 'automate your business', 'drive growth', 'custom software solutions', 'custom webapp', 'best website designers', 'AI in healthcare', 'AI in retail', 'AI in agriculture', 'emerging markets'],
   openGraph: {
     title: 'Grittrix | AI Solutions for Business & Process Automation',
-    description: 'Discover AI-Powered tools and services to automate your processes and drive growth. Grittrix specializes in solutions for Healthcare, Retail, Agriculture, and Education.',
+    description: 'Discover premier AI-powered tools and custom software solutions from Grittrix to automate your business processes and accelerate growth.',
     url: 'https://grittrix.com',
     siteName: 'Grittrix AI Solutions',
     images: [
@@ -41,13 +41,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+    "max-video-preview": -1,
+    "max-image-preview": "large",
+    "max-snippet": -1,
   },
 };
 
@@ -60,6 +56,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Grittrix AI Solutions",
+    "alternateName": "Grittrix",
     "url": "https://grittrix.com",
     "logo": "https://grittrix.com/media/disanlogo.png",
     "contactPoint": {
