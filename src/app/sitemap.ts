@@ -18,28 +18,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const domain = 'https://grittrix.com';
   const lastModified = new Date().toISOString();
 
+  // Define a type for the change frequency to satisfy TypeScript
+  type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+
   // Static pages
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${domain}/`, changeFrequency: 'daily', priority: 1.0 },
-    { url: `${domain}/about`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${domain}/services`, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${domain}/industries`, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${domain}/products`, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${domain}/blog`, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${domain}/careers`, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${domain}/contact`, changeFrequency: 'yearly', priority: 0.5 },
-    { url: `${domain}/design-services`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${domain}/hosting`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${domain}/merch`, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${domain}/faq`, changeFrequency: 'yearly', priority: 0.5 },
-    { url: `${domain}/privacy`, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${domain}/`, changeFrequency: 'daily' as ChangeFrequency, priority: 1.0 },
+    { url: `${domain}/about`, changeFrequency: 'monthly' as ChangeFrequency, priority: 0.8 },
+    { url: `${domain}/services`, changeFrequency: 'monthly' as ChangeFrequency, priority: 0.9 },
+    { url: `${domain}/industries`, changeFrequency: 'monthly' as ChangeFrequency, priority: 0.9 },
+    { url: `${domain}/products`, changeFrequency: 'monthly' as ChangeFrequency, priority: 0.9 },
+    { url: `${domain}/blog`, changeFrequency: 'weekly' as ChangeFrequency, priority: 0.7 },
+    { url: `${domain}/careers`, changeFrequency: 'weekly' as ChangeFrequency, priority: 0.7 },
+    { url: `${domain}/contact`, changeFrequency: 'yearly' as ChangeFrequency, priority: 0.5 },
+    { url: `${domain}/design-services`, changeFrequency: 'monthly' as ChangeFrequency, priority: 0.8 },
+    { url: `${domain}/hosting`, changeFrequency: 'monthly' as ChangeFrequency, priority: 0.8 },
+    { url: `${domain}/merch`, changeFrequency: 'monthly' as ChangeFrequency, priority: 0.6 },
+    { url: `${domain}/faq`, changeFrequency: 'yearly' as ChangeFrequency, priority: 0.5 },
+    { url: `${domain}/privacy`, changeFrequency: 'yearly' as ChangeFrequency, priority: 0.3 },
   ].map(route => ({ ...route, lastModified }));
 
   // Dynamic product pages
   const productRoutes: MetadataRoute.Sitemap = productsList.map((product) => ({
     url: `${domain}/products/${product.id}`,
     lastModified,
-    changeFrequency: 'monthly',
+    changeFrequency: 'monthly' as ChangeFrequency,
     priority: 0.8,
   }));
 
@@ -47,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const industryRoutes: MetadataRoute.Sitemap = Object.keys(industryDetailsData).map((slug) => ({
     url: `${domain}/industries/${slug}`,
     lastModified,
-    changeFrequency: 'monthly',
+    changeFrequency: 'monthly' as ChangeFrequency,
     priority: 0.8,
   }));
 
@@ -57,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map((service) => ({
       url: `${domain}${service.detailsUrl}`,
       lastModified,
-      changeFrequency: 'monthly',
+      changeFrequency: 'monthly' as ChangeFrequency,
       priority: 0.7,
   }));
   
@@ -67,7 +70,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map((job) => ({
         url: `${domain}${job.applyUrl}`,
         lastModified,
-        changeFrequency: 'weekly',
+        changeFrequency: 'weekly' as ChangeFrequency,
         priority: 0.6,
   }));
 
