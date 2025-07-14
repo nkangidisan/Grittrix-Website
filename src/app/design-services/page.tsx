@@ -47,23 +47,23 @@ export default function DesignServicesPage() {
       "name": "Grittrix AI Solutions"
     },
     "areaServed": "Worldwide",
-    "description": "Grittrix offers custom web and app design services, crafting high-performing websites and mobile applications that are intelligent, user-friendly, and future-ready. We are among the best website and webapp designers for businesses looking to integrate AI.",
-    "name": "Custom Web & App Design Services"
+    "description": "Grittrix offers affordable and cost-effective web/app design services. We are among the cheaper website and webapp designers for businesses looking to integrate AI without breaking the bank.",
+    "name": "Affordable Web & App Design Services"
   };
 
   return (
     <>
       <head>
-          <title>Best Website & App Designers | AI-Integrated Solutions | Grittrix</title>
-          <meta name="description" content="Looking for the best website and webapp designers? Grittrix builds stunning, high-performing digital experiences with cutting-edge AI to automate your processes." />
+          <title>Affordable & Cheaper Website Designers | Grittrix</title>
+          <meta name="description" content="Looking for cheaper website designers who don't compromise on quality? Grittrix offers affordable, cost-effective webapp design with cutting-edge AI to automate your processes." />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
           />
       </head>
       <PageHeader
-        title="Custom Web & App Design Services"
-        description="We are among the best website and webapp designers, crafting stunning, high-performing digital experiences that not only look great but also drive results. Our AI-first approach ensures your project is intelligent and future-ready."
+        title="Affordable Web & App Design Services"
+        description="We offer cost-effective and high-quality digital experiences that drive results. Our AI-first approach ensures your project is intelligent, future-ready, and budget-friendly."
         breadcrumbs={breadcrumbs}
       />
 
@@ -72,7 +72,7 @@ export default function DesignServicesPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-headline text-primary mb-4">Our Design & Development Philosophy</h2>
             <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-              At Grittrix, we blend creative design with cutting-edge technology to build digital experiences that captivate users and achieve business objectives. We specialize in AI-integrated web and mobile solutions to automate your processes.
+              At Grittrix, we provide top-tier design at an affordable price. We blend creative design with cutting-edge technology to build digital experiences that captivate users and achieve business objectives, making us one of the best cheaper website designers available.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -132,15 +132,15 @@ export default function DesignServicesPage() {
                 <div>
                     <h2 className="text-3xl font-bold font-headline text-primary mb-6">Why Choose Our Web & App Designers?</h2>
                     <ul className="space-y-4 text-foreground/80 text-lg">
-                        <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span><strong>AI-Integration Expertise:</strong> We build smart applications that leverage AI for enhanced functionality and process automation.</span></li>
+                        <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span><strong>Affordable AI Integration:</strong> We build smart applications that leverage AI for enhanced functionality at a cost-effective price point.</span></li>
                         <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span><strong>User-Centric Design:</strong> Our designs prioritize user experience, ensuring intuitiveness and engagement.</span></li>
-                        <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span><strong>Emerging Market Focus:</strong> We are among the best webapp designers for the unique contexts of users in Africa and emerging markets.</span></li>
+                        <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span><strong>Emerging Market Focus:</strong> We are among the best, cheaper webapp designers for the unique contexts of users in Africa and emerging markets.</span></li>
                         <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span><strong>End-to-End Solutions:</strong> From concept to launch and beyond, we provide comprehensive design and development services.</span></li>
                     </ul>
                 </div>
                 <div className="bg-card p-8 rounded-lg shadow-xl">
                     <h2 className="text-2xl font-bold font-headline text-primary mb-6">Request a Quote</h2>
-                    <p className="text-sm text-foreground/70 mb-6">Have a project in mind? Tell us about your requirements, and we'll get back to you with a tailored proposal.</p>
+                    <p className="text-sm text-foreground/70 mb-6">Have a project in mind? Tell us about your requirements, and we'll get back to you with a tailored, affordable proposal.</p>
                     <React.Suspense fallback={<p className="text-foreground/80">Loading form...</p>}>
                       <ContactForm />
                     </React.Suspense>

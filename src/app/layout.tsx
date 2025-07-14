@@ -11,16 +11,16 @@ import { FinalCtaSection } from '@/components/layout/FinalCtaSection';
 export const metadata: Metadata = {
   metadataBase: new URL('https://grittrix.com'),
   title: {
-    default: 'Grittrix | AI Solutions for Business | Automate Your Processes',
-    template: '%s | Grittrix AI Solutions',
+    default: 'Grittrix: AI Solutions for Business & Process Automation',
+    template: '%s | Grittrix',
   },
   description: 'Grittrix delivers premier AI solutions for businesses seeking to automate processes and drive growth. We specialize in AI-powered tools, custom software solutions, and expert webapp design for companies in emerging markets.',
-  keywords: ['Grittrix', 'AI solutions', 'AI for small business', 'AI-powered tools', 'automate processes', 'automate your business', 'drive growth', 'custom software solutions', 'custom webapp', 'best website designers', 'AI in healthcare', 'AI in retail', 'AI in agriculture', 'emerging markets'],
+  keywords: ['Grittrix', 'AI solutions', 'AI for small business', 'AI-powered tools', 'automate processes', 'automate your business', 'drive growth', 'custom software solutions', 'custom webapp', 'best website designers', 'cheaper website designer', 'affordable webapp design', 'AI in healthcare', 'AI in retail', 'AI in agriculture', 'emerging markets'],
   openGraph: {
-    title: 'Grittrix | AI Solutions for Business & Process Automation',
+    title: 'Grittrix: AI Solutions for Business & Process Automation',
     description: 'Discover premier AI-powered tools and custom software solutions from Grittrix to automate your business processes and accelerate growth.',
     url: 'https://grittrix.com',
-    siteName: 'Grittrix AI Solutions',
+    siteName: 'Grittrix',
     images: [
       {
         url: '/media/homepage.jpg',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Grittrix | AI Solutions for Business & Process Automation',
+    title: 'Grittrix: AI Solutions for Business & Process Automation',
     description: 'Pioneering AI-Powered Solutions for Healthcare, Retail,Agriculture, and Education in Africa and other emerging markets.',
     images: ['/media/homepage.jpg'],
   },
@@ -55,8 +55,8 @@ export default function RootLayout({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Grittrix AI Solutions",
-    "alternateName": "Grittrix",
+    "name": "Grittrix",
+    "alternateName": "Grittrix AI Solutions",
     "url": "https://grittrix.com",
     "logo": "https://grittrix.com/media/disanlogo.png",
     "contactPoint": {
@@ -76,9 +76,9 @@ export default function RootLayout({
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Grittrix AI Solutions",
+    "name": "Grittrix",
     "url": "https://grittrix.com",
-    "description": "Your partner for AI solutions, AI-powered tools, and process automation for businesses in emerging markets. We also feature some of the best website and webapp designers for your custom projects."
+    "description": "Your partner for AI solutions, AI-powered tools, and process automation for businesses in emerging markets. We also feature some of the best and most affordable website and webapp designers for your custom projects."
   };
 
   return (
