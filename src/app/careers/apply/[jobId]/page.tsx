@@ -73,7 +73,6 @@ export async function generateMetadata({ params }: ApplyJobPageProps): Promise<M
   return {
     title: `Apply for ${job.title} | Grittrix Careers`,
     description: job.description,
-    robots: { index: false, follow: false },
   };
 }
 
