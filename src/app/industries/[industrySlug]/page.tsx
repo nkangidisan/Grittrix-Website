@@ -2,13 +2,13 @@
 import * as React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { industryDetailsData } from '@/lib/industriesData';
 import { PageHeader } from '@/components/PageHeader';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { industryDetailsData } from '@/lib/industriesData';
 
 interface IndustryPageProps {
   params: { industrySlug: string };
@@ -47,12 +47,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function IndustryPage({ params }: IndustryPageProps) {
+export default function IndustryPage({ params }: { params: { industrySlug: string } }) {
   const industry = industryDetailsData[params.industrySlug];
 
   if (!industry) {
     notFound();
-    return null;
+    return null; 
   }
 
   const breadcrumbs = [
