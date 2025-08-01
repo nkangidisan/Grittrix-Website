@@ -11,7 +11,7 @@ import { FinalCtaSection } from '@/components/layout/FinalCtaSection';
 export const metadata: Metadata = {
   metadataBase: new URL('https://grittrix.com'),
   title: {
-    default: 'Grittrix: AI Solutions for Business & Process Automation',
+    default: 'Grittrix: The Official Site for AI Solutions & Business Automation',
     template: '%s | Grittrix',
   },
   description: 'Grittrix delivers premier AI solutions for businesses seeking to automate processes and drive growth. We specialize in AI-powered tools, custom software solutions, and expert webapp design for companies in emerging markets.',
