@@ -353,9 +353,6 @@ export default function Home() {
           <div className="mt-12 text-center space-y-4 animate-fade-in animation-delay-300">
              <h3 className="text-xl font-headline font-semibold text-primary">Connect With Us</h3>
             <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-foreground/80">
-              <a href="tel:+919714688324" className="flex items-center hover:text-primary transition-colors">
-                <Phone className="h-5 w-5 mr-2 text-primary" /> +91 9714688324
-              </a>
               <a href="tel:+256756693840" className="flex items-center hover:text-primary transition-colors">
                 <Phone className="h-5 w-5 mr-2 text-primary" /> +256 756693840
               </a>
