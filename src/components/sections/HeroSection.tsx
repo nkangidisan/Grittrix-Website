@@ -14,7 +14,7 @@ export function HeroSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left animate-slide-in-up">
             <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-              We Create Modern, Innovative 
+              We Create Modern, Innovative
               <span className="block text-primary">AI-Powered Websites & Apps</span>
               That Produce Results
             </h1>
