@@ -2,19 +2,15 @@
 'use client';
 
 import * as React from 'react';
-import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Palette, Layers, Smartphone, Rocket, CheckCircle } from 'lucide-react';
+import { Palette, Layers, Smartphone, Rocket, CheckCircle, Star } from 'lucide-react';
 import { ContactForm } from '@/components/forms/ContactForm';
 import type { ElementType } from 'react';
 
-// Note: Metadata is defined in generateMetadata for server components,
-// but we can't do that in a 'use client' component.
-// We'll rely on the head tag in layout.tsx for general metadata and add specific structured data here.
 
 interface DesignProcessStep {
   title: string;
@@ -35,6 +31,69 @@ const portfolioItems = [
   { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/media/AgriGrowFarmerPortal.png', altText: 'AgriGrow farmer portal dashboard illustration displaying crop data', dataAiHint: 'agriculture portal' },
 ];
 
+const pricingPlans = [
+  {
+    name: "Starter",
+    price: "$150",
+    description: "Perfect for personal sites or startups.",
+    features: [
+      "1-3 Page Website",
+      "Custom UI/UX Design",
+      "Mobile Responsive",
+      "Basic SEO Setup",
+      "Contact Form",
+      "1 Week Support",
+    ],
+    recommended: false,
+  },
+  {
+    name: "Business",
+    price: "$250",
+    description: "Ideal for small businesses and professionals.",
+    features: [
+      "Up to 5 Pages",
+      "Custom UI/UX Design",
+      "Mobile Responsive",
+      "Advanced SEO Setup",
+      "CMS Integration (e.g., WordPress)",
+      "Basic AI Chatbot Integration",
+      "2 Weeks Support",
+    ],
+    recommended: false,
+  },
+  {
+    name: "Professional",
+    price: "$500",
+    description: "For growing businesses needing more power.",
+    features: [
+      "Up to 10 Pages",
+      "Premium Custom Design",
+      "E-commerce Functionality",
+      "Advanced AI Chatbot with NLP",
+      "API Integrations (up to 3)",
+      "Performance Optimization",
+      "1 Month Priority Support",
+    ],
+    recommended: true,
+  },
+  {
+    name: "Enterprise",
+    price: "$750+",
+    description: "Custom solutions for large-scale projects.",
+    features: [
+      "Unlimited Pages",
+      "Bespoke Design System",
+      "Full E-commerce Suite",
+      "Custom AI Model Integration",
+      "Advanced API Development",
+      "Dedicated Project Manager",
+      "Ongoing Support & Maintenance",
+    ],
+    recommended: false,
+  },
+];
+
+
 export default function DesignServicesPage() {
   const breadcrumbs = [{ name: 'Web/App Design' }];
 
@@ -54,8 +113,8 @@ export default function DesignServicesPage() {
   return (
     <>
       <head>
-          <title>Affordable & Cheaper Website Designers | Grittrix</title>
-          <meta name="description" content="Looking for cheaper website designers who don't compromise on quality? Grittrix offers affordable, cost-effective webapp design with cutting-edge AI to automate your processes." />
+          <title>Affordable & Cheaper Website Designer | Cost-Effective Web App Design</title>
+          <meta name="description" content="Looking for a cheaper website designer who delivers quality? Grittrix offers affordable, cost-effective web and webapp design with cutting-edge AI to automate your processes. Get a quote today!" />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
@@ -97,6 +156,52 @@ export default function DesignServicesPage() {
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold font-headline text-primary mb-4">Our Packages</h2>
+            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
+              Choose a plan that's right for you. We offer cost-effective packages for every stage of your business.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+            {pricingPlans.map((plan) => (
+                <Card key={plan.name} className={`flex flex-col ${plan.recommended ? 'border-2 border-primary shadow-primary/30 shadow-lg relative' : 'bg-card'}`}>
+                  {plan.recommended && (
+                    <div className="absolute -top-4 right-4 bg-primary text-primary-foreground px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full flex items-center gap-1">
+                      <Star className="h-3 w-3" />
+                      Best Value
+                    </div>
+                  )}
+                  <CardHeader className="text-center">
+                    <CardTitle className="font-headline text-2xl text-primary">{plan.name}</CardTitle>
+                    <p className="text-4xl font-bold text-foreground my-2">{plan.price}</p>
+                    <p className="text-sm text-foreground/70 h-10">{plan.description}</p>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <ul className="space-y-3">
+                      {plan.features.map((feature) => (
+                        <li key={feature} className="flex items-start text-sm">
+                          <CheckCircle className="h-4 w-4 text-accent mr-2 mt-0.5 shrink-0" />
+                          <span className="text-foreground/80">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <div className="p-6 pt-0 mt-4">
+                    <Button 
+                      asChild 
+                      className={`w-full ${plan.recommended ? 'bg-primary hover:bg-primary/90 text-primary-foreground' : 'bg-primary/80 hover:bg-primary/70 text-primary-foreground'}`}
+                    >
+                      <Link href={`/contact?subject=${encodeURIComponent('Design Plan Inquiry: ' + plan.name)}`}><span>Get Started</span></Link>
+                    </Button>
+                  </div>
+                </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-headline text-primary mb-4">Our Portfolio</h2>
             <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
               Take a look at some of the innovative digital solutions we've delivered for our clients.
@@ -126,7 +231,7 @@ export default function DesignServicesPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
                 <div>
@@ -151,3 +256,5 @@ export default function DesignServicesPage() {
     </>
   );
 }
+
+    
