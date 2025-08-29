@@ -11,13 +11,13 @@ import { FinalCtaSection } from '@/components/layout/FinalCtaSection';
 export const metadata: Metadata = {
   metadataBase: new URL('https://grittrix.com'),
   title: {
-    default: 'Grittrix: The Official Site for AI Solutions & Business Automation',
+    default: 'Grittrix: AI Solutions for Business & Process Automation',
     template: '%s | Grittrix',
   },
-  description: 'Grittrix delivers premier AI solutions for businesses seeking to automate processes and drive growth. We specialize in AI-powered tools, custom software solutions, and expert webapp design for companies in emerging markets.',
+  description: 'Grittrix delivers premier AI solutions, modern websites, and innovative web/mobile apps for businesses seeking to automate processes and drive growth. We specialize in AI-powered tools for companies in emerging markets.',
   keywords: ['Grittrix', 'AI solutions', 'AI for small business', 'AI-powered tools', 'automate processes', 'automate your business', 'drive growth', 'custom software solutions', 'custom webapp', 'best website designers', 'cheaper website designer', 'affordable webapp design', 'AI in healthcare', 'AI in retail', 'AI in agriculture', 'emerging markets'],
   openGraph: {
-    title: 'Grittrix: AI Solutions for Business & Process Automation',
+    title: 'Grittrix: Modern AI-Powered Websites & Apps That Drive Growth',
     description: 'Discover premier AI-powered tools and custom software solutions from Grittrix to automate your business processes and accelerate growth.',
     url: 'https://grittrix.com',
     siteName: 'Grittrix',

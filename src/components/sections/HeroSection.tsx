@@ -14,12 +14,12 @@ export function HeroSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left animate-slide-in-up">
             <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-              AI-Powered Tools to
-              <span className="block text-primary">Automate Your Business</span>
-              and Drive Growth
+              We Create Modern, Innovative 
+              <span className="block text-primary">AI-Powered Websites & Apps</span>
+              That Produce Results
             </h1>
             <p className="text-lg sm:text-xl text-foreground/80 mb-10 max-w-xl mx-auto md:mx-0">
-             Grittrix delivers intelligent, AI-powered tools and custom software solutions designed to automate processes, drive growth, and scale with confidence. Explore our AI solutions for businesses in healthcare, retail, agriculture, and education.
+             Grittrix delivers intelligent, AI-powered web and mobile applications designed to automate processes, drive growth, and scale with confidence. Explore our solutions for businesses in healthcare, retail, agriculture, and education.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transform transition-transform hover:scale-105">
