@@ -13,12 +13,12 @@ export function HeroSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
-            <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 animate-slide-in-up">
-              We create Modern, Innovative
-              <span className="block text-primary animate-glow animation-delay-500">
-                AI-Powered Websites & Apps
+            <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+              <span className="block animate-slide-in-up">We create Modern, Innovative</span>
+              <span className="block text-primary animate-slide-in-up animation-delay-300">
+                <span className="animate-glow">AI-Powered Websites & Apps</span>
               </span>
-              that produce results
+              <span className="block animate-slide-in-up animation-delay-500">that produce results</span>
             </h1>
             <p className="text-lg sm:text-xl text-foreground/80 mb-10 max-w-xl mx-auto md:mx-0 animate-slide-in-up animation-delay-300">
              Grittrix delivers intelligent, AI-powered web and mobile applications designed to automate processes, drive growth, and scale with confidence. Explore our solutions for businesses in healthcare, retail, agriculture, and education.
