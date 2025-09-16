@@ -12,16 +12,18 @@ export function HeroSection() {
       </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-center md:text-left animate-slide-in-up">
-            <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-              We Create Modern, Innovative
-              <span className="block text-primary">AI-Powered Websites & Apps</span>
-              That Produce Results
+          <div className="text-center md:text-left">
+            <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 animate-slide-in-up">
+              We create Modern, Innovative
+              <span className="block text-primary animate-glow animation-delay-500">
+                AI-Powered Websites & Apps
+              </span>
+              that produce results
             </h1>
-            <p className="text-lg sm:text-xl text-foreground/80 mb-10 max-w-xl mx-auto md:mx-0">
+            <p className="text-lg sm:text-xl text-foreground/80 mb-10 max-w-xl mx-auto md:mx-0 animate-slide-in-up animation-delay-300">
              Grittrix delivers intelligent, AI-powered web and mobile applications designed to automate processes, drive growth, and scale with confidence. Explore our solutions for businesses in healthcare, retail, agriculture, and education.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-slide-in-up animation-delay-500">
               <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transform transition-transform hover:scale-105">
                 <Link href={`/contact?subject=${encodeURIComponent('Demo Request for AI Tools')}`}>
                   <span>

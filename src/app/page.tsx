@@ -127,7 +127,7 @@ export default function Home() {
             </p>
             <div className="mt-8 animate-fade-in animation-delay-500">
                 <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                    <Link href="/hosting">See Pricing Plans</Link>
+                    <Link href="/design-services">See Pricing Plans</Link>
                 </Button>
             </div>
           </div>
