@@ -14,14 +14,14 @@ export function HeroSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
             <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-              <span className="block animate-slide-in-up">We create Modern, Innovative</span>
+              <span className="block animate-slide-in-up">We create modern, innovative,</span>
               <span className="block text-primary animate-slide-in-up animation-delay-300">
-                <span className="animate-glow">AI-Powered Software, Websites & Apps</span>
+                <span className="animate-glow">AI-powered software, websites & apps</span>
               </span>
               <span className="block animate-slide-in-up animation-delay-500">that produce results</span>
             </h1>
             <p className="text-lg sm:text-xl text-foreground/80 mb-10 max-w-xl mx-auto md:mx-0 animate-slide-in-up animation-delay-300">
-             Grittrix delivers intelligent, AI-powered software, web and mobile applications designed to automate processes, drive growth, and scale with confidence. Explore our solutions for businesses in healthcare, retail, agriculture, and education.
+             A problem isn't truly solved until it's solved for all. Grittrix build products that help create opportunities for everyone, whether down the street or across the globe. Bring your insight, imagination and a healthy disregard for the impossible. Bring everything that makes you unique. Together, we can build for everyone.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-slide-in-up animation-delay-500">
               <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transform transition-transform hover:scale-105">
