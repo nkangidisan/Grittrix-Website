@@ -11,14 +11,14 @@ import { FinalCtaSection } from '@/components/layout/FinalCtaSection';
 export const metadata: Metadata = {
   metadataBase: new URL('https://grittrix.com'),
   title: {
-    default: 'Grittrix: AI Solutions for Business & Process Automation',
+    default: 'Grittrix: Modern, Innovative AI-Powered Software, Websites & Apps',
     template: '%s | Grittrix',
   },
-  description: 'Grittrix delivers premier AI solutions, modern websites, and innovative web/mobile apps for businesses seeking to automate processes and drive growth. We specialize in AI-powered tools for companies in emerging markets.',
-  keywords: ['Grittrix', 'AI solutions', 'AI for small business', 'AI-powered tools', 'automate processes', 'automate your business', 'drive growth', 'custom software solutions', 'custom webapp', 'best website designers', 'cheaper website designer', 'affordable webapp design', 'AI in healthcare', 'AI in retail', 'AI in agriculture', 'emerging markets'],
+  description: 'Grittrix creates modern, innovative, AI-powered software, websites, and apps that produce results. We specialize in AI solutions for business process automation and growth in emerging markets.',
+  keywords: ['Grittrix', 'AI solutions', 'AI-powered software', 'custom websites', 'mobile apps', 'webapp development', 'process automation', 'affordable website designer', 'cheaper webapp design', 'AI in healthcare', 'AI in retail', 'AI in agriculture', 'emerging markets'],
   openGraph: {
-    title: 'Grittrix: Modern AI-Powered Websites & Apps That Drive Growth',
-    description: 'Discover premier AI-powered tools and custom software solutions from Grittrix to automate your business processes and accelerate growth.',
+    title: 'Grittrix: Modern, Innovative AI-Powered Software, Websites & Apps',
+    description: 'We build AI-powered software, websites, and apps that produce results. Partner with us to automate your business processes and accelerate growth.',
     url: 'https://grittrix.com',
     siteName: 'Grittrix',
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         url: '/media/homepage.jpg',
         width: 1200,
         height: 630,
-        alt: 'Grittrix AI Solutions - AI-powered tools to automate business processes',
+        alt: 'Grittrix AI Solutions - Modern, AI-Powered Software, Websites & Apps',
       },
     ],
     locale: 'en_US',
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Grittrix: AI Solutions for Business & Process Automation',
-    description: 'Pioneering AI-Powered Solutions for Healthcare, Retail,Agriculture, and Education in Africa and other emerging markets.',
+    title: 'Grittrix: Modern, Innovative AI-Powered Software, Websites & Apps',
+    description: 'We build AI-powered software, websites, and apps that produce results, specializing in solutions for emerging markets.',
     images: ['/media/homepage.jpg'],
   },
   robots: {
@@ -59,6 +59,11 @@ export default function RootLayout({
     "alternateName": "Grittrix AI Solutions",
     "url": "https://grittrix.com",
     "logo": "https://grittrix.com/media/disanlogo.png",
+    "founder": {
+        "@type": "Person",
+        "name": "Nkangi Disan",
+        "url": "https://www.linkedin.com/in/nkangi-disan-7ab2b62a9/"
+    },
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+256-756-693840",

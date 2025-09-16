@@ -113,8 +113,8 @@ export default function DesignServicesPage() {
   return (
     <>
       <head>
-          <title>Affordable & Cheaper Website Designer | Cost-Effective Web App Design</title>
-          <meta name="description" content="Looking for a cheaper website designer who delivers quality? Grittrix offers affordable, cost-effective web and webapp design with cutting-edge AI to automate your processes. Get a quote today!" />
+          <title>Affordable Website Designer | Cost-Effective Web App Design - Grittrix</title>
+          <meta name="description" content="Looking for an affordable or cheaper website designer who delivers quality? Grittrix offers cost-effective web and webapp design with cutting-edge AI to automate your processes. Get a quote today!" />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
@@ -156,9 +156,9 @@ export default function DesignServicesPage() {
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-headline text-primary mb-4">Our Packages</h2>
+            <h2 className="text-3xl font-bold font-headline text-primary mb-4">Our Cost-Effective Packages</h2>
             <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-              Choose a plan that's right for you. We offer cost-effective packages for every stage of your business.
+              Choose a plan that's right for you. We offer affordable packages for every stage of your business.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
@@ -235,7 +235,7 @@ export default function DesignServicesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
                 <div>
-                    <h2 className="text-3xl font-bold font-headline text-primary mb-6">Why Choose Our Web & App Designers?</h2>
+                    <h2 className="text-3xl font-bold font-headline text-primary mb-6">Why Choose Our Affordable Web Designers?</h2>
                     <ul className="space-y-4 text-foreground/80 text-lg">
                         <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span><strong>Affordable AI Integration:</strong> We build smart applications that leverage AI for enhanced functionality at a cost-effective price point.</span></li>
                         <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span><strong>User-Centric Design:</strong> Our designs prioritize user experience, ensuring intuitiveness and engagement.</span></li>
@@ -244,7 +244,7 @@ export default function DesignServicesPage() {
                     </ul>
                 </div>
                 <div className="bg-card p-8 rounded-lg shadow-xl">
-                    <h2 className="text-2xl font-bold font-headline text-primary mb-6">Request a Quote</h2>
+                    <h2 className="text-2xl font-bold font-headline text-primary mb-6">Request an Affordable Quote</h2>
                     <p className="text-sm text-foreground/70 mb-6">Have a project in mind? Tell us about your requirements, and we'll get back to you with a tailored, affordable proposal.</p>
                     <React.Suspense fallback={<p className="text-foreground/80">Loading form...</p>}>
                       <ContactForm />
@@ -256,5 +256,3 @@ export default function DesignServicesPage() {
     </>
   );
 }
-
-    

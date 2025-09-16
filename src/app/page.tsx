@@ -118,7 +118,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-6 animate-fade-in">Welcome to Grittrix: AI Solutions for the Real World.</h2>
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-6 animate-fade-in">Welcome to Grittrix: AI Solutions for the Real World</h2>
             <p className="text-lg text-foreground/80 leading-relaxed mb-4 animate-fade-in animation-delay-200">
               At Grittrix, we believe technology should be intelligent, inclusive, and deeply connected to the communities it serves. That’s why we’re on a mission to transform lives and economies in emerging markets through locally-adapted AI solutions that address real-world challenges across healthcare, agriculture, education, and retail.
             </p>
@@ -166,7 +166,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Key Features</h2>
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4 animate-fade-in">Our AI-Powered Software Features</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {keyFeatures.map((feature, index) => {
