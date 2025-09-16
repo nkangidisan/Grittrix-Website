@@ -40,7 +40,7 @@ export function HeroSection() {
             </div>
           </div>
           <div className="relative animate-fade-in animation-delay-300">
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl animate-float">
                <Image
                 src="/media/homepage.jpg" 
                 alt="AI-powered tools from Grittrix helping automate business processes across multiple devices"
