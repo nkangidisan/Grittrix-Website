@@ -4,10 +4,10 @@
 import * as React from 'react';
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Palette, Layers, Smartphone, Rocket, CheckCircle, Star } from 'lucide-react';
+import { Palette, Layers, Smartphone, Rocket, CheckCircle, Star, ExternalLink } from 'lucide-react';
 import { ContactForm } from '@/components/forms/ContactForm';
 import type { ElementType } from 'react';
 
@@ -26,9 +26,15 @@ const designProcessSteps: DesignProcessStep[] = [
 ];
 
 const portfolioItems = [
-  { id: '1', title: 'AfroHealth AI Platform', category: 'Healthcare Web App', imageUrl: '/media/AfroHealthAIPlatform.jpg', altText: 'Mockup illustration of AfroHealth AI Platform on a laptop screen', dataAiHint: 'healthcare platform' },
-  { id: '2', title: 'RetailSense E-commerce', category: 'Retail Mobile App', imageUrl: '/media/RetailSenseE-commerce.jpg', altText: 'RetailSense mobile e-commerce app interface illustration', dataAiHint: 'retail e-commerce' },
-  { id: '3', title: 'AgriGrow Farmer Portal', category: 'Agriculture Web Portal', imageUrl: '/media/AgriGrowFarmerPortal.png', altText: 'AgriGrow farmer portal dashboard illustration displaying crop data', dataAiHint: 'agriculture portal' },
+    { id: '1', title: 'Biko Aqua Web', category: 'Web Application', imageUrl: 'https://picsum.photos/seed/bikoaqua/600/400', url: 'https://studio--biko-aquaweb.us-central1.hosted.app/', altText: 'Screenshot of the Biko Aqua Web project', dataAiHint: 'web application' },
+    { id: '2', title: 'Institchu', category: 'E-commerce Platform', imageUrl: 'https://picsum.photos/seed/institchu/600/400', url: 'https://institchu.com/', altText: 'Screenshot of the Institchu e-commerce website', dataAiHint: 'fashion ecommerce' },
+    { id: '3', title: 'Songserm', category: 'Travel & Booking', imageUrl: 'https://picsum.photos/seed/songserm/600/400', url: 'https://songserm.com/', altText: 'Screenshot of the Songserm travel website', dataAiHint: 'travel website' },
+    { id: '4', title: 'Hummie Law', category: 'Law Firm Website', imageUrl: 'https://picsum.photos/seed/hummie/600/400', url: 'https://hummielaw.com', altText: 'Screenshot of the Hummie Law website', dataAiHint: 'professional services' },
+    { id: '5', title: 'Biko Water', category: 'Corporate Website', imageUrl: 'https://picsum.photos/seed/bikowater/600/400', url: 'https://www.bikowater.com', altText: 'Screenshot of the Biko Water website', dataAiHint: 'corporate page' },
+    { id: '6', title: 'Ocunex', category: 'Tech Company Site', imageUrl: 'https://picsum.photos/seed/ocunex/600/400', url: 'https://ocunex.com/', altText: 'Screenshot of the Ocunex website', dataAiHint: 'tech startup' },
+    { id: '7', title: 'Xenfi Systems', category: 'IT Services', imageUrl: 'https://picsum.photos/seed/xenfisys/600/400', url: 'https://xenfisystems.com/', altText: 'Screenshot of the Xenfi Systems website', dataAiHint: 'IT services' },
+    { id: '8', title: 'Xenfi', category: 'Financial Technology', imageUrl: 'https://picsum.photos/seed/xenfi/600/400', url: 'https://xenfi.net/', altText: 'Screenshot of the Xenfi website', dataAiHint: 'fintech website' },
+    { id: '9', title: 'Believers Network Intl', category: 'Non-profit Organization', imageUrl: 'https://picsum.photos/seed/bni/600/400', url: 'https://www.believersnetworkintl.org/', altText: 'Screenshot of the Believers Network Intl website', dataAiHint: 'non-profit organization' },
 ];
 
 const pricingPlans = [
@@ -202,7 +208,7 @@ export default function DesignServicesPage() {
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-headline text-primary mb-4">Our Portfolio</h2>
+            <h2 className="text-3xl font-bold font-headline text-primary mb-4">Our Work</h2>
             <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
               Take a look at some of the innovative digital solutions we've delivered for our clients.
             </p>
@@ -225,6 +231,14 @@ export default function DesignServicesPage() {
                   <CardTitle className="font-headline text-xl text-primary mb-1 group-hover:text-primary/90 transition-colors">{item.title}</CardTitle>
                   <p className="text-sm text-accent font-medium">{item.category}</p>
                 </CardContent>
+                <CardFooter className="p-6 pt-0">
+                  <Button asChild variant="outline" size="sm" className="w-full border-primary/50 text-primary hover:bg-primary/10 hover:text-primary">
+                      <Link href={item.url} target="_blank" rel="noopener noreferrer">
+                        <span>View Live Site</span>
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </Link>
+                  </Button>
+                </CardFooter>
               </Card>
             ))}
           </div>
@@ -256,3 +270,5 @@ export default function DesignServicesPage() {
     </>
   );
 }
+
+    
