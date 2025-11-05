@@ -26,15 +26,15 @@ const designProcessSteps: DesignProcessStep[] = [
 ];
 
 const portfolioItems = [
-    { id: '1', title: 'Biko Aqua Web', category: 'Web Application', imageUrl: 'https://picsum.photos/seed/bikoaqua/600/400', url: 'https://studio--biko-aquaweb.us-central1.hosted.app/', altText: 'Screenshot of the Biko Aqua Web project', dataAiHint: 'web application' },
-    { id: '2', title: 'Institchu', category: 'E-commerce Platform', imageUrl: 'https://picsum.photos/seed/institchu/600/400', url: 'https://institchu.com/', altText: 'Screenshot of the Institchu e-commerce website', dataAiHint: 'fashion ecommerce' },
-    { id: '3', title: 'Songserm', category: 'Travel & Booking', imageUrl: 'https://picsum.photos/seed/songserm/600/400', url: 'https://songserm.com/', altText: 'Screenshot of the Songserm travel website', dataAiHint: 'travel website' },
-    { id: '4', title: 'Hummie Law', category: 'Law Firm Website', imageUrl: 'https://picsum.photos/seed/hummie/600/400', url: 'https://hummielaw.com', altText: 'Screenshot of the Hummie Law website', dataAiHint: 'professional services' },
-    { id: '5', title: 'Biko Water', category: 'Corporate Website', imageUrl: 'https://picsum.photos/seed/bikowater/600/400', url: 'https://www.bikowater.com', altText: 'Screenshot of the Biko Water website', dataAiHint: 'corporate page' },
-    { id: '6', title: 'Ocunex', category: 'Tech Company Site', imageUrl: 'https://picsum.photos/seed/ocunex/600/400', url: 'https://ocunex.com/', altText: 'Screenshot of the Ocunex website', dataAiHint: 'tech startup' },
-    { id: '7', title: 'Xenfi Systems', category: 'IT Services', imageUrl: 'https://picsum.photos/seed/xenfisys/600/400', url: 'https://xenfisystems.com/', altText: 'Screenshot of the Xenfi Systems website', dataAiHint: 'IT services' },
-    { id: '8', title: 'Xenfi', category: 'Financial Technology', imageUrl: 'https://picsum.photos/seed/xenfi/600/400', url: 'https://xenfi.net/', altText: 'Screenshot of the Xenfi website', dataAiHint: 'fintech website' },
-    { id: '9', title: 'Believers Network Intl', category: 'Non-profit Organization', imageUrl: 'https://picsum.photos/seed/bni/600/400', url: 'https://www.believersnetworkintl.org/', altText: 'Screenshot of the Believers Network Intl website', dataAiHint: 'non-profit organization' },
+    { id: '1', title: 'Biko Aqua Web', category: 'Web Application', imageUrl: '/Biko.png', url: 'https://studio--biko-aquaweb.us-central1.hosted.app/', altText: 'Screenshot of the Biko Aqua Web project', dataAiHint: 'web application' },
+    { id: '2', title: 'Institchu', category: 'E-commerce Platform', imageUrl: '/instichu.png', url: 'https://institchu.com/', altText: 'Screenshot of the Institchu e-commerce website', dataAiHint: 'fashion ecommerce' },
+    { id: '3', title: 'Songserm', category: 'Travel & Booking', imageUrl: '/songserm.png', url: 'https://songserm.com/', altText: 'Screenshot of the Songserm travel website', dataAiHint: 'travel website' },
+    { id: '4', title: 'Hummie Law', category: 'Law Firm Website', imageUrl: '/Hummielaw.jpg', url: 'https://hummielaw.com', altText: 'Screenshot of the Hummie Law website', dataAiHint: 'professional services' },
+    { id: '5', title: 'Biko Water', category: 'Corporate Website', imageUrl: '/bikowater.jpg', url: 'https://www.bikowater.com', altText: 'Screenshot of the Biko Water website', dataAiHint: 'corporate page' },
+    { id: '6', title: 'Ocunex', category: 'Tech Company Site', imageUrl: '/ocunex.png', url: 'https://ocunex.com/', altText: 'Screenshot of the Ocunex website', dataAiHint: 'tech startup' },
+    { id: '7', title: 'Xenfi Systems', category: 'IT Services', imageUrl: '/xenfisystems.png', url: 'https://xenfisystems.com/', altText: 'Screenshot of the Xenfi Systems website', dataAiHint: 'IT services' },
+    { id: '8', title: 'Xenfi', category: 'Financial Technology', imageUrl: '/xenfinet.png', url: 'https://xenfi.net/', altText: 'Screenshot of the Xenfi website', dataAiHint: 'fintech website' },
+    { id: '9', title: 'Believers Network Intl', category: 'Non-profit Organization', imageUrl: '/believers.png', url: 'https://www.believersnetworkintl.org/', altText: 'Screenshot of the Believers Network Intl website', dataAiHint: 'non-profit organization' },
 ];
 
 const pricingPlans = [
@@ -141,10 +141,10 @@ export default function DesignServicesPage() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {designProcessSteps.map(step => {
+            {designProcessSteps.map((step, index) => {
               const IconComponent = step.icon;
               return (
-                <div key={step.title} className="p-6 bg-card rounded-lg shadow-md text-center hover:shadow-primary/20 transition-shadow">
+                <div key={step.title} className="p-6 bg-card rounded-lg shadow-md text-center hover:shadow-primary/20 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                   <div className="flex justify-center mb-4">
                       <div className="p-3 bg-primary/10 rounded-full">
                           <IconComponent className="h-8 w-8 text-primary" />
@@ -168,8 +168,8 @@ export default function DesignServicesPage() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
-            {pricingPlans.map((plan) => (
-                <Card key={plan.name} className={`flex flex-col ${plan.recommended ? 'border-2 border-primary shadow-primary/30 shadow-lg relative' : 'bg-card'}`}>
+            {pricingPlans.map((plan, index) => (
+                <Card key={plan.name} className={`flex flex-col animate-slide-in-up ${plan.recommended ? 'border-2 border-primary shadow-primary/30 shadow-lg relative' : 'bg-card'}`} style={{ animationDelay: `${index * 100}ms` }}>
                   {plan.recommended && (
                     <div className="absolute -top-4 right-4 bg-primary text-primary-foreground px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full flex items-center gap-1">
                       <Star className="h-3 w-3" />
@@ -214,15 +214,16 @@ export default function DesignServicesPage() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolioItems.map((item) => (
-              <Card key={item.id} className="bg-card overflow-hidden group hover:shadow-xl transition-shadow">
+            {portfolioItems.map((item, index) => (
+              <Card key={item.id} className="bg-card overflow-hidden group hover:shadow-xl transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                 <CardHeader className="p-0">
                   <div className="relative aspect-video w-full">
                     <Image
                       src={item.imageUrl} 
                       alt={item.altText}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      width={600}
+                      height={400}
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                       data-ai-hint={item.dataAiHint}
                     />
                   </div>
