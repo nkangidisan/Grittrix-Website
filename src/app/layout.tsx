@@ -6,18 +6,17 @@ import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from '@vercel/analytics/react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { FinalCtaSection } from '@/components/layout/FinalCtaSection';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://grittrix.com'),
   title: {
-    default: 'Grittrix: Modern, Innovative AI-Powered Software, Websites & Apps',
+    default: 'Grittrix: Modern, Innovative, AI-Powered Software, Websites & Apps',
     template: '%s | Grittrix',
   },
   description: 'Grittrix creates modern, innovative, AI-powered software, websites, and apps that produce results. We specialize in AI solutions for business process automation and growth in emerging markets.',
   keywords: ['Grittrix', 'AI solutions', 'AI-powered software', 'custom websites', 'mobile apps', 'webapp development', 'process automation', 'affordable website designer', 'cheaper webapp design', 'AI in healthcare', 'AI in retail', 'AI in agriculture', 'emerging markets'],
   openGraph: {
-    title: 'Grittrix: Modern, Innovative AI-Powered Software, Websites & Apps',
+    title: 'Grittrix: Modern, Innovative, AI-Powered Software, Websites & Apps',
     description: 'We build AI-powered software, websites, and apps that produce results. Partner with us to automate your business processes and accelerate growth.',
     url: 'https://grittrix.com',
     siteName: 'Grittrix',
@@ -34,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Grittrix: Modern, Innovative AI-Powered Software, Websites & Apps',
+    title: 'Grittrix: Modern, Innovative, AI-Powered Software, Websites & Apps',
     description: 'We build AI-powered software, websites, and apps that produce results, specializing in solutions for emerging markets.',
     images: ['/media/homepage.jpg'],
   },
@@ -87,7 +86,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-TE9LW27EST"></script>
@@ -117,7 +116,6 @@ export default function RootLayout({
       <body className="font-body bg-background text-foreground antialiased min-h-screen flex flex-col">
         <Header />
         <main className="flex-grow">{children}</main>
-        <FinalCtaSection />
         <Footer />
         <Toaster />
         <Analytics />

@@ -6,24 +6,23 @@ import { ArrowRight } from 'lucide-react';
 
 export function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-background via-secondary/20 to-background text-foreground py-20 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        {/* Subtle background pattern or animation can go here */}
-      </div>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-center md:text-left">
-            <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-              <span className="block animate-slide-in-up">We create modern, innovative,</span>
-              <span className="block text-primary animate-slide-in-up animation-delay-300">
-                <span className="animate-glow">AI-powered software, websites & apps</span>
+    <section className="bg-background text-foreground pt-24 pb-20 md:pt-32 md:pb-28">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          
+          {/* Left Column: Text + CTA */}
+          <div className="text-left">
+            <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground">
+              <span className="block animate-hero-in">We create modern,</span>
+              <span className="block animate-hero-in animation-delay-200">
+                AI-powered software
               </span>
-              <span className="block animate-slide-in-up animation-delay-500">that produce results</span>
+              <span className="block text-muted-foreground animate-hero-in animation-delay-400">that produces results.</span>
             </h1>
-            <p className="text-lg sm:text-xl text-foreground/80 mb-10 max-w-xl mx-auto md:mx-0 animate-slide-in-up animation-delay-300">
-             A problem isn't truly solved until it's solved for all. Grittrix build products that help create opportunities for everyone, whether down the street or across the globe. Bring your insight, imagination and a healthy disregard for the impossible. Bring everything that makes you unique. Together, we can build for everyone.
+            <p className="text-lg text-muted-foreground mb-10 max-w-xl animate-hero-in animation-delay-600">
+              A problem isn't truly solved until it's solved for all. Grittrix builds products that help create opportunities for everyone, whether down the street or across the globe.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-slide-in-up animation-delay-500">
+            <div className="animate-hero-in animation-delay-600">
               <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transform transition-transform hover:scale-105">
                 <Link href={`/contact?subject=${encodeURIComponent('Demo Request for AI Tools')}`}>
                   <span>
@@ -32,15 +31,12 @@ export function HeroSection() {
                   </span>
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild className="shadow-lg transform transition-transform hover:scale-105 border-primary/50 text-primary hover:bg-primary/10">
-                <Link href={`/contact?subject=${encodeURIComponent('Expert Consultation on Process Automation')}`}>
-                  <span>Talk to Our Experts</span>
-                </Link>
-              </Button>
             </div>
           </div>
-          <div className="relative animate-fade-in animation-delay-300">
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl animate-float">
+          
+          {/* Right Column: Image */}
+          <div className="relative animate-hero-in animation-delay-400">
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-2xl animate-float-subtle">
                <Image
                 src="/media/homepage.jpg" 
                 alt="AI-powered tools from Grittrix helping automate business processes across multiple devices"
@@ -51,6 +47,7 @@ export function HeroSection() {
               />
             </div>
           </div>
+
         </div>
       </div>
     </section>
