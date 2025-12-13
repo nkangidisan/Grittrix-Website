@@ -8,6 +8,7 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ElementType } from 'react';
+import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
 
 const iconMap: { [key: string]: ElementType } = {
   HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, CheckCircle, Building, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ShoppingBag, ServerCog, MonitorPlay, Cpu, Stethoscope, Store, Sprout, GraduationCap, Globe, Users, TrendingUp
@@ -49,12 +50,6 @@ const industriesServed = [
     imageSrc: '/media/education.webp',
     altText: 'Grittrix AI for Education - personalized learning platforms illustration',
   },
-];
-
-const testimonials = [
-    { quote: "Thanks to Grittrix, we reduced medicine wastage by 43% in just three months.", source: "Healthcare Partner" },
-    { quote: "We never imagined AI could help a small farm. Grittrix made it possible.", source: "Agri-Business Owner" },
-    { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader" }
 ];
 
 const whyGrittrixFeatures = [
@@ -192,20 +187,22 @@ export default function Home() {
         </div>
       </section>
 
-       {/* 6. TESTIMONIALS SECTION */}
+       {/* 6. DRIVEN BY PURPOSE SECTION */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 animate-section-in">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-4 animate-text-glow">Trusted By Innovators</h2>
-            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">See what our partners and clients are saying about our impact.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-card p-6 rounded-lg shadow-lg animate-section-in" style={{ animationDelay: `${index * 150}ms`}}>
-                <p className="text-foreground/80 italic mb-4">"{testimonial.quote}"</p>
-                <p className="text-right font-semibold text-primary">- {testimonial.source}</p>
+          <div className="grid md:grid-cols-2 gap-12 items-center bg-card p-8 md:p-12 rounded-lg shadow-xl">
+              <div className="animate-section-in">
+                  <h2 className="text-3xl font-bold font-headline text-primary mb-4">Driven by Purpose, Built with Passion</h2>
+                  <p className="text-foreground/80 mb-6">We don’t just build products; we build trust. Grittrix empowers people to work for themselves, take control of their futures, and drive sustainable development through accessible technology.</p>
+                  <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                    <Link href="/merch">
+                      Wear the Vision. Own the Mission.
+                    </Link>
+                  </Button>
               </div>
-            ))}
+              <div className="flex justify-center items-center animate-section-in animation-delay-200">
+                  <GrittrixLogo className="w-auto" />
+              </div>
           </div>
         </div>
       </section>
