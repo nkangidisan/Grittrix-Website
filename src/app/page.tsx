@@ -64,7 +64,27 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <HeroSection />
 
-      {/* 2. KEY FEATURES */}
+      {/* 2. WELCOME SECTION */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-4xl mx-auto animate-section-in">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-6">Welcome to Grittrix: AI Solutions for the Real World</h2>
+            <div className="prose prose-lg prose-invert text-foreground/80 max-w-none mx-auto space-y-4">
+              <p>At Grittrix, we believe technology should be intelligent, inclusive, and deeply connected to the communities it serves. That’s why we’re on a mission to transform lives and economies in emerging markets through locally-adapted AI solutions that address real-world challenges across healthcare, agriculture, education, and retail.</p>
+              <p>Whether you're a business looking to scale, a government solving public-sector problems, or an entrepreneur building from scratch, we are your innovation partner.</p>
+            </div>
+            <div className="mt-8">
+              <Button size="lg" asChild className="bg-primary/90 hover:bg-primary text-primary-foreground">
+                <Link href="/design-services">
+                  <span>See Pricing Plans</span>
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. KEY FEATURES */}
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-section-in">
@@ -88,7 +108,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. INDUSTRIES SERVED */}
+      {/* 4. INDUSTRIES SERVED */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-section-in">
@@ -124,7 +144,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. CORE ENGINE SECTION */}
+      {/* 5. CORE ENGINE SECTION */}
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -157,7 +177,7 @@ export default function Home() {
         </div>
       </section>
 
-       {/* 5. TESTIMONIALS SECTION */}
+       {/* 6. TESTIMONIALS SECTION */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-section-in">
@@ -175,7 +195,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. FINAL CTA SECTION */}
+      {/* 7. FINAL CTA SECTION */}
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-section-in">
           <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-6 animate-text-glow">Ready to Build the Future?</h2>
