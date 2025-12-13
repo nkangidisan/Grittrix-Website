@@ -21,7 +21,7 @@ export function HeroSection() {
               <span className="block text-foreground/70 animate-hero-in animation-delay-600">that produce results.</span>
             </h1>
             <p className="text-lg text-foreground/80 mb-10 max-w-xl animate-hero-in animation-delay-600">
-             A problem isn't truly solved until it's solved for all. Grittrix builds products that help create opportunities for everyone, whether down the street or across the globe.
+             A problem isn't truly solved until it's solved for all. Grittrix build products that help create opportunities for everyone, whether down the street or across the globe. Bring your insight, imagination and a healthy disregard for the impossible. Bring everything that makes you unique. Together, we can build for everyone.
             </p>
             <div className="flex flex-wrap gap-4 animate-hero-in animation-delay-600">
               <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transform transition-transform hover:scale-105">
