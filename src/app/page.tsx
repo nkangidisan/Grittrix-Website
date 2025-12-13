@@ -57,6 +57,29 @@ const testimonials = [
     { quote: "Our school is smarter. Teachers are happier. Students are thriving.", source: "Education Leader" }
 ];
 
+const whyGrittrixFeatures = [
+    {
+        title: "Emerging Market Expertise",
+        description: "Deep understanding of local dynamics to build culturally and contextually relevant AI solutions.",
+        icon: "Globe"
+    },
+    {
+        title: "Localized AI Solutions",
+        description: "We don't just apply technology; we adapt it, ensuring our AI-powered tools are effective in your specific environment.",
+        icon: "Cpu"
+    },
+    {
+        title: "Agile & Transparent Partnership",
+        description: "We work with you every step of the way, ensuring our custom software solutions meet your exact needs on time.",
+        icon: "Users"
+    },
+    {
+        title: "Impact-Driven Innovation",
+        description: "Our goal is tangible results. We build AI tools to drive growth, increase efficiency, and deliver real-world value.",
+        icon: "TrendingUp"
+    }
+];
+
 
 export default function Home() {
   return (
@@ -84,11 +107,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. KEY FEATURES */}
+      {/* 3. WHY WORK WITH GRITTRIX */}
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-section-in">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-4 animate-text-glow">Why Grittrix is Different</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-4">Why Work With Grittrix?</h2>
+            <p className="text-lg text-foreground/80 max-w-3xl mx-auto">We provide more than just technology. We deliver custom software solutions and strategic partnerships to help you drive growth and automate your business.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyGrittrixFeatures.map((feature, index) => {
+              const FeatureIcon = iconMap[feature.icon];
+              return (
+                <div key={feature.title} className="p-6 bg-card rounded-lg shadow-md hover:shadow-primary/20 transition-shadow text-center animate-section-in" style={{ animationDelay: `${index * 150}ms`}}>
+                  <div className="flex items-center justify-center h-16 w-16 bg-primary/10 rounded-full mx-auto mb-5">
+                    {FeatureIcon && <FeatureIcon className="h-8 w-8 text-primary" />}
+                  </div>
+                  <h3 className="text-xl font-semibold font-headline text-primary mb-3">{feature.title}</h3>
+                  <p className="text-sm text-center text-foreground/70">{feature.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+
+      {/* 4. KEY FEATURES */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 animate-section-in">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-4 animate-text-glow">Our AI-Powered Software Features</h2>
             <p className="text-lg text-foreground/80 max-w-3xl mx-auto">We don't just build software. We build intelligent systems that learn, adapt, and grow with your business in emerging markets.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -108,8 +156,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. INDUSTRIES SERVED */}
-      <section className="py-16 md:py-24">
+      {/* 5. INDUSTRIES SERVED */}
+      <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-section-in">
             <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-4 animate-text-glow">Solutions for Every Sector</h2>
@@ -140,39 +188,6 @@ export default function Home() {
                 </Link>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. CORE ENGINE SECTION */}
-      <section className="py-16 md:py-24 bg-secondary/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative z-10 animate-section-in">
-              <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-6 animate-text-glow">Grittrix CORE™</h2>
-              <p className="text-lg text-foreground/80 mb-6">Our foundational AI engine is the powerhouse behind all our solutions. It's a robust, scalable, and secure platform designed to handle complex data and deliver real-time insights for your business.</p>
-              <ul className="space-y-3 text-foreground/80">
-                <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span>Scalable microservices architecture for flexibility.</span></li>
-                <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span>Enterprise-grade security to protect your data.</span></li>
-                <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span>Seamless integration with your existing systems.</span></li>
-              </ul>
-              <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link href="/products/CORE">
-                  Explore Grittrix CORE™ <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
-            <div className="relative animate-section-in animation-delay-200">
-               <div className="relative aspect-square rounded-full overflow-hidden shadow-2xl animate-float-subtle">
-                 <Image 
-                  src="/media/core.png" 
-                  alt="Grittrix CORE AI Engine" 
-                  fill 
-                  className="object-cover" 
-                  data-ai-hint="AI engine"
-                  />
-              </div>
-            </div>
           </div>
         </div>
       </section>
