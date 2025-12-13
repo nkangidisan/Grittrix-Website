@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,46 +8,6 @@ body {
 
 @layer base {
   :root {
-    --background: 48 33% 97%; /* Soft, warm off-white */
-    --foreground: 220 15% 25%; /* Very dark neutral (near-black) */
-
-    --muted: 220 10% 90%;
-    --muted-foreground: 220 10% 45%; /* Medium-light grey for supporting text */
-
-    --popover: 48 33% 98%;
-    --popover-foreground: 220 15% 25%;
-
-    --card: 150 20% 96%; /* Very light muted grey-green for some sections */
-    --card-foreground: 220 15% 25%;
-
-    --border: 220 10% 85%;
-    --input: 220 10% 92%;
-
-    --primary: 210 100% 45%; /* A confident, professional blue */
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 150 20% 96%; /* Same as card for section backgrounds */
-    --secondary-foreground: 220 15% 25%;
-
-    --accent: 210 100% 45%; /* Same as primary */
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-
-    --ring: 210 100% 45%;
-
-    --radius: 0.5rem;
-
-    /* Chart colors - Calmer Palette */
-    --chart-1: 210 100% 45%; /* Primary */
-    --chart-2: 150 60% 45%; /* A complementary green */
-    --chart-3: 200 80% 60%;   /* A lighter blue */
-    --chart-4: 220 10% 70%;   /* Medium gray */
-    --chart-5: 220 15% 35%;   /* Dark gray */
-  }
-
-  .dark {
     --background: 228 82% 6.5%;
     --foreground: 210 40% 98%;
     --muted: 228 70% 15%;

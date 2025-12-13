@@ -64,136 +64,58 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <HeroSection />
 
-      {/* 2. TRUST / VALUE INDICATOR STRIP */}
-      <section className="py-12 bg-secondary">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="animate-section-in">
-              <p className="text-3xl font-bold text-foreground">43%</p>
-              <p className="text-sm text-muted-foreground">Reduced Wastage</p>
-            </div>
-            <div className="animate-section-in animation-delay-200">
-              <p className="text-3xl font-bold text-foreground">95%</p>
-              <p className="text-sm text-muted-foreground">Client Satisfaction</p>
-            </div>
-            <div className="animate-section-in animation-delay-400">
-              <p className="text-3xl font-bold text-foreground">10+</p>
-              <p className="text-sm text-muted-foreground">Industries Served</p>
-            </div>
-            <div className="animate-section-in animation-delay-600">
-              <p className="text-3xl font-bold text-foreground">24/7</p>
-              <p className="text-sm text-muted-foreground">Support</p>
-            </div>
+      {/* 2. KEY FEATURES */}
+      <section className="py-16 md:py-24 bg-secondary/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 animate-section-in">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-4 animate-text-glow">Why Grittrix is Different</h2>
+            <p className="text-lg text-foreground/80 max-w-3xl mx-auto">We don't just build software. We build intelligent systems that learn, adapt, and grow with your business in emerging markets.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {keyFeatures.map((feature, index) => {
+              const FeatureIcon = iconMap[feature.icon];
+              return (
+                <div key={feature.name} className="p-6 bg-card rounded-lg shadow-md hover:shadow-primary/20 transition-shadow animate-section-in" style={{ animationDelay: `${index * 150}ms`}}>
+                  <div className="flex items-center justify-center h-16 w-16 bg-primary/10 rounded-full mx-auto mb-5">
+                    {FeatureIcon && <FeatureIcon className="h-8 w-8 text-primary" />}
+                  </div>
+                  <h3 className="text-xl font-semibold font-headline text-primary text-center mb-3">{feature.name}</h3>
+                  <p className="text-sm text-center text-foreground/70">{feature.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* 3. FEATURE SECTION 1 */}
-      <section className="py-20 md:py-32 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl animate-section-in">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            {/* Text on left */}
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Your Data, Smarter.
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Grittrix transforms raw data into your most valuable asset. Our AI-powered dashboards provide real-time analytics and predictive forecasts, empowering you to stop guessing and start making decisions with confidence.
-              </p>
-              <Button variant="link" asChild className="text-primary p-0 text-lg">
-                <Link href="/services">
-                  Explore our Services <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
-            {/* Image on right */}
-            <div className="relative aspect-square rounded-xl overflow-hidden shadow-lg">
-              <Image
-                src="/media/core.png"
-                alt="Grittrix AI Dashboard showing analytics"
-                fill
-                className="object-cover"
-                data-ai-hint="analytics dashboard"
-              />
-            </div>
+      {/* 3. INDUSTRIES SERVED */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 animate-section-in">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-4 animate-text-glow">Solutions for Every Sector</h2>
+            <p className="text-lg text-foreground/80 max-w-3xl mx-auto">We combine deep domain knowledge with cutting-edge AI to provide solutions that drive innovation and growth in your industry.</p>
           </div>
-        </div>
-      </section>
-
-      {/* 4. FEATURE SECTION 2 */}
-      <section className="py-20 md:py-32 bg-secondary">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl animate-section-in">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            {/* Image on left */}
-            <div className="relative aspect-square rounded-xl overflow-hidden shadow-lg order-last md:order-first">
-              <Image
-                src="/media/servicepage.webp"
-                alt="Illustration of modular design"
-                fill
-                className="object-cover"
-                data-ai-hint="modular design"
-              />
-            </div>
-            {/* Text on right */}
-            <div className="order-first md:order-last">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Built for Growth.
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Our CORE AI engine features a modular design, allowing you to pay only for the features you need today and scale effortlessly as your business grows. It's enterprise-grade power, tailored for you.
-              </p>
-              <Button variant="link" asChild className="text-primary p-0 text-lg">
-                <Link href="/products/CORE">
-                  Learn about Grittrix CORE™ <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* 5. PROCESS SECTION */}
-      <section className="py-20 md:py-32 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl text-center animate-section-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How It Works</h2>
-          <p className="text-lg text-muted-foreground mb-16 max-w-3xl mx-auto">A simple, transparent process to integrate AI into your business.</p>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-8">
-              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary font-bold text-2xl mx-auto mb-4">1</div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">Discovery</h3>
-              <p className="text-muted-foreground">We start by understanding your unique challenges and goals.</p>
-            </div>
-            <div className="p-8">
-              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary font-bold text-2xl mx-auto mb-4">2</div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">Integration</h3>
-              <p className="text-muted-foreground">We deploy our modular AI solutions, tailored to your workflow.</p>
-            </div>
-            <div className="p-8">
-              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary font-bold text-2xl mx-auto mb-4">3</div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">Growth</h3>
-              <p className="text-muted-foreground">You get the insights to drive efficiency, growth, and success.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. INDUSTRIES/USE CASE SECTION */}
-      <section className="py-20 md:py-32 bg-secondary">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl text-center animate-section-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Solutions for Every Sector</h2>
-          <p className="text-lg text-muted-foreground mb-16 max-w-3xl mx-auto">We combine deep domain knowledge with cutting-edge AI to provide solutions that drive innovation in your industry.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {industriesServed.map((industry) => {
+            {industriesServed.map((industry, index) => {
               const IndustryIcon = iconMap[industry.icon];
               return (
-                <Link href={industry.link} key={industry.name}>
-                  <Card className="bg-background text-left p-6 h-full hover:shadow-lg hover:-translate-y-1 transition-all">
-                    <CardHeader className="p-0 items-start mb-4">
-                      <div className="p-3 bg-primary/10 rounded-lg mb-3">
-                        {IndustryIcon && <IndustryIcon className="h-8 w-8 text-primary" />}
-                      </div>
-                      <CardTitle className="font-headline text-xl text-foreground">{industry.name}</CardTitle>
+                <Link href={industry.link} key={industry.name} className="block group animate-section-in" style={{ animationDelay: `${index * 150}ms`}}>
+                  <Card className="bg-card h-full text-center p-6 rounded-lg shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-2">
+                    <CardHeader className="p-0 items-center mb-4">
+                        <div className="p-4 bg-primary/10 rounded-full mb-3 group-hover:bg-primary/20 transition-colors">
+                            {IndustryIcon && <IndustryIcon className="h-10 w-10 text-primary" />}
+                        </div>
+                        <CardTitle className="font-headline text-xl text-primary group-hover:text-primary/90">{industry.name}</CardTitle>
                     </CardHeader>
+                    <div className="relative aspect-video w-full rounded-md overflow-hidden">
+                      <Image
+                        src={industry.imageSrc}
+                        alt={industry.altText}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        data-ai-hint={`${industry.name.toLowerCase()} technology`}
+                      />
+                    </div>
                   </Card>
                 </Link>
               );
@@ -202,16 +124,74 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. FINAL CTA SECTION */}
-      <section className="py-20 md:py-32 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center animate-section-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Ready to transform your business?</h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Let's build the future together. Schedule a free consultation to see how Grittrix can help you solve, scale, and succeed.
-          </p>
-          <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Link href={`/contact?subject=${encodeURIComponent('Free Consultation Request')}`}>Book a Free Consultation</Link>
-          </Button>
+      {/* 4. CORE ENGINE SECTION */}
+      <section className="py-16 md:py-24 bg-secondary/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative z-10 animate-section-in">
+              <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-6 animate-text-glow">Grittrix CORE™</h2>
+              <p className="text-lg text-foreground/80 mb-6">Our foundational AI engine is the powerhouse behind all our solutions. It's a robust, scalable, and secure platform designed to handle complex data and deliver real-time insights for your business.</p>
+              <ul className="space-y-3 text-foreground/80">
+                <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span>Scalable microservices architecture for flexibility.</span></li>
+                <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span>Enterprise-grade security to protect your data.</span></li>
+                <li className="flex items-start"><CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" /><span>Seamless integration with your existing systems.</span></li>
+              </ul>
+              <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Link href="/products/CORE">
+                  Explore Grittrix CORE™ <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+            <div className="relative animate-section-in animation-delay-200">
+               <div className="relative aspect-square rounded-full overflow-hidden shadow-2xl animate-float-subtle">
+                 <Image 
+                  src="/media/core.png" 
+                  alt="Grittrix CORE AI Engine" 
+                  fill 
+                  className="object-cover" 
+                  data-ai-hint="AI engine"
+                  />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+       {/* 5. TESTIMONIALS SECTION */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 animate-section-in">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-4 animate-text-glow">Trusted By Innovators</h2>
+            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">See what our partners and clients are saying about our impact.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-card p-6 rounded-lg shadow-lg animate-section-in" style={{ animationDelay: `${index * 150}ms`}}>
+                <p className="text-foreground/80 italic mb-4">"{testimonial.quote}"</p>
+                <p className="text-right font-semibold text-primary">- {testimonial.source}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. FINAL CTA SECTION */}
+      <section className="py-16 md:py-24 bg-secondary/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-section-in">
+          <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-6 animate-text-glow">Ready to Build the Future?</h2>
+          <p className="text-lg text-foreground/80 mb-8 max-w-3xl mx-auto">Let's solve, scale, and succeed together. Schedule a free consultation to see how Grittrix can help you harness the power of AI to automate and grow your business.</p>
+          <div className="flex justify-center items-center gap-4">
+            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Link href={`/contact?subject=${encodeURIComponent('Free Consultation Request')}`}>
+                <span>Book a Free Consultation</span>
+              </Link>
+            </Button>
+             <Button variant="outline" size="lg" asChild className="border-primary text-primary hover:bg-primary/10 hover:text-primary">
+              <Link href="/services">
+                <span>View Our Services</span>
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
     </>

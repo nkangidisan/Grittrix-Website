@@ -12,23 +12,29 @@ export function HeroSection() {
           
           {/* Left Column: Text + CTA */}
           <div className="text-left">
-            <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground">
+            <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-primary">
               <span className="block animate-hero-in">We create modern,</span>
               <span className="block animate-hero-in animation-delay-200">
-                AI-powered software
+                innovative, <span className="animate-text-glow">AI-powered</span>
               </span>
-              <span className="block text-muted-foreground animate-hero-in animation-delay-400">that produces results.</span>
+              <span className="block text-foreground animate-hero-in animation-delay-400">software, websites & apps</span>
+              <span className="block text-foreground/70 animate-hero-in animation-delay-600">that produce results.</span>
             </h1>
-            <p className="text-lg text-muted-foreground mb-10 max-w-xl animate-hero-in animation-delay-600">
-              A problem isn't truly solved until it's solved for all. Grittrix builds products that help create opportunities for everyone, whether down the street or across the globe.
+            <p className="text-lg text-foreground/80 mb-10 max-w-xl animate-hero-in animation-delay-600">
+             A problem isn't truly solved until it's solved for all. Grittrix builds products that help create opportunities for everyone, whether down the street or across the globe.
             </p>
-            <div className="animate-hero-in animation-delay-600">
+            <div className="flex flex-wrap gap-4 animate-hero-in animation-delay-600">
               <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transform transition-transform hover:scale-105">
                 <Link href={`/contact?subject=${encodeURIComponent('Demo Request for AI Tools')}`}>
                   <span>
                     Request a Demo
                     <ArrowRight className="ml-2 h-5 w-5 inline" />
                   </span>
+                </Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild className="border-primary text-primary hover:bg-primary/10 hover:text-primary shadow-lg transform transition-transform hover:scale-105">
+                 <Link href="/about">
+                  <span>Talk to Our Experts</span>
                 </Link>
               </Button>
             </div>
