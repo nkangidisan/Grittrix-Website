@@ -75,6 +75,14 @@ const whyGrittrixFeatures = [
     }
 ];
 
+const whoWeWorkWithItems = [
+  { name: 'Clinics and Pharmacies', icon: 'Stethoscope' },
+  { name: 'Retail Businesses', icon: 'Store' },
+  { name: 'Farmer Cooperatives', icon: 'Sprout' },
+  { name: 'Educational NGOs', icon: 'GraduationCap' },
+  { name: 'Local Governments', icon: 'Building' },
+];
+
 
 export default function Home() {
   return (
@@ -186,8 +194,35 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      {/* 6. WHO WE WORK WITH */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="animate-section-in">
+                    <h2 className="text-3xl font-bold font-headline text-primary mb-4">Who We Work With</h2>
+                    <p className="text-lg text-foreground/80 mb-8">
+                        We partner with a diverse range of organizations committed to innovation and growth in emerging markets, from startups to large enterprises.
+                    </p>
+                </div>
+                <div className="grid grid-cols-2 gap-4 animate-section-in animation-delay-200">
+                    {whoWeWorkWithItems.map((item) => {
+                        const ItemIcon = iconMap[item.icon] || Briefcase;
+                        return (
+                            <div key={item.name} className="bg-card p-4 rounded-lg shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
+                                <div className="p-2 bg-primary/10 rounded-md">
+                                    <ItemIcon className="h-6 w-6 text-primary" />
+                                </div>
+                                <span className="font-medium text-foreground/90">{item.name}</span>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </div>
+      </section>
 
-       {/* 6. DRIVEN BY PURPOSE SECTION */}
+       {/* 7. DRIVEN BY PURPOSE SECTION */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center bg-card p-8 md:p-12 rounded-lg shadow-xl">
@@ -207,7 +242,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. FINAL CTA SECTION */}
+      {/* 8. FINAL CTA SECTION */}
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-section-in">
           <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-6 animate-text-glow">Ready to Build the Future?</h2>
