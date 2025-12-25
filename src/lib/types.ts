@@ -10,6 +10,7 @@ export interface TeamMember {
   socials?: {
     linkedin?: string;
     twitter?: string;
+    instagram?: string;
   };
 }
 

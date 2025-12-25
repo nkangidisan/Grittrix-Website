@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Image from 'next/image';
 import type { TeamMember } from '@/lib/types';
-import { Linkedin, Twitter } from 'lucide-react';
+import { Linkedin, Twitter, Instagram } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
 
@@ -30,7 +30,7 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
         <p className="text-sm text-primary font-medium mb-3">{member.role}</p>
         <p className="text-xs text-foreground/70 leading-relaxed line-clamp-3">{member.bio}</p>
       </CardContent>
-      {(member.socials?.linkedin || member.socials?.twitter) && (
+      {(member.socials?.linkedin || member.socials?.twitter || member.socials?.instagram) && (
         <CardFooter className="flex justify-center space-x-3 pb-6 mt-auto">
           {member.socials.linkedin && (
             <Link href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${member.name} on LinkedIn`} className="text-foreground/60 hover:text-primary">
@@ -40,6 +40,11 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
           {member.socials.twitter && (
             <Link href={member.socials.twitter} target="_blank" rel="noopener noreferrer" aria-label={`${member.name} on Twitter`} className="text-foreground/60 hover:text-primary">
               <Twitter size={20} />
+            </Link>
+          )}
+          {member.socials.instagram && (
+            <Link href={member.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label={`${member.name} on Instagram`} className="text-foreground/60 hover:text-primary">
+              <Instagram size={20} />
             </Link>
           )}
         </CardFooter>
