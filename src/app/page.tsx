@@ -3,7 +3,7 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
-  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Briefcase, Building, GitFork, Tv, Server, ShoppingBag, Phone, Mail, ArrowRight, Home as HomeIcon, Info, Settings, MessageSquare, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay, ExternalLink, Cpu, Stethoscope, Store, Sprout, GraduationCap, Users, TrendingUp
+  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Briefcase, Building, GitFork, Tv, Server, ShoppingBag, Phone, Mail, ArrowRight, Home as HomeIcon, Info, Settings, MessageSquare, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay, ExternalLink, Cpu, Stethoscope, Store, Sprout, GraduationCap, Users, TrendingUp, ShieldCheck
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -242,8 +242,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. FINAL CTA SECTION */}
+      {/* 8. OUR PROMISE */}
       <section className="py-16 md:py-24 bg-secondary/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-section-in">
+            <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
+                <ShieldCheck className="h-10 w-10 text-primary" />
+            </div>
+            <h2 className="text-3xl font-bold font-headline text-primary mb-4">Our Promise</h2>
+            <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
+              We believe in technology with trust. Your data stays yours. Our platform is secure, compliant, and constantly improving.
+            </p>
+        </div>
+      </section>
+
+      {/* 9. FINAL CTA SECTION */}
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-section-in">
           <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-6 animate-text-glow">Ready to Build the Future?</h2>
           <p className="text-lg text-foreground/80 mb-8 max-w-3xl mx-auto">Let's solve, scale, and succeed together. Schedule a free consultation to see how Grittrix can help you harness the power of AI to automate and grow your business.</p>
