@@ -1,5 +1,6 @@
 # Grittrix Website
 
-This is a NextJS starter.
-
-To get started, take a look at src/app/page.tsx.
+We create modern,
+innovative, AI-powered
+software, websites & apps
+that produce results.
