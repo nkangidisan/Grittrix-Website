@@ -1,27 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | Grittrix Pay</title>
-  <link rel="icon" href="/favicon.ico">
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Grittrix Pay</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="src/app/services/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 </head>
-<body style="display:flex; height:100vh; background:var(--bg-secondary);">
-  <div style="flex:1; display:flex; align-items:center; justify-content:center; padding:40px;">
-    <div style="width:100%; max-width:400px; background:var(--bg-card); padding:40px; border-radius:24px; border:1px solid var(--border);">
-      <div style="text-align:center; margin-bottom:32px;">
-        <a href="index.html" class="logo-lockup" style="flex-direction:column;">
-          <div class="logo-icon-wrap" style="width:52px; height:52px;"><img src="/media/disanlogo.png" class="logo-icon" style="width:30px; height:30px;"></div>
-          <span class="logo-text" style="font-size:1.5rem; margin-top:10px;">Grittrix Pay</span>
-        </a>
-      </div>
-      <input type="email" placeholder="Email" style="width:100%; padding:14px; background:var(--bg-primary); border:1px solid var(--border); border-radius:10px; color:white; margin-bottom:16px;">
-      <input type="password" placeholder="Password" style="width:100%; padding:14px; background:var(--bg-primary); border:1px solid var(--border); border-radius:10px; color:white; margin-bottom:24px;">
-      <button class="btn-primary-sm" style="width:100%; padding:16px;">Sign In →</button>
-      <p style="text-align:center; margin-top:20px; font-size:0.9rem; opacity:0.6;">Don't have an account? <a href="signup.html" style="color:var(--accent-primary); text-decoration:none;">Sign up</a></p>
+<body>
+
+    <div class="auth-split">
+        <div class="auth-marketing">
+            <a href="index.html" class="logo-lockup" style="margin-bottom: 60px;">
+                <img src="src/app/services/logo.png" alt="Logo" class="logo-img">
+                <div class="logo-text">Grittrix <span>Pay</span></div>
+            </a>
+            <h1 style="font-size: 3rem; margin-bottom: 24px;">Your business. Your payments. Your data.</h1>
+            <p class="text-muted" style="font-size: 1.2rem;">Sign in to access your dashboard and track your revenue in real-time.</p>
+        </div>
+
+        <div class="auth-form-container">
+            <div class="auth-form">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 2rem; margin-bottom: 8px;">Welcome back</h2>
+                    <p class="text-muted">Sign in to your Grittrix Pay account</p>
+                </div>
+
+                <form>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@example.com">
+                    </div>
+                    <div class="input-group">
+                        <div style="display: flex; justify-content: space-between;">
+                            <label>Password</label>
+                            <a href="#" class="text-accent" style="font-size: 0.8rem;">Forgot password?</a>
+                        </div>
+                        <input type="password" placeholder="••••••••">
+                    </div>
+                    
+                    <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-bottom: 24px;">Sign In &rarr;</button>
+                    
+                    <div style="text-align: center; margin-bottom: 24px; position: relative;">
+                        <span style="background: var(--bg-primary); padding: 0 10px; position: relative; z-index: 1; font-size: 0.8rem; color: var(--text-muted);">or continue with</span>
+                        <div style="position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: var(--border);"></div>
+                    </div>
+
+                    <button type="button" class="btn-ghost" style="width: 100%; justify-content: center; display: flex; align-items: center; gap: 10px;">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" width="18">
+                        Sign in with Google
+                    </button>
+                </form>
+
+                <div style="text-align: center; margin-top: 32px; font-size: 0.9rem;">
+                    <p class="text-muted">Don't have an account? <a href="signup.html" class="text-accent">Sign Up</a></p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
 </body>
 </html>

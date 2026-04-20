@@ -1,29 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up | Grittrix Pay</title>
-  <link rel="icon" href="/favicon.ico">
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Grittrix Pay</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="src/app/services/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 </head>
-<body style="display:flex; height:100vh; background:var(--bg-secondary);">
-  <div style="flex:1; display:flex; align-items:center; justify-content:center; padding:40px;">
-    <div style="width:100%; max-width:400px; background:var(--bg-card); padding:40px; border-radius:24px; border:1px solid var(--border);">
-      <div style="text-align:center; margin-bottom:32px;">
-        <a href="index.html" class="logo-lockup" style="flex-direction:column;">
-          <div class="logo-icon-wrap" style="width:52px; height:52px;"><img src="/media/disanlogo.png" class="logo-icon" style="width:30px; height:30px;"></div>
-          <span class="logo-text" style="font-size:1.5rem; margin-top:10px;">Grittrix Pay</span>
-        </a>
-      </div>
-      <h2 style="margin-bottom:24px; font-family:var(--font-heading);">Create Account</h2>
-      <input type="text" placeholder="Full Name" style="width:100%; padding:14px; background:var(--bg-primary); border:1px solid var(--border); border-radius:10px; color:white; margin-bottom:16px;">
-      <input type="email" placeholder="Email" style="width:100%; padding:14px; background:var(--bg-primary); border:1px solid var(--border); border-radius:10px; color:white; margin-bottom:16px;">
-      <input type="password" placeholder="Password" style="width:100%; padding:14px; background:var(--bg-primary); border:1px solid var(--border); border-radius:10px; color:white; margin-bottom:24px;">
-      <button class="btn-primary-sm" style="width:100%; padding:16px;">Get Started →</button>
-      <p style="text-align:center; margin-top:20px; font-size:0.9rem; opacity:0.6;">Already have an account? <a href="login.html" style="color:var(--accent-primary); text-decoration:none;">Login</a></p>
+<body>
+
+    <div class="auth-split">
+        <div class="auth-marketing">
+            <a href="index.html" class="logo-lockup" style="margin-bottom: 60px;">
+                <img src="src/app/services/logo.png" alt="Logo" class="logo-img">
+                <div class="logo-text">Grittrix <span>Pay</span></div>
+            </a>
+            <h1 style="font-size: 3rem; margin-bottom: 24px;">Get paid in under 10 seconds.</h1>
+            <p class="text-muted" style="font-size: 1.2rem; margin-bottom: 40px;">Join the thousands of businesses in Uganda simplifying their mobile money operations.</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--accent-primary);"></div>
+                    <span>Step 1: Choose Account Type</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 16px; opacity: 0.5;">
+                    <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--border);"></div>
+                    <span>Step 2: Enter Your Details</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 16px; opacity: 0.5;">
+                    <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--border);"></div>
+                    <span>Step 3: Verification</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-form-container">
+            <div class="auth-form">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 2rem; margin-bottom: 8px;">Create your account</h2>
+                    <p class="text-muted">Start accepting payments today.</p>
+                </div>
+
+                <div id="step-1">
+                    <p style="margin-bottom: 20px; font-weight: bold;">How will you use Grittrix Pay?</p>
+                    <div style="display: grid; gap: 16px; margin-bottom: 32px;">
+                        <div style="border: 2px solid var(--accent-primary); background: rgba(0,229,160,0.05); padding: 20px; border-radius: 16px; cursor: pointer;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <strong style="font-size: 1.1rem;">Business Owner</strong>
+                                <div style="width: 20px; height: 20px; border-radius: 50%; background: var(--accent-primary);"></div>
+                            </div>
+                            <p class="text-muted" style="font-size: 0.85rem;">I want to receive payments, create links, and track my transactions. For shops, vendors, freelancers.</p>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 20px; border-radius: 16px; cursor: pointer;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <strong style="font-size: 1.1rem;">Customer / User</strong>
+                                <div style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--border);"></div>
+                            </div>
+                            <p class="text-muted" style="font-size: 0.85rem;">I want to pay businesses quickly without USSD stress. For shoppers and individuals.</p>
+                        </div>
+                    </div>
+                    <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="nextStep()">Continue &rarr;</button>
+                </div>
+
+                <div id="step-2" style="display: none;">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Doe">
+                    </div>
+                    <div class="input-group">
+                        <label>Business Name</label>
+                        <input type="text" placeholder="Kampala Groceries">
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@example.com">
+                    </div>
+                    <div class="input-group">
+                        <label>Phone Number (MTN/Airtel)</label>
+                        <input type="tel" placeholder="+256 7XX XXX XXX">
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="••••••••">
+                    </div>
+                    <button class="btn-primary" style="width: 100%; justify-content: center;">Create Account &rarr;</button>
+                </div>
+
+                <div style="text-align: center; margin-top: 32px; font-size: 0.9rem;">
+                    <p class="text-muted">Already have an account? <a href="login.html" class="text-accent">Sign In</a></p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <script>
+        function nextStep() {
+            document.getElementById('step-1').style.display = 'none';
+            document.getElementById('step-2').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
