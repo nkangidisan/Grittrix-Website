@@ -1,83 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developers | Grittrix Pay API</title>
-    <link rel="icon" href="src/app/services/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .dev-hero { padding: 120px 40px 80px; text-align: center; background: var(--gradient-hero); }
-        .code-block { background: #0A0A14; border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0; overflow-x: auto; position: relative; }
-        .code-block pre { font-family: 'monospace'; font-size: 0.9rem; color: #d1d1f7; }
-        .lang-badge { position: absolute; top: 12px; right: 12px; font-size: 0.7rem; color: var(--accent-primary); text-transform: uppercase; border: 1px solid var(--accent-primary); padding: 2px 8px; border-radius: 4px; }
-        .api-status { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--accent-primary); margin-top: 16px; }
-        .status-dot { width: 8px; height: 8px; background: var(--accent-primary); border-radius: 50%; box-shadow: 0 0 10px var(--accent-primary); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developers | Grittrix Pay API</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    .code-block { background: #0A0A14; padding: 24px; border-radius: 12px; font-family: monospace; border: 1px solid var(--border); margin: 20px 0; color: var(--accent-primary); }
+    .api-card { background: var(--bg-card); border: 1px solid var(--border); padding: 32px; border-radius: 20px; margin-bottom: 24px; }
+  </style>
 </head>
 <body>
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo-lockup">
-                <div class="logo-icon-wrap"><img src="src/app/services/favicon.ico" alt="" class="logo-icon" width="32" height="32"></div>
-                <span class="logo-text"><span class="logo-brand">Grittrix</span><span class="logo-product"> Pay</span></span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
-                <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-                <li><a href="developers.html" class="nav-link active">Developers</a></li>
-            </ul>
-            <div class="nav-ctas">
-                <a href="login.html" class="btn-ghost-sm">Login</a>
-                <a href="signup.html" class="btn-primary-sm">Get Started</a>
-            </div>
-        </div>
-    </nav>
+  <nav class="navbar scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="logo-lockup">
+        <div class="logo-icon-wrap"><img src="/media/disanlogo.png" class="logo-icon"></div>
+        <span class="logo-text"><span class="logo-brand">Grittrix</span><span class="logo-product"> Pay</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="developers.html" class="nav-link active">Developers</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <section class="dev-hero">
-        <div class="api-status"><span class="status-dot"></span> API Operational — 99.97% uptime</div>
-        <h1 class="text-h1">Built for developers who <span class="text-accent">hate complexity.</span></h1>
-        <p class="text-body-lg text-muted" style="max-width: 700px; margin: 24px auto;">3 endpoints. Auto-routing. Full STK push control. Integrate mobile money into any app in an afternoon.</p>
-    </section>
+  <main style="padding: 120px 10% 80px;">
+    <h1 class="feature-headline">Built for <span class="text-accent">Builders.</span></h1>
+    <p style="max-width:600px; margin-bottom:60px; opacity:0.7;">Integrate mobile money into any application in minutes. 3 endpoints. Full STK push control. No telecom complexity.</p>
 
-    <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 24px 100px;">
-        <h2 class="text-h2">Quick Start</h2>
-        <div class="code-block">
-            <span class="lang-badge">npm</span>
-            <pre>npm install @grittrix/pay-sdk</pre>
-        </div>
-        
-        <h3 class="text-h3" style="margin-top: 48px;">Create a payment</h3>
-        <div class="code-block">
-            <span class="lang-badge">Node.js</span>
-            <pre>const payment = await pay.createPayment({
-  amount: 120000,
-  currency: 'UGX',
-  phone: '+256772XXXXXX',
-  network: 'auto',
-  webhookUrl: 'https://yourapp.com/webhook'
-});</pre>
-        </div>
+    <div class="api-card">
+      <h3>POST /create-payment</h3>
+      <p style="opacity:0.6; margin-bottom:20px;">Generate a unique payment link or QR code.</p>
+      <div class="code-block">
+{
+  "amount": 50000,
+  "currency": "UGX",
+  "phone": "+256772000000",
+  "webhook": "https://yoursite.com/webhook"
+}
+      </div>
     </div>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-parent-brand">
-                <div class="footer-brand-divider"></div>
-                <div class="footer-brand-content">
-                    <span class="footer-brand-label">A product by</span>
-                    <a href="https://grittrix.com" target="_blank" class="footer-brand-link">
-                        <div class="footer-brand-logo"><img src="src/app/services/favicon.ico" alt="" width="20" height="20" style="filter: brightness(0) invert(1);"></div>
-                        <span class="footer-brand-name">Grittrix</span>
-                        <span class="footer-brand-arrow">↗</span>
-                    </a>
-                </div>
-            </div>
-            <p class="copyright">© 2025 Grittrix Pay. A product of <a href="https://grittrix.com" target="_blank">Grittrix AI Solutions</a>.</p>
-        </div>
-    </footer>
+    <div class="api-card">
+      <h3>POST /pay</h3>
+      <p style="opacity:0.6; margin-bottom:20px;">Trigger an instant STK push to the customer's phone.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-parent-brand">
+      <div class="footer-brand-content">
+        <span style="opacity:0.6;">A product by</span>
+        <a href="https://grittrix.com" target="_blank" class="footer-brand-link">
+          <img src="/media/disanlogo.png" alt="" width="20">
+          <span style="font-family:var(--font-heading); font-weight:700;">Grittrix</span>
+          <span style="color:var(--accent-primary);">↗</span>
+        </a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

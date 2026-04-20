@@ -1,61 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Grittrix Pay</title>
-    <link rel="icon" href="src/app/services/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .auth-split { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
-        .auth-marketing { background: var(--bg-secondary); padding: 80px; display: flex; flex-direction: column; justify-content: center; }
-        .auth-form-panel { background: var(--bg-card); padding: 80px; display: flex; flex-direction: column; justify-content: center; }
-        .form-group { margin-bottom: 24px; }
-        .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: var(--text-muted); }
-        .form-group input { width: 100%; padding: 14px; background: #050508; border: 1px solid var(--border); border-radius: 10px; color: white; font-family: var(--font-body); }
-        .form-group input:focus { outline: none; border-color: var(--accent-primary); box-shadow: 0 0 10px rgba(0, 229, 160, 0.1); }
-        @media (max-width: 767px) { .auth-split { grid-template-columns: 1fr; } .auth-marketing { display: none; } .auth-form-panel { padding: 40px 20px; } }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Grittrix Pay</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="auth-split">
-        <div class="auth-marketing">
-            <a href="index.html" class="logo-lockup">
-                <div class="logo-icon-wrap"><img src="src/app/services/favicon.ico" alt="" class="logo-icon" width="32" height="32"></div>
-                <span class="logo-text"><span class="logo-brand">Grittrix</span><span class="logo-product"> Pay</span></span>
-            </a>
-            <h1 class="text-h1" style="margin-top: 40px;">Your business. Your payments. <span class="text-accent">Your data.</span></h1>
-        </div>
-        
-        <div class="auth-form-panel">
-            <div class="auth-logo" style="text-align:center; margin-bottom: 32px;">
-                <a href="index.html" class="logo-lockup" style="flex-direction: column; gap: 8px;">
-                    <div class="logo-icon-wrap" style="width:52px; height:52px; border-radius:14px;">
-                        <img src="src/app/services/favicon.ico" alt="Grittrix Pay" class="logo-icon" width="30" height="30">
-                    </div>
-                    <span class="logo-text" style="font-size:1.5rem;"><span class="logo-brand">Grittrix</span><span class="logo-product"> Pay</span></span>
-                </a>
-            </div>
-
-            <h2 class="text-h3" style="text-align:center; margin-bottom: 32px;">Welcome back</h2>
-            
-            <form id="loginForm">
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="name@company.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" placeholder="••••••••" required>
-                </div>
-                <button type="submit" class="btn-primary-sm" style="width:100%; padding: 16px; font-size: 1rem;">Sign In →</button>
-            </form>
-            
-            <p style="text-align:center; margin-top: 24px; color: var(--text-muted);">Don't have an account? <a href="signup.html" class="text-accent">Sign up →</a></p>
-        </div>
+<body style="display:flex; height:100vh; background:var(--bg-secondary);">
+  <div style="flex:1; display:flex; align-items:center; justify-content:center; padding:40px;">
+    <div style="width:100%; max-width:400px; background:var(--bg-card); padding:40px; border-radius:24px; border:1px solid var(--border);">
+      <div style="text-align:center; margin-bottom:32px;">
+        <a href="index.html" class="logo-lockup" style="flex-direction:column;">
+          <div class="logo-icon-wrap" style="width:52px; height:52px;"><img src="/media/disanlogo.png" class="logo-icon" style="width:30px; height:30px;"></div>
+          <span class="logo-text" style="font-size:1.5rem; margin-top:10px;">Grittrix Pay</span>
+        </a>
+      </div>
+      <input type="email" placeholder="Email" style="width:100%; padding:14px; background:var(--bg-primary); border:1px solid var(--border); border-radius:10px; color:white; margin-bottom:16px;">
+      <input type="password" placeholder="Password" style="width:100%; padding:14px; background:var(--bg-primary); border:1px solid var(--border); border-radius:10px; color:white; margin-bottom:24px;">
+      <button class="btn-primary-sm" style="width:100%; padding:16px;">Sign In →</button>
+      <p style="text-align:center; margin-top:20px; font-size:0.9rem; opacity:0.6;">Don't have an account? <a href="signup.html" style="color:var(--accent-primary); text-decoration:none;">Sign up</a></p>
     </div>
+  </div>
 </body>
 </html>

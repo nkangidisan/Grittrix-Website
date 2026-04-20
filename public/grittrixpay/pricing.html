@@ -1,163 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing | Grittrix Pay</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | Grittrix Pay</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container nav-content">
-            <a href="index.html" class="logo">Grittrix<span>Pay</span></a>
-            <div class="nav-links">
-                <a href="how-it-works.html" class="nav-link">How It Works</a>
-                <a href="pricing.html" class="nav-link">Pricing</a>
-                <a href="developers.html" class="nav-link">Developers</a>
-                <div class="nav-actions">
-                    <a href="login.html" class="btn btn-ghost">Login</a>
-                    <a href="signup.html" class="btn btn-primary">Get Started</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+  <nav class="navbar scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="logo-lockup">
+        <div class="logo-icon-wrap"><img src="/media/disanlogo.png" class="logo-icon"></div>
+        <span class="logo-text">Grittrix Pay</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+        <li><a href="pricing.html" class="nav-link active">Pricing</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <section class="hero" style="text-align: center; padding: 6rem 0 4rem;">
-        <div class="container">
-            <h1 class="hero-title">Simple, transparent pricing.</h1>
-            <p class="hero-subtitle">Start free. Scale when you're ready.</p>
-            <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2rem;">
-                <span style="font-size: 0.9rem; color: var(--text-muted);">Monthly</span>
-                <label class="switch">
-                    <input type="checkbox" id="billing-toggle">
-                    <span class="slider round"></span>
-                </label>
-                <span style="font-size: 0.9rem;">Annual <small style="color: var(--accent-primary);">(Save 20%)</small></span>
-            </div>
-        </div>
-    </section>
-
-    <section class="container" style="padding-bottom: 6rem;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch;">
-            <!-- Free -->
-            <div style="background: var(--bg-card); padding: 3rem; border-radius: 24px; border: 1px solid var(--border); display: flex; flex-direction: column;">
-                <span class="badge-pill" style="margin-bottom: 1rem;">Start here</span>
-                <h3 style="font-size: 2rem; margin-bottom: 0.5rem;">Free</h3>
-                <p style="color: var(--accent-primary); font-weight: 700; margin-bottom: 2rem;">0.1% per transaction</p>
-                <ul style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; flex-grow: 1;">
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> Payment links</li>
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> QR code generation</li>
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> MTN + Airtel routing</li>
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> Basic dashboard</li>
-                    <li style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-muted);"><i data-lucide="x" style="width: 18px;"></i> Custom branding</li>
-                    <li style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-muted);"><i data-lucide="x" style="width: 18px;"></i> API access</li>
-                </ul>
-                <a href="signup.html" class="btn btn-ghost" style="width: 100%; justify-content: center; border: 1px solid var(--border);">Get Started Free</a>
-            </div>
-
-            <!-- Pro -->
-            <div style="background: var(--bg-card); padding: 3rem; border-radius: 24px; border: 2px solid var(--accent-primary); display: flex; flex-direction: column; position: relative; box-shadow: 0 0 40px var(--accent-glow);">
-                <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--accent-primary); color: #000; padding: 0.4rem 1.2rem; border-radius: 99px; font-weight: 800; font-size: 0.75rem;">🔥 MOST POPULAR</div>
-                <h3 style="font-size: 2rem; margin-bottom: 0.5rem;">Pro</h3>
-                <p style="font-size: 3rem; font-family: var(--font-heading); margin-bottom: 0.25rem;"><span class="price-val" data-monthly="99" data-annual="79">$99</span><span style="font-size: 1rem; color: var(--text-muted);">/mo</span></p>
-                <p style="color: var(--accent-primary); font-weight: 700; margin-bottom: 2rem;">ZERO transaction fees</p>
-                <ul style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; flex-grow: 1;">
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> Everything in Free</li>
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> Full API access</li>
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> Advanced analytics</li>
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> Custom branding</li>
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> WhatsApp notifications</li>
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> Unlimited transactions</li>
-                </ul>
-                <a href="signup.html" class="btn btn-primary" style="width: 100%; justify-content: center;">Start Pro Trial →</a>
-            </div>
-
-            <!-- Enterprise -->
-            <div style="background: var(--bg-card); padding: 3rem; border-radius: 24px; border: 1px solid var(--border); display: flex; flex-direction: column;">
-                <h3 style="font-size: 2rem; margin-bottom: 0.5rem;">Enterprise</h3>
-                <p style="font-size: 2.5rem; font-family: var(--font-heading); margin-bottom: 0.25rem;">Custom</p>
-                <p style="color: var(--text-muted); margin-bottom: 2rem;">For large businesses & institutions</p>
-                <ul style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; flex-grow: 1;">
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> Everything in Pro</li>
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> Dedicated account manager</li>
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> Custom integrations</li>
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> SLA guarantee</li>
-                    <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" style="color: var(--accent-primary); width: 18px;"></i> White-label option</li>
-                </ul>
-                <a href="mailto:sales@grittrix.com" class="btn btn-ghost" style="width: 100%; justify-content: center; border: 1px solid var(--border);">Contact Sales →</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <a href="index.html" class="logo" style="margin-bottom: 1.5rem;">Grittrix<span>Pay</span></a>
-                    <div class="powered-by">
-                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">A product by</p>
-                        <div style="display: flex; align-items: center; gap: 0.75rem;">
-                            <div style="width: 32px; height: 32px; background: var(--accent-primary); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #000; font-weight: 800;">G</div>
-                            <div>
-                                <div style="font-weight: 700;">Grittrix</div>
-                                <a href="https://grittrix.com" target="_blank" class="powered-link">grittrix.com →</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 1.5rem;">Product</h4>
-                    <ul style="display: flex; flex-direction: column; gap: 0.75rem; color: var(--text-muted);">
-                        <li><a href="how-it-works.html">How It Works</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
-                        <li><a href="#">Payment Links</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 1.5rem;">Developers</h4>
-                    <ul style="display: flex; flex-direction: column; gap: 0.75rem; color: var(--text-muted);">
-                        <li><a href="developers.html">API Docs</a></li>
-                        <li><a href="developers.html#sandbox">Sandbox</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 1.5rem;">Company</h4>
-                    <ul style="display: flex; flex-direction: column; gap: 0.75rem; color: var(--text-muted);">
-                        <li><a href="https://grittrix.com/about">About Grittrix</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <style>
-        .switch { position: relative; display: inline-block; width: 50px; height: 26px; }
-        .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--border); transition: .4s; }
-        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 4px; bottom: 4px; background-color: white; transition: .4s; }
-        input:checked + .slider { background-color: var(--accent-primary); }
-        input:checked + .slider:before { transform: translateX(24px); }
-        .slider.round { border-radius: 34px; }
-        .slider.round:before { border-radius: 50%; }
-    </style>
-
-    <script>
-        lucide.createIcons();
-        const toggle = document.getElementById('billing-toggle');
-        const priceEls = document.querySelectorAll('.price-val');
-        
-        toggle.addEventListener('change', () => {
-            priceEls.forEach(el => {
-                const val = toggle.checked ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
-                el.textContent = `$${val}`;
-            });
-        });
-    </script>
+  <main style="padding: 120px 10%; text-align:center;">
+    <h1 class="feature-headline">Simple Pricing.</h1>
+    <div style="display:flex; justify-content:center; gap:30px; margin-top:60px; flex-wrap:wrap;">
+       <div class="api-card" style="width:300px;">
+          <h2>Free</h2>
+          <p>0.1% per transaction</p>
+       </div>
+       <div class="api-card" style="width:300px; border-color:var(--accent-primary);">
+          <h2>Pro</h2>
+          <p>$99 / month</p>
+       </div>
+    </div>
+  </main>
 </body>
 </html>
