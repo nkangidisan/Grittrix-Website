@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grittrix Pay | Fastest Mobile Money in Uganda</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="src/app/services/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo-lockup">
+        <div class="logo-icon-wrap">
+          <img src="src/app/services/logo.png" alt="Logo" class="logo-icon">
+        </div>
+        <span class="logo-text">Grittrix <span class="logo-product">Pay</span></span>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="developers.html">Developers</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-ghost">Login</a>
+        <a href="signup.html" class="btn-mint">Get Started</a>
+        <button class="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">🇺🇬 Built for Uganda. Ready for Africa.</span>
+      <h1>The fastest way to <br><span id="hero-swap" style="color: var(--accent-primary)">receive</span> <br>mobile money.</h1>
+      <p>One link. Any network. Under 10 seconds. Grittrix Pay unifies MTN MoMo & Airtel Money into one seamless payment experience.</p>
+      <div style="display: flex; gap: 20px;">
+        <a href="signup.html" class="btn-mint">Get Started Free →</a>
+        <a href="how-it-works.html" class="btn-ghost" style="text-decoration: underline;">See How It Works</a>
+      </div>
+      <div style="margin-top: 40px; color: var(--text-muted); font-size: 0.9rem;">
+        ✓ MTN MoMo &nbsp;&nbsp; ✓ Airtel Money &nbsp;&nbsp; ✓ No USSD &nbsp;&nbsp; ✓ Instant STK Push
+      </div>
+    </div>
+
+    <div class="hero-mockup">
+      <div class="phone-frame">
+        <div style="padding: 40px 20px; text-align: center;">
+          <div style="width: 50px; height: 50px; background: var(--accent-primary); border-radius: 50%; margin: 0 auto 20px;"></div>
+          <h4 style="margin-bottom: 8px;">Kampala Boutique</h4>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 40px;">Payment Request</p>
+          <div style="font-size: 2rem; font-weight: 800; color: var(--accent-primary); margin-bottom: 40px;">120,000 UGX</div>
+          <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+            <p style="font-size: 0.7rem; text-align: left; margin-bottom: 8px;">Phone Number</p>
+            <div style="text-align: left; font-weight: 700;">+256 772 456 789</div>
+          </div>
+          <button class="btn-mint" style="width: 100%; font-size: 0.9rem;">Pay Now</button>
+        </div>
+      </div>
+      <div class="floating-card f-1">✅ Payment received · 120k</div>
+      <div class="floating-card f-2">⚡ STK Push sent · 0.3s</div>
+      <div class="floating-card f-3">📱 MTN MoMo · Confirmed</div>
+    </div>
+  </header>
+
+  <div class="marquee">
+    <div class="marquee-content">
+      <span>PAYMENT LINKS ✦ QR CODES ✦ MTN MOMO ✦ AIRTEL MONEY ✦ STK PUSH ✦ < 10 SECONDS ✦ DEVELOPER API ✦ ZERO FRICTION ✦&nbsp;</span>
+      <span>PAYMENT LINKS ✦ QR CODES ✦ MTN MOMO ✦ AIRTEL MONEY ✦ STK PUSH ✦ < 10 SECONDS ✦ DEVELOPER API ✦ ZERO FRICTION ✦&nbsp;</span>
+    </div>
+  </div>
+
+  <section class="section-header">
+    <h2>Everything you need to get paid.</h2>
+    <p>Powerful tools designed for the Ugandan economy.</p>
+  </section>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-text">
+        <h3>Payment Links</h3>
+        <p>Create a link in 30 seconds. Share via WhatsApp. Customer pays in one tap.</p>
+      </div>
+      <div class="feature-mockup-area">
+        <!-- Mockup: Payment Link Interaction -->
+        <div style="background: var(--bg-card); padding: 15px; border-radius: 8px; width: 80%;">
+          <div style="height: 4px; width: 60%; background: var(--border); margin-bottom: 10px;"></div>
+          <div style="height: 12px; width: 100%; background: var(--accent-primary); border-radius: 4px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-text">
+        <h3>QR Code Payments</h3>
+        <p>Static QR for shops. Dynamic QR for invoices. Works offline too.</p>
+      </div>
+      <div class="feature-mockup-area">
+        <div style="width: 80px; height: 80px; border: 4px solid var(--accent-primary); display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px;">
+          <div style="background: var(--accent-primary);"></div><div style="background: var(--accent-primary);"></div><div></div>
+          <div style="background: var(--accent-primary);"></div><div></div><div style="background: var(--accent-primary);"></div>
+          <div></div><div style="background: var(--accent-primary);"></div><div style="background: var(--accent-primary);"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-text">
+        <h3>Smart Routing</h3>
+        <p>Auto-detects MTN or Airtel. Sends the right request instantly.</p>
+      </div>
+      <div class="feature-mockup-area">
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <div style="width: 40px; height: 40px; background: #FFCC00; border-radius: 8px; opacity: 0.5;"></div>
+          <div style="font-size: 1.5rem;">⚡</div>
+          <div style="width: 40px; height: 40px; background: #ED1C24; border-radius: 8px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-text">
+        <h3>Live Dashboard</h3>
+        <p>See every payment in real-time. Status, amount, customer — all in one view.</p>
+      </div>
+      <div class="feature-mockup-area">
+        <div style="width: 90%; background: #050508; border-radius: 8px; overflow: hidden;">
+          <div style="padding: 8px; background: #12121E; border-bottom: 1px solid var(--border); display: flex; gap: 4px;">
+            <div style="width: 6px; height: 6px; background: #FF5F56; border-radius: 50%;"></div>
+            <div style="width: 6px; height: 6px; background: #FFBD2E; border-radius: 50%;"></div>
+            <div style="width: 6px; height: 6px; background: #27C93F; border-radius: 50%;"></div>
+          </div>
+          <div style="padding: 10px;">
+            <div style="height: 6px; width: 100%; background: var(--border); margin-bottom: 6px;"></div>
+            <div style="height: 6px; width: 80%; background: var(--accent-primary); margin-bottom: 6px;"></div>
+            <div style="height: 6px; width: 90%; background: var(--border);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-text">
+        <h3>Instant Notifications</h3>
+        <p>SMS + WhatsApp confirmations the second money lands.</p>
+      </div>
+      <div class="feature-mockup-area">
+        <div style="width: 80%; background: #25D366; color: white; padding: 10px; border-radius: 12px 12px 12px 0; font-size: 0.7rem;">
+          ✅ Received 120,000 UGX from Sarah K.
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-text">
+        <h3>Developer API</h3>
+        <p>3 endpoints. Full STK push control. Integrate in an afternoon.</p>
+      </div>
+      <div class="feature-mockup-area">
+        <div style="width: 90%; background: #000; border-radius: 8px; padding: 15px; font-family: monospace; font-size: 0.6rem;">
+          <span style="color: #F81CE5;">POST</span> /v1/pay <br>
+          { "amount": 50000 }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo-lockup">
+          <div class="logo-icon-wrap" style="width:32px; height:32px;">
+            <img src="src/app/services/logo.png" alt="Logo" class="logo-icon" style="width:20px;">
+          </div>
+          <span class="logo-text" style="font-size: 1.1rem;">Grittrix <span class="logo-product">Pay</span></span>
+        </a>
+        <p style="color: var(--text-muted); margin-top: 20px;">The fastest mobile money experience in Uganda.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul style="list-style: none; margin-top: 20px; color: var(--text-muted);">
+          <li>How It Works</li>
+          <li>Pricing</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Developers</h4>
+        <ul style="list-style: none; margin-top: 20px; color: var(--text-muted);">
+          <li>API Docs</li>
+          <li>Sandbox</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul style="list-style: none; margin-top: 20px; color: var(--text-muted);">
+          <li>Privacy Policy</li>
+          <li>Terms of Service</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-parent-brand">
+      <span style="color: var(--text-muted); font-size: 0.8rem;">A product by</span>
+      <a href="https://grittrix.com" target="_blank" style="display: flex; align-items: center; gap: 8px; text-decoration: none; background: var(--bg-card); padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border);">
+        <img src="src/app/services/logo.png" alt="Grittrix" width="20" style="filter: brightness(0) invert(1);">
+        <span style="color: white; font-weight: 700; font-family: 'Syne';">Grittrix ↗</span>
+      </a>
+      <span style="color: var(--text-muted); font-size: 0.8rem; font-style: italic;">Redefining Industries with Technology</span>
+    </div>
+
+    <div style="text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid var(--border); padding-top: 30px;">
+      © 2025 Grittrix Pay. A product of Grittrix AI Solutions. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const words = ["receive", "send", "track", "confirm"];
+    let i = 0;
+    const el = document.getElementById('hero-swap');
+    setInterval(() => {
+      i = (i + 1) % words.length;
+      el.style.opacity = 0;
+      setTimeout(() => {
+        el.innerText = words[i];
+        el.style.opacity = 1;
+      }, 300);
+    }, 3000);
+  </script>
+</body>
+</html>
