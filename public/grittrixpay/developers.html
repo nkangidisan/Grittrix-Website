@@ -1,235 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developers | Grittrix Pay API</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        code { font-family: 'Courier New', Courier, monospace; }
-        .code-block {
-            background: #0A0A14;
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            overflow-x: auto;
-            margin: 1.5rem 0;
-            position: relative;
-        }
-        .code-block::before {
-            content: attr(data-lang);
-            position: absolute;
-            top: 0;
-            right: 1.5rem;
-            background: var(--border);
-            padding: 2px 8px;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            border-radius: 0 0 4px 4px;
-        }
-        .method-badge {
-            background: var(--bg-glow);
-            color: var(--accent-primary);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 800;
-            margin-right: 0.5rem;
-        }
-        .endpoint-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        .api-url {
-            background: var(--bg-primary);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            font-family: monospace;
-            color: var(--accent-primary);
-            margin: 2rem 0;
-            border: 1px dashed var(--accent-primary);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developers | Grittrix Pay API</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">Grittrix<span>Pay</span></a>
-            <div class="nav-links">
-                <a href="how-it-works.html">How It Works</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="developers.html" class="active">Developers</a>
-                <a href="login.html" class="btn-ghost">Login</a>
-                <a href="signup.html" class="btn btn-primary">Get Started</a>
-            </div>
-            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
-        </div>
-    </nav>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Grittrix <span>Pay</span></a>
+      <div class="nav-links">
+        <a href="how-it-works.html">How It Works</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="developers.html">Developers</a>
+      </div>
+      <div class="nav-cta">
+        <a href="login.html" class="btn btn-ghost">Login</a>
+        <a href="signup.html" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Hero -->
-    <header style="padding-top: 160px; text-align: center;">
-        <div class="container">
-            <span style="color: var(--accent-primary);">🛠️ Grittrix Pay API</span>
-            <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); margin: 1rem 0;">Built for developers who hate complexity.</h1>
-            <p style="color: var(--text-muted); font-size: 1.25rem; max-width: 700px; margin: 0 auto 3rem;">
-                3 endpoints. Auto-routing. Full STK push control. Integrate mobile money in an afternoon.
-            </p>
-            <div style="display: flex; gap: 1rem; justify-content: center;">
-                <a href="#" class="btn btn-primary">Get API Key →</a>
-                <a href="#quickstart" class="btn btn-ghost">Read the Docs</a>
-            </div>
-            <div style="margin-top: 3rem; color: var(--text-muted); font-size: 0.9rem;">
-                ● API Status: <span style="color: var(--accent-primary);">Operational</span> — 99.97% uptime
-            </div>
-        </div>
-    </header>
+  <section class="container" style="padding: 8rem 0;">
+    <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">Built for developers.</h1>
+    <p class="hero-sub" style="margin-bottom: 4rem;">3 endpoints. Integrate in an afternoon.</p>
 
-    <section id="quickstart">
-        <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">Quick Start</h2>
-            
-            <div style="display: grid; gap: 3rem;">
-                <div class="reveal">
-                    <h3>01. Install SDK</h3>
-                    <div class="code-block" data-lang="SHELL">
-                        npm install @grittrix/pay-sdk
-                    </div>
-                </div>
-
-                <div class="reveal">
-                    <h3>02. Initialize</h3>
-                    <div class="code-block" data-lang="NODE.JS">
-<span style="color: var(--accent-primary);">import</span> GrittrixPay <span style="color: var(--accent-primary);">from</span> <span style="color: var(--accent-secondary);">'@grittrix/pay-sdk'</span>;
-
-<span style="color: var(--accent-primary);">const</span> pay = <span style="color: var(--accent-primary);">new</span> GrittrixPay({
-  apiKey: process.env.GRITTRIX_API_KEY,
-  environment: <span style="color: var(--accent-secondary);">'production'</span>
-});</div>
-                </div>
-
-                <div class="reveal">
-                    <h3>03. Create a Payment</h3>
-                    <div class="code-block" data-lang="NODE.JS">
-<span style="color: var(--accent-primary);">const</span> payment = <span style="color: var(--accent-primary);">await</span> pay.createPayment({
-  amount: <span style="color: #4FB3FF;">120000</span>,
-  currency: <span style="color: var(--accent-secondary);">'UGX'</span>,
-  phone: <span style="color: var(--accent-secondary);">'+256772XXXXXX'</span>,
-  network: <span style="color: var(--accent-secondary);">'auto'</span>,
-  webhookUrl: <span style="color: var(--accent-secondary);">'https://yourapp.com/webhook'</span>
-});</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-secondary">
-        <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">API Reference</h2>
-            <p style="color: var(--text-muted); margin-bottom: 3rem;">The complete API. Three endpoints. That's the whole thing.</p>
-            
-            <div class="api-url">https://api.grittrix.com/v1</div>
-
-            <div class="endpoint-card reveal">
-                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                    <span class="method-badge">POST</span>
-                    <h3 style="font-size: 1.2rem;">/create-payment</h3>
-                </div>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Create a payment link or QR code.</p>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                    <div>
-                        <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;">Parameters</h4>
-                        <ul style="font-size: 0.9rem; list-style: none;">
-                            <li style="margin-bottom: 0.5rem;"><code>amount</code> <span style="color: var(--accent-secondary);">*</span> integer</li>
-                            <li style="margin-bottom: 0.5rem;"><code>phone</code> <span style="color: var(--accent-secondary);">*</span> string</li>
-                            <li style="margin-bottom: 0.5rem;"><code>description</code> string</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;">Response</h4>
-                        <div class="code-block" style="padding: 1rem; margin: 0; font-size: 0.75rem;">
-{ "id": "pay_8f3...", "link": "pay.grittrix.com/..." }
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="endpoint-card reveal">
-                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                    <span class="method-badge">POST</span>
-                    <h3 style="font-size: 1.2rem;">/pay</h3>
-                </div>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Trigger an STK push directly to a customer's phone.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo">Grittrix<span>Pay</span></a>
-                    <p>The fastest mobile money experience in Uganda. Redefining how we pay and get paid.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="how-it-works.html">How It Works</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
-                        <li><a href="#">Payment Links</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Developers</h4>
-                    <ul>
-                        <li><a href="developers.html">API Docs</a></li>
-                        <li><a href="#">Sandbox</a></li>
-                        <li><a href="#">Webhooks</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="https://grittrix.com" target="_blank">About Grittrix</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="footer-powered-by">
-                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0;">A product by</p>
-                    <a href="https://grittrix.com" target="_blank" class="grittrix-logo">
-                        <div class="logo-mark">G</div> Grittrix
-                    </a>
-                    <a href="https://grittrix.com" target="_blank" class="link">grittrix.com <i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Grittrix Pay. A product of <a href="https://grittrix.com" target="_blank" style="color: var(--accent-primary);">Grittrix AI Solutions</a>. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
+    <div class="card-glass" style="margin-bottom: 4rem;">
+      <h3 style="margin-bottom: 1.5rem;">Quick Start (Node.js)</h3>
+      <code-block>
+        <span class="code-comment">// Initialize SDK</span><br>
+        <span class="code-keyword">const</span> pay = <span class="code-keyword">new</span> GrittrixPay(<span class="code-string">'gx_live_...'</span>);<br><br>
+        <span class="code-comment">// Create a payment</span><br>
+        <span class="code-keyword">const</span> result = <span class="code-keyword">await</span> pay.createPayment({<br>
+        &nbsp;&nbsp;amount: 120000,<br>
+        &nbsp;&nbsp;phone: <span class="code-string">'+256772...'</span>,<br>
+        &nbsp;&nbsp;network: <span class="code-string">'auto'</span><br>
         });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
+      </code-block>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+      <div class="card-glass">
+        <h4>POST /v1/create-link</h4>
+        <p class="text-muted">Generate a reusable payment link.</p>
+      </div>
+      <div class="card-glass">
+        <h4>POST /v1/stk-push</h4>
+        <p class="text-muted">Trigger a PIN prompt directly.</p>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>

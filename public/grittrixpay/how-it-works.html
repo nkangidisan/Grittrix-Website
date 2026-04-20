@@ -1,110 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How It Works | Grittrix Pay</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works | Grittrix Pay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <nav>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">Grittrix<span>Pay</span></a>
-            <div class="nav-links">
-                <a href="how-it-works.html" class="active">How It Works</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="developers.html">Developers</a>
-                <a href="login.html" class="btn-ghost">Login</a>
-                <a href="signup.html" class="btn btn-primary">Get Started</a>
-            </div>
-            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
-        </div>
-    </nav>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Grittrix <span>Pay</span></a>
+      <div class="nav-links">
+        <a href="how-it-works.html">How It Works</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="developers.html">Developers</a>
+      </div>
+      <div class="nav-cta">
+        <a href="login.html" class="btn btn-ghost">Login</a>
+        <a href="signup.html" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+  </nav>
 
-    <header style="padding-top: 160px; text-align: center;">
-        <div class="container reveal">
-            <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1rem;">Payments that just work.</h1>
-            <p style="color: var(--text-muted); font-size: 1.25rem; max-width: 600px; margin: 0 auto;">Here's exactly what happens when someone pays you with Grittrix Pay.</p>
-        </div>
-    </header>
+  <section class="container" style="padding: 8rem 0; text-align: center;">
+    <h1 style="font-size: 4rem; margin-bottom: 1.5rem;">Payments that just work.</h1>
+    <p class="hero-sub" style="margin: 0 auto 4rem;">Here's exactly what happens when someone pays you with Grittrix Pay.</p>
 
-    <section>
-        <div class="container">
-            <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 4rem;">The Setup Flow</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-                <div class="reveal">
-                    <div style="display: flex; gap: 2rem; margin-bottom: 3rem;">
-                        <div style="width: 48px; height: 48px; background: var(--accent-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--bg-primary); font-weight: 800; flex-shrink: 0;">1</div>
-                        <div>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Create Account</h3>
-                            <p style="color: var(--text-muted);">Sign up as a business. Connect your MTN or Airtel number where you want to receive funds.</p>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 2rem; margin-bottom: 3rem;">
-                        <div style="width: 48px; height: 48px; background: var(--accent-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--bg-primary); font-weight: 800; flex-shrink: 0;">2</div>
-                        <div>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Generate Link</h3>
-                            <p style="color: var(--text-muted);">Name your link, set an amount (or leave it open), and click create. Done in 30 seconds.</p>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 2rem;">
-                        <div style="width: 48px; height: 48px; background: var(--accent-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--bg-primary); font-weight: 800; flex-shrink: 0;">3</div>
-                        <div>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Share Everywhere</h3>
-                            <p style="color: var(--text-muted);">Send via WhatsApp, embed on your website, or print a QR code for your shop counter.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="reveal">
-                    <div class="phone-frame" style="margin: 0 auto;">
-                        <div class="phone-screen" style="justify-content: center; align-items: center; padding: 2rem;">
-                             <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--accent-primary); margin-bottom: 1rem;"></i>
-                             <p style="font-weight: 800;">Link Created!</p>
-                             <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin-top: 1rem; font-size: 0.7rem; color: var(--accent-primary);">pay.grittrix.com/l/shoes</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; text-align: left;">
+      <div class="card-glass">
+        <div style="width: 40px; height: 40px; background: var(--accent-primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 1.5rem;">1</div>
+        <h3>Create Link</h3>
+        <p class="text-muted">Sign up and create a payment link or QR code in under 30 seconds.</p>
+      </div>
+      <div class="card-glass">
+        <div style="width: 40px; height: 40px; background: var(--accent-primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 1.5rem;">2</div>
+        <h3>Share Anywhere</h3>
+        <p class="text-muted">Send the link via WhatsApp, email, or display your QR code in your shop.</p>
+      </div>
+      <div class="card-glass">
+        <div style="width: 40px; height: 40px; background: var(--accent-primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 1.5rem;">3</div>
+        <h3>Get Paid</h3>
+        <p class="text-muted">Customer pays instantly. You get notified. Dashboard updates in real-time.</p>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo">Grittrix<span>Pay</span></a>
-                    <p>The fastest mobile money experience in Uganda.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="https://grittrix.com" target="_blank">About Grittrix</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-powered-by">
-                    <a href="https://grittrix.com" target="_blank" class="grittrix-logo">
-                        <div class="logo-mark">G</div> Grittrix
-                    </a>
-                </div>
-            </div>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo">Grittrix <span>Pay</span></a>
+          <p class="text-muted" style="margin-top: 1rem;">The fastest mobile money experience in Uganda.</p>
         </div>
-    </footer>
+        <div>
+          <h4>Product</h4>
+          <ul class="text-muted" style="list-style: none; margin-top: 1rem;">
+            <li><a href="how-it-works.html" class="text-muted">How It Works</a></li>
+            <li><a href="pricing.html" class="text-muted">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Developers</h4>
+          <ul class="text-muted" style="list-style: none; margin-top: 1rem;">
+            <li><a href="developers.html" class="text-muted">API Docs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul class="text-muted" style="list-style: none; margin-top: 1rem;">
+            <li><a href="privacy.html" class="text-muted">Privacy Policy</a></li>
+            <li><a href="terms.html" class="text-muted">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
 </body>
 </html>
