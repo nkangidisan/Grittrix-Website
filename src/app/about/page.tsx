@@ -7,8 +7,7 @@ import type { TeamMember } from '@/lib/types';
 import { Lightbulb, UsersRound, ShieldCheck, Mountain, Eye } from 'lucide-react';
 import Image from 'next/image';
 import type { ElementType } from 'react';
-import { optimizeContent, OptimizeContentInput } from '@/ai/flows/content-optimization';
-
+import { optimizeContent } from '@/ai/flows/content-optimization';
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = await optimizeContent({ pageType: 'About Us' });
@@ -17,7 +16,6 @@ export async function generateMetadata(): Promise<Metadata> {
     description: 'Learn about Grittrix\'s mission to provide AI-powered tools and automate processes for businesses in emerging markets. Meet our team and discover our core values.',
   };
 }
-
 
 const teamMembers: TeamMember[] = [
   { id: '1', name: 'Nkangi Disan', role: 'Founder & CEO', bio: 'Visionary leader passionate about leveraging technology for social good.', imageUrl: '/media/NkangiDisan1234.jpg', socials: { linkedin: 'https://www.linkedin.com/in/nkangi-disan-7ab2b62a9/' } },
@@ -44,7 +42,6 @@ const coreValues: CoreValue[] = [
     { title: "Transparency and trust", description: "We operate with openness and ethical considerations, building lasting relationships based on integrity.", icon: "ShieldCheck" },
     { title: "Resilience and grit", description: "We embrace challenges and persevere, committed to delivering impactful solutions even in complex environments.", icon: "Mountain" },
 ];
-
 
 export default async function AboutUsPage() {
   const content = await optimizeContent({ pageType: 'About Us' });

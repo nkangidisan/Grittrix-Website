@@ -1,9 +1,8 @@
 
 import { HeroSection } from '@/components/sections/HeroSection';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
-  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, Zap, Globe, DollarSign, LifeBuoy, CheckCircle, Briefcase, Building, GitFork, Tv, Server, ShoppingBag, Phone, Mail, ArrowRight, Home as HomeIcon, Info, Settings, MessageSquare, BriefcaseBusiness, PencilLine, Tag, ServerCog, MonitorPlay, ExternalLink, Cpu, Stethoscope, Store, Sprout, GraduationCap, Users, TrendingUp, ShieldCheck
+  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, CheckCircle, Building, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ShoppingBag, ServerCog, MonitorPlay, Cpu, Stethoscope, Store, Sprout, GraduationCap, Globe, Users, TrendingUp, ShieldCheck
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -83,14 +82,11 @@ const whoWeWorkWithItems = [
   { name: 'Local Governments', icon: 'Building' },
 ];
 
-
 export default function Home() {
   return (
     <>
-      {/* 1. HERO SECTION */}
       <HeroSection />
 
-      {/* 2. WELCOME SECTION */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto animate-section-in">
@@ -110,7 +106,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. WHY WORK WITH GRITTRIX */}
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-section-in">
@@ -134,8 +129,6 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* 4. KEY FEATURES */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-section-in">
@@ -159,7 +152,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. INDUSTRIES SERVED */}
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-section-in">
@@ -195,7 +187,6 @@ export default function Home() {
         </div>
       </section>
       
-      {/* 6. WHO WE WORK WITH */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -207,7 +198,7 @@ export default function Home() {
                 </div>
                 <div className="grid grid-cols-2 gap-4 animate-section-in animation-delay-200">
                     {whoWeWorkWithItems.map((item) => {
-                        const ItemIcon = iconMap[item.icon] || Briefcase;
+                        const ItemIcon = iconMap[item.icon] || BriefcaseBusiness;
                         return (
                             <div key={item.name} className="bg-card p-4 rounded-lg shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
                                 <div className="p-2 bg-primary/10 rounded-md">
@@ -222,7 +213,6 @@ export default function Home() {
         </div>
       </section>
 
-       {/* 7. DRIVEN BY PURPOSE SECTION */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center bg-card p-8 md:p-12 rounded-lg shadow-xl">
@@ -242,7 +232,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. OUR PROMISE */}
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-section-in">
             <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
@@ -255,7 +244,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. FINAL CTA SECTION */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-section-in">
           <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-6 animate-text-glow">Ready to Build the Future?</h2>
