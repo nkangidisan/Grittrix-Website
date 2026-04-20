@@ -1,41 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service | Grittrix Pay</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Grittrix Pay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">Grittrix<span>Pay</span></a>
+            <div class="nav-links">
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="developers.html" class="nav-link">Developers</a>
+                <div class="nav-actions">
+                    <a href="login.html" class="btn btn-ghost">Login</a>
+                    <a href="signup.html" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-  <nav>
-    <div class="container">
-      <a href="index.html" class="logo">Grittrix <span>Pay</span></a>
-      <div class="nav-links">
-        <a href="how-it-works.html">How It Works</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="developers.html">Developers</a>
-      </div>
+    <div class="container" style="display: grid; grid-template-columns: 240px 1fr; gap: 4rem; padding: 6rem 0;">
+        <aside style="position: sticky; top: 120px; height: fit-content;">
+            <h4 style="margin-bottom: 1.5rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted);">Contents</h4>
+            <ul style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.9rem; color: var(--text-muted);">
+                <li><a href="#acceptance" class="toc-link active">1. Acceptance</a></li>
+                <li><a href="#what-is" class="toc-link">2. What is Grittrix Pay</a></li>
+                <li><a href="#fees" class="toc-link">3. Fees & Payments</a></li>
+                <li><a href="#liability" class="toc-link">4. Liability</a></li>
+            </ul>
+        </aside>
+
+        <main style="max-width: 760px;">
+            <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">Terms of Service</h1>
+            <p style="color: var(--text-muted); margin-bottom: 3rem;">Last updated: November 14, 2024</p>
+
+            <div style="background: var(--bg-secondary); border-left: 4px solid var(--accent-primary); padding: 2rem; border-radius: 0 12px 12px 0; margin-bottom: 4rem;">
+                By using Grittrix Pay, you agree to these terms. Please read them — they're written in plain language, not legal jargon.
+            </div>
+
+            <section id="acceptance" style="margin-bottom: 4rem;">
+                <h2 style="font-size: 2rem; color: var(--accent-primary); margin-bottom: 1.5rem;">1. Acceptance of Terms</h2>
+                <p>By creating a Grittrix Pay account, accessing our platform, or using our API, you agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree, please do not use the platform.</p>
+            </section>
+
+            <section id="what-is" style="margin-bottom: 4rem;">
+                <h2 style="font-size: 2rem; color: var(--accent-primary); margin-bottom: 1.5rem;">2. What Grittrix Pay Is</h2>
+                <p>Grittrix Pay is a payment interface platform that connects businesses and customers through mobile money networks in Uganda. We are NOT a mobile money provider or a bank. We do not hold your funds.</p>
+            </section>
+
+            <section id="fees" style="margin-bottom: 4rem;">
+                <h2 style="font-size: 2rem; color: var(--accent-primary); margin-bottom: 1.5rem;">3. Fees and Payments</h2>
+                <p><strong>Free Plan:</strong> 0.1% fee per transaction. Fees are deducted before reaching your account.</p>
+                <p><strong>Pro Plan:</strong> UGX 350,000/month. Zero transaction fees. Billed monthly.</p>
+            </section>
+        </main>
     </div>
-  </nav>
 
-  <section class="container" style="padding: 6rem 0; max-width: 800px;">
-    <h1 style="margin-bottom: 2rem;">Terms of Service</h1>
-    <div class="text-muted" style="line-height: 1.8;">
-      <p>Last updated: November 14, 2024</p>
-      <br>
-      <p>By using Grittrix Pay, you agree to these terms. Please read them — they're written in plain language, not legal jargon.</p>
-      
-      <h3 style="color: white; margin: 2rem 0 1rem;">1. What Grittrix Pay Is</h3>
-      <p>Grittrix Pay is a payment interface platform that connects businesses and customers through mobile money networks (MTN MoMo and Airtel Money) in Uganda.</p>
-      
-      <h3 style="color: white; margin: 2rem 0 1rem;">2. Fees</h3>
-      <p>Free Plan: 0.1% fee per transaction. Pro Plan: $99/month.</p>
-    </div>
-  </section>
-
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="logo" style="margin-bottom: 1.5rem;">Grittrix<span>Pay</span></a>
+                    <div class="powered-by">
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">A product by</p>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 32px; height: 32px; background: var(--accent-primary); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #000; font-weight: 800;">G</div>
+                            <div>
+                                <div style="font-weight: 700;">Grittrix</div>
+                                <a href="https://grittrix.com" target="_blank" class="powered-link">grittrix.com →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
