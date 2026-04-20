@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | Grittrix Pay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .pricing-toggle {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 26px;
+    }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: var(--border);
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px; width: 18px;
+      left: 4px; bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider { background-color: var(--accent-primary); }
+    input:checked + .slider:before { transform: translateX(24px); }
+    
+    .price-value { font-size: 48px; font-weight: 800; font-family: 'Syne'; color: var(--text-primary); }
+    .price-sub { color: var(--text-muted); font-size: 14px; }
+    .feature-list li { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 14px; }
+    .feature-list li.locked { color: var(--text-muted); opacity: 0.5; }
+    .check { color: var(--accent-primary); font-weight: 900; }
+    .cross { color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Grittrix<span>Pay</span></a>
+      <div class="nav-links">
+        <a href="how-it-works.html">How It Works</a>
+        <a href="pricing.html" style="color: var(--accent-primary);">Pricing</a>
+        <a href="#">Developers</a>
+        <a href="login.html" class="btn btn-ghost">Login</a>
+        <a href="signup.html" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="container reveal" style="padding-top: 100px; text-align: center;">
+    <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 24px;">Simple, transparent pricing.</h1>
+    <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px;">Start free. Scale when you're ready. No hidden fees.</p>
+    
+    <div class="pricing-toggle">
+      <span style="font-weight: 600; font-size: 14px;">Monthly</span>
+      <label class="switch">
+        <input type="checkbox" id="annual-toggle">
+        <span class="slider"></span>
+      </label>
+      <span style="font-weight: 600; font-size: 14px;">Annual <span style="color: var(--accent-primary); font-size: 12px;">(Save 20%)</span></span>
+    </div>
+  </header>
+
+  <section class="container">
+    <div class="grid grid-3">
+      <!-- Free Plan -->
+      <div class="card-glass reveal">
+        <div style="margin-bottom: 24px;">
+          <span class="eyebrow" style="margin-bottom: 12px;">Start here</span>
+          <h3 style="font-size: 24px;">Free</h3>
+          <div class="price-value">0 <span style="font-size: 16px;">UGX</span></div>
+          <div class="price-sub">0.1% per transaction</div>
+        </div>
+        <ul class="feature-list" style="margin-bottom: 40px;">
+          <li><span class="check">✓</span> Payment links</li>
+          <li><span class="check">✓</span> QR code generation</li>
+          <li><span class="check">✓</span> MTN + Airtel routing</li>
+          <li><span class="check">✓</span> Basic dashboard</li>
+          <li class="locked"><span class="cross">✗</span> Custom branding</li>
+          <li class="locked"><span class="cross">✗</span> API access</li>
+        </ul>
+        <a href="signup.html" class="btn btn-ghost" style="width: 100%; justify-content: center;">Get Started Free</a>
+      </div>
+
+      <!-- Pro Plan -->
+      <div class="card-glass reveal" style="border-color: var(--accent-primary); transform: scale(1.05); z-index: 10;">
+        <div style="margin-bottom: 24px;">
+          <span class="eyebrow" style="background: var(--accent-primary); color: var(--bg-primary); margin-bottom: 12px;">🔥 Most Popular</span>
+          <h3 style="font-size: 24px;">Pro</h3>
+          <div class="price-value" id="pro-price">UGX 350k<span style="font-size: 16px;">/mo</span></div>
+          <div class="price-sub">Zero transaction fees</div>
+        </div>
+        <ul class="feature-list" style="margin-bottom: 40px;">
+          <li><span class="check">✓</span> Everything in Free</li>
+          <li><span class="check">✓</span> <strong>ZERO</strong> transaction fees</li>
+          <li><span class="check">✓</span> Full API access</li>
+          <li><span class="check">✓</span> Advanced analytics</li>
+          <li><span class="check">✓</span> Custom branding</li>
+          <li><span class="check">✓</span> Priority support</li>
+        </ul>
+        <a href="signup.html" class="btn btn-primary" style="width: 100%; justify-content: center;">Start Pro Trial →</a>
+      </div>
+
+      <!-- Enterprise Plan -->
+      <div class="card-glass reveal">
+        <div style="margin-bottom: 24px;">
+          <span class="eyebrow" style="margin-bottom: 12px;">Institutional</span>
+          <h3 style="font-size: 24px;">Enterprise</h3>
+          <div class="price-value">Custom</div>
+          <div class="price-sub">For large businesses</div>
+        </div>
+        <ul class="feature-list" style="margin-bottom: 40px;">
+          <li><span class="check">✓</span> Everything in Pro</li>
+          <li><span class="check">✓</span> Account manager</li>
+          <li><span class="check">✓</span> Custom integrations</li>
+          <li><span class="check">✓</span> SLA guarantee</li>
+          <li><span class="check">✓</span> Volume discounts</li>
+          <li><span class="check">✓</span> White-label option</li>
+        </ul>
+        <a href="contact.html" class="btn btn-ghost" style="width: 100%; justify-content: center;">Contact Sales →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container reveal">
+    <div style="text-align: center; margin-bottom: 60px;">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card-glass" style="padding: 30px;">
+        <h4 style="color: var(--accent-primary); margin-bottom: 12px;">When do I get charged the 0.1% fee?</h4>
+        <p style="font-size: 14px; color: var(--text-muted);">On the Free plan, 0.1% is automatically deducted from each successful transaction before it lands in your wallet.</p>
+      </div>
+      <div class="card-glass" style="padding: 30px;">
+        <h4 style="color: var(--accent-primary); margin-bottom: 12px;">How do I connect my MoMo number?</h4>
+        <p style="font-size: 14px; color: var(--text-muted);">During signup, you'll enter your business MTN or Airtel number. We use this to route payments via STK push.</p>
+      </div>
+      <div class="card-glass" style="padding: 30px;">
+        <h4 style="color: var(--accent-primary); margin-bottom: 12px;">Is there a contract for Pro?</h4>
+        <p style="font-size: 14px; color: var(--text-muted);">No. Grittrix Pay Pro is month-to-month. You can cancel or downgrade to the Free plan anytime.</p>
+      </div>
+      <div class="card-glass" style="padding: 30px;">
+        <h4 style="color: var(--accent-primary); margin-bottom: 12px;">How does the webhook work?</h4>
+        <p style="font-size: 14px; color: var(--text-muted);">For developers, we send a POST request to your server URL the second a payment is confirmed by the network.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Grittrix<span>Pay</span></div>
+          <p style="color: var(--text-muted); font-size: 14px;">The fastest mobile money experience in Uganda. Build with Grittrix AI Solutions.</p>
+        </div>
+        <div class="footer-link-col">
+          <h4>Product</h4>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="#">Developers</a>
+        </div>
+        <div class="footer-link-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+        <div class="footer-link-col">
+          <h4>Account</h4>
+          <a href="login.html">Login</a>
+          <a href="signup.html">Sign Up</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Grittrix Pay. A product by Grittrix AI Solutions.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('annual-toggle');
+    const proPrice = document.getElementById('pro-price');
+    
+    toggle.addEventListener('change', () => {
+      if(toggle.checked) {
+        proPrice.innerHTML = 'UGX 280k<span style="font-size: 16px;">/mo (billed annually)</span>';
+      } else {
+        proPrice.innerHTML = 'UGX 350k<span style="font-size: 16px;">/mo</span>';
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
