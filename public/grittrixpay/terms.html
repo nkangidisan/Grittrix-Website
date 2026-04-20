@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Grittrix Pay</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Grittrix<span>Pay</span></a>
+            <div class="nav-links">
+                <a href="how-it-works.html">How It Works</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="developers.html">Developers</a>
+                <a href="login.html" class="btn-ghost">Login</a>
+                <a href="signup.html" class="btn btn-primary">Get Started</a>
+            </div>
+            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="legal-container">
+            <aside class="legal-sidebar">
+                <ul>
+                    <li><a href="#intro" class="active">Introduction</a></li>
+                    <li><a href="#eligibility">Account Eligibility</a></li>
+                    <li><a href="#use">Acceptable Use</a></li>
+                    <li><a href="#fees">Fees and Payments</a></li>
+                    <li><a href="#liability">Limitation of Liability</a></li>
+                    <li><a href="#termination">Termination</a></li>
+                    <li><a href="#governing">Governing Law</a></li>
+                </ul>
+            </aside>
+
+            <main class="legal-content">
+                <header id="intro">
+                    <h1>Terms of Service</h1>
+                    <p style="color: var(--text-muted);">Last updated: November 14, 2024</p>
+                    <div class="legal-box">
+                        <p>By using Grittrix Pay, you agree to these terms. Please read them — they're written in plain language, not legal jargon.</p>
+                    </div>
+                </header>
+
+                <section id="eligibility">
+                    <h2>3. ACCOUNT ELIGIBILITY</h2>
+                    <p>To create a Grittrix Pay account you must be at least 18 years old and have a valid Ugandan mobile number registered to your name.</p>
+                </section>
+
+                <section id="fees">
+                    <h2>5. FEES AND PAYMENTS</h2>
+                    <p>Free Plan: 0.1% fee per transaction. Pro Plan: UGX 350,000/month. All fees are inclusive of applicable Ugandan taxes.</p>
+                </section>
+
+                <section id="liability">
+                    <h2>9. LIMITATION OF LIABILITY</h2>
+                    <p>Grittrix Pay is provided "as is." We are not liable for losses caused by mobile network failures at MTN or Airtel.</p>
+                </section>
+
+                <section id="governing">
+                    <h2>12. GOVERNING LAW</h2>
+                    <p>These Terms are governed by the laws of the Republic of Uganda. Any disputes will be resolved in the courts of Kampala, Uganda.</p>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">Grittrix<span>Pay</span></a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-powered-by">
+                    <a href="https://grittrix.com" target="_blank" class="grittrix-logo">
+                        <div class="logo-mark">G</div> Grittrix
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.legal-sidebar a').forEach(a => {
+                        a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('section[id], header[id]').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

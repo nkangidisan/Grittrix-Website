@@ -1,210 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How It Works | Grittrix Pay</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .step-number {
-      width: 48px;
-      height: 48px;
-      background: var(--accent-primary);
-      color: var(--bg-primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 20px;
-      margin-bottom: 24px;
-    }
-    .timeline {
-      position: relative;
-      padding-left: 80px;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 23px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--border);
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 80px;
-    }
-    .timeline-dot {
-      position: absolute;
-      left: -80px;
-      width: 48px;
-      height: 48px;
-      background: var(--bg-secondary);
-      border: 2px solid var(--border);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent-primary);
-      font-weight: 800;
-      z-index: 1;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works | Grittrix Pay</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav>
-    <div class="container nav-container">
-      <a href="index.html" class="logo">Grittrix<span>Pay</span></a>
-      <div class="nav-links">
-        <a href="how-it-works.html" style="color: var(--accent-primary);">How It Works</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="#">Developers</a>
-        <a href="login.html" class="btn btn-ghost">Login</a>
-        <a href="signup.html" class="btn btn-primary">Get Started</a>
-      </div>
-    </div>
-  </nav>
 
-  <header class="container reveal" style="padding-top: 100px; text-align: center;">
-    <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 24px;">Payments that just work.</h1>
-    <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 80px;">Here's exactly what happens when someone pays you with Grittrix Pay. Simple, secure, and under 10 seconds.</p>
-  </header>
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Grittrix<span>Pay</span></a>
+            <div class="nav-links">
+                <a href="how-it-works.html" class="active">How It Works</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="developers.html">Developers</a>
+                <a href="login.html" class="btn-ghost">Login</a>
+                <a href="signup.html" class="btn btn-primary">Get Started</a>
+            </div>
+            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
 
-  <section class="container">
-    <div class="grid grid-2" style="align-items: center;">
-      <div class="timeline reveal">
-        <div class="timeline-item">
-          <div class="timeline-dot">01</div>
-          <h3>Create Account</h3>
-          <p style="color: var(--text-muted);">Sign up as a business in 2 minutes. Connect your MTN or Airtel number to start receiving payments directly to your wallet or bank.</p>
+    <header style="padding-top: 160px; text-align: center;">
+        <div class="container reveal">
+            <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1rem;">Payments that just work.</h1>
+            <p style="color: var(--text-muted); font-size: 1.25rem; max-width: 600px; margin: 0 auto;">Here's exactly what happens when someone pays you with Grittrix Pay.</p>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot">02</div>
-          <h3>Create Payment Link</h3>
-          <p style="color: var(--text-muted);">Give your link a name, set an amount (or leave it open for donations), and click create. Your link is ready in 30 seconds.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot" style="background: var(--accent-primary); color: var(--bg-primary); border-color: var(--accent-primary);">03</div>
-          <h3>Share & Get Paid</h3>
-          <p style="color: var(--text-muted);">Send your link via WhatsApp, paste it on your website, or print it as a QR code for your shop counter. Customers pay without USSD stress.</p>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="card-glass" style="padding: 20px; background: #000;">
-           <div style="font-family: 'Syne'; margin-bottom: 24px; color: var(--accent-primary);">Live Link Preview</div>
-           <div class="card-glass" style="background: var(--bg-secondary); border-style: dashed;">
-             <p style="font-size: 14px; margin-bottom: 12px;">pay.grittrix.com/my-shop</p>
-             <button class="btn btn-primary" style="width: 100%;">Copy Link</button>
-           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <section style="background: var(--bg-secondary);">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: 80px;">
-        <h2 style="font-size: 40px;">The Customer Experience</h2>
-        <p style="color: var(--text-muted);">Under 10 seconds. No USSD codes needed.</p>
-      </div>
-      <div class="grid grid-3">
-        <div class="card-glass reveal">
-          <div class="step-number">1</div>
-          <h4 style="margin-bottom: 12px;">Opens Link</h4>
-          <p style="font-size: 14px; color: var(--text-muted);">Customer taps the link and sees your business name and the amount to pay.</p>
+    <section>
+        <div class="container">
+            <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 4rem;">The Setup Flow</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div class="reveal">
+                    <div style="display: flex; gap: 2rem; margin-bottom: 3rem;">
+                        <div style="width: 48px; height: 48px; background: var(--accent-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--bg-primary); font-weight: 800; flex-shrink: 0;">1</div>
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Create Account</h3>
+                            <p style="color: var(--text-muted);">Sign up as a business. Connect your MTN or Airtel number where you want to receive funds.</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 2rem; margin-bottom: 3rem;">
+                        <div style="width: 48px; height: 48px; background: var(--accent-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--bg-primary); font-weight: 800; flex-shrink: 0;">2</div>
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Generate Link</h3>
+                            <p style="color: var(--text-muted);">Name your link, set an amount (or leave it open), and click create. Done in 30 seconds.</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 2rem;">
+                        <div style="width: 48px; height: 48px; background: var(--accent-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--bg-primary); font-weight: 800; flex-shrink: 0;">3</div>
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Share Everywhere</h3>
+                            <p style="color: var(--text-muted);">Send via WhatsApp, embed on your website, or print a QR code for your shop counter.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <div class="phone-frame" style="margin: 0 auto;">
+                        <div class="phone-screen" style="justify-content: center; align-items: center; padding: 2rem;">
+                             <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--accent-primary); margin-bottom: 1rem;"></i>
+                             <p style="font-weight: 800;">Link Created!</p>
+                             <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin-top: 1rem; font-size: 0.7rem; color: var(--accent-primary);">pay.grittrix.com/l/shoes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-glass reveal" style="animation-delay: 0.2s;">
-          <div class="step-number">2</div>
-          <h4 style="margin-bottom: 12px;">Enters Number</h4>
-          <p style="font-size: 14px; color: var(--text-muted);">They enter their MTN or Airtel number and tap "Pay Now".</p>
-        </div>
-        <div class="card-glass reveal" style="animation-delay: 0.4s;">
-          <div class="step-number">3</div>
-          <h4 style="margin-bottom: 12px;">STK Push</h4>
-          <p style="font-size: 14px; color: var(--text-muted);">A PIN prompt appears automatically on their phone. They enter PIN and payment is done.</p>
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 60px;">
-        <div style="display: inline-flex; align-items: center; gap: 16px; background: var(--bg-primary); padding: 12px 24px; border-radius: 100px; border: 1px solid var(--border);">
-          <span style="color: var(--accent-primary); font-weight: 800;">Average Time: 8.2s</span>
-          <div style="width: 2px; height: 20px; background: var(--border);"></div>
-          <span style="color: var(--text-muted);">✓ Verified for MTN & Airtel</span>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="container">
-    <div class="grid grid-2" style="align-items: center;">
-      <div class="reveal">
-        <h2 style="font-size: 40px; margin-bottom: 24px;">The magic you never see.</h2>
-        <p style="color: var(--text-muted); margin-bottom: 32px;">Our smart routing engine detects the network automatically and handles all the complex telecom API calls in the background.</p>
-        <ul style="color: var(--text-primary); gap: 16px; display: grid;">
-          <li style="display: flex; gap: 12px;"><span style="color: var(--accent-primary);">✦</span> Real-time network detection</li>
-          <li style="display: flex; gap: 12px;"><span style="color: var(--accent-primary);">✦</span> Automated STK push triggering</li>
-          <li style="display: flex; gap: 12px;"><span style="color: var(--accent-primary);">✦</span> Instant SMS & WhatsApp updates</li>
-        </ul>
-      </div>
-      <div class="reveal">
-        <div class="card-glass">
-          <div style="font-family: 'Syne'; font-size: 12px; color: var(--text-muted); margin-bottom: 24px;">SYSTEM LOGS</div>
-          <div style="font-family: monospace; font-size: 13px; color: var(--accent-primary);">
-            [09:42:01] Incoming payment request...<br>
-            [09:42:01] Detected: MTN Uganda<br>
-            [09:42:02] Triggering STK Push (API v2)...<br>
-            [09:42:05] Transaction: 0x8F2E - SUCCESS<br>
-            [09:42:05] Webhook fired to business.
-          </div>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">Grittrix<span>Pay</span></a>
+                    <p>The fastest mobile money experience in Uganda.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="https://grittrix.com" target="_blank">About Grittrix</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-powered-by">
+                    <a href="https://grittrix.com" target="_blank" class="grittrix-logo">
+                        <div class="logo-mark">G</div> Grittrix
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-logo">Grittrix<span>Pay</span></div>
-          <p style="color: var(--text-muted); font-size: 14px;">The fastest mobile money experience in Uganda. Build with Grittrix AI Solutions.</p>
-        </div>
-        <div class="footer-link-col">
-          <h4>Product</h4>
-          <a href="how-it-works.html">How It Works</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="#">Developers</a>
-        </div>
-        <div class="footer-link-col">
-          <h4>Legal</h4>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </div>
-        <div class="footer-link-col">
-          <h4>Account</h4>
-          <a href="login.html">Login</a>
-          <a href="signup.html">Sign Up</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        © 2025 Grittrix Pay. A product by Grittrix AI Solutions.
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
