@@ -4,113 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up | Grittrix Pay</title>
+    <link rel="icon" href="src/app/services/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .auth-split { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
+        .auth-marketing { background: var(--bg-secondary); padding: 80px; display: flex; flex-direction: column; justify-content: center; }
+        .auth-form-panel { background: var(--bg-card); padding: 80px; display: flex; flex-direction: column; justify-content: center; }
+        .step-card { background: #050508; border: 1px solid var(--border); padding: 24px; border-radius: 12px; margin-bottom: 16px; cursor: pointer; transition: all 0.2s ease; }
+        .step-card.active { border-color: var(--accent-primary); box-shadow: 0 0 15px rgba(0, 229, 160, 0.15); }
+        @media (max-width: 767px) { .auth-split { grid-template-columns: 1fr; } .auth-marketing { display: none; } .auth-form-panel { padding: 40px 20px; } }
+    </style>
 </head>
 <body>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh;">
-        <!-- Left Panel -->
-        <div style="background: var(--bg-secondary); padding: 4rem; display: flex; flex-direction: column; justify-content: center; position: relative;">
-            <a href="index.html" class="logo" style="position: absolute; top: 4rem; left: 4rem;">Grittrix<span>Pay</span></a>
-            <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 2rem;">Get paid in under<br>10 seconds.</h1>
-            <div style="display: flex; gap: 1rem; align-items: center;">
-                <div class="step-dot active"></div>
-                <div class="step-dot"></div>
-                <div class="step-dot"></div>
-                <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: 1rem;">Step 1: Account Type</span>
-            </div>
+    <div class="auth-split">
+        <div class="auth-marketing">
+            <a href="index.html" class="logo-lockup">
+                <div class="logo-icon-wrap"><img src="src/app/services/favicon.ico" alt="" class="logo-icon" width="32" height="32"></div>
+                <span class="logo-text"><span class="logo-brand">Grittrix</span><span class="logo-product"> Pay</span></span>
+            </a>
+            <h1 class="text-h1" style="margin-top: 40px;">Get paid in under <span class="text-accent">10 seconds.</span></h1>
         </div>
-
-        <!-- Right Panel -->
-        <div style="background: var(--bg-primary); padding: 4rem; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <div style="width: 100%; max-width: 500px;" id="signup-container">
-                <!-- Step 1 -->
-                <div id="step-1">
-                    <h2 style="font-size: 2rem; margin-bottom: 2rem;">How will you use Grittrix Pay?</h2>
-                    <div style="display: grid; gap: 1rem; margin-bottom: 3rem;">
-                        <div class="choice-card" onclick="selectType('business')">
-                            <div style="display: flex; gap: 1.5rem; align-items: center;">
-                                <div class="choice-icon"><i data-lucide="store"></i></div>
-                                <div>
-                                    <div style="font-weight: 800; font-family: var(--font-heading);">BUSINESS OWNER</div>
-                                    <p style="font-size: 0.85rem; color: var(--text-muted);">Receive payments, create links, track transactions.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="choice-card" onclick="selectType('customer')">
-                            <div style="display: flex; gap: 1.5rem; align-items: center;">
-                                <div class="choice-icon"><i data-lucide="user"></i></div>
-                                <div>
-                                    <div style="font-weight: 800; font-family: var(--font-heading);">CUSTOMER / USER</div>
-                                    <p style="font-size: 0.85rem; color: var(--text-muted);">Pay businesses quickly without USSD stress.</p>
-                                </div>
-                            </div>
-                        </div>
+        
+        <div class="auth-form-panel">
+            <div class="auth-logo" style="text-align:center; margin-bottom: 32px;">
+                <a href="index.html" class="logo-lockup" style="flex-direction: column; gap: 8px;">
+                    <div class="logo-icon-wrap" style="width:52px; height:52px; border-radius:14px;">
+                        <img src="src/app/services/favicon.ico" alt="Grittrix Pay" class="logo-icon" width="30" height="30">
                     </div>
-                    <button class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem;" onclick="nextStep(2)">Continue →</button>
-                </div>
+                    <span class="logo-text" style="font-size:1.5rem;"><span class="logo-brand">Grittrix</span><span class="logo-product"> Pay</span></span>
+                </a>
             </div>
+
+            <h2 class="text-h3" style="text-align:center; margin-bottom: 32px;">Create your account</h2>
+            
+            <div id="step1">
+                <p class="text-muted" style="margin-bottom: 24px; text-align:center;">How will you use Grittrix Pay?</p>
+                <div class="step-card active">
+                    <h4 class="text-accent">🏪 Business Owner</h4>
+                    <p class="text-muted" style="font-size: 0.9rem;">I want to receive payments, create links, and track transactions.</p>
+                </div>
+                <div class="step-card">
+                    <h4 class="text-primary">👤 Customer</h4>
+                    <p class="text-muted" style="font-size: 0.9rem;">I want to pay businesses quickly without USSD stress.</p>
+                </div>
+                <button class="btn-primary-sm" style="width:100%; padding: 16px; margin-top: 16px;">Continue →</button>
+            </div>
+            
+            <p style="text-align:center; margin-top: 24px; color: var(--text-muted);">Already have an account? <a href="login.html" class="text-accent">Sign in →</a></p>
         </div>
     </div>
-
-    <style>
-        .step-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
-        .step-dot.active { background: var(--accent-primary); box-shadow: 0 0 10px var(--accent-glow); }
-        .choice-card { 
-            background: var(--bg-secondary); 
-            border: 1px solid var(--border); 
-            padding: 1.5rem; 
-            border-radius: 16px; 
-            cursor: pointer; 
-            transition: 0.3s;
-        }
-        .choice-card:hover { border-color: var(--accent-primary); }
-        .choice-card.selected { border-color: var(--accent-primary); background: rgba(0,229,160,0.03); box-shadow: 0 0 20px var(--accent-glow); }
-        .choice-icon { width: 48px; height: 48px; background: var(--bg-card); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--accent-primary); }
-    </style>
-
-    <script>
-        lucide.createIcons();
-        let accountType = null;
-
-        function selectType(type) {
-            accountType = type;
-            document.querySelectorAll('.choice-card').forEach(c => c.classList.remove('selected'));
-            event.currentTarget.classList.add('selected');
-        }
-
-        function nextStep(n) {
-            if(!accountType && n === 2) return alert('Please select an account type');
-            // Logic to swap step HTML content...
-            if(n === 2) {
-                const container = document.getElementById('signup-container');
-                container.innerHTML = `
-                    <h2 style="font-size: 2rem; margin-bottom: 2rem;">Account Details</h2>
-                    <form style="display: grid; gap: 1.5rem;">
-                        <input type="text" placeholder="Full Name" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border); padding: 1rem; border-radius: 12px; color: #fff;">
-                        <input type="email" placeholder="Email Address" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border); padding: 1rem; border-radius: 12px; color: #fff;">
-                        <input type="tel" placeholder="Phone Number (+256)" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border); padding: 1rem; border-radius: 12px; color: #fff;">
-                        <input type="password" placeholder="Password" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border); padding: 1rem; border-radius: 12px; color: #fff;">
-                        <button type="button" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem;" onclick="finish()">Create My Account →</button>
-                    </form>
-                `;
-            }
-        }
-
-        function finish() {
-            const container = document.getElementById('signup-container');
-            container.innerHTML = `
-                <div style="text-align: center;">
-                    <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
-                    <h2 style="font-size: 2rem; margin-bottom: 1rem;">You're all set!</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 2rem;">Account created successfully. Redirecting to your dashboard...</p>
-                    <a href="index.html" class="btn btn-primary">Go to Dashboard</a>
-                </div>
-            `;
-        }
-    </script>
 </body>
 </html>
