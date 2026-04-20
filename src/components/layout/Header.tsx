@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -7,7 +6,7 @@ import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
 import { NavLink } from './NavLink';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import {
@@ -22,6 +21,7 @@ const mainNavItems = [
   { href: '/services', label: 'Services' },
   { href: '/industries', label: 'Industries' },
   { href: '/products', label: 'Products' },
+  { href: '/grittrixpay/index.html', label: 'Grittrix Pay', icon: true },
   { href: '/blog', label: 'Blog' },
 ];
 
@@ -67,7 +67,8 @@ export function Header() {
 
           <nav className="hidden lg:flex items-center space-x-1">
             {mainNavItems.map((item) => (
-              <NavLink key={item.href} href={item.href}>
+              <NavLink key={item.href} href={item.href} className={cn(item.icon && "text-primary font-bold flex items-center gap-1.5")}>
+                {item.icon && <Sparkles className="h-4 w-4" />}
                 {item.label}
               </NavLink>
             ))}
@@ -120,7 +121,13 @@ export function Header() {
                 <ScrollArea className="flex-grow">
                   <nav className="flex flex-col space-y-3 p-6">
                     {allMobileNavItems.map((item) => (
-                      <NavLink key={item.href} href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="text-lg">
+                      <NavLink 
+                        key={item.href} 
+                        href={item.href} 
+                        onClick={() => setIsMobileMenuOpen(false)} 
+                        className={cn("text-lg", (item as any).icon && "text-primary font-bold flex items-center gap-2")}
+                      >
+                        {(item as any).icon && <Sparkles className="h-5 w-5" />}
                         {item.label}
                       </NavLink>
                     ))}
