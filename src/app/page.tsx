@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { ElementType } from 'react';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 
 const iconMap: { [key: string]: ElementType } = {
   HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, CheckCircle, Building, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ShoppingBag, ServerCog, MonitorPlay, Cpu, Stethoscope, Store, Sprout, GraduationCap, Globe, Users, TrendingUp
