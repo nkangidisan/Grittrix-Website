@@ -22,7 +22,6 @@ const mainNavItems = [
   { href: '/services', label: 'Services' },
   { href: '/industries', label: 'Industries' },
   { href: '/products', label: 'Products' },
-  { href: '/grittrixpay/index.html', label: 'Grittrix Pay', icon: true },
   { href: '/blog', label: 'Blog' },
 ];
 
@@ -68,8 +67,7 @@ export function Header() {
 
           <nav className="hidden lg:flex items-center space-x-1">
             {mainNavItems.map((item) => (
-              <NavLink key={item.href} href={item.href} className={cn(item.icon && "text-primary font-bold flex items-center gap-1.5")}>
-                {item.icon && <Sparkles className="h-4 w-4" />}
+              <NavLink key={item.href} href={item.href}>
                 {item.label}
               </NavLink>
             ))}
@@ -126,9 +124,8 @@ export function Header() {
                         key={item.href} 
                         href={item.href} 
                         onClick={() => setIsMobileMenuOpen(false)} 
-                        className={cn("text-lg", (item as any).icon && "text-primary font-bold flex items-center gap-2")}
+                        className="text-lg"
                       >
-                        {(item as any).icon && <Sparkles className="h-5 w-5" />}
                         {item.label}
                       </NavLink>
                     ))}
