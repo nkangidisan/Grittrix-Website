@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -7,7 +6,7 @@ import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
 import { NavLink } from './NavLink';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, X, ChevronDown, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import {
@@ -18,6 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 const mainNavItems = [
+  { href: '/merch', label: 'Merchandise' },
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/industries', label: 'Industries' },
@@ -29,7 +29,6 @@ const moreNavItems = [
     { href: '/careers', label: 'Careers' },
     { href: '/hosting', label: 'Hosting' },
     { href: '/design-services', label: 'Design Services' },
-    { href: '/merch', label: 'Merchandise' },
     { href: '/faq', label: 'FAQ' },
 ];
 
