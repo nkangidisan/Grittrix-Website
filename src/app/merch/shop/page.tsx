@@ -4,7 +4,7 @@ import * as React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ShoppingCart, Heart, Star, Filter, X, ChevronRight, Check, ShieldCheck, Zap } from 'lucide-react';
+import { ShoppingCart, Heart, Star, Filter, X, ChevronRight, Check, ShieldCheck, Zap, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';

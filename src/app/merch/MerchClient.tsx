@@ -4,7 +4,7 @@ import * as React from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ShoppingCart, Heart, Star, CheckCircle, ArrowRight, MessageSquare, ShieldCheck, Globe, Zap, Users, Activity, BarChart3, TrendingUp, Cpu } from 'lucide-react';
+import { ShoppingCart, Heart, Star, CheckCircle, ArrowRight, MessageSquare, ShieldCheck, Globe, Zap, Users, Activity, BarChart3, TrendingUp, Cpu, Layers, Smartphone, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
@@ -45,6 +45,18 @@ const products = [
   }
 ];
 
+const performanceFeatures = [
+  { title: 'Thermal Shield', desc: 'Advanced regulation technology.', icon: Zap },
+  { title: 'Flex-Mesh', desc: '4-way directional stretch.', icon: Activity },
+  { title: 'HD Embroidery', desc: 'Precision logo threading.', icon: ShieldCheck },
+  { title: 'QuickDry Flow', desc: 'Sub-minute moisture wicking.', icon: Smartphone },
+  { title: 'Feather-Weight', desc: '120g ultra-light build.', icon: Rocket },
+  { title: 'Anti-Odor', desc: 'Silver-ion treated fibers.', icon: Layers },
+  { title: 'Team-Ready', desc: 'Bulk custom branding.', icon: Users },
+  { title: 'Eco-Audit', desc: '100% sustainable sourcing.', icon: Globe },
+  { title: 'Data-Thread', desc: 'Interactive digital tag.', icon: Cpu },
+];
+
 const stats = [
   { label: 'Premium Quality', value: '100%', icon: ShieldCheck },
   { label: 'Fast Delivery', value: '24h', icon: Zap },
@@ -83,13 +95,11 @@ export function MerchClient() {
 
   return (
     <div className="bg-white text-black font-body overflow-x-hidden">
-      {/* Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1.5 bg-[#0f5f3d] z-[60] origin-left"
         style={{ scaleX }}
       />
 
-      {/* Sticky Cart Button */}
       <motion.div 
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
@@ -101,7 +111,7 @@ export function MerchClient() {
       </motion.div>
 
       {/* 1. HERO SECTION - SENIOR DEV DESIGN */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#050505]">
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#050508]">
         <div className="absolute inset-0 z-0">
           <motion.div 
             animate={{ 
@@ -151,7 +161,7 @@ export function MerchClient() {
                   <Link href="/merch/shop">Shop Collection</Link>
                 </Button>
                 <Button size="lg" variant="outline" className="border-white/10 text-white hover:bg-white/5 text-lg px-12 h-16 rounded-full transition-all hover:scale-105" asChild>
-                  <Link href="/merch/shop">Customize for Your Team</Link>
+                  <Link href="/contact?subject=Custom%20Apparel">Customize for Your Team</Link>
                 </Button>
               </motion.div>
             </div>
@@ -232,23 +242,49 @@ export function MerchClient() {
                    </div>
                 </div>
               </motion.div>
-
-              {/* Decorative Floating Elements */}
-              <motion.div 
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-1/4 -right-12 p-6 bg-white/10 backdrop-blur-xl rounded-[2rem] border border-white/20 shadow-2xl hidden md:block"
-              >
-                <p className="text-[10px] font-bold text-[#0f5f3d] mb-1">TEXTURE</p>
-                <p className="text-lg font-bold text-white">Luxury Silk-Cotton</p>
-              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. FEATURED MERCH SHOWCASE - SIGNATURE SERIES */}
+      {/* 2. PERFORMANCE PROTOCOL GRID (3x3) */}
       <section className="py-32 bg-white relative">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center mb-24">
+             <Badge className="bg-[#0f5f3d]/10 text-[#0f5f3d] border-none px-6 py-2 rounded-full mb-6 font-bold tracking-widest text-[10px] uppercase">Engineering</Badge>
+             <h2 className="text-5xl md:text-7xl font-headline font-bold text-center tracking-tighter">Performance <span className="text-[#0f5f3d]">Protocol</span></h2>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {performanceFeatures.map((feature, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (idx % 3) * 0.1 }}
+                className="group p-10 rounded-[2.5rem] bg-gray-50 border border-gray-100 flex flex-col justify-between aspect-[4/3] hover:bg-[#0f5f3d] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#0f5f3d]/20"
+              >
+                <div>
+                  <h3 className="text-3xl font-headline font-bold mb-3 group-hover:text-white transition-colors">{feature.title}</h3>
+                  <p className="text-gray-500 group-hover:text-white/70 transition-colors leading-relaxed">{feature.desc}</p>
+                </div>
+                <div className="flex justify-between items-end">
+                   <div className="h-16 w-16 rounded-2xl bg-[#0f5f3d]/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                      <feature.icon className="h-8 w-8 text-[#0f5f3d] group-hover:text-white" />
+                   </div>
+                   <div className="flex flex-col items-end opacity-20 group-hover:opacity-40 transition-opacity">
+                      <span className="text-[4rem] font-headline font-bold leading-none tracking-tighter">{idx + 1}</span>
+                   </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. FEATURED MERCH SHOWCASE - SIGNATURE SERIES */}
+      <section className="py-32 bg-gray-50 relative">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center mb-24">
              <Badge className="bg-[#0f5f3d]/10 text-[#0f5f3d] border-none px-6 py-2 rounded-full mb-6 font-bold tracking-widest text-[10px] uppercase">The Icons</Badge>
@@ -265,7 +301,7 @@ export function MerchClient() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="group relative aspect-[3/4] overflow-hidden rounded-[3rem] cursor-pointer shadow-2xl bg-[#f8f8f8]"
+                className="group relative aspect-[3/4] overflow-hidden rounded-[3rem] cursor-pointer shadow-2xl bg-white"
               >
                 <Image src={item.img} alt={item.title} fill className="object-cover transition-transform duration-1000 group-hover:scale-110" data-ai-hint="lifestyle fashion" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-all duration-500" />
@@ -285,8 +321,8 @@ export function MerchClient() {
         </div>
       </section>
 
-      {/* 3. PRODUCT COLLECTION SECTION */}
-      <section id="collection" className="py-32 bg-gray-50/50">
+      {/* 4. PRODUCT COLLECTION SECTION */}
+      <section id="collection" className="py-32 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="max-w-2xl">
@@ -316,7 +352,7 @@ export function MerchClient() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
               >
-                <Card className="border-none shadow-none bg-white group overflow-hidden rounded-[2.5rem] p-6 transition-all hover:shadow-[0_30px_80px_rgba(0,0,0,0.08)]">
+                <Card className="border-none shadow-none bg-white group overflow-hidden rounded-[2.5rem] p-6 transition-all hover:shadow-[0_30px_80px_rgba(0,0,0,0.08)] border border-gray-50">
                   <div className="relative aspect-square bg-[#f8f8f8] rounded-[2rem] overflow-hidden mb-8">
                     <Image 
                       src={product.image} 
@@ -325,9 +361,6 @@ export function MerchClient() {
                       className="object-contain p-12 transition-transform duration-700 group-hover:scale-110"
                       data-ai-hint="product shot"
                     />
-                    <button className="absolute top-6 right-6 h-12 w-12 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-gray-400 hover:text-[#f47321] transition-all shadow-lg scale-0 group-hover:scale-100 duration-300">
-                      <Heart className="h-5 w-5" />
-                    </button>
                     <div className="absolute top-6 left-6">
                       <Badge className="bg-[#0f5f3d] text-white px-5 py-1.5 text-[9px] font-bold uppercase tracking-widest rounded-full">{product.badge}</Badge>
                     </div>
@@ -336,33 +369,13 @@ export function MerchClient() {
                     <div className="flex justify-between items-start mb-4">
                       <h3 className="text-2xl font-headline font-bold leading-tight group-hover:text-[#0f5f3d] transition-colors">{product.name}</h3>
                     </div>
-                    <div className="flex gap-1 mb-4">
-                      {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 fill-[#f47321] text-[#f47321]" />)}
-                    </div>
                     <p className="text-gray-500 text-sm mb-8 leading-relaxed line-clamp-2">{product.description}</p>
-                    
-                    <div className="flex justify-between items-center mb-8 border-y border-gray-100 py-6">
-                      <div className="flex gap-3">
-                        {product.colors.map((color, i) => (
-                          <div 
-                            key={i} 
-                            className="w-5 h-5 rounded-full border border-gray-200 cursor-pointer hover:scale-125 transition-transform" 
-                            style={{ backgroundColor: color }}
-                          />
-                        ))}
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Performance Score</span>
-                        <span className="text-sm font-bold text-[#0f5f3d]">10.0</span>
-                      </div>
-                    </div>
-                    
                     <div className="flex items-center justify-between gap-6">
                        <div className="space-y-0.5">
                          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Base Value</p>
                          <p className="font-bold text-2xl text-[#0f5f3d]">{product.price.split('/')[0]}</p>
                        </div>
-                       <Button className="flex-1 bg-black hover:bg-[#0f5f3d] text-white rounded-2xl h-14 font-bold transition-all shadow-xl hover:shadow-[#0f5f3d]/20 active:scale-95" asChild>
+                       <Button className="flex-1 bg-black hover:bg-[#0f5f3d] text-white rounded-2xl h-14 font-bold transition-all shadow-xl active:scale-95" asChild>
                         <Link href="/merch/shop">Deploy to Cart</Link>
                        </Button>
                     </div>
@@ -374,7 +387,7 @@ export function MerchClient() {
         </div>
       </section>
 
-      {/* 4. BRAND STORY SECTION */}
+      {/* 5. BRAND STORY SECTION */}
       <section className="py-40 bg-[#0f5f3d] text-white relative overflow-hidden">
         <div className="container mx-auto px-4 text-center relative z-10">
           <motion.div
@@ -410,7 +423,7 @@ export function MerchClient() {
         </div>
       </section>
 
-      {/* 5. CUSTOM CORPORATE ORDERS SECTION - CSS MOCKUP */}
+      {/* 6. CUSTOM CORPORATE ORDERS SECTION - CSS MOCKUP */}
       <section id="corporate" className="py-40 overflow-hidden bg-white">
         <div className="container mx-auto px-4">
           <div className="bg-[#f8f8f8] rounded-[4rem] p-12 md:p-24 relative border border-gray-100">
@@ -446,7 +459,6 @@ export function MerchClient() {
               </div>
               
               <div className="relative">
-                {/* CSS CORPORATE KIT VISUAL */}
                 <div className="relative w-full aspect-square bg-white rounded-[3rem] shadow-2xl p-10 border border-gray-100 flex flex-col justify-center gap-6 overflow-hidden">
                    <div className="grid grid-cols-2 gap-6">
                       <div className="bg-[#0f5f3d]/5 aspect-[4/3] rounded-[1.5rem] border-2 border-dashed border-[#0f5f3d]/20 relative flex flex-col items-center justify-center">
@@ -470,18 +482,6 @@ export function MerchClient() {
                         </div>
                       </div>
                    </div>
-                   <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                      <motion.div 
-                        initial={{ width: 0 }}
-                        whileInView={{ width: '100%' }}
-                        transition={{ duration: 3 }}
-                        className="h-full bg-gradient-to-r from-[#0f5f3d] via-[#f47321] to-[#00ffb0]" 
-                      />
-                   </div>
-                </div>
-                <div className="absolute -bottom-10 -left-10 bg-[#0f5f3d] p-10 rounded-[2.5rem] shadow-2xl hidden sm:block border-4 border-white">
-                   <p className="text-[10px] font-bold text-white/50 uppercase tracking-widest mb-2">Tier 1 Logistics</p>
-                   <p className="text-2xl font-bold text-white tracking-tighter">Express Global Delivery</p>
                 </div>
               </div>
             </div>
@@ -489,7 +489,7 @@ export function MerchClient() {
         </div>
       </section>
 
-      {/* 6. SOCIAL PROOF SECTION */}
+      {/* 7. SOCIAL PROOF SECTION */}
       <section className="py-40 bg-white">
         <div className="container mx-auto px-4 text-center">
           <Badge className="bg-[#f47321]/10 text-[#f47321] border-none px-6 py-2 rounded-full mb-10 font-bold tracking-widest text-[10px] uppercase">Feedback</Badge>
@@ -523,7 +523,7 @@ export function MerchClient() {
         </div>
       </section>
 
-      {/* 7. FINAL CTA SECTION */}
+      {/* 8. FINAL CTA SECTION */}
       <section className="py-40">
         <div className="container mx-auto px-4">
           <div className="bg-black rounded-[4rem] p-16 md:p-32 text-center text-white relative overflow-hidden">
@@ -539,7 +539,7 @@ export function MerchClient() {
                 Premium branded apparel built for the future of innovation. Join the movement.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Button size="lg" className="bg-[#0f5f3d] hover:bg-[#0c4d2d] text-white px-16 h-20 rounded-full text-xl font-bold shadow-2xl shadow-[#0f5f3d]/30" asChild>
+                <Button size="lg" className="bg-[#0f5f3d] hover:bg-[#0c4d2d] text-white px-16 h-20 rounded-full text-xl font-bold shadow-2xl" asChild>
                   <Link href="/merch/shop">Shop Now</Link>
                 </Button>
                 <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-16 h-20 rounded-full text-xl font-bold" asChild>
