@@ -20,13 +20,108 @@ import {
   TrendingUp,
   Newspaper,
   Terminal,
-  Activity
+  Activity,
+  Layers,
+  Database
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+
+// --- VISUAL MOCKUP COMPONENTS ---
+
+const FutureTechVisual = () => (
+  <div className="relative w-full h-full bg-[#050816] overflow-hidden flex items-center justify-center">
+    <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#06b6d4_1px,transparent_1px),linear-gradient(to_bottom,#06b6d4_1px,transparent_1px)] bg-[size:20px_20px]" />
+    <motion.div 
+      animate={{ rotate: 360 }}
+      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      className="relative w-40 h-40 border-2 border-cyan-500/20 rounded-full flex items-center justify-center"
+    >
+      <div className="absolute inset-0 border-t-2 border-cyan-400 rounded-full animate-pulse" />
+      <Cpu className="w-12 h-12 text-cyan-400" />
+      {[...Array(8)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-2 h-2 bg-cyan-400 rounded-full"
+          style={{ 
+            rotate: i * 45,
+            transformOrigin: '0 80px',
+            left: '50%',
+            top: '50%',
+            marginLeft: '-4px',
+            marginTop: '-4px'
+          }}
+          animate={{ scale: [1, 1.5, 1], opacity: [0.3, 1, 0.3] }}
+          transition={{ duration: 2, delay: i * 0.2, repeat: Infinity }}
+        />
+      ))}
+    </motion.div>
+  </div>
+);
+
+const AutomationVisual = () => (
+  <div className="relative w-full h-full bg-[#050816] overflow-hidden p-8">
+    <div className="flex flex-col gap-4 h-full justify-center">
+      {[...Array(3)].map((_, i) => (
+        <div key={i} className="relative h-4 w-full bg-white/5 rounded-full overflow-hidden border border-white/10">
+          <motion.div 
+            initial={{ x: '-100%' }}
+            animate={{ x: '200%' }}
+            transition={{ duration: 2, delay: i * 0.4, repeat: Infinity, ease: "linear" }}
+            className="absolute top-0 bottom-0 w-24 bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_20px_#06b6d4]"
+          />
+        </div>
+      ))}
+    </div>
+    <div className="absolute top-4 right-8"><Zap className="w-6 h-6 text-cyan-400 animate-bounce" /></div>
+    <div className="absolute bottom-4 left-8"><Activity className="w-6 h-6 text-cyan-400/50" /></div>
+  </div>
+);
+
+const SaasVisual = () => (
+  <div className="relative w-full h-full bg-[#050816] overflow-hidden flex items-center justify-center p-6">
+    <div className="grid grid-cols-2 gap-4 w-full">
+      <div className="space-y-4">
+        <motion.div 
+          animate={{ y: [0, -5, 0] }}
+          transition={{ duration: 3, repeat: Infinity }}
+          className="h-16 bg-white/5 rounded-xl border border-white/10 p-3 flex flex-col justify-end"
+        >
+          <div className="h-1 w-full bg-cyan-400/20 rounded-full overflow-hidden">
+            <motion.div animate={{ width: ['20%', '80%', '40%'] }} transition={{ duration: 4, repeat: Infinity }} className="h-full bg-cyan-400" />
+          </div>
+        </motion.div>
+        <div className="h-24 bg-cyan-500/10 rounded-xl border border-cyan-500/20 flex items-center justify-center">
+           <Database className="w-8 h-8 text-cyan-400" />
+        </div>
+      </div>
+      <div className="space-y-4 pt-8">
+        <div className="h-24 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center">
+          <Globe className="w-8 h-8 text-white/20" />
+        </div>
+        <motion.div 
+           animate={{ scale: [1, 1.05, 1] }}
+           transition={{ duration: 2, repeat: Infinity }}
+           className="h-16 bg-cyan-400 text-black rounded-xl flex items-center justify-center font-bold text-[10px] uppercase"
+        >
+          Deploy
+        </motion.div>
+      </div>
+    </div>
+  </div>
+);
+
+const VisualSelector = ({ category }: { category: string }) => {
+  switch (category) {
+    case 'Future Tech': return <FutureTechVisual />;
+    case 'Automation': return <AutomationVisual />;
+    case 'SaaS': return <SaasVisual />;
+    default: return null;
+  }
+};
 
 // --- DATA ---
 
@@ -44,7 +139,6 @@ const blogPosts = [
     author: 'Nkangi Disan',
     date: 'Feb 24, 2025',
     readTime: '6 min read',
-    image: 'https://picsum.photos/seed/ai-africa/800/600',
     category: 'Future Tech'
   },
   { 
@@ -54,7 +148,6 @@ const blogPosts = [
     author: 'Achen Linet',
     date: 'Feb 20, 2025',
     readTime: '5 min read',
-    image: 'https://picsum.photos/seed/retail/800/600',
     category: 'Automation'
   },
   { 
@@ -64,7 +157,6 @@ const blogPosts = [
     author: 'Lubega Mahad',
     date: 'Feb 15, 2025',
     readTime: '8 min read',
-    image: 'https://picsum.photos/seed/data/800/600',
     category: 'SaaS'
   },
 ];
@@ -274,12 +366,7 @@ export default function BlogPage() {
                 <Link href={`/blog/${post.slug}`}>
                   <div className="bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-6 h-full transition-all group-hover:bg-white/[0.05] group-hover:border-cyan-500/40 group-hover:shadow-[0_40px_100px_rgba(6,182,212,0.1)]">
                     <div className="relative aspect-[16/11] rounded-[2rem] overflow-hidden mb-8 border border-white/5">
-                      <Image 
-                        src={post.image}
-                        alt={post.title}
-                        fill
-                        className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                      />
+                      <VisualSelector category={post.category} />
                       <div className="absolute top-5 left-5">
                         <Badge className="bg-black/70 backdrop-blur-xl text-white border-white/10 px-4 py-1.5 font-bold rounded-full text-[10px] uppercase tracking-widest">{post.category}</Badge>
                       </div>
