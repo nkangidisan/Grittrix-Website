@@ -110,7 +110,7 @@ export function MerchClient() {
         </Button>
       </motion.div>
 
-      {/* 1. HERO SECTION - SENIOR DEV DESIGN */}
+      {/* 1. HERO SECTION */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#050508]">
         <div className="absolute inset-0 z-0">
           <motion.div 
@@ -167,7 +167,6 @@ export function MerchClient() {
             </div>
             
             <div className="relative h-[650px] flex items-center justify-center">
-              {/* HIGH-FIDELITY CSS MOCKUP DASHBOARD */}
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9, y: 40 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -247,43 +246,7 @@ export function MerchClient() {
         </div>
       </section>
 
-      {/* 2. PERFORMANCE PROTOCOL GRID (3x3) */}
-      <section className="py-32 bg-white relative">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center mb-24">
-             <Badge className="bg-[#0f5f3d]/10 text-[#0f5f3d] border-none px-6 py-2 rounded-full mb-6 font-bold tracking-widest text-[10px] uppercase">Engineering</Badge>
-             <h2 className="text-5xl md:text-7xl font-headline font-bold text-center tracking-tighter">Performance <span className="text-[#0f5f3d]">Protocol</span></h2>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {performanceFeatures.map((feature, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: (idx % 3) * 0.1 }}
-                className="group p-10 rounded-[2.5rem] bg-gray-50 border border-gray-100 flex flex-col justify-between aspect-[4/3] hover:bg-[#0f5f3d] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#0f5f3d]/20"
-              >
-                <div>
-                  <h3 className="text-3xl font-headline font-bold mb-3 group-hover:text-white transition-colors">{feature.title}</h3>
-                  <p className="text-gray-500 group-hover:text-white/70 transition-colors leading-relaxed">{feature.desc}</p>
-                </div>
-                <div className="flex justify-between items-end">
-                   <div className="h-16 w-16 rounded-2xl bg-[#0f5f3d]/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                      <feature.icon className="h-8 w-8 text-[#0f5f3d] group-hover:text-white" />
-                   </div>
-                   <div className="flex flex-col items-end opacity-20 group-hover:opacity-40 transition-opacity">
-                      <span className="text-[4rem] font-headline font-bold leading-none tracking-tighter">{idx + 1}</span>
-                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. FEATURED MERCH SHOWCASE - SIGNATURE SERIES */}
+      {/* 2. SIGNATURE SERIES */}
       <section className="py-32 bg-gray-50 relative">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center mb-24">
@@ -321,7 +284,7 @@ export function MerchClient() {
         </div>
       </section>
 
-      {/* 4. PRODUCT COLLECTION SECTION */}
+      {/* 3. PRODUCT COLLECTION */}
       <section id="collection" className="py-32 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
@@ -332,7 +295,7 @@ export function MerchClient() {
                 viewport={{ once: true }}
                 className="text-5xl font-headline font-bold mb-6 tracking-tighter"
               >
-                The <span className="text-[#0f5f3d]">Full</span> Protocol
+                The <span className="text-[#0f5f3d]">Full</span> Collection
               </motion.h2>
               <p className="text-xl text-gray-500 font-medium">
                 Meticulously crafted using high-grade materials to ensure a world-class user experience.
@@ -387,7 +350,7 @@ export function MerchClient() {
         </div>
       </section>
 
-      {/* 5. BRAND STORY SECTION */}
+      {/* 4. BRAND STORY */}
       <section className="py-40 bg-[#0f5f3d] text-white relative overflow-hidden">
         <div className="container mx-auto px-4 text-center relative z-10">
           <motion.div
@@ -423,7 +386,7 @@ export function MerchClient() {
         </div>
       </section>
 
-      {/* 6. CUSTOM CORPORATE ORDERS SECTION - CSS MOCKUP */}
+      {/* 5. CUSTOM CORPORATE ORDERS */}
       <section id="corporate" className="py-40 overflow-hidden bg-white">
         <div className="container mx-auto px-4">
           <div className="bg-[#f8f8f8] rounded-[4rem] p-12 md:p-24 relative border border-gray-100">
@@ -489,7 +452,7 @@ export function MerchClient() {
         </div>
       </section>
 
-      {/* 7. SOCIAL PROOF SECTION */}
+      {/* 6. SOCIAL PROOF */}
       <section className="py-40 bg-white">
         <div className="container mx-auto px-4 text-center">
           <Badge className="bg-[#f47321]/10 text-[#f47321] border-none px-6 py-2 rounded-full mb-10 font-bold tracking-widest text-[10px] uppercase">Feedback</Badge>
@@ -517,6 +480,42 @@ export function MerchClient() {
                     <p className="text-[10px] text-[#0f5f3d] font-bold uppercase tracking-widest">{t.role}</p>
                   </div>
                 </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. PERFORMANCE PROTOCOL (3x3 Grid) */}
+      <section className="py-32 bg-white relative border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center mb-24">
+             <Badge className="bg-[#0f5f3d]/10 text-[#0f5f3d] border-none px-6 py-2 rounded-full mb-6 font-bold tracking-widest text-[10px] uppercase">Engineering</Badge>
+             <h2 className="text-5xl md:text-7xl font-headline font-bold text-center tracking-tighter">Performance <span className="text-[#0f5f3d]">Protocol</span></h2>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {performanceFeatures.map((feature, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (idx % 3) * 0.1 }}
+                className="group p-10 rounded-[2.5rem] bg-gray-50 border border-gray-100 flex flex-col justify-between aspect-[4/3] hover:bg-[#0f5f3d] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#0f5f3d]/20"
+              >
+                <div>
+                  <h3 className="text-3xl font-headline font-bold mb-3 group-hover:text-white transition-colors">{feature.title}</h3>
+                  <p className="text-gray-500 group-hover:text-white/70 transition-colors leading-relaxed">{feature.desc}</p>
+                </div>
+                <div className="flex justify-between items-end">
+                   <div className="h-16 w-16 rounded-2xl bg-[#0f5f3d]/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                      <feature.icon className="h-8 w-8 text-[#0f5f3d] group-hover:text-white" />
+                   </div>
+                   <div className="flex flex-col items-end opacity-20 group-hover:opacity-40 transition-opacity">
+                      <span className="text-[4rem] font-headline font-bold leading-none tracking-tighter">{idx + 1}</span>
+                   </div>
+                </div>
               </motion.div>
             ))}
           </div>
