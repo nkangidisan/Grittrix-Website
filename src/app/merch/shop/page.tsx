@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -15,37 +16,43 @@ const products = [
     id: 'p1',
     name: 'GRITTRIX Premium Collar Shirt',
     category: 'Apparel',
-    description: 'White upper base with deep green lower section and sharp beige lightning stripe. Modern athletic fit.',
+    description: 'White upper base with deep green lower section and sharp beige lightning stripe. Modern athletic fit engineered with premium performance fabric.',
     price: '$20.00',
+    priceCurrency: 'USD',
     priceUgx: '70,000 UGX',
     image: '/collar.jpeg',
     colors: ['#ffffff', '#0f5f3d', '#f5f5dc'],
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-    badge: 'Best Seller'
+    badge: 'Best Seller',
+    availability: 'https://schema.org/InStock'
   },
   {
     id: 'p2',
     name: 'GRITTRIX Signature Non-Collar Shirt',
     category: 'Apparel',
-    description: 'White dominant upper body with geometric green shoulder panels and a clean modern techwear aesthetic.',
+    description: 'White dominant upper body with geometric green shoulder panels. A clean modern techwear aesthetic with moisture-wicking technology.',
     price: '$18.00',
+    priceCurrency: 'USD',
     priceUgx: '63,000 UGX',
     image: '/noncollar.jpeg',
     colors: ['#ffffff', '#0f5f3d', '#f5f5dc'],
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-    badge: 'Limited Edition'
+    badge: 'Limited Edition',
+    availability: 'https://schema.org/InStock'
   },
   {
     id: 'p3',
     name: 'GRITTRIX Signature Cap',
     category: 'Accessories',
-    description: 'White front panel with dark green sides and beige curved accent. Structured modern fit.',
+    description: 'Structured modern fit with premium embroidery. White front panel with dark green sides and beige curved accent.',
     price: '$15.00',
+    priceCurrency: 'USD',
     priceUgx: '52,500 UGX',
     image: '/cap.jpeg',
     colors: ['#ffffff', '#0f5f3d', '#f5f5dc'],
     sizes: ['Adjustable'],
-    badge: 'New Arrival'
+    badge: 'New Arrival',
+    availability: 'https://schema.org/InStock'
   }
 ];
 
@@ -57,8 +64,33 @@ export default function ShopPage() {
     ? products 
     : products.filter(p => p.category === filter);
 
+  // SEO: Product Schema Generation
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": products.map((p, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "url": `https://grittrix.com/merch/shop#${p.id}`,
+      "name": p.name,
+      "image": `https://grittrix.com${p.image}`,
+      "description": p.description,
+      "offers": {
+        "@type": "Offer",
+        "price": p.price.replace('$', ''),
+        "priceCurrency": "USD",
+        "availability": p.availability
+      }
+    }))
+  };
+
   return (
     <div className="bg-white min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      
       {/* Premium Shop Header */}
       <div className="bg-background pt-32 pb-20 md:pb-24 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,var(--accent-primary),transparent)]" />
@@ -70,7 +102,7 @@ export default function ShopPage() {
             Official <span className="text-[#0f5f3d]">Protocol</span> Shop
           </h1>
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl font-medium mx-auto md:mx-0">
-            Exclusive GRITTRIX apparel and accessories. Engineered for professionals who demand excellence.
+            Exclusive GRITTRIX techwear and accessories. Engineered for professionals who demand excellence in corporate branding.
           </p>
         </div>
       </div>
@@ -78,7 +110,7 @@ export default function ShopPage() {
       {/* Filter Bar */}
       <section className="py-6 md:py-8 border-b border-gray-100 bg-white sticky top-[68px] md:top-20 z-40 backdrop-blur-xl">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex gap-2 md:gap-3 overflow-x-auto no-scrollbar w-full md:w-auto justify-start md:justify-start">
+          <nav className="flex gap-2 md:gap-3 overflow-x-auto no-scrollbar w-full md:w-auto justify-start md:justify-start" aria-label="Product Categories">
             {['All', 'Apparel', 'Accessories'].map((cat) => (
               <button
                 key={cat}
@@ -92,7 +124,7 @@ export default function ShopPage() {
                 {cat}
               </button>
             ))}
-          </div>
+          </nav>
           
           <div className="flex items-center gap-6 md:gap-8 w-full md:w-auto justify-between md:justify-end">
             <div className="text-right">
@@ -100,7 +132,10 @@ export default function ShopPage() {
               <p className="text-xs md:text-sm font-bold text-[#0f5f3d]">Verified Checkout</p>
             </div>
             <div className="relative">
-              <button className="h-12 w-12 md:h-14 md:w-14 rounded-full bg-white border border-gray-200 shadow-xl flex items-center justify-center text-black hover:border-[#0f5f3d] hover:text-[#0f5f3d] transition-all active:scale-90">
+              <button 
+                className="h-12 w-12 md:h-14 md:w-14 rounded-full bg-white border border-gray-200 shadow-xl flex items-center justify-center text-black hover:border-[#0f5f3d] hover:text-[#0f5f3d] transition-all active:scale-90"
+                aria-label={`Cart with ${cartCount} items`}
+              >
                 <ShoppingCart className="h-5 w-5 md:h-6 md:w-6" />
                 <AnimatePresence>
                   {cartCount > 0 && (
@@ -127,6 +162,7 @@ export default function ShopPage() {
               {filteredProducts.map((product, idx) => (
                 <motion.div
                   key={product.id}
+                  id={product.id}
                   layout
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -137,15 +173,18 @@ export default function ShopPage() {
                     <div className="relative aspect-[4/5] bg-white rounded-3xl md:rounded-[3rem] overflow-hidden mb-8 md:mb-10 border border-gray-100 shadow-sm transition-all hover:shadow-[0_40px_100px_rgba(0,0,0,0.08)]">
                       <Image 
                         src={product.image} 
-                        alt={product.name} 
+                        alt={`${product.name} - ${product.description}`} 
                         fill 
                         className="object-contain p-10 md:p-16 transition-transform duration-1000 group-hover:scale-110"
-                        data-ai-hint="product asset"
+                        data-ai-hint={`${product.category.toLowerCase()} techwear`}
                       />
                       <div className="absolute top-6 md:top-10 left-6 md:left-10">
                          <Badge className="bg-[#0f5f3d] text-white px-4 md:px-5 py-1.5 md:py-2 rounded-full text-[8px] md:text-[9px] font-bold uppercase tracking-[0.2em] border-none">{product.badge}</Badge>
                       </div>
-                      <button className="absolute bottom-6 md:bottom-10 right-6 md:right-10 h-12 w-12 md:h-16 md:w-16 rounded-full bg-white/90 backdrop-blur-md border border-white flex items-center justify-center text-gray-400 hover:text-[#f47321] transition-all scale-0 group-hover:scale-100 shadow-2xl">
+                      <button 
+                        className="absolute bottom-6 md:bottom-10 right-6 md:right-10 h-12 w-12 md:h-16 md:w-16 rounded-full bg-white/90 backdrop-blur-md border border-white flex items-center justify-center text-gray-400 hover:text-[#f47321] transition-all scale-0 group-hover:scale-100 shadow-2xl"
+                        aria-label="Add to Wishlist"
+                      >
                         <Heart className="h-6 w-6 md:h-7 md:w-7" />
                       </button>
                     </div>
@@ -154,7 +193,7 @@ export default function ShopPage() {
                       <div className="flex justify-between items-start gap-4">
                         <div>
                           <p className="text-[9px] md:text-[10px] font-bold text-[#f47321] uppercase tracking-widest mb-1.5 md:mb-2">{product.category}</p>
-                          <h3 className="text-2xl md:text-3xl font-headline font-bold group-hover:text-[#0f5f3d] transition-colors tracking-tighter leading-none">{product.name}</h3>
+                          <h2 className="text-2xl md:text-3xl font-headline font-bold group-hover:text-[#0f5f3d] transition-colors tracking-tighter leading-none">{product.name}</h2>
                         </div>
                         <div className="text-right">
                           <p className="text-2xl md:text-3xl font-bold text-[#0f5f3d] tracking-tighter leading-none">{product.price.split(' ')[0]}</p>
@@ -203,19 +242,19 @@ export default function ShopPage() {
                 <Check className="h-8 w-8 md:h-10 md:w-10 text-[#00ffb0]" />
              </div>
              <h2 className="text-3xl md:text-5xl font-headline font-bold mb-6 md:mb-8 tracking-tighter text-white leading-none">Guaranteed Protocol Quality</h2>
-             <p className="text-base md:text-xl text-gray-400 mb-12 md:mb-16 leading-relaxed font-medium">Every GRITTRIX product undergoes a performance audit before reaching your doorstep. We represent the future of professional techwear.</p>
+             <p className="text-base md:text-xl text-gray-400 mb-12 md:mb-16 leading-relaxed font-medium">Every GRITTRIX product undergoes a performance audit before reaching your doorstep. We represent the future of professional techwear and corporate identity.</p>
              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
                 {[
                   { l: 'Express Delivery', d: '24-48h', i: Zap },
                   { l: 'Secure Payment', d: 'AES-256', i: ShieldCheck },
                   { l: 'Ethical Build', d: '100% Certified', i: Check },
-                  { l: 'Support', d: '24/7 Priority', i: Users }
+                  { l: 'Protocol Support', d: '24/7 Priority', i: Users }
                 ].map((s, i) => (
                   <div key={i} className="text-center group">
                     <div className="flex justify-center mb-3 md:mb-4">
                       <s.i className="h-5 w-5 md:h-6 md:w-6 text-[#00ffb0] group-hover:scale-125 transition-transform" />
                     </div>
-                    <p className="text-[8px] md:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 md:mb-2">{s.l}</p>
+                    <p className="text-[8px] md:text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1 md:mb-2">{s.l}</p>
                     <p className="text-base md:text-lg font-bold text-white tracking-tight">{s.d}</p>
                   </div>
                 ))}
