@@ -4,7 +4,7 @@ import * as React from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ShoppingCart, Heart, Star, Package, CheckCircle, ArrowRight, MessageSquare, ShieldCheck, Globe, Zap, Users } from 'lucide-react';
+import { ShoppingCart, Heart, Star, CheckCircle, ArrowRight, MessageSquare, ShieldCheck, Globe, Zap, Users, Activity, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
@@ -154,10 +154,69 @@ export function MerchClient() {
             </div>
             
             <div className="relative h-[600px] hidden lg:block">
+              {/* CSS UI MOCKUP FOR HERO */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5, duration: 1 }}
+                className="absolute top-0 right-0 w-[400px] bg-white/40 backdrop-blur-xl border border-white/50 rounded-3xl p-6 shadow-2xl z-40"
+              >
+                <div className="flex items-center justify-between mb-6">
+                   <div className="flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-400" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                      <div className="w-3 h-3 rounded-full bg-green-400" />
+                   </div>
+                   <Badge variant="outline" className="text-[10px] uppercase tracking-widest border-[#0f5f3d]/20 text-[#0f5f3d]">Fabric Analytics v2.0</Badge>
+                </div>
+                <div className="space-y-6">
+                   <div className="space-y-2">
+                      <div className="flex justify-between text-[10px] font-bold uppercase text-gray-500">
+                         <span>Cotton Density</span>
+                         <span className="text-[#0f5f3d]">240 GSM</span>
+                      </div>
+                      <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
+                         <motion.div 
+                            initial={{ width: 0 }}
+                            animate={{ width: '85%' }}
+                            transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
+                            className="h-full bg-[#0f5f3d]" 
+                         />
+                      </div>
+                   </div>
+                   <div className="space-y-2">
+                      <div className="flex justify-between text-[10px] font-bold uppercase text-gray-500">
+                         <span>Performance Score</span>
+                         <span className="text-[#f47321]">98.2%</span>
+                      </div>
+                      <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
+                         <motion.div 
+                            initial={{ width: 0 }}
+                            animate={{ width: '98%' }}
+                            transition={{ duration: 1.5, repeat: Infinity, repeatType: 'reverse', delay: 0.2 }}
+                            className="h-full bg-[#f47321]" 
+                         />
+                      </div>
+                   </div>
+                   <div className="grid grid-cols-2 gap-4">
+                      <div className="p-3 bg-white/60 rounded-2xl border border-white">
+                         <Activity className="h-4 w-4 text-[#0f5f3d] mb-2" />
+                         <p className="text-[8px] font-bold text-gray-400 uppercase">Breathability</p>
+                         <p className="text-sm font-bold">Ultra-Fine</p>
+                      </div>
+                      <div className="p-3 bg-white/60 rounded-2xl border border-white">
+                         <BarChart3 className="h-4 w-4 text-[#f47321] mb-2" />
+                         <p className="text-[8px] font-bold text-gray-400 uppercase">Wash Cycles</p>
+                         <p className="text-sm font-bold">500+ Grade</p>
+                      </div>
+                   </div>
+                </div>
+              </motion.div>
+
               <motion.div 
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="absolute inset-0 flex items-center justify-center"
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
               >
                 <div className="relative w-full h-full">
                   <Image src="/flyer1.jpeg" alt="Grittrix Fashion" fill className="object-cover rounded-3xl shadow-2xl z-20 rotate-[-5deg] scale-90 translate-x-[-10%]" />
@@ -177,8 +236,8 @@ export function MerchClient() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12">
             {[
-              { title: 'Premium Collar Shirt', img: '/flyer1.jpeg', tag: 'Premium Fabric', desc: 'Engineered for the boardroom and the field.' },
-              { title: 'Signature Non-Collar', img: '/flyer2.jpeg', tag: 'Modern Fit', desc: 'Minimalist aesthetic for daily comfort.' }
+              { title: 'Premium Collar Shirt', img: '/collar.jpeg', tag: 'Premium Fabric', desc: 'Engineered for the boardroom and the field.' },
+              { title: 'Signature Non-Collar', img: '/noncollar.jpeg', tag: 'Modern Fit', desc: 'Minimalist aesthetic for daily comfort.' }
             ].map((item, idx) => (
               <motion.div
                 key={idx}
