@@ -4,7 +4,7 @@ import * as React from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ShoppingCart, Heart, Star, CheckCircle, ArrowRight, MessageSquare, ShieldCheck, Globe, Zap, Users, Activity, BarChart3 } from 'lucide-react';
+import { ShoppingCart, Heart, Star, CheckCircle, ArrowRight, MessageSquare, ShieldCheck, Globe, Zap, Users, Activity, BarChart3, TrendingUp, Cpu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
@@ -17,7 +17,6 @@ const products = [
     price: '$20 / ₹2000 / 70,000 UGX',
     image: '/collar.jpeg',
     colors: ['#ffffff', '#0f5f3d', '#f5f5dc'],
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     badge: 'Premium Fabric',
     features: ['Premium Fabric', 'Modern Fit', 'Built for Performance', 'All Day Comfort'],
     rating: 5
@@ -26,10 +25,9 @@ const products = [
     id: 'p2',
     name: 'GRITTRIX Signature Non-Collar Shirt',
     description: 'White dominant upper body with geometric green shoulder panels and a clean modern techwear aesthetic.',
-    price: '$28.00',
+    price: '$18.00',
     image: '/noncollar.jpeg',
     colors: ['#ffffff', '#0f5f3d', '#f5f5dc'],
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     badge: 'Athletic Fit',
     features: ['Lightweight Fabric', 'Athletic Fit', 'Soft Touch', 'Breathable'],
     rating: 5
@@ -37,11 +35,10 @@ const products = [
   {
     id: 'p3',
     name: 'GRITTRIX Signature Cap',
-    description: 'White front panel with dark green sides and beige curved accent. High-quality structured modern fit.',
-    price: '$22.00',
+    description: 'White front panel with dark green sides and beige curved accent. Structured modern fit.',
+    price: '$15.00',
     image: '/cap.jpeg',
     colors: ['#ffffff', '#0f5f3d', '#f5f5dc'],
-    sizes: ['Adjustable (One Size)'],
     badge: 'Embroidery Logo',
     features: ['Premium Quality', 'Adjustable Fit', 'Embroidery Logo', 'Breathable Design'],
     rating: 5
@@ -88,7 +85,7 @@ export function MerchClient() {
     <div className="bg-white text-black font-body overflow-x-hidden">
       {/* Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-[#0f5f3d] z-[60] origin-left"
+        className="fixed top-0 left-0 right-0 h-1.5 bg-[#0f5f3d] z-[60] origin-left"
         style={{ scaleX }}
       />
 
@@ -98,164 +95,188 @@ export function MerchClient() {
         animate={{ opacity: 1, x: 0 }}
         className="fixed bottom-8 right-8 z-50"
       >
-        <Button size="lg" className="rounded-full h-16 w-16 bg-[#0f5f3d] hover:bg-[#0c4d2d] shadow-2xl shadow-[#0f5f3d]/20 text-white p-0" asChild>
+        <Button size="lg" className="rounded-full h-16 w-16 bg-[#0f5f3d] hover:bg-[#0c4d2d] shadow-2xl shadow-[#0f5f3d]/40 text-white p-0" asChild>
           <Link href="/merch/shop"><ShoppingCart className="h-6 w-6" /></Link>
         </Button>
       </motion.div>
 
-      {/* 1. HERO SECTION */}
-      <section className="relative min-h-[95vh] flex items-center pt-20 overflow-hidden">
+      {/* 1. HERO SECTION - SENIOR DEV DESIGN */}
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#050505]">
         <div className="absolute inset-0 z-0">
           <motion.div 
             animate={{ 
-              scale: [1, 1.1, 1],
-              opacity: [0.1, 0.2, 0.1],
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
             }}
-            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-            className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-[#0f5f3d]/10 rounded-full blur-[120px]"
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[-10%] right-[-10%] w-[70%] h-[70%] bg-[#0f5f3d]/20 rounded-full blur-[140px]"
           />
+           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="max-w-3xl">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0f5f3d]/10 border border-[#0f5f3d]/20 mb-8"
+              >
+                <div className="w-2 h-2 rounded-full bg-[#0f5f3d] animate-pulse" />
+                <span className="text-[10px] font-bold text-[#0f5f3d] uppercase tracking-[0.2em]">Next-Gen Apparel Protocol v4.0</span>
+              </motion.div>
               <motion.h1 
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-6xl md:text-8xl font-headline font-bold leading-tight mb-8"
+                animate={{ opacity: 1, y: 0 }}
+                className="text-7xl md:text-9xl font-headline font-bold leading-[0.85] text-white mb-8 tracking-tighter"
               >
                 Designed to <span className="text-[#0f5f3d]">Represent.</span><br />
                 Built to <span className="text-[#f47321]">Perform.</span>
               </motion.h1>
               <motion.p 
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl"
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-xl md:text-2xl text-gray-400 mb-12 max-w-xl leading-relaxed"
               >
-                Premium apparel engineered for innovators, creators, professionals, and modern businesses.
+                Premium apparel engineered for innovators, creators, and modern businesses. Where high-end fashion meets performance technology.
               </motion.p>
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
                 className="flex flex-col sm:flex-row gap-6"
               >
-                <Button size="lg" className="bg-[#0f5f3d] hover:bg-[#0c4d2d] text-white text-lg px-10 h-14 rounded-full shadow-lg shadow-[#0f5f3d]/20 transition-all hover:scale-105" asChild>
+                <Button size="lg" className="bg-[#0f5f3d] hover:bg-[#0c4d2d] text-white text-lg px-12 h-16 rounded-full shadow-2xl shadow-[#0f5f3d]/30 transition-all hover:scale-105" asChild>
                   <Link href="/merch/shop">Shop Collection</Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-black/10 hover:bg-black/5 text-lg px-10 h-14 rounded-full transition-all hover:scale-105" asChild>
+                <Button size="lg" variant="outline" className="border-white/10 text-white hover:bg-white/5 text-lg px-12 h-16 rounded-full transition-all hover:scale-105" asChild>
                   <Link href="/merch/shop">Customize for Your Team</Link>
                 </Button>
               </motion.div>
             </div>
             
-            <div className="relative h-[600px] hidden lg:block">
-              {/* CSS UI MOCKUP FOR HERO */}
+            <div className="relative h-[650px] flex items-center justify-center">
+              {/* HIGH-FIDELITY CSS MOCKUP DASHBOARD */}
               <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5, duration: 1 }}
-                className="absolute top-0 right-0 w-[400px] bg-white/40 backdrop-blur-xl border border-white/50 rounded-3xl p-6 shadow-2xl z-40"
+                initial={{ opacity: 0, scale: 0.9, y: 40 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 1, ease: [0.23, 1, 0.32, 1] }}
+                className="w-full max-w-[480px] bg-black/60 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-8 shadow-[0_40px_100px_rgba(0,0,0,0.8)] relative overflow-hidden"
               >
-                <div className="flex items-center justify-between mb-6">
+                 <div className="absolute inset-0 bg-gradient-to-br from-[#0f5f3d]/5 to-transparent pointer-events-none" />
+                 
+                 <div className="flex items-center justify-between mb-10">
                    <div className="flex gap-2">
-                      <div className="w-3 h-3 rounded-full bg-red-400" />
-                      <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                      <div className="w-3 h-3 rounded-full bg-green-400" />
+                      <div className="w-3 h-3 rounded-full bg-[#f47321]/80" />
+                      <div className="w-3 h-3 rounded-full bg-white/20" />
                    </div>
-                   <Badge variant="outline" className="text-[10px] uppercase tracking-widest border-[#0f5f3d]/20 text-[#0f5f3d]">Fabric Analytics v2.0</Badge>
+                   <div className="flex items-center gap-2">
+                     <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Analytics Layer</span>
+                     <div className="px-2 py-0.5 rounded bg-[#0f5f3d]/20 text-[#0f5f3d] text-[8px] font-bold uppercase">LIVE</div>
+                   </div>
                 </div>
-                <div className="space-y-6">
-                   <div className="space-y-2">
-                      <div className="flex justify-between text-[10px] font-bold uppercase text-gray-500">
-                         <span>Cotton Density</span>
-                         <span className="text-[#0f5f3d]">240 GSM</span>
+
+                <div className="space-y-10">
+                   <div className="space-y-3">
+                      <div className="flex justify-between items-end">
+                         <div className="space-y-1">
+                           <p className="text-[10px] font-bold text-gray-500 uppercase">Fabric Integrity</p>
+                           <p className="text-3xl font-headline font-bold text-white tracking-tighter">Premium Grade</p>
+                         </div>
+                         <span className="text-sm font-bold text-[#0f5f3d]">98.4%</span>
                       </div>
-                      <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
+                      <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
                          <motion.div 
                             initial={{ width: 0 }}
-                            animate={{ width: '85%' }}
-                            transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
-                            className="h-full bg-[#0f5f3d]" 
+                            animate={{ width: '98.4%' }}
+                            transition={{ duration: 2, delay: 1 }}
+                            className="h-full bg-gradient-to-r from-[#0f5f3d] to-[#00ffb0]" 
                          />
                       </div>
                    </div>
-                   <div className="space-y-2">
-                      <div className="flex justify-between text-[10px] font-bold uppercase text-gray-500">
-                         <span>Performance Score</span>
-                         <span className="text-[#f47321]">98.2%</span>
+
+                   <div className="grid grid-cols-2 gap-6">
+                      <div className="p-5 bg-white/5 rounded-[1.5rem] border border-white/5 group hover:bg-white/10 transition-colors">
+                         <Activity className="h-6 w-6 text-[#f47321] mb-4" />
+                         <p className="text-[9px] font-bold text-gray-500 uppercase mb-1">Breathability</p>
+                         <p className="text-lg font-bold text-white">Ultra-Fine</p>
                       </div>
-                      <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
-                         <motion.div 
-                            initial={{ width: 0 }}
-                            animate={{ width: '98%' }}
-                            transition={{ duration: 1.5, repeat: Infinity, repeatType: 'reverse', delay: 0.2 }}
-                            className="h-full bg-[#f47321]" 
-                         />
+                      <div className="p-5 bg-white/5 rounded-[1.5rem] border border-white/5 group hover:bg-white/10 transition-colors">
+                         <Cpu className="h-6 w-6 text-[#0f5f3d] mb-4" />
+                         <p className="text-[9px] font-bold text-gray-500 uppercase mb-1">Engineered Fit</p>
+                         <p className="text-lg font-bold text-white">Athletic 2.0</p>
                       </div>
                    </div>
-                   <div className="grid grid-cols-2 gap-4">
-                      <div className="p-3 bg-white/60 rounded-2xl border border-white">
-                         <Activity className="h-4 w-4 text-[#0f5f3d] mb-2" />
-                         <p className="text-[8px] font-bold text-gray-400 uppercase">Breathability</p>
-                         <p className="text-sm font-bold">Ultra-Fine</p>
+
+                   <div className="space-y-4">
+                      <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Sub-System Status</p>
+                      <div className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <div className="flex items-center gap-3">
+                          <div className="p-2 bg-[#0f5f3d]/20 rounded-lg">
+                            <ShieldCheck className="h-4 w-4 text-[#0f5f3d]" />
+                          </div>
+                          <span className="text-xs font-bold text-white/80">Embroidery Precision</span>
+                        </div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#0f5f3d]" />
                       </div>
-                      <div className="p-3 bg-white/60 rounded-2xl border border-white">
-                         <BarChart3 className="h-4 w-4 text-[#f47321] mb-2" />
-                         <p className="text-[8px] font-bold text-gray-400 uppercase">Wash Cycles</p>
-                         <p className="text-sm font-bold">500+ Grade</p>
+                      <div className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <div className="flex items-center gap-3">
+                          <div className="p-2 bg-[#f47321]/20 rounded-lg">
+                            <TrendingUp className="h-4 w-4 text-[#f47321]" />
+                          </div>
+                          <span className="text-xs font-bold text-white/80">Wash Cycle Rating</span>
+                        </div>
+                        <span className="text-[10px] font-bold text-gray-400">500+</span>
                       </div>
                    </div>
                 </div>
               </motion.div>
 
+              {/* Decorative Floating Elements */}
               <motion.div 
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                animate={{ y: [0, -20, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-1/4 -right-12 p-6 bg-white/10 backdrop-blur-xl rounded-[2rem] border border-white/20 shadow-2xl hidden md:block"
               >
-                <div className="relative w-full h-full">
-                  <Image src="/flyer1.jpeg" alt="Grittrix Fashion" fill className="object-cover rounded-3xl shadow-2xl z-20 rotate-[-5deg] scale-90 translate-x-[-10%]" />
-                  <Image src="/flyer2.jpeg" alt="Grittrix Fashion" fill className="object-cover rounded-3xl shadow-2xl z-30 rotate-[5deg] scale-90 translate-x-[10%]" />
-                </div>
+                <p className="text-[10px] font-bold text-[#0f5f3d] mb-1">TEXTURE</p>
+                <p className="text-lg font-bold text-white">Luxury Silk-Cotton</p>
               </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. FEATURED MERCH SHOWCASE */}
-      <section className="py-24 bg-gray-50/50">
-        <div className="container mx-auto px-4 text-center mb-16">
-           <h2 className="text-4xl md:text-5xl font-headline font-bold">The <span className="text-[#0f5f3d]">Signature</span> Series</h2>
-        </div>
+      {/* 2. FEATURED MERCH SHOWCASE - SIGNATURE SERIES */}
+      <section className="py-32 bg-white relative">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="flex flex-col items-center mb-24">
+             <Badge className="bg-[#0f5f3d]/10 text-[#0f5f3d] border-none px-6 py-2 rounded-full mb-6 font-bold tracking-widest text-[10px] uppercase">The Icons</Badge>
+             <h2 className="text-5xl md:text-7xl font-headline font-bold text-center tracking-tighter">The <span className="text-[#0f5f3d]">Signature</span> Series</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
             {[
-              { title: 'Premium Collar Shirt', img: '/collar.jpeg', tag: 'Premium Fabric', desc: 'Engineered for the boardroom and the field.' },
-              { title: 'Signature Non-Collar', img: '/noncollar.jpeg', tag: 'Modern Fit', desc: 'Minimalist aesthetic for daily comfort.' }
+              { title: 'Premium Collar Shirt', img: '/collar.jpeg', tag: 'High-Conversion Fit', desc: 'Engineered for the boardroom and the field. Professionalism redefined through superior fabric.' },
+              { title: 'Signature Non-Collar', img: '/noncollar.jpeg', tag: 'Tech-Wear Comfort', desc: 'Minimalist aesthetic for daily high-performance wear. Breathable, durable, unmatched.' }
             ].map((item, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="group relative h-[600px] overflow-hidden rounded-3xl cursor-pointer shadow-2xl bg-white border border-gray-100"
+                className="group relative aspect-[3/4] overflow-hidden rounded-[3rem] cursor-pointer shadow-2xl bg-[#f8f8f8]"
               >
-                <Image src={item.img} alt={item.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity" />
-                <div className="absolute bottom-10 left-10 text-white">
-                  <Badge className="bg-[#f47321] text-white mb-4 px-4 py-1">{item.tag}</Badge>
-                  <h3 className="text-4xl font-headline font-bold mb-4">{item.title}</h3>
-                  <p className="text-white/70 max-w-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0 duration-500">
+                <Image src={item.img} alt={item.title} fill className="object-cover transition-transform duration-1000 group-hover:scale-110" data-ai-hint="lifestyle fashion" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-all duration-500" />
+                <div className="absolute bottom-16 left-12 right-12 text-white">
+                  <Badge className="bg-[#f47321] text-white mb-6 px-6 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full">{item.tag}</Badge>
+                  <h3 className="text-5xl font-headline font-bold mb-6 tracking-tighter">{item.title}</h3>
+                  <p className="text-white/70 text-lg leading-relaxed mb-8 opacity-0 group-hover:opacity-100 transition-all translate-y-8 group-hover:translate-y-0 duration-700">
                     {item.desc}
                   </p>
-                  <Button variant="link" className="text-[#00E5A0] p-0 h-auto font-bold group-hover:gap-4 transition-all" asChild>
-                    <Link href="/merch/shop">Explore Details <ArrowRight className="ml-2 h-5 w-5" /></Link>
+                  <Button variant="link" className="text-[#00ffb0] p-0 h-auto font-bold group-hover:gap-4 transition-all text-lg" asChild>
+                    <Link href="/merch/shop">Explore Collection <ArrowRight className="ml-2 h-6 w-6" /></Link>
                   </Button>
                 </div>
               </motion.div>
@@ -265,29 +286,28 @@ export function MerchClient() {
       </section>
 
       {/* 3. PRODUCT COLLECTION SECTION */}
-      <section id="collection" className="py-24 bg-white">
+      <section id="collection" className="py-32 bg-gray-50/50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 text-center md:text-left">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="max-w-2xl">
               <motion.h2 
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl md:text-5xl font-headline font-bold mb-6"
+                className="text-5xl font-headline font-bold mb-6 tracking-tighter"
               >
-                Luxury <span className="text-[#0f5f3d]">Collection</span>
+                The <span className="text-[#0f5f3d]">Full</span> Protocol
               </motion.h2>
-              <p className="text-lg text-gray-500">
-                Meticulously crafted using high-end materials to ensure a world-class experience.
+              <p className="text-xl text-gray-500 font-medium">
+                Meticulously crafted using high-grade materials to ensure a world-class user experience.
               </p>
             </div>
-            <div className="flex gap-4">
-              <Button variant="outline" className="rounded-full" asChild><Link href="/merch/shop">All Products</Link></Button>
-              <Button variant="outline" className="rounded-full" asChild><Link href="/merch/shop">New In</Link></Button>
-            </div>
+            <Button variant="outline" className="rounded-full h-14 px-10 border-black/10 font-bold hover:bg-black hover:text-white transition-all" asChild>
+              <Link href="/merch/shop">View All Inventory</Link>
+            </Button>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
             {products.map((product, idx) => (
               <motion.div
                 key={product.id}
@@ -296,59 +316,54 @@ export function MerchClient() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
               >
-                <Card className="border-none shadow-none bg-gray-50/50 group overflow-hidden rounded-[2rem] p-4 transition-all hover:bg-white hover:shadow-xl">
-                  <div className="relative aspect-square bg-white rounded-[1.5rem] overflow-hidden mb-6 shadow-sm">
+                <Card className="border-none shadow-none bg-white group overflow-hidden rounded-[2.5rem] p-6 transition-all hover:shadow-[0_30px_80px_rgba(0,0,0,0.08)]">
+                  <div className="relative aspect-square bg-[#f8f8f8] rounded-[2rem] overflow-hidden mb-8">
                     <Image 
                       src={product.image} 
                       alt={product.name} 
                       fill 
-                      className="object-contain p-8 transition-transform duration-500 group-hover:scale-110"
+                      className="object-contain p-12 transition-transform duration-700 group-hover:scale-110"
+                      data-ai-hint="product shot"
                     />
-                    <button className="absolute top-6 right-6 h-12 w-12 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-gray-400 hover:text-[#f47321] transition-colors shadow-lg shadow-black/5 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 duration-300">
+                    <button className="absolute top-6 right-6 h-12 w-12 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-gray-400 hover:text-[#f47321] transition-all shadow-lg scale-0 group-hover:scale-100 duration-300">
                       <Heart className="h-5 w-5" />
                     </button>
                     <div className="absolute top-6 left-6">
-                      <Badge className="bg-[#0f5f3d] text-white px-4 py-1">{product.badge}</Badge>
+                      <Badge className="bg-[#0f5f3d] text-white px-5 py-1.5 text-[9px] font-bold uppercase tracking-widest rounded-full">{product.badge}</Badge>
                     </div>
                   </div>
-                  <CardContent className="p-4">
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-headline font-bold group-hover:text-[#0f5f3d] transition-colors leading-tight">{product.name}</h3>
+                  <CardContent className="p-0">
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className="text-2xl font-headline font-bold leading-tight group-hover:text-[#0f5f3d] transition-colors">{product.name}</h3>
                     </div>
-                    <div className="flex gap-1 mb-3">
+                    <div className="flex gap-1 mb-4">
                       {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 fill-[#f47321] text-[#f47321]" />)}
                     </div>
-                    <p className="text-gray-500 text-xs mb-4 line-clamp-2">{product.description}</p>
+                    <p className="text-gray-500 text-sm mb-8 leading-relaxed line-clamp-2">{product.description}</p>
                     
-                    <div className="grid grid-cols-2 gap-2 mb-6">
-                       {product.features.map(f => (
-                         <div key={f} className="flex items-center gap-1 text-[10px] text-gray-400">
-                            <CheckCircle className="h-2 w-2 text-[#0f5f3d]" /> {f}
-                         </div>
-                       ))}
-                    </div>
-
-                    <div className="flex justify-between items-center mb-6">
-                      <div className="flex gap-2">
+                    <div className="flex justify-between items-center mb-8 border-y border-gray-100 py-6">
+                      <div className="flex gap-3">
                         {product.colors.map((color, i) => (
                           <div 
                             key={i} 
-                            className="w-4 h-4 rounded-full border border-gray-200 cursor-pointer transition-transform hover:scale-125 shadow-sm" 
+                            className="w-5 h-5 rounded-full border border-gray-200 cursor-pointer hover:scale-125 transition-transform" 
                             style={{ backgroundColor: color }}
                           />
                         ))}
                       </div>
-                      <div className="flex gap-2 overflow-x-auto max-w-[120px] no-scrollbar">
-                        {product.sizes.map((size, i) => (
-                          <span key={i} className="text-[10px] font-bold text-gray-400 hover:text-black cursor-pointer uppercase transition-colors shrink-0">{size}</span>
-                        ))}
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Performance Score</span>
+                        <span className="text-sm font-bold text-[#0f5f3d]">10.0</span>
                       </div>
                     </div>
                     
-                    <div className="flex items-center justify-between gap-4">
-                       <p className="font-bold text-lg text-[#0f5f3d]">{product.price.split('/')[0]}</p>
-                       <Button className="flex-1 bg-black hover:bg-[#0f5f3d] text-white rounded-xl h-12 transition-all group-hover:shadow-xl group-hover:shadow-[#0f5f3d]/10" asChild>
-                        <Link href="/merch/shop">Add to Cart</Link>
+                    <div className="flex items-center justify-between gap-6">
+                       <div className="space-y-0.5">
+                         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Base Value</p>
+                         <p className="font-bold text-2xl text-[#0f5f3d]">{product.price.split('/')[0]}</p>
+                       </div>
+                       <Button className="flex-1 bg-black hover:bg-[#0f5f3d] text-white rounded-2xl h-14 font-bold transition-all shadow-xl hover:shadow-[#0f5f3d]/20 active:scale-95" asChild>
+                        <Link href="/merch/shop">Deploy to Cart</Link>
                        </Button>
                     </div>
                   </CardContent>
@@ -360,20 +375,21 @@ export function MerchClient() {
       </section>
 
       {/* 4. BRAND STORY SECTION */}
-      <section className="py-32 bg-[#0f5f3d] text-white relative overflow-hidden">
+      <section className="py-40 bg-[#0f5f3d] text-white relative overflow-hidden">
         <div className="container mx-auto px-4 text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto"
+            className="max-w-4xl mx-auto"
           >
-            <h2 className="text-5xl md:text-7xl font-headline font-bold mb-10">One Brand. One <span className="text-[#f47321]">Identity.</span></h2>
-            <p className="text-xl md:text-2xl text-white/70 mb-16 leading-relaxed">
+            <Badge className="bg-white/10 text-white border-none px-6 py-2 rounded-full mb-10 font-bold tracking-widest text-[10px] uppercase">Our Core</Badge>
+            <h2 className="text-6xl md:text-8xl font-headline font-bold mb-12 tracking-tighter">One Brand. One <span className="text-[#f47321]">Identity.</span></h2>
+            <p className="text-2xl md:text-3xl text-white/70 mb-20 leading-relaxed font-medium">
               GRITTRIX merchandise is designed for businesses, creators, and innovators who value professionalism, quality, and modern identity.
             </p>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-20">
               {stats.map((stat, idx) => (
                 <motion.div
                   key={idx}
@@ -382,11 +398,11 @@ export function MerchClient() {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
                 >
-                  <div className="flex justify-center mb-4">
-                     <stat.icon className="h-8 w-8 text-[#f47321]" />
+                  <div className="flex justify-center mb-6">
+                     <stat.icon className="h-10 w-10 text-[#f47321]" />
                   </div>
-                  <p className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.value}</p>
-                  <p className="text-sm font-semibold uppercase tracking-widest text-white/50">{stat.label}</p>
+                  <p className="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tighter">{stat.value}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -394,58 +410,78 @@ export function MerchClient() {
         </div>
       </section>
 
-      {/* 5. CUSTOM CORPORATE ORDERS SECTION */}
-      <section id="corporate" className="py-32 overflow-hidden bg-white">
+      {/* 5. CUSTOM CORPORATE ORDERS SECTION - CSS MOCKUP */}
+      <section id="corporate" className="py-40 overflow-hidden bg-white">
         <div className="container mx-auto px-4">
-          <div className="bg-gray-50 rounded-[3rem] p-12 md:p-20 relative border border-gray-100">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="bg-[#f8f8f8] rounded-[4rem] p-12 md:p-24 relative border border-gray-100">
+            <div className="grid lg:grid-cols-2 gap-20 items-center">
               <div>
+                <Badge className="bg-[#0f5f3d]/10 text-[#0f5f3d] border-none px-6 py-2 rounded-full mb-10 font-bold tracking-widest text-[10px] uppercase">Enterprise</Badge>
                 <motion.h2 
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="text-4xl md:text-6xl font-headline font-bold mb-10 leading-tight"
+                  className="text-5xl md:text-7xl font-headline font-bold mb-10 leading-[0.9] tracking-tighter"
                 >
                   Custom <span className="text-[#0f5f3d]">Corporate</span> Orders
                 </motion.h2>
-                <div className="grid sm:grid-cols-2 gap-8 mb-12">
+                <p className="text-xl text-gray-500 mb-12 leading-relaxed font-medium">Equip your entire organization with high-performance branded apparel that reflects your standard of excellence.</p>
+                <div className="grid sm:grid-cols-2 gap-6 mb-16">
                   {[
-                    'Custom Branding', 'Team Apparel', 
-                    'Event Merchandise', 'Startup Merch Kits',
-                    'Company Uniforms', 'Executive Gifts'
+                    'Custom Tech-Branding', 'Global Team Uniforms', 
+                    'Premium Event Kits', 'Startup Launch Packs',
+                    'Executive Gifting', 'Fleet Identity'
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-center gap-4">
-                      <CheckCircle className="h-6 w-6 text-[#0f5f3d]" />
-                      <span className="font-semibold text-gray-700">{item}</span>
+                      <div className="h-6 w-6 rounded-full bg-[#0f5f3d]/10 flex items-center justify-center">
+                        <CheckCircle className="h-4 w-4 text-[#0f5f3d]" />
+                      </div>
+                      <span className="font-bold text-gray-700 text-sm tracking-tight">{item}</span>
                     </div>
                   ))}
                 </div>
                 <Button size="lg" className="bg-[#0f5f3d] hover:bg-[#0c4d2d] text-white px-12 h-16 rounded-full text-lg font-bold shadow-2xl transition-all hover:scale-105" asChild>
-                  <Link href="/contact?subject=Corporate%20Merch%20Inquiry">Request Custom Order</Link>
+                  <Link href="/contact?subject=Corporate%20Merch%20Inquiry">Request Custom Quote</Link>
                 </Button>
               </div>
               
               <div className="relative">
-                <div className="relative w-full aspect-square bg-white rounded-3xl shadow-2xl p-8 border border-gray-100 flex items-center justify-center overflow-hidden">
-                   {/* CSS Mockup for Corporate Kit */}
-                   <div className="grid grid-cols-2 gap-4 w-full">
-                      <div className="bg-[#0f5f3d]/5 h-32 rounded-xl flex items-center justify-center border-2 border-dashed border-[#0f5f3d]/20 relative group">
-                        <Badge className="absolute top-2 left-2 text-[8px] bg-[#0f5f3d]">Kit A</Badge>
-                        <span className="text-xs font-bold text-gray-400">Team Uniforms</span>
+                {/* CSS CORPORATE KIT VISUAL */}
+                <div className="relative w-full aspect-square bg-white rounded-[3rem] shadow-2xl p-10 border border-gray-100 flex flex-col justify-center gap-6 overflow-hidden">
+                   <div className="grid grid-cols-2 gap-6">
+                      <div className="bg-[#0f5f3d]/5 aspect-[4/3] rounded-[1.5rem] border-2 border-dashed border-[#0f5f3d]/20 relative flex flex-col items-center justify-center">
+                        <div className="absolute top-4 left-4 h-6 w-12 rounded bg-[#0f5f3d]/20 flex items-center justify-center text-[8px] font-bold text-[#0f5f3d]">KIT A</div>
+                        <Image src="/collar.jpeg" alt="Collar" width={60} height={60} className="object-contain opacity-40 mb-2" />
+                        <span className="text-[10px] font-bold text-gray-400">TEAM POLOS</span>
                       </div>
-                      <div className="bg-[#f47321]/5 h-32 rounded-xl flex items-center justify-center border-2 border-dashed border-[#f47321]/20 relative">
-                        <Badge className="absolute top-2 left-2 text-[8px] bg-[#f47321]">Kit B</Badge>
-                         <span className="text-xs font-bold text-gray-400">Event Wear</span>
+                      <div className="bg-[#f47321]/5 aspect-[4/3] rounded-[1.5rem] border-2 border-dashed border-[#f47321]/20 relative flex flex-col items-center justify-center">
+                         <div className="absolute top-4 left-4 h-6 w-12 rounded bg-[#f47321]/20 flex items-center justify-center text-[8px] font-bold text-[#f47321]">KIT B</div>
+                         <Image src="/noncollar.jpeg" alt="Non-Collar" width={60} height={60} className="object-contain opacity-40 mb-2" />
+                         <span className="text-[10px] font-bold text-gray-400">EVENT WEAR</span>
                       </div>
-                      <div className="bg-black/5 h-32 rounded-xl flex items-center justify-center border-2 border-dashed border-black/20 relative col-span-2">
-                        <Badge className="absolute top-2 left-2 text-[8px] bg-black">Global</Badge>
-                         <span className="text-xs font-bold text-gray-400">Startup Merch Packs</span>
+                      <div className="bg-black/5 h-40 rounded-[1.5rem] border-2 border-dashed border-black/20 col-span-2 relative flex flex-col items-center justify-center">
+                        <div className="absolute top-4 left-4 h-6 w-12 rounded bg-black/20 flex items-center justify-center text-[8px] font-bold text-black">ACCESSORY</div>
+                        <div className="flex gap-8 items-center">
+                           <Image src="/cap.jpeg" alt="Cap" width={80} height={80} className="object-contain opacity-40" />
+                           <div className="space-y-1">
+                              <p className="text-xs font-bold text-black/60">BULK HEADWEAR</p>
+                              <p className="text-[8px] text-black/40">Adjustable One-Size</p>
+                           </div>
+                        </div>
                       </div>
                    </div>
+                   <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '100%' }}
+                        transition={{ duration: 3 }}
+                        className="h-full bg-gradient-to-r from-[#0f5f3d] via-[#f47321] to-[#00ffb0]" 
+                      />
+                   </div>
                 </div>
-                <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-3xl shadow-xl hidden sm:block border border-gray-100">
-                   <p className="text-xs font-bold text-[#0f5f3d] uppercase tracking-widest mb-2">Enterprise Ready</p>
-                   <p className="text-xl font-bold">Bulk Discounts Available</p>
+                <div className="absolute -bottom-10 -left-10 bg-[#0f5f3d] p-10 rounded-[2.5rem] shadow-2xl hidden sm:block border-4 border-white">
+                   <p className="text-[10px] font-bold text-white/50 uppercase tracking-widest mb-2">Tier 1 Logistics</p>
+                   <p className="text-2xl font-bold text-white tracking-tighter">Express Global Delivery</p>
                 </div>
               </div>
             </div>
@@ -454,14 +490,12 @@ export function MerchClient() {
       </section>
 
       {/* 6. SOCIAL PROOF SECTION */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 text-center mb-16">
-          <Badge className="bg-[#f47321]/10 text-[#f47321] mb-6 px-4 py-1">Community</Badge>
-          <h2 className="text-4xl md:text-5xl font-headline font-bold">Trusted by <span className="text-[#0f5f3d]">Leaders</span></h2>
-        </div>
-        
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
+      <section className="py-40 bg-white">
+        <div className="container mx-auto px-4 text-center">
+          <Badge className="bg-[#f47321]/10 text-[#f47321] border-none px-6 py-2 rounded-full mb-10 font-bold tracking-widest text-[10px] uppercase">Feedback</Badge>
+          <h2 className="text-5xl md:text-7xl font-headline font-bold mb-24 tracking-tighter">Trusted by <span className="text-[#0f5f3d]">Leaders</span></h2>
+          
+          <div className="grid md:grid-cols-3 gap-10">
             {testimonials.map((t, idx) => (
               <motion.div
                 key={idx}
@@ -469,17 +503,18 @@ export function MerchClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
+                className="text-left"
               >
-                <Card className="p-8 h-full border-gray-100 hover:border-[#0f5f3d]/20 transition-all hover:shadow-xl hover:shadow-[#0f5f3d]/5 group bg-gray-50/30 rounded-3xl">
-                  <div className="flex gap-1 mb-6">
+                <Card className="p-10 h-full border-none bg-gray-50 rounded-[3rem] transition-all hover:bg-[#0f5f3d]/5">
+                  <div className="flex gap-1 mb-8">
                     {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-[#f47321] text-[#f47321]" />
+                      <Star key={i} className="h-5 w-5 fill-[#f47321] text-[#f47321]" />
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-8 italic leading-relaxed">"{t.content}"</p>
-                  <div className="text-left">
-                    <p className="font-bold group-hover:text-[#0f5f3d] transition-colors">{t.name}</p>
-                    <p className="text-xs text-gray-400 font-semibold">{t.role}</p>
+                  <p className="text-xl text-gray-600 mb-10 italic leading-relaxed font-medium">"{t.content}"</p>
+                  <div className="space-y-1">
+                    <p className="text-lg font-bold tracking-tight">{t.name}</p>
+                    <p className="text-[10px] text-[#0f5f3d] font-bold uppercase tracking-widest">{t.role}</p>
                   </div>
                 </Card>
               </motion.div>
@@ -489,26 +524,26 @@ export function MerchClient() {
       </section>
 
       {/* 7. FINAL CTA SECTION */}
-      <section className="py-32">
+      <section className="py-40">
         <div className="container mx-auto px-4">
-          <div className="bg-black rounded-[3rem] p-12 md:p-24 text-center text-white relative overflow-hidden">
+          <div className="bg-black rounded-[4rem] p-16 md:p-32 text-center text-white relative overflow-hidden">
             <motion.div 
               animate={{ opacity: [0.1, 0.2, 0.1] }}
-              transition={{ duration: 5, repeat: Infinity }}
-              className="absolute inset-0 bg-[#0f5f3d] blur-[120px] rounded-full scale-150"
+              transition={{ duration: 8, repeat: Infinity }}
+              className="absolute inset-0 bg-[#0f5f3d] blur-[150px] rounded-full scale-150"
             />
             
-            <div className="relative z-10 max-w-2xl mx-auto">
-              <h2 className="text-5xl md:text-7xl font-headline font-bold mb-8">Wear the <span className="text-[#00E5A0]">Standard.</span></h2>
-              <p className="text-xl md:text-2xl text-white/60 mb-12">
-                Premium branded apparel built for the future of innovation.
+            <div className="relative z-10 max-w-3xl mx-auto">
+              <h2 className="text-6xl md:text-8xl font-headline font-bold mb-10 tracking-tighter">Wear the <span className="text-[#00ffb0]">Standard.</span></h2>
+              <p className="text-xl md:text-2xl text-white/60 mb-16 leading-relaxed">
+                Premium branded apparel built for the future of innovation. Join the movement.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Button size="lg" className="bg-[#0f5f3d] hover:bg-[#0c4d2d] text-white px-12 h-16 rounded-full text-lg font-bold shadow-xl shadow-[#0f5f3d]/20" asChild>
+                <Button size="lg" className="bg-[#0f5f3d] hover:bg-[#0c4d2d] text-white px-16 h-20 rounded-full text-xl font-bold shadow-2xl shadow-[#0f5f3d]/30" asChild>
                   <Link href="/merch/shop">Shop Now</Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-12 h-16 rounded-full text-lg font-bold" asChild>
-                   <Link href="/contact"><MessageSquare className="mr-2 h-5 w-5" /> Contact Team</Link>
+                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-16 h-20 rounded-full text-xl font-bold" asChild>
+                   <Link href="/contact"><MessageSquare className="mr-2 h-6 w-6" /> Contact Team</Link>
                 </Button>
               </div>
             </div>
