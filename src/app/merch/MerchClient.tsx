@@ -91,7 +91,7 @@ export function MerchClient() {
         style={{ scaleX }}
       />
 
-      {/* 1. HERO SECTION - Synchronized with Homepage background */}
+      {/* 1. HERO SECTION - Synchronized with Homepage Background */}
       <section className="relative min-h-[90vh] md:min-h-screen flex items-center pt-24 pb-20 md:pt-32 overflow-hidden bg-background">
         <div className="absolute inset-0 z-0 opacity-40">
           <motion.div 
@@ -216,12 +216,14 @@ export function MerchClient() {
         </div>
       </section>
 
-      {/* 2. SIGNATURE SERIES - High-end lifestyle showcase */}
-      <section className="py-24 md:py-32 bg-white relative">
+      {/* 2. SIGNATURE SERIES */}
+      <section id="signature" className="py-24 md:py-32 bg-white relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16 md:mb-24">
              <Badge className="bg-[#0f5f3d]/10 text-[#0f5f3d] border-none px-5 py-2 rounded-full mb-4 font-bold tracking-widest text-[10px] uppercase">The Icons</Badge>
-             <h2 className="text-4xl md:text-7xl font-headline font-bold text-center tracking-tighter">The <span className="text-[#0f5f3d]">Signature</span> Series</h2>
+             <h2 className="text-4xl md:text-7xl font-headline font-bold text-center tracking-tighter text-slate-900">
+               The <span className="text-[#0f5f3d]">Signature</span> Series
+             </h2>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 md:gap-16">
@@ -263,7 +265,7 @@ export function MerchClient() {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl md:text-5xl font-headline font-bold mb-4 tracking-tighter leading-none"
+                className="text-4xl md:text-5xl font-headline font-bold mb-4 tracking-tighter leading-none text-slate-900"
               >
                 The <span className="text-[#0f5f3d]">Full</span> Collection
               </motion.h2>
@@ -271,7 +273,7 @@ export function MerchClient() {
                 Meticulously crafted using high-grade materials to ensure a world-class user experience.
               </p>
             </div>
-            <Button variant="outline" className="rounded-full h-12 md:h-14 px-8 border-black/10 font-bold hover:bg-black hover:text-white transition-all w-full md:w-auto" asChild>
+            <Button variant="outline" className="rounded-full h-12 md:h-14 px-8 border-black/10 font-bold text-slate-900 hover:bg-black hover:text-white transition-all w-full md:w-auto" asChild>
               <Link href="/merch/shop">View All Inventory</Link>
             </Button>
           </div>
@@ -299,7 +301,7 @@ export function MerchClient() {
                     </div>
                   </div>
                   <CardContent className="p-0">
-                    <h3 className="text-xl md:text-2xl font-headline font-bold leading-tight group-hover:text-[#0f5f3d] transition-colors mb-4">{product.name}</h3>
+                    <h3 className="text-xl md:text-2xl font-headline font-bold leading-tight text-slate-900 group-hover:text-[#0f5f3d] transition-colors mb-4">{product.name}</h3>
                     <p className="text-gray-500 text-xs md:text-sm mb-6 md:mb-8 leading-relaxed line-clamp-2">{product.description}</p>
                     <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 md:gap-6">
                        <div className="space-y-0.5 text-center sm:text-left">
@@ -365,7 +367,7 @@ export function MerchClient() {
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="text-4xl md:text-7xl font-headline font-bold mb-6 md:mb-10 leading-[0.9] tracking-tighter"
+                  className="text-4xl md:text-7xl font-headline font-bold mb-6 md:mb-10 leading-[0.9] tracking-tighter text-slate-900"
                 >
                   Custom <span className="text-[#0f5f3d]">Corporate</span> Orders
                 </motion.h2>
@@ -419,7 +421,9 @@ export function MerchClient() {
       <section className="py-24 md:py-40 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Badge className="bg-[#f47321]/10 text-[#f47321] border-none px-5 py-2 rounded-full mb-8 md:mb-10 font-bold tracking-widest text-[10px] uppercase">Feedback</Badge>
-          <h2 className="text-4xl md:text-7xl font-headline font-bold mb-16 md:mb-24 tracking-tighter leading-none">Trusted by <span className="text-[#0f5f3d]">Leaders</span></h2>
+          <h2 className="text-4xl md:text-7xl font-headline font-bold mb-16 md:mb-24 tracking-tighter leading-none text-slate-900">
+            Trusted by <span className="text-[#0f5f3d]">Leaders</span>
+          </h2>
           
           <div className="grid md:grid-cols-3 gap-6 md:gap-10">
             {testimonials.map((t, idx) => (
@@ -439,7 +443,7 @@ export function MerchClient() {
                   </div>
                   <p className="text-lg md:text-xl text-gray-600 mb-8 md:mb-10 italic leading-relaxed font-medium">"{t.content}"</p>
                   <div className="space-y-0.5">
-                    <p className="text-base md:text-lg font-bold tracking-tight">{t.name}</p>
+                    <p className="text-base md:text-lg font-bold tracking-tight text-slate-900">{t.name}</p>
                     <p className="text-[9px] md:text-[10px] text-[#0f5f3d] font-bold uppercase tracking-widest">{t.role}</p>
                   </div>
                 </Card>
@@ -449,12 +453,14 @@ export function MerchClient() {
         </div>
       </section>
 
-      {/* 7. PERFORMANCE PROTOCOL (3x3 Grid) - Near Footer */}
-      <section className="py-24 md:py-32 bg-white relative border-t border-gray-100">
+      {/* 7. PERFORMANCE PROTOCOL */}
+      <section id="protocol" className="py-24 md:py-32 bg-white relative border-t border-gray-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16 md:mb-24">
              <Badge className="bg-[#0f5f3d]/10 text-[#0f5f3d] border-none px-5 py-2 rounded-full mb-4 font-bold tracking-widest text-[10px] uppercase">Engineering</Badge>
-             <h2 className="text-4xl md:text-7xl font-headline font-bold text-center tracking-tighter">Performance <span className="text-[#0f5f3d]">Protocol</span></h2>
+             <h2 className="text-4xl md:text-7xl font-headline font-bold text-center tracking-tighter text-slate-900">
+               Performance <span className="text-[#0f5f3d]">Protocol</span>
+             </h2>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -468,7 +474,7 @@ export function MerchClient() {
                 className="group p-8 md:p-10 rounded-3xl md:rounded-[2.5rem] bg-gray-50 border border-gray-100 flex flex-col justify-between aspect-square md:aspect-[4/3] hover:bg-[#0f5f3d] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#0f5f3d]/20"
               >
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-headline font-bold mb-2 md:mb-3 group-hover:text-white transition-colors leading-none">{feature.title}</h3>
+                  <h3 className="text-2xl md:text-3xl font-headline font-bold mb-2 md:mb-3 text-slate-900 group-hover:text-white transition-colors leading-none">{feature.title}</h3>
                   <p className="text-xs md:text-base text-gray-500 group-hover:text-white/70 transition-colors leading-relaxed">{feature.desc}</p>
                 </div>
                 <div className="flex justify-between items-end">
@@ -476,7 +482,7 @@ export function MerchClient() {
                       <feature.icon className="h-6 w-6 md:h-8 md:w-8 text-[#0f5f3d] group-hover:text-white" />
                    </div>
                    <div className="flex flex-col items-end opacity-20 group-hover:opacity-40 transition-opacity">
-                      <span className="text-4xl md:text-[4rem] font-headline font-bold leading-none tracking-tighter">{idx + 1}</span>
+                      <span className="text-4xl md:text-[4rem] font-headline font-bold leading-none tracking-tighter text-slate-900 group-hover:text-white">{idx + 1}</span>
                    </div>
                 </div>
               </motion.div>
