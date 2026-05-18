@@ -65,6 +65,7 @@ export function Header() {
           </Link>
 
           <nav className="hidden lg:flex items-center space-x-1">
+            <NavLink href="/">Home</NavLink>
             {mainNavItems.map((item) => (
               <NavLink key={item.href} href={item.href}>
                 {item.label}
