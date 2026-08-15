@@ -11,6 +11,13 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Careers at Grittrix | Join Our AI Innovation Team',
   description: 'Explore exciting career opportunities at Grittrix. Help shape the future of intelligent systems in Africa and emerging markets. Remote-first roles available.',
+  alternates: { canonical: '/careers' },
+  openGraph: {
+    title: 'Careers at Grittrix | Join the AI Revolution',
+    description: 'Work with cutting-edge AI technologies and a team of collaborative minds at Grittrix.',
+    url: 'https://grittrix.com/careers',
+    type: 'website',
+  }
 };
 
 const jobListings: JobListing[] = [

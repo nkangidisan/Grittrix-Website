@@ -4,25 +4,20 @@ import type { Metadata } from 'next';
 import { MerchClient } from './MerchClient';
 
 export const metadata: Metadata = {
-  title: 'Grittrix Merchandise | Premium Techwear & Corporate Branded Apparel',
-  description: 'Shop the Grittrix Signature Series—premium tech-fashion engineered for innovators. Custom corporate branding, team kits, and professional apparel for modern startups.',
-  keywords: [
-    'Grittrix Merch', 
-    'Premium Techwear', 
-    'Corporate Branded Apparel', 
-    'Tech Company Shirts', 
-    'Professional Polo Shirts', 
-    'Custom Startup Merchandise', 
-    'Branded Caps', 
-    'Tech Fashion'
-  ],
-  alternates: {
-    canonical: '/merch',
-  },
+  title: 'Grittrix Merchandise | Premium Techwear & Branded Apparel',
+  description: 'Shop the Grittrix Signature Series—premium techwear and corporate branded apparel engineered for innovators and modern startups.',
+  alternates: { canonical: '/merch' },
   openGraph: {
     title: 'Grittrix Merchandise | Premium Techwear for Innovators',
     description: 'Designed to Represent. Built to Perform. Premium branded apparel for the world-class professional.',
-    images: [{ url: '/collar.jpeg', width: 1200, height: 630, alt: 'Grittrix Premium Techwear Collection' }],
+    url: 'https://grittrix.com/merch',
+    images: [{ url: '/collar.jpeg', width: 1200, height: 630, alt: 'Grittrix Premium Techwear' }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Grittrix Techwear | Branded Apparel',
+    images: ['/collar.jpeg'],
   }
 };
 

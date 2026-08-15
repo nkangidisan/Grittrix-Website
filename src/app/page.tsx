@@ -9,6 +9,20 @@ import Link from 'next/link';
 import type { ElementType } from 'react';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Grittrix | AI Software, Custom WebApps & Premium Techwear',
+  description: 'Pioneering AI solutions and premium branded merchandise for modern businesses in emerging markets. Automate your growth with Grittrix.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: 'Grittrix | AI Software, Custom WebApps & Premium Techwear',
+    description: 'Results-driven AI software and premium branded merchandise. Partner with Grittrix for innovation.',
+    url: 'https://grittrix.com/',
+    images: [{ url: '/media/homepage.jpg', width: 1200, height: 630, alt: 'Grittrix AI Solutions' }],
+    type: 'website',
+  }
+};
 
 const iconMap: { [key: string]: ElementType } = {
   HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, CheckCircle, Building, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ShoppingBag, ServerCog, MonitorPlay, Cpu, Stethoscope, Store, Sprout, GraduationCap, Globe, Users, TrendingUp
@@ -86,7 +100,6 @@ const whoWeWorkWithItems = [
 export default function Home() {
   return (
     <article className="overflow-x-hidden">
-      <h1 className="sr-only">Grittrix AI Solutions | Premium Branded Merchandise & Custom Software</h1>
       <HeroSection />
 
       <section className="py-16 md:py-24 bg-background" aria-labelledby="welcome-heading">
