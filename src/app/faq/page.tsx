@@ -7,8 +7,8 @@ import { HelpCircle, Scale } from 'lucide-react';
 import Link from 'next/link'; 
 
 export const metadata: Metadata = {
-  title: 'FAQ | Grittrix AI Solutions',
-  description: 'Find answers to frequently asked questions about Grittrix, our AI solutions, services, and our Terms of Service.',
+  title: 'FAQ & Terms of Service | Grittrix AI Solutions',
+  description: 'Find answers to frequently asked questions about Grittrix and review our official Terms of Service including eligibility, responsibilities, and liability.',
 };
 
 const faqItems = [
@@ -45,47 +45,47 @@ const faqItems = [
 const termsItems = [
   {
     question: "1. Acceptance of Terms & Eligibility",
-    answer: "By accessing Grittrix, you confirm you are at least 18 years of age and meet our onboarding requirements (currently enrolled or affiliated with an approved university or institution)."
+    answer: "By accessing Grittrix, you confirm you are at least 18 years of age and meet our onboarding requirements (currently enrolled or affiliated with an approved university, institution, or registered business entity)."
   },
   {
     question: "2. Account Responsibilities",
-    answer: "Users are responsible for providing accurate profile information, maintaining one account per person, and ensuring account security at all times."
+    answer: "Users are responsible for providing accurate profile information, maintaining one account per person, and ensuring account security at all times. You must notify us immediately of any unauthorized use of your account."
   },
   {
     question: "3. User-Generated Content",
-    answer: "Users own their content but grant Grittrix a non-exclusive license to display it on the platform. Users are solely responsible for the content they post."
+    answer: "Users own their content but grant Grittrix a non-exclusive, worldwide, royalty-free license to display, use, and distribute it on the platform to facilitate services. Users are solely responsible for the content they post and its legality."
   },
   {
     question: "4. Prohibited Conduct",
-    answer: "Illegal items, harassment, scams, and fraud are strictly prohibited. Users must not circumvent the platform to solicit payments outside the safety guidance provided in our 'Chat safely on Grittrix' protocols."
+    answer: "Illegal items, harassment, scams, and fraud are strictly prohibited. Users must not circumvent the platform to solicit payments outside the safety guidance provided in our official communication channels, maintaining consistency with our in-product safety messaging."
   },
   {
     question: "5. Marketplace/Services Disclaimer",
-    answer: "Grittrix facilitates connections but is NOT a party to any transaction. We do not verify item condition, authenticity, or process payments. Grittrix is not liable for the outcome of any transaction, meeting, or exchange between users. [STRICT LEGAL REVIEW RECOMMENDED FOR THIS SECTION]."
+    answer: "Grittrix facilitates connections between users and service providers but is NOT a party to any transaction. We do not verify item condition, authenticity, or process third-party payments. Grittrix is not liable for the outcome of any transaction, meeting, or exchange between users. [STRICT LEGAL REVIEW RECOMMENDED FOR THIS SECTION]."
   },
   {
     question: "6. Community Guidelines",
-    answer: "Users must adhere to acceptable use policies for Groups and Events. Our reporting and moderation systems are in place to remove content or suspend accounts for violations."
+    answer: "Users must adhere to acceptable use policies for community features like Groups, Events, and research forums. Our reporting and moderation systems are in place to remove content or suspend accounts for violations, reflecting our commitment to a safe professional environment."
   },
   {
     question: "7. Account Termination",
-    answer: "Grittrix reserves the right to suspend or remove accounts for violations. Users retain the right to delete their own account at any time."
+    answer: "Grittrix reserves the right to suspend or remove accounts for violations of these terms. Users retain the right to delete their own account at any time, subject to data retention policies for legal compliance."
   },
   {
     question: "8. Intellectual Property",
-    answer: "All Grittrix branding, logos, and trademarks are our property. User content licensing is handled as per Section 3."
+    answer: "All Grittrix branding, logos, trademarks, and proprietary AI algorithms are our property. User content licensing is handled as per Section 3 to ensure platform functionality."
   },
   {
     question: "9. Disclaimer of Warranties & Liability",
-    answer: "Services are provided 'as is'. Grittrix limits its liability to the maximum extent permitted by law. [STRICT LEGAL REVIEW RECOMMENDED FOR THIS SECTION]."
+    answer: "Services are provided 'as is' and 'as available'. Grittrix limits its liability to the maximum extent permitted by law for any indirect, incidental, or consequential damages. [STRICT LEGAL REVIEW RECOMMENDED FOR THIS SECTION]."
   },
   {
     question: "10. Governing Law & Dispute Resolution",
-    answer: "Governing law is subject to business decision (likely Uganda, given the registered entity). This section requires an explicit business decision to finalize jurisdiction and don't silently pick one."
+    answer: "Governing law is subject to business decision (likely Uganda, given the registered entity). This section requires an explicit business decision to finalize jurisdiction; do not silently pick one."
   },
   {
     question: "11. Changes to Terms & Contact",
-    answer: "Grittrix reserves the right to update these terms. For any questions, please contact our team via the contact page or hello@grittrix.com."
+    answer: "Grittrix reserves the right to update these terms. For any questions or official inquiries, please contact our team via the contact page or hello@grittrix.com."
   }
 ];
 
@@ -95,13 +95,13 @@ export default function FAQPage() {
   return (
     <>
       <PageHeader
-        title="Frequently Asked Questions"
-        description="Find answers to common questions about Grittrix, our services, and our Terms of Service."
+        title="Knowledge Base & Legal"
+        description="Find answers to common questions about Grittrix services and review our official Terms of Service."
         breadcrumbs={breadcrumbs}
       />
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-            <div className="text-center mb-12">
+            <div className="text-center mb-12" id="general-faq">
                 <HelpCircle className="h-16 w-16 text-primary mx-auto mb-6" />
                 <h2 className="text-3xl font-bold font-headline text-primary mb-4">General FAQ</h2>
                 <p className="text-lg text-foreground/80">
@@ -120,11 +120,11 @@ export default function FAQPage() {
             ))}
           </Accordion>
 
-          <div className="text-center mb-12 mt-24">
+          <div className="text-center mb-12 mt-24" id="terms">
                 <Scale className="h-16 w-16 text-primary mx-auto mb-6" />
                 <h2 className="text-3xl font-bold font-headline text-primary mb-4">Terms of Service</h2>
                 <p className="text-lg text-foreground/80">
-                    Legal guidelines and account responsibilities for our community.
+                    Legal guidelines, eligibility requirements, and account responsibilities.
                 </p>
             </div>
 
@@ -139,9 +139,9 @@ export default function FAQPage() {
             ))}
           </Accordion>
           
-          <div className="p-6 bg-secondary/10 rounded-lg text-center">
-             <p className="text-sm text-foreground/60 italic">
-                The Terms of Service provided here are for informational purposes. For official legal inquiries or current policy updates, please reach out to our administration.
+          <div className="p-8 bg-secondary/10 border border-primary/20 rounded-2xl text-center">
+             <p className="text-sm text-foreground/60 italic leading-relaxed">
+                The Terms of Service provided here are for informational purposes. For official legal inquiries or current policy updates, please reach out to our administration at <Link href="mailto:hello@grittrix.com" className="text-primary hover:underline">hello@grittrix.com</Link>.
              </p>
           </div>
         </div>
