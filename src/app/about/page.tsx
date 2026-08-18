@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
@@ -34,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const teamMembers: TeamMember[] = [
   { id: '1', name: 'Nkangi Disan', role: 'Founder & CEO', bio: 'Visionary leader passionate about leveraging technology for social good.', imageUrl: '/media/NkangiDisan1234.jpg', socials: { linkedin: 'https://www.linkedin.com/in/nkangi-disan-7ab2b62a9/' } },
   { id: '6', name: 'Achen Linet', role: 'Chief Product Officer', bio: 'Bridging user needs and technical innovation to deliver world-class products. She leads the product vision, strategy, and execution at Grittrix.', imageUrl: '/media/linnet.jpeg', socials: { linkedin: 'https://www.linkedin.com/in/achen-linet-9578143b1/' } },
-  { id: '2', name: 'Lubega Mahad', role: 'Chief Technology Officer', bio: 'Expert in AI/ML development and scalable cloud architectures. Driving Grittrix\'s innovation engine.', imageUrl: '/media/LubegaMahad.jpg', socials: { linkedin: 'https://www.linkedin.com/in/lubega-mahad-ishaaq-021540322/' } },
+  { id: '2', name: 'Lubega Mahad', role: 'Chief Technology Officer', bio: 'Expert in AI/ML development and scalable cloud architectures. Driving Grittrix\'s innovation engine.', imageUrl: '/media/LubegaMahad.jpg', socials: { linkedin: 'https://www.linkedin.com/in/mahad-ishaaq-lubega-021540322/' } },
   { id: '8', name: 'Kaboggoza Daniel', role: 'System Architect', bio: 'Daniel designs and oversees the technical architecture powering Grittrix\'s products, from platforms to the ecosystem. He ensures every system is built to scale secure, reliable, and ready for growth across markets.', imageUrl: '/daniel.jpg', socials: { linkedin: 'https://www.linkedin.com/in/kaboggoza-daniel-8503bb274/' } },
   { id: '3', name: 'Ashumbusha Emmanuel', role: 'Chief Operations Officer', bio: 'Strategic operator ensuring seamless delivery and operational excellence across all markets. He is responsible for implementing business strategies and optimizing processes for growth and impact.', imageUrl: '/media/AshumbushaEmmanuel.jpg', socials: { linkedin: 'https://www.linkedin.com/in/ashumbusha-emmanuel-124059335/' } },
   { id: '7', name: 'Mugenyi Abaasi', role: 'Chief Marketing Officer', bio: 'Abaasi leads brand strategy and growth marketing at Grittrix, shaping how the agency\'s AI first digital solutions reach clients across Uganda and beyond. He drives the positioning, campaigns, and market expansion behind Grittrix\'s growing portfolio', imageUrl: '/Abaasi.jpeg', socials: { linkedin: 'https://www.linkedin.com/in/mugenyi-abaasi-babbb0339/' } },
