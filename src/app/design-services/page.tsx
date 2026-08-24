@@ -26,15 +26,16 @@ const designProcessSteps: DesignProcessStep[] = [
 ];
 
 const portfolioItems = [
-    { id: '1', title: 'Biko Aqua Web', category: 'Web Application', imageUrl: '/Biko.png', url: 'https://studio--biko-aquaweb.us-central1.hosted.app/', altText: 'Screenshot of the Biko Aqua Web project', dataAiHint: 'web application' },
     { id: '2', title: 'Institchu', category: 'E-commerce Platform', imageUrl: '/instichu.png', url: 'https://institchu.com/', altText: 'Screenshot of the Institchu e-commerce website', dataAiHint: 'fashion ecommerce' },
     { id: '3', title: 'Songserm', category: 'Travel & Booking', imageUrl: '/songserm.png', url: 'https://songserm.com/', altText: 'Screenshot of the Songserm travel website', dataAiHint: 'travel website' },
-    { id: '4', title: 'Hummie Law', category: 'Law Firm Website', imageUrl: '/Hummielaw.jpg', url: 'https://hummielaw.com', altText: 'Screenshot of the Hummie Law website', dataAiHint: 'professional services' },
-    { id: '5', title: 'Biko Water', category: 'Corporate Website', imageUrl: '/bikowater.jpg', url: 'https://www.bikowater.com', altText: 'Screenshot of the Biko Water website', dataAiHint: 'corporate page' },
-    { id: '6', title: 'Ocunex', category: 'Tech Company Site', imageUrl: '/ocunex.png', url: 'https://ocunex.com/', altText: 'Screenshot of the Ocunex website', dataAiHint: 'tech startup' },
-    { id: '7', title: 'Xenfi Systems', category: 'IT Services', imageUrl: '/xenfisystems.png', url: 'https://xenfisystems.com/', altText: 'Screenshot of the Xenfi Systems website', dataAiHint: 'IT services' },
-    { id: '8', title: 'Xenfi', category: 'Financial Technology', imageUrl: '/xenfinet.png', url: 'https://xenfi.net/', altText: 'Screenshot of the Xenfi website', dataAiHint: 'fintech website' },
-    { id: '9', title: 'Believers Network Intl', category: 'Non-profit Organization', imageUrl: '/believers.png', url: 'https://www.believersnetworkintl.org/', altText: 'Screenshot of the Believers Network Intl website', dataAiHint: 'non-profit organization' },
+    { id: '10', title: 'StockDesk Inventory Management System', category: 'Enterprise Solution', imageUrl: '/stockdesk.png', url: 'https://www.stockdeskinventory.com/', altText: 'Screenshot of StockDesk Inventory Management System', dataAiHint: 'inventory management' },
+    { id: '11', title: 'Nestly — University Life Simplified', category: 'University marketplace and more', imageUrl: '/nestly.png', url: 'https://nestly.grittrix.com/home', altText: 'Screenshot of Nestly', dataAiHint: 'university marketplace' },
+    { id: '12', title: 'Wonder Christian Centre', category: 'Non-profit Organization', imageUrl: '/wcc.png', url: 'https://www.shapingdestinies.com/', altText: 'Screenshot of Wonder Christian Centre', dataAiHint: 'church website' },
+    { id: '13', title: 'Orchards of Hope Uganda', category: 'Social Impact', imageUrl: '/orchards.png', url: 'https://www.orchardsofhopeuganda.com/', altText: 'Screenshot of Orchards of Hope Uganda', dataAiHint: 'nonprofit organization' },
+    { id: '14', title: 'Oasis Funeral Services', category: 'Service Provider', imageUrl: '/oasis.jpeg', url: 'https://www.oasisfuneralservices.com/', altText: 'Screenshot of Oasis Funeral Services', dataAiHint: 'funeral services' },
+    { id: '15', title: 'Pacifique Essence', category: 'Creative Brand', imageUrl: '/pacifiqueessence.PNG', url: 'https://pacifiqueessence.grittrix.com/', altText: 'Screenshot of Pacifique Essence', dataAiHint: 'brand portfolio' },
+    { id: '16', title: 'Sikyomu Doctors Hospital', category: 'Healthcare Facility', imageUrl: '/sikyomu.jpeg', url: 'https://www.sikyomudoctorshospital.com/', altText: 'Screenshot of Sikyomu Doctors Hospital', dataAiHint: 'hospital website' },
+    { id: '17', title: 'Grittrix Movies', category: 'Entertainment Platform', imageUrl: '/grittrixmovies.png', url: 'https://movies.grittrix.com/', altText: 'Screenshot of Grittrix Movies', dataAiHint: 'movie streaming' },
 ];
 
 const pricingPlans = [
@@ -271,5 +272,3 @@ export default function DesignServicesPage() {
     </>
   );
 }
-
-    
