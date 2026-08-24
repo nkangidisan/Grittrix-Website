@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -66,7 +65,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
     "offers": {
       "@type": "Offer",
       "priceCurrency": "USD",
-      "price": "0", // Price is custom, so set to 0 and indicate to contact for pricing
+      "price": "0", 
       "availability": "https://schema.org/InStock",
       "url": `https://grittrix.com/contact?subject=Inquiry%20about%20${encodeURIComponent(product.name)}`
     }
@@ -74,12 +73,10 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
 
   return (
     <>
-      <head>
-         <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
-          />
-      </head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <PageHeader
         title={product.name}
         description={product.tagline}

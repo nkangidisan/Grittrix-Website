@@ -1,7 +1,5 @@
-
-'use client';
-
 import * as React from 'react';
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -11,6 +9,10 @@ import { Palette, Layers, Smartphone, Rocket, CheckCircle, Star, ExternalLink } 
 import { ContactForm } from '@/components/forms/ContactForm';
 import type { ElementType } from 'react';
 
+export const metadata: Metadata = {
+  title: 'Affordable Website Designer | Cost-Effective Web App Design - Grittrix',
+  description: 'Looking for an affordable or cheaper website designer who delivers quality? Grittrix offers cost-effective web and webapp design with cutting-edge AI to automate your processes. Get a quote today!',
+};
 
 interface DesignProcessStep {
   title: string;
@@ -100,7 +102,6 @@ const pricingPlans = [
   },
 ];
 
-
 export default function DesignServicesPage() {
   const breadcrumbs = [{ name: 'Web/App Design' }];
 
@@ -119,14 +120,10 @@ export default function DesignServicesPage() {
 
   return (
     <>
-      <head>
-          <title>Affordable Website Designer | Cost-Effective Web App Design - Grittrix</title>
-          <meta name="description" content="Looking for an affordable or cheaper website designer who delivers quality? Grittrix offers cost-effective web and webapp design with cutting-edge AI to automate your processes. Get a quote today!" />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-          />
-      </head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <PageHeader
         title="Affordable Web & App Design Services"
         description="We offer cost-effective and high-quality digital experiences that drive results. Our AI-first approach ensures your project is intelligent, future-ready, and budget-friendly."
