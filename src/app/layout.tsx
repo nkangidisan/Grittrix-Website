@@ -16,23 +16,20 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://grittrix.com'),
   title: {
-    default: 'Grittrix | Modern AI Software, Custom WebApps & Premium Techwear',
-    template: '%s | Grittrix AI Solutions',
+    default: 'Grittrix Technologies | AI-Powered Software, Websites & Apps',
+    template: '%s | Grittrix Technologies',
   },
-  description: 'Grittrix creates modern, innovative, AI-powered software, websites, and apps. Discover Grittrix Merchandise—premium techwear for innovators and corporate branded apparel for modern businesses.',
+  description: 'Grittrix builds modern, AI-powered software, websites & apps that produce real results — creating opportunities for businesses everywhere.',
   keywords: [
     'Grittrix', 
-    'AI solutions', 
-    'AI-powered software', 
-    'custom websites', 
-    'mobile apps', 
-    'webapp development', 
+    'AI software development', 
+    'web development Uganda', 
+    'mobile app development', 
+    'AI-powered websites', 
+    'custom software Kampala', 
+    'digital agency East Africa',
     'process automation', 
     'affordable website designer', 
-    'tech merchandise', 
-    'corporate branded shirts', 
-    'premium techwear', 
-    'professional branded apparel', 
     'AI in healthcare', 
     'AI in retail', 
     'AI in agriculture', 
@@ -42,16 +39,16 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Grittrix | Modern AI Software, Custom WebApps & Premium Techwear',
-    description: 'We build results-driven AI software and premium branded merchandise for the modern professional. Partner with us for innovation.',
+    title: 'Grittrix Technologies | AI-Powered Software, Websites & Apps',
+    description: 'Grittrix builds modern, AI-powered software, websites & apps that produce real results — creating opportunities for businesses everywhere.',
     url: 'https://grittrix.com',
-    siteName: 'Grittrix AI Solutions',
+    siteName: 'Grittrix Technologies',
     images: [
       {
         url: '/media/homepage.jpg',
         width: 1200,
         height: 630,
-        alt: 'Grittrix AI Solutions - Modern Software & Premium Merchandise',
+        alt: 'Grittrix Technologies - AI-Powered Software, Websites & Apps',
       },
     ],
     locale: 'en_US',
@@ -59,8 +56,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Grittrix | Modern AI Software & Premium Branded Techwear',
-    description: 'Cinematic AI media, high-end software development, and premium corporate merchandise for innovators.',
+    title: 'Grittrix Technologies | AI-Powered Software, Websites & Apps',
+    description: 'Grittrix builds modern, AI-powered software, websites & apps that produce real results — creating opportunities for businesses everywhere.',
     images: ['/media/homepage.jpg'],
     creator: '@grittrix',
   },
@@ -76,7 +73,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'G-TE9LW27EST', // Placeholder for actual search console verification if needed
+    google: 'G-TE9LW27EST',
   }
 };
 
@@ -90,7 +87,7 @@ export default function RootLayout({
     "@type": "Organization",
     "@id": "https://grittrix.com/#organization",
     "name": "Grittrix",
-    "alternateName": "Grittrix AI Solutions",
+    "alternateName": "Grittrix Technologies",
     "url": "https://grittrix.com",
     "logo": {
       "@type": "ImageObject",
@@ -118,7 +115,7 @@ export default function RootLayout({
       "https://www.instagram.com/grittrix/",
       "https://www.youtube.com/@grittrix"
     ],
-    "description": "Grittrix provides cutting-edge AI solutions and premium branded merchandise for modern businesses. Specializing in healthcare, retail, agriculture, and education tech."
+    "description": "Grittrix creates modern, innovative, AI-powered software, websites, and apps that produce results. We build products that create opportunities for everyone, whether down the street or across the globe."
   };
 
   const websiteSchema = {
@@ -128,7 +125,7 @@ export default function RootLayout({
     "name": "Grittrix",
     "url": "https://grittrix.com",
     "publisher": { "@ref": "https://grittrix.com/#organization" },
-    "description": "Your global partner for AI software, premium techwear, and process automation."
+    "description": "Grittrix creates modern, innovative, AI-powered software, websites, and apps that produce results."
   };
 
   return (

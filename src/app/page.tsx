@@ -12,14 +12,14 @@ import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Grittrix | AI Software, Custom WebApps & Premium Techwear',
-  description: 'Pioneering AI solutions and premium branded merchandise for modern businesses in emerging markets. Automate your growth with Grittrix.',
+  title: 'Grittrix Technologies | AI-Powered Software, Websites & Apps',
+  description: 'Grittrix creates modern, innovative, AI-powered software, websites, and apps that produce results. We build products that create opportunities for everyone.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Grittrix | AI Software, Custom WebApps & Premium Techwear',
-    description: 'Results-driven AI software and premium branded merchandise. Partner with Grittrix for innovation.',
+    title: 'Grittrix Technologies | AI-Powered Software, Websites & Apps',
+    description: 'Grittrix builds modern, AI-powered software, websites & apps that produce real results — creating opportunities for businesses everywhere.',
     url: 'https://grittrix.com/',
-    images: [{ url: '/media/homepage.jpg', width: 1200, height: 630, alt: 'Grittrix AI Solutions' }],
+    images: [{ url: '/media/homepage.jpg', width: 1200, height: 630, alt: 'Grittrix Technologies - AI Software & Apps' }],
     type: 'website',
   }
 };
@@ -234,9 +234,9 @@ export default function Home() {
               <div className="animate-section-in">
                   <h2 id="mission-heading" className="text-3xl font-bold font-headline text-primary mb-4">Driven by Purpose, Built with Passion</h2>
                   <p className="text-foreground/80 mb-6">We don’t just build products; we build trust. Grittrix empowers people to work for themselves, take control of their futures, and drive sustainable development through accessible technology.</p>
-                  <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground" aria-label="Explore Grittrix Merchandise">
-                    <Link href="/merch">
-                      Wear the Vision. Own the Mission.
+                  <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground" aria-label="Explore Grittrix Technologies">
+                    <Link href="/services">
+                      Start Your Innovation Journey
                     </Link>
                   </Button>
               </div>
