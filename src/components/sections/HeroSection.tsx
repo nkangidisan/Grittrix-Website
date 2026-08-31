@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Cpu, Smartphone, TrendingUp } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export function HeroSection() {
   return (
@@ -11,15 +11,9 @@ export function HeroSection() {
           
           {/* Left Column: Text + CTA */}
           <div className="text-left z-10">
-            <div className="mb-6 animate-hero-in">
-              <span className="text-[10px] md:text-xs font-bold tracking-[0.3em] text-primary uppercase bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
-                AI-POWERED SOFTWARE & DIGITAL PRODUCTS
-              </span>
-            </div>
-            
             <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-8 text-white leading-[1.1]">
               <span className="block animate-hero-in">
-                We create modern, innovative, AI-powered 
+                We create modern, innovative, AI powered 
                 <span className="text-primary animate-text-glow"> software, websites, web and mobile applications </span>
                 that produce results.
               </span>
@@ -70,28 +64,6 @@ export function HeroSection() {
                 className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />
-              
-              {/* Floating Interactive Labels */}
-              <div className="absolute top-6 left-6 z-20 animate-float-subtle">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/40 backdrop-blur-md border border-white/10 text-[10px] font-bold text-white uppercase tracking-wider">
-                  <Cpu className="h-3 w-3 text-primary" />
-                  AI-Powered
-                </div>
-              </div>
-
-              <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 animate-float-subtle animation-delay-200">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/40 backdrop-blur-md border border-white/10 text-[10px] font-bold text-white uppercase tracking-wider">
-                  <Smartphone className="h-3 w-3 text-primary" />
-                  Web & Mobile
-                </div>
-              </div>
-
-              <div className="absolute bottom-20 right-6 z-20 animate-float-subtle animation-delay-400">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/40 backdrop-blur-md border border-white/10 text-[10px] font-bold text-white uppercase tracking-wider">
-                  <TrendingUp className="h-3 w-3 text-primary" />
-                  Built to Scale
-                </div>
-              </div>
             </div>
 
             {/* Decorative background blur element */}
