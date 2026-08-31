@@ -1,5 +1,5 @@
-
 import { HeroSection } from '@/components/sections/HeroSection';
+import { WelcomeSection } from '@/components/sections/WelcomeSection';
 import { Button } from '@/components/ui/button';
 import {
   HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, CheckCircle, Building, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ShoppingBag, ServerCog, MonitorPlay, Cpu, Stethoscope, Store, Sprout, GraduationCap, Globe, Users, TrendingUp, ShieldCheck
@@ -13,7 +13,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Grittrix Technologies | AI-Powered Software, Websites & Apps',
-  description: 'Grittrix creates modern, innovative, AI-powered software, websites, and apps that produce results. We build products that create opportunities for everyone.',
+  description: 'Grittrix builds modern, AI-powered software, websites & apps that produce real results — creating opportunities for businesses everywhere.',
   alternates: { canonical: '/' },
   openGraph: {
     title: 'Grittrix Technologies | AI-Powered Software, Websites & Apps',
@@ -101,25 +101,8 @@ export default function Home() {
   return (
     <article className="overflow-x-hidden">
       <HeroSection />
-
-      <section className="py-16 md:py-24 bg-background" aria-labelledby="welcome-heading">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto animate-section-in">
-            <h2 id="welcome-heading" className="text-3xl md:text-4xl font-bold font-headline text-primary mb-6">Welcome to Grittrix: AI Solutions for the Real World</h2>
-            <div className="prose prose-lg prose-invert text-foreground/80 max-w-none mx-auto space-y-4">
-              <p>At Grittrix, we believe technology should be intelligent, inclusive, and deeply connected to the communities it serves. That’s why we’re on a mission to transform lives and economies in emerging markets through locally-adapted AI solutions that address real-world challenges across healthcare, agriculture, education, and retail.</p>
-              <p>Whether you're a business looking to scale, a government solving public-sector problems, or an entrepreneur building from scratch, we are your innovation partner.</p>
-            </div>
-            <div className="mt-8">
-              <Button size="lg" asChild className="bg-primary/90 hover:bg-primary text-primary-foreground" aria-label="View Grittrix Pricing Plans">
-                <Link href="/design-services">
-                  <span>See Pricing Plans</span>
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      
+      <WelcomeSection />
 
       <section className="py-16 md:py-24 bg-secondary/10" aria-labelledby="why-grittrix-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
