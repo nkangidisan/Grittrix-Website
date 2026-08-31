@@ -2,7 +2,8 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { WelcomeSection } from '@/components/sections/WelcomeSection';
 import { Button } from '@/components/ui/button';
 import {
-  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, CheckCircle, Building, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ShoppingBag, ServerCog, MonitorPlay, Cpu, Stethoscope, Store, Sprout, GraduationCap, Globe, Users, TrendingUp, ShieldCheck
+  HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, CheckCircle, Building, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ShoppingBag, ServerCog, MonitorPlay, Cpu, Stethoscope, Store, Sprout, GraduationCap, Globe, Users, TrendingUp, ShieldCheck,
+  Code, Smartphone, PenTool, Cloud
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,6 +11,7 @@ import type { ElementType } from 'react';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import type { Metadata } from 'next';
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
   title: 'Grittrix Technologies | AI-Powered Software, Websites & Apps',
@@ -121,6 +123,130 @@ function GridCard({ title, description }: { title: string; description: string }
   );
 }
 
+/**
+ * Reusable Card for Services Overview Section
+ */
+function ServiceCard({ title, description, icon: Icon, gradient, index }: { 
+  title: string; 
+  description: string; 
+  icon: ElementType; 
+  gradient: string;
+  index: number;
+}) {
+  return (
+    <div 
+      className={cn(
+        "bg-white rounded-[2rem] p-8 shadow-xl shadow-gray-200/50 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 group",
+        index % 2 === 1 ? "sm:mt-12" : "" // Stagger effect for right column
+      )}
+    >
+      <div className={cn(
+        "w-16 h-16 rounded-2xl bg-gradient-to-br p-4 mb-6 shadow-lg group-hover:scale-110 transition-transform",
+        gradient
+      )}>
+        <Icon className="w-full h-full text-white" />
+      </div>
+      <h3 className="text-xl font-bold font-headline mb-3 text-[#0a1128]">
+        {title}
+      </h3>
+      <p className="text-gray-400 text-sm leading-relaxed">
+        {description}
+      </p>
+    </div>
+  );
+}
+
+/**
+ * New Section: High Quality Solutions (Services Overview)
+ */
+function ServicesOverviewSection() {
+  const services = [
+    {
+      title: "Web Development",
+      description: "High-performance websites, flexible across all screens.",
+      icon: Code,
+      gradient: "from-blue-500 to-teal-500",
+    },
+    {
+      title: "Mobile Development",
+      description: "We use the most current industry tools and technologies.",
+      icon: Smartphone,
+      gradient: "from-teal-500 to-green-500",
+    },
+    {
+      title: "UI/UX",
+      description: "We design beautiful user interfaces & experiences.",
+      icon: PenTool,
+      gradient: "from-blue-500 to-teal-500",
+    },
+    {
+      title: "Web Hosting",
+      description: "High-speed servers to power your business in realtime.",
+      icon: Cloud,
+      gradient: "from-teal-500 to-green-500",
+    },
+  ];
+
+  return (
+    <section className="py-24 bg-[#f9fafb] relative overflow-hidden" aria-labelledby="services-overview-heading">
+      {/* Decorative background texture */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+        style={{ 
+          backgroundImage: 'radial-gradient(#0a1128 1px, transparent 1px)', 
+          backgroundSize: '32px 32px' 
+        }}
+      />
+      
+      {/* Scattered diamond decorators */}
+      <div className="absolute top-1/4 left-10 w-4 h-4 bg-accent/20 rotate-45 hidden xl:block"></div>
+      <div className="absolute bottom-1/4 right-20 w-6 h-6 bg-accent/10 rotate-45 hidden xl:block"></div>
+      <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-accent/30 rotate-45 hidden xl:block"></div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Left Column */}
+          <div className="text-left animate-section-in">
+            <span className="text-accent font-bold uppercase tracking-[0.2em] text-xs mb-4 block">
+              OUR SERVICES
+            </span>
+            <h2 id="services-overview-heading" className="text-4xl md:text-5xl font-bold font-headline text-[#0a1128] mb-6 leading-tight">
+              High Quality Solutions for both Startups and Large Businesses
+            </h2>
+            <p className="text-gray-500 text-lg mb-10 max-w-lg leading-relaxed">
+              Today, we are developing high-quality websites, mobile apps, enterprise
+              applications, marketplaces and APIs. Tomorrow, you might see us making
+              self-generative robots, augmented reality & intergalactic portals.
+            </p>
+            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white font-bold rounded-full px-10 shadow-lg shadow-accent/20">
+              <Link href="/services">Services</Link>
+            </Button>
+          </div>
+
+          {/* Right Column: Staggered Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 relative">
+             {/* Small green diamond decorator in the middle of grid */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-accent/20 rotate-45 hidden sm:block z-0"></div>
+            
+            {services.map((service, index) => (
+              <div key={index} className="animate-section-in" style={{ animationDelay: `${index * 150}ms` }}>
+                <ServiceCard 
+                  index={index}
+                  title={service.title}
+                  description={service.description}
+                  icon={service.icon}
+                  gradient={service.gradient}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <article className="overflow-x-hidden">
@@ -152,6 +278,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* New Section: Services Overview */}
+      <ServicesOverviewSection />
 
       {/* Rebuilt Section 2: AI-Powered Software Features */}
       <section className="py-20 md:py-32 bg-gradient-to-b from-[#0a1128] to-[#1e3a8a]/20" aria-labelledby="features-heading">
