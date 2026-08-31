@@ -7,11 +7,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, Search, Sparkles, LayoutGrid } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-// Industry data variables with local asset paths
-const healthcareImage = '/DiseaseandStockPredictionModels.webp';
-const retailImage = '/retail.webp';
-const agricultureImage = '/agriculture.webp';
-const educationImage = '/education.webp';
+// Industry data variables with local asset paths (fixed with /media/ prefix)
+const healthcareImage = '/media/DiseaseandStockPredictionModels.webp';
+const retailImage = '/media/retail.webp';
+const agricultureImage = '/media/agriculture.webp';
+const educationImage = '/media/education.webp';
 
 const industries = [
   {
