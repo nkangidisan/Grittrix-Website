@@ -7,11 +7,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, Search, Sparkles, LayoutGrid } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-// Industry data variables for easy asset swapping
-const healthcareImage = 'https://picsum.photos/seed/health-grittrix/1200/900';
-const retailImage = 'https://picsum.photos/seed/retail-grittrix/1200/900';
-const agricultureImage = 'https://picsum.photos/seed/agri-grittrix/1200/900';
-const educationImage = 'https://picsum.photos/seed/edu-grittrix/1200/900';
+// Industry data variables with local asset paths
+const healthcareImage = '/DiseaseandStockPredictionModels.webp';
+const retailImage = '/retail.webp';
+const agricultureImage = '/agriculture.webp';
+const educationImage = '/education.webp';
 
 const industries = [
   {

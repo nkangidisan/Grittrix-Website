@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
@@ -37,6 +36,9 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: '/',
+  },
+  icons: {
+    icon: '/grittrixmovies.png',
   },
   openGraph: {
     title: 'Grittrix Technologies | AI-Powered Software, Websites & Apps',
@@ -131,7 +133,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/grittrixmovies.png" />
         <link rel="canonical" href="https://grittrix.com" />
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-TE9LW27EST"></script>
