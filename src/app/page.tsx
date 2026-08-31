@@ -1,5 +1,6 @@
 import { HeroSection } from '@/components/sections/HeroSection';
 import { WelcomeSection } from '@/components/sections/WelcomeSection';
+import { SolutionsTabSection } from '@/components/sections/SolutionsTabSection';
 import { Button } from '@/components/ui/button';
 import {
   HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, CheckCircle, Building, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ShoppingBag, ServerCog, MonitorPlay, Cpu, Stethoscope, Store, Sprout, GraduationCap, Globe, Users, TrendingUp, ShieldCheck,
@@ -9,17 +10,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { ElementType } from 'react';
 import { GrittrixLogo } from '@/components/icons/GrittrixLogo';
-import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import type { Metadata } from 'next';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'Grittrix Technologies | AI-Powered Software, Websites & Apps',
-  description: 'Grittrix builds modern, AI-powered software, websites & apps that produce real results — creating opportunities for businesses everywhere.',
+  title: 'Grittrix Technologies | AI Powered Software, Websites & Apps',
+  description: 'Grittrix builds modern, AI powered software, websites & apps that produce real results — creating opportunities for businesses everywhere.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Grittrix Technologies | AI-Powered Software, Websites & Apps',
-    description: 'Grittrix builds modern, AI-powered software, websites & apps that produce real results — creating opportunities for businesses everywhere.',
+    title: 'Grittrix Technologies | AI Powered Software, Websites & Apps',
+    description: 'Grittrix builds modern, AI powered software, websites & apps that produce real results — creating opportunities for businesses everywhere.',
     url: 'https://grittrix.com/',
     images: [{ url: '/media/homepage.jpg', width: 1200, height: 630, alt: 'Grittrix Technologies - AI Software & Apps' }],
     type: 'website',
@@ -37,7 +37,7 @@ const whyGrittrixFeatures = [
     },
     {
         title: "Localized AI Solutions",
-        description: "We don't just apply technology; we adapt it, ensuring our AI-powered tools are effective in your specific environment."
+        description: "We don't just apply technology; we adapt it, ensuring our AI powered tools are effective in your specific environment."
     },
     {
         title: "Agile & Transparent Partnership",
@@ -65,37 +65,6 @@ const keyFeatures = [
   { 
     title: 'Data-Driven Decisions', 
     description: 'Stop guessing. Start acting with data-backed intelligence.' 
-  },
-];
-
-const industriesServed = [
-  {
-    name: 'Healthcare',
-    icon: 'HeartPulse',
-    link: '/industries/healthcare',
-    imageSrc: '/media/health.webp',
-    altText: 'Grittrix AI for Healthcare - advanced medical diagnostics illustration',
-  },
-  {
-    name: 'Retail',
-    icon: 'ShoppingCart',
-    link: '/industries/retail',
-    imageSrc: '/media/retail.webp',
-    altText: 'Grittrix AI for Retail - e-commerce optimization illustration',
-  },
-  {
-    name: 'Agriculture',
-    icon: 'Leaf',
-    link: '/industries/agriculture',
-    imageSrc: '/media/agriculture.webp',
-    altText: 'Grittrix AI for Agriculture - smart farming solutions illustration',
-  },
-  {
-    name: 'Education',
-    icon: 'BookOpen',
-    link: '/industries/education',
-    imageSrc: '/media/education.webp',
-    altText: 'Grittrix AI for Education - personalized learning platforms illustration',
   },
 ];
 
@@ -282,7 +251,7 @@ export default function Home() {
       {/* New Section: Services Overview */}
       <ServicesOverviewSection />
 
-      {/* Rebuilt Section 2: AI-Powered Software Features */}
+      {/* Rebuilt Section 2: AI Powered Software Features */}
       <section className="py-20 md:py-32 bg-gradient-to-b from-[#0a1128] to-[#1e3a8a]/20" aria-labelledby="features-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-section-in">
@@ -306,40 +275,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-secondary/10" aria-labelledby="solutions-heading">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 animate-section-in">
-            <h2 id="solutions-heading" className="text-3xl md:text-4xl font-bold font-headline text-primary mb-4 animate-text-glow">Solutions for Every Sector</h2>
-            <p className="text-lg text-foreground/80 max-w-3xl mx-auto">We combine deep domain knowledge with cutting-edge AI to provide solutions that drive innovation and growth in your industry.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {industriesServed.map((industry, index) => {
-              const IndustryIcon = iconMap[industry.icon];
-              return (
-                <Link href={industry.link} key={industry.name} className="block group animate-section-in" style={{ animationDelay: `${index * 150}ms`}} aria-label={`Explore AI solutions for ${industry.name}`}>
-                  <Card className="bg-card h-full text-center p-6 rounded-lg shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-2">
-                    <CardHeader className="p-0 items-center mb-4">
-                        <div className="p-4 bg-primary/10 rounded-full mb-3 group-hover:bg-primary/20 transition-colors">
-                            {IndustryIcon && <IndustryIcon className="h-10 w-10 text-primary" aria-hidden="true" />}
-                        </div>
-                        <CardTitle className="font-headline text-xl text-primary group-hover:text-primary/90 transition-colors">{industry.name}</CardTitle>
-                    </CardHeader>
-                    <div className="relative aspect-video w-full rounded-md overflow-hidden">
-                      <Image
-                        src={industry.imageSrc}
-                        alt={industry.altText}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        data-ai-hint={`${industry.name.toLowerCase()} technology`}
-                      />
-                    </div>
-                  </Card>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      {/* Rebuilt Section 3: Interactive Industry Solutions */}
+      <SolutionsTabSection />
       
       <section className="py-16 md:py-24 bg-background" aria-labelledby="partners-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
