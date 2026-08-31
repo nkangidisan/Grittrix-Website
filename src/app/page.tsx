@@ -4,7 +4,7 @@ import { SolutionsTabSection } from '@/components/sections/SolutionsTabSection';
 import { Button } from '@/components/ui/button';
 import {
   HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, CheckCircle, Building, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ShoppingBag, ServerCog, MonitorPlay, Cpu, Stethoscope, Store, Sprout, GraduationCap, Globe, Users, TrendingUp, ShieldCheck,
-  Code, Smartphone, PenTool, Cloud, ArrowUpRight
+  Code, Smartphone, PenTool, Cloud, ArrowUpRight, Share2, Laptop, User
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -318,19 +318,57 @@ export default function Home() {
 
       <section className="py-16 md:py-24" aria-labelledby="mission-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center bg-card p-8 md:p-12 rounded-lg shadow-xl">
-              <div className="animate-section-in">
-                  <h2 id="mission-heading" className="text-3xl font-bold font-headline text-primary mb-4">Driven by Purpose, Built with Passion</h2>
-                  <p className="text-foreground/80 mb-6">We don’t just build products; we build trust. Grittrix empowers people to work for themselves, take control of their futures, and drive sustainable development through accessible technology.</p>
-                  <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground" aria-label="Explore Grittrix Technologies">
-                    <Link href="/services">
-                      Start Your Innovation Journey
-                    </Link>
-                  </Button>
-              </div>
-              <div className="flex justify-center items-center animate-section-in animation-delay-200">
-                  <GrittrixLogo className="w-auto" />
-              </div>
+          <div className="bg-gradient-to-br from-accent to-[#0d824d] rounded-[2.5rem] p-8 md:p-16 lg:p-20 shadow-2xl relative overflow-hidden group animate-section-in">
+             <div className="grid lg:grid-cols-12 gap-12 items-center relative z-10">
+                {/* Left Column */}
+                <div className="lg:col-span-7">
+                    <h2 id="mission-heading" className="text-4xl md:text-6xl font-bold font-headline text-white mb-6 leading-tight">Driven by Purpose, Built with Passion</h2>
+                    <p className="text-white/90 text-lg md:text-xl mb-10 max-w-xl leading-relaxed">
+                        We don't just build products; we build trust. Grittrix empowers people to work for themselves, take control of their futures, and drive sustainable development through accessible technology.
+                    </p>
+                    <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-accent font-bold rounded-full px-10 h-14 transition-all" aria-label="Explore Grittrix Technologies">
+                      <Link href="/services">
+                        Start Your Innovation Journey
+                      </Link>
+                    </Button>
+                </div>
+                {/* Right Column: Illustration Placeholder */}
+                <div className="lg:col-span-5 relative flex justify-center lg:justify-end mt-12 lg:mt-0">
+                    <div className="relative w-full max-w-[380px] aspect-square flex items-center justify-center">
+                        {/* Platform/Blocks */}
+                        <div className="absolute bottom-[15%] w-[80%] h-[12%] bg-white/20 rounded-[2rem] blur-sm animate-pulse" />
+                        <div className="absolute bottom-[18%] w-[70%] h-[10%] bg-white/30 rounded-[1.5rem] shadow-lg" />
+                        
+                        {/* Person working on Laptop */}
+                        <div className="relative z-10 flex flex-col items-center translate-y-[-10%]">
+                           <div className="relative">
+                              <User className="w-32 h-32 md:w-40 md:h-40 text-white/90 drop-shadow-2xl" />
+                              <div className="absolute bottom-2 right-0 bg-white/20 backdrop-blur-md p-2 rounded-xl border border-white/30">
+                                 <Laptop className="w-8 h-8 text-white" />
+                              </div>
+                           </div>
+                        </div>
+
+                        {/* Floating Code Card */}
+                        <div className="absolute top-[10%] left-[5%] bg-white/20 backdrop-blur-lg border border-white/30 p-4 rounded-2xl shadow-xl animate-float-subtle">
+                           <Code className="w-8 h-8 text-white" />
+                        </div>
+
+                        {/* Floating Node Graphic */}
+                        <div className="absolute top-[15%] right-[5%] opacity-40 animate-pulse">
+                           <Share2 className="w-14 h-14 text-white" />
+                        </div>
+                        
+                        {/* Additional floating decorators */}
+                        <div className="absolute bottom-[40%] right-0 w-3 h-3 bg-white/40 rounded-full animate-ping" />
+                        <div className="absolute top-[35%] right-[30%] w-2 h-2 bg-white/20 rounded-full" />
+                    </div>
+                </div>
+             </div>
+             
+             {/* Background atmospheric blurs */}
+             <div className="absolute top-[-10%] right-[-5%] w-64 h-64 bg-white/10 rounded-full blur-[80px] pointer-events-none" />
+             <div className="absolute bottom-[-10%] left-[-5%] w-80 h-80 bg-black/10 rounded-full blur-[100px] pointer-events-none" />
           </div>
         </div>
       </section>
