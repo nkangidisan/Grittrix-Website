@@ -4,7 +4,7 @@ import { SolutionsTabSection } from '@/components/sections/SolutionsTabSection';
 import { Button } from '@/components/ui/button';
 import {
   HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, CheckCircle, Building, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ShoppingBag, ServerCog, MonitorPlay, Cpu, Stethoscope, Store, Sprout, GraduationCap, Globe, Users, TrendingUp, ShieldCheck,
-  Code, Smartphone, PenTool, Cloud
+  Code, Smartphone, PenTool, Cloud, ArrowUpRight
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -278,29 +278,41 @@ export default function Home() {
       {/* Rebuilt Section 3: Interactive Industry Solutions */}
       <SolutionsTabSection />
       
+      {/* Rebuilt Section: Who We Work With */}
       <section className="py-16 md:py-24 bg-background" aria-labelledby="partners-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="animate-section-in">
-                    <h2 id="partners-heading" className="text-3xl font-bold font-headline text-primary mb-4">Who We Work With</h2>
-                    <p className="text-lg text-foreground/80 mb-8">
+          <div className="bg-[hsl(var(--card-teal))] rounded-[2.5rem] p-8 md:p-16 lg:p-20 shadow-xl animate-section-in">
+             <div className="grid lg:grid-cols-12 gap-12 items-center">
+                <div className="lg:col-span-5">
+                    <h2 id="partners-heading" className="text-4xl md:text-5xl font-bold font-headline text-white mb-6 leading-tight">Who We Work With</h2>
+                    <p className="text-lg text-white/90 mb-8 max-w-md">
                         We partner with a diverse range of organizations committed to innovation and growth in emerging markets, from startups to large enterprises.
                     </p>
+                    <Link href="/about" className="inline-flex items-center gap-2 text-white font-bold underline underline-offset-8 hover:text-white/80 transition-colors group">
+                      More information <ArrowUpRight className="h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </Link>
                 </div>
-                <div className="grid grid-cols-2 gap-4 animate-section-in animation-delay-200">
-                    {whoWeWorkWithItems.map((item) => {
+                <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                    {whoWeWorkWithItems.map((item, index) => {
                         const ItemIcon = iconMap[item.icon] || BriefcaseBusiness;
                         return (
-                            <div key={item.name} className="bg-card p-4 rounded-lg shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
-                                <div className="p-2 bg-primary/10 rounded-md">
-                                    <ItemIcon className="h-6 w-6 text-primary" aria-hidden="true" />
+                            <div 
+                              key={item.name} 
+                              className={cn(
+                                "bg-white p-6 rounded-xl flex items-center gap-4 shadow-sm hover:shadow-lg transition-all",
+                                index === 4 ? "sm:col-span-2 sm:w-[calc(50%-0.75rem)] sm:mx-auto" : ""
+                              )}
+                            >
+                                <div className="p-2.5 bg-teal-50 rounded-lg shrink-0">
+                                    <ItemIcon className="h-7 w-7 text-[hsl(var(--card-teal))]" aria-hidden="true" />
                                 </div>
-                                <span className="font-medium text-foreground/90">{item.name}</span>
+                                <span className="font-bold text-[#0a1128] text-lg leading-tight">{item.name}</span>
                             </div>
                         );
                     })}
                 </div>
-            </div>
+             </div>
+          </div>
         </div>
       </section>
 
