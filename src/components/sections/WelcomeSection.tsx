@@ -1,3 +1,4 @@
+
 import * as React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -50,7 +51,7 @@ export function WelcomeSection() {
             asChild 
             className="bg-[#0a1128] hover:bg-[#1a2138] text-white font-bold h-14 px-10 rounded-full"
           >
-            <Link href="https://9000-firebase-studio-1750012083885.cluster-44kx2eiocbhe2tyk3zoyo3ryuo.cloudworkstations.dev/design-services">
+            <Link href="/hosting">
               See Pricing Plans
             </Link>
           </Button>

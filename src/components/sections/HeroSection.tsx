@@ -33,7 +33,7 @@ export function HeroSection() {
                 asChild 
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-14 px-8 shadow-[0_0_20px_rgba(var(--primary),0.3)] transition-all transform hover:scale-105"
               >
-                <Link href="https://9000-firebase-studio-1750012083885.cluster-44kx2eiocbhe2tyk3zoyo3ryuo.cloudworkstations.dev/contact?subject=Demo%20Request%20for%20AI%20Tools">
+                <Link href="/contact?subject=Demo%20Request%20for%20AI%20Tools">
                   Request a Demo
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
@@ -44,7 +44,7 @@ export function HeroSection() {
                 asChild 
                 className="border-white/20 text-white hover:bg-white/10 h-14 px-8 font-bold backdrop-blur-sm transition-all transform hover:scale-105"
               >
-                 <Link href="https://9000-firebase-studio-1750012083885.cluster-44kx2eiocbhe2tyk3zoyo3ryuo.cloudworkstations.dev/design-services">
+                 <Link href="/design-services">
                   Check Out Our Work
                 </Link>
               </Button>
