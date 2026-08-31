@@ -28,11 +28,42 @@ const iconMap: { [key: string]: ElementType } = {
   HeartPulse, Leaf, BookOpen, ShoppingCart, BarChartBig, BrainCircuit, Puzzle, DatabaseZap, CheckCircle, Building, Info, Settings, BriefcaseBusiness, PencilLine, Tag, ShoppingBag, ServerCog, MonitorPlay, Cpu, Stethoscope, Store, Sprout, GraduationCap, Globe, Users, TrendingUp
 };
 
+const whyGrittrixFeatures = [
+    {
+        title: "Emerging Market Expertise",
+        description: "Deep understanding of local dynamics to build culturally and contextually relevant AI solutions."
+    },
+    {
+        title: "Localized AI Solutions",
+        description: "We don't just apply technology; we adapt it, ensuring our AI-powered tools are effective in your specific environment."
+    },
+    {
+        title: "Agile & Transparent Partnership",
+        description: "We work with you every step of the way, ensuring our custom software solutions meet your exact needs on time."
+    },
+    {
+        title: "Impact-Driven Innovation",
+        description: "Our goal is tangible results. We build AI tools to drive growth, increase efficiency, and deliver real-world value."
+    }
+];
+
 const keyFeatures = [
-  { name: 'Insight Dashboards', description: 'Real-time analytics and forecasts tailored to your sector.', icon: 'BarChartBig' },
-  { name: 'AI Modules', description: 'Plug in smart tools to predict sales or detect diseases.', icon: 'BrainCircuit' },
-  { name: 'Modular Design', description: 'Only pay for the features you need and scale as you grow.', icon: 'Puzzle' },
-  { name: 'Data-Driven Decisions', description: 'Stop guessing. Start acting with data-backed intelligence.', icon: 'DatabaseZap' },
+  { 
+    title: 'Insight Dashboards', 
+    description: 'Real-time analytics and forecasts tailored to your sector.' 
+  },
+  { 
+    title: 'AI Modules', 
+    description: 'Plug in smart tools to predict sales or detect diseases.' 
+  },
+  { 
+    title: 'Modular Design', 
+    description: 'Only pay for the features you need and scale as you grow.' 
+  },
+  { 
+    title: 'Data-Driven Decisions', 
+    description: 'Stop guessing. Start acting with data-backed intelligence.' 
+  },
 ];
 
 const industriesServed = [
@@ -66,29 +97,6 @@ const industriesServed = [
   },
 ];
 
-const whyGrittrixFeatures = [
-    {
-        title: "Emerging Market Expertise",
-        description: "Deep understanding of local dynamics to build culturally and contextually relevant AI solutions.",
-        icon: "Globe"
-    },
-    {
-        title: "Localized AI Solutions",
-        description: "We don't just apply technology; we adapt it, ensuring our AI-powered tools are effective in your specific environment.",
-        icon: "Cpu"
-    },
-    {
-        title: "Agile & Transparent Partnership",
-        description: "We work with you every step of the way, ensuring our custom software solutions meet your exact needs on time.",
-        icon: "Users"
-    },
-    {
-        title: "Impact-Driven Innovation",
-        description: "Our goal is tangible results. We build AI tools to drive growth, increase efficiency, and deliver real-world value.",
-        icon: "TrendingUp"
-    }
-];
-
 const whoWeWorkWithItems = [
   { name: 'Clinics and Pharmacies', icon: 'Stethoscope' },
   { name: 'Retail Businesses', icon: 'Store' },
@@ -97,6 +105,22 @@ const whoWeWorkWithItems = [
   { name: 'Local Governments', icon: 'Building' },
 ];
 
+/**
+ * Reusable Card Component for Grid Sections
+ */
+function GridCard({ title, description }: { title: string; description: string }) {
+  return (
+    <div className="bg-[hsl(var(--card-mint))] border border-[hsl(var(--border-glow))] shadow-[0_4px_20px_rgba(0,0,0,0.1)] rounded-2xl p-8 flex flex-col h-full hover:shadow-[0_0_20px_rgba(190,90,50,0.2)] transition-shadow duration-300">
+      <h3 className="text-2xl font-bold font-headline text-[#0a1128] mb-3 text-left">
+        {title}
+      </h3>
+      <p className="text-[#3a4155] text-sm md:text-base leading-relaxed text-left">
+        {description}
+      </p>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <article className="overflow-x-hidden">
@@ -104,48 +128,51 @@ export default function Home() {
       
       <WelcomeSection />
 
-      <section className="py-16 md:py-24 bg-secondary/10" aria-labelledby="why-grittrix-heading">
+      {/* Rebuilt Section 1: Why Work With Grittrix */}
+      <section className="py-20 md:py-32 bg-gradient-to-b from-[#050816] to-[#0a1128]" aria-labelledby="why-grittrix-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 animate-section-in">
-            <h2 id="why-grittrix-heading" className="text-3xl md:text-4xl font-bold font-headline text-primary mb-4">Why Work With Grittrix?</h2>
-            <p className="text-lg text-foreground/80 max-w-3xl mx-auto">We provide more than just technology. We deliver custom software solutions and strategic partnerships to help you drive growth and automate your business.</p>
+          <div className="text-center mb-16 animate-section-in">
+            <h2 id="why-grittrix-heading" className="text-4xl md:text-5xl font-bold font-headline text-white mb-4 tracking-tight">
+              Why Work With Grittrix?
+            </h2>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              We provide more than just technology. We deliver custom software
+              solutions and strategic partnerships to help you drive growth and
+              automate your business.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyGrittrixFeatures.map((feature, index) => {
-              const FeatureIcon = iconMap[feature.icon];
-              return (
-                <div key={feature.title} className="p-6 bg-card rounded-lg shadow-md hover:shadow-primary/20 transition-shadow text-center animate-section-in" style={{ animationDelay: `${index * 150}ms`}}>
-                  <div className="flex items-center justify-center h-16 w-16 bg-primary/10 rounded-full mx-auto mb-5">
-                    {FeatureIcon && <FeatureIcon className="h-8 w-8 text-primary" aria-hidden="true" />}
-                  </div>
-                  <h3 className="text-xl font-semibold font-headline text-primary mb-3">{feature.title}</h3>
-                  <p className="text-sm text-center text-foreground/70">{feature.description}</p>
-                </div>
-              );
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto animate-section-in animation-delay-200">
+            {whyGrittrixFeatures.map((feature, index) => (
+              <GridCard 
+                key={index} 
+                title={feature.title} 
+                description={feature.description} 
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-background" aria-labelledby="features-heading">
+      {/* Rebuilt Section 2: AI-Powered Software Features */}
+      <section className="py-20 md:py-32 bg-gradient-to-b from-[#0a1128] to-[#1e3a8a]/20" aria-labelledby="features-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 animate-section-in">
-            <h2 id="features-heading" className="text-3xl md:text-4xl font-bold font-headline text-primary mb-4 animate-text-glow">Our AI-Powered Software Features</h2>
-            <p className="text-lg text-foreground/80 max-w-3xl mx-auto">We don't just build software. We build intelligent systems that learn, adapt, and grow with your business in emerging markets.</p>
+          <div className="text-center mb-16 animate-section-in">
+            <h2 id="features-heading" className="text-4xl md:text-5xl font-bold font-headline text-white mb-4 tracking-tight">
+              Our AI Powered Software Features
+            </h2>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              We don't just build software. We build intelligent systems that learn,
+              adapt, and grow with your business in emerging markets.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {keyFeatures.map((feature, index) => {
-              const FeatureIcon = iconMap[feature.icon];
-              return (
-                <div key={feature.name} className="p-6 bg-card rounded-lg shadow-md hover:shadow-primary/20 transition-shadow animate-section-in" style={{ animationDelay: `${index * 150}ms`}}>
-                  <div className="flex items-center justify-center h-16 w-16 bg-primary/10 rounded-full mx-auto mb-5">
-                    {FeatureIcon && <FeatureIcon className="h-8 w-8 text-primary" aria-hidden="true" />}
-                  </div>
-                  <h3 className="text-xl font-semibold font-headline text-primary text-center mb-3">{feature.name}</h3>
-                  <p className="text-sm text-center text-foreground/70">{feature.description}</p>
-                </div>
-              );
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto animate-section-in animation-delay-200">
+            {keyFeatures.map((feature, index) => (
+              <GridCard 
+                key={index} 
+                title={feature.title} 
+                description={feature.description} 
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -166,7 +193,7 @@ export default function Home() {
                         <div className="p-4 bg-primary/10 rounded-full mb-3 group-hover:bg-primary/20 transition-colors">
                             {IndustryIcon && <IndustryIcon className="h-10 w-10 text-primary" aria-hidden="true" />}
                         </div>
-                        <CardTitle className="font-headline text-xl text-primary group-hover:text-primary/90">{industry.name}</CardTitle>
+                        <CardTitle className="font-headline text-xl text-primary group-hover:text-primary/90 transition-colors">{industry.name}</CardTitle>
                     </CardHeader>
                     <div className="relative aspect-video w-full rounded-md overflow-hidden">
                       <Image

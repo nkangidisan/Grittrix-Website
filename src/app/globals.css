@@ -28,6 +28,10 @@ body {
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
     --ring: 182 100% 60%;
+    
+    /* New Tokens for Grid Rebuild */
+    --card-mint: 158 33% 90%;
+    --border-glow: 190 90% 50%;
   }
 }
 
