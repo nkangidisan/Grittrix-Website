@@ -4,19 +4,29 @@
 import * as React from 'react';
 import { PageHeader } from '@/components/PageHeader';
 import { ContactForm } from '@/components/forms/ContactForm';
-import { Mail, Phone, MapPin, MessageCircle, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { Mail, Phone, MessageCircle, Linkedin, Twitter, Facebook } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ContactPage() {
   const breadcrumbs = [{ name: 'Contact Us' }];
   const whatsappMessage = "Hello Grittrix, I'm interested in your AI solutions.";
   const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
+
+  const contactJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://grittrix.com" },
+      { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://grittrix.com/contact" }
+    ]
+  };
   
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }} />
       <PageHeader
         title="Get in Touch"
-        description="We're here to help and answer any question you might have. We look forward to hearing from you!"
+        description="We're here to help and answer any question you might have. Reach out to discuss your next AI project."
         breadcrumbs={breadcrumbs}
       />
 

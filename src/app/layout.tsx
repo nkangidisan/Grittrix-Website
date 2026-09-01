@@ -1,3 +1,4 @@
+
 import * as React from 'react';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     'AI in healthcare', 
     'AI in retail', 
     'AI in agriculture', 
-    'emerging markets'
+    'emerging markets innovation'
   ],
   alternates: {
     canonical: '/',
@@ -84,50 +85,69 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const organizationSchema = {
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://grittrix.com/#organization",
-    "name": "Grittrix",
-    "alternateName": "Grittrix Technologies",
-    "url": "https://grittrix.com",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://grittrix.com/media/disanlogo.png",
-      "width": 512,
-      "height": 512
-    },
-    "founder": {
-        "@type": "Person",
-        "name": "Nkangi Disan",
-        "url": "https://www.linkedin.com/in/nkangi-disan-7ab2b62a9/"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+256-756-693840",
-      "contactType": "Customer Service",
-      "email": "hello@grittrix.com",
-      "areaServed": "Worldwide",
-      "availableLanguage": ["English"]
-    },
-    "sameAs": [
-      "https://www.linkedin.com/company/grittrix/",
-      "https://x.com/grittrix",
-      "https://www.facebook.com/Grittrix/",
-      "https://www.instagram.com/grittrix/",
-      "https://www.youtube.com/@grittrix"
-    ],
-    "description": "Grittrix creates modern, innovative, AI-powered software, websites, and apps that produce results. We build products that create opportunities for everyone, whether down the street or across the globe."
-  };
-
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://grittrix.com/#website",
-    "name": "Grittrix",
-    "url": "https://grittrix.com",
-    "publisher": { "@ref": "https://grittrix.com/#organization" },
-    "description": "Grittrix creates modern, innovative, AI-powered software, websites, and apps that produce results."
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://grittrix.com/#organization",
+        "name": "Grittrix Technologies",
+        "alternateName": "Grittrix",
+        "url": "https://grittrix.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://grittrix.com/media/disanlogo.png",
+          "width": "512",
+          "height": "512"
+        },
+        "image": "https://grittrix.com/media/homepage.jpg",
+        "description": "Grittrix builds modern, AI-powered software, websites, and apps that produce results, creating opportunities for businesses in emerging markets.",
+        "foundingLocation": "Kampala, Uganda",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kampala",
+          "addressCountry": "Uganda"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Nkangi Disan",
+          "url": "https://www.linkedin.com/in/nkangi-disan-7ab2b62a9/"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+256-756-693840",
+          "contactType": "Customer Service",
+          "email": "hello@grittrix.com",
+          "areaServed": "Worldwide",
+          "availableLanguage": ["English"]
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/grittrix/",
+          "https://x.com/grittrix",
+          "https://www.facebook.com/Grittrix/",
+          "https://www.instagram.com/grittrix/",
+          "https://www.youtube.com/@grittrix"
+        ],
+        "knowsAbout": [
+          "AI powered software development",
+          "web development",
+          "mobile app development",
+          "process automation",
+          "healthcare technology",
+          "agricultural technology",
+          "emerging markets innovation",
+          "SaaS development"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://grittrix.com/#website",
+        "url": "https://grittrix.com",
+        "name": "Grittrix Technologies",
+        "publisher": { "@id": "https://grittrix.com/#organization" },
+        "description": "Innovative AI-powered software, websites, and apps for global impact."
+      }
+    ]
   };
 
   return (
@@ -149,11 +169,7 @@ export default function RootLayout({
         />
         <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

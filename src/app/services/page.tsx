@@ -4,34 +4,53 @@ import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
 import { ServiceItem } from '@/components/sections/ServiceItem';
 import { servicesList } from '@/lib/servicesData';
-import { optimizeContent, OptimizeContentInput } from '@/ai/flows/content-optimization';
-import {
-  BrainCircuit, Cable, TrendingUp
-} from 'lucide-react';
+import { optimizeContent } from '@/ai/flows/content-optimization';
+import { BrainCircuit, Cable, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
-
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = await optimizeContent({ pageType: 'Services' });
   return {
-    title: content.title,
-    description: content.content.split('\n\n')[0] || "Explore our comprehensive suite of AI solutions designed to empower your business and drive innovation in emerging markets."
+    title: `Our AI Services | Grittrix Technologies`,
+    description: "Grittrix Technologies provides web development, mobile app development, UI/UX design, and web hosting for startups and enterprises in emerging markets.",
+    alternates: { canonical: '/services' },
   };
 }
 
-
 export default async function ServicesPage() {
   const content = await optimizeContent({ pageType: 'Services' });
-
   const breadcrumbs = [{ name: 'Services' }];
   const pageTitle = content.title;
   const serviceIntroContent = content.content;
 
+  const servicesJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://grittrix.com" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://grittrix.com/services" }
+    ]
+  };
+
+  const serviceEntitiesJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": servicesList.map(s => ({
+      "@type": "Service",
+      "name": s.title,
+      "description": s.description,
+      "url": `https://grittrix.com${s.detailsUrl || '/services'}`,
+      "provider": { "@id": "https://grittrix.com/#organization" }
+    }))
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceEntitiesJsonLd) }} />
+      
       <PageHeader
         title={pageTitle}
-        description={serviceIntroContent.split('\n\n')[0] || "Explore our comprehensive suite of AI solutions designed to empower your business and drive innovation in emerging markets."}
+        description="Explore our comprehensive suite of AI solutions designed to empower your business and drive innovation in emerging markets."
         breadcrumbs={breadcrumbs}
       />
 
@@ -40,6 +59,9 @@ export default async function ServicesPage() {
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-6">What We Deliver</h2>
              <div className="prose prose-lg prose-invert text-foreground/80 max-w-3xl mx-auto space-y-4">
+                 <p className="font-semibold text-primary/90 text-xl leading-relaxed">
+                   Grittrix Technologies provides web development, mobile app development, UI/UX design, and web hosting for startups and enterprises in emerging markets.
+                 </p>
                  {serviceIntroContent.split('\n\n').map((paragraph, index) => (
                     <p key={index}>{paragraph.trim()}</p>
                  ))}

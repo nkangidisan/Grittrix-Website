@@ -1,3 +1,4 @@
+
 import * as React from 'react';
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/PageHeader';
@@ -9,10 +10,9 @@ import type { ElementType } from 'react';
 import { optimizeContent } from '@/ai/flows/content-optimization';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const content = await optimizeContent({ pageType: 'About Us' });
   return {
-    title: `About Grittrix | Redefining Industries with Technology`,
-    description: 'Learn about Grittrix mission to provide AI-powered tools and automate processes in emerging markets. Meet our leadership team.',
+    title: `About Us | Grittrix Technologies`,
+    description: 'Grittrix is a technology company based in Kampala, Uganda, dedicated to creating AI-powered software and digital platforms for healthcare, agriculture, and retail.',
     alternates: { canonical: '/about' },
     openGraph: {
       title: 'About Grittrix | Redefining Industries with Technology',
@@ -20,12 +20,6 @@ export async function generateMetadata(): Promise<Metadata> {
       url: 'https://grittrix.com/about',
       images: [{ url: '/media/aboutpage.jpg', width: 1200, height: 630, alt: 'Grittrix Team' }],
       type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'About Grittrix | AI Innovation Team',
-      description: 'Meet the team behind Grittrix AI solutions.',
-      images: ['/media/aboutpage.jpg'],
     }
   };
 }
@@ -41,32 +35,31 @@ const teamMembers: TeamMember[] = [
   { id: '5', name: 'Iradukunda Pacifique', role: 'Managing Director East Africa & Senior Graphics Designer', bio: 'Leading East African operations and spearheading creative design to ensure Grittrix solutions are impactful and visually compelling.', imageUrl: '/media/PacifiqueIradukunda.jpg', socials: { linkedin: 'https://www.linkedin.com/in/iradukunda-pacifique-benjamin-a69582335/' } },
 ];
 
-interface CoreValue {
-  title: string;
-  description: string;
-  icon: string;
-}
-
-const iconMap: { [key: string]: ElementType } = {
-  Lightbulb, UsersRound, ShieldCheck, Mountain
-};
-
-const coreValues: CoreValue[] = [
-    { title: "Innovation with purpose", description: "We constantly push the boundaries of AI to create novel solutions that address real-world needs effectively.", icon: "Lightbulb" },
-    { title: "Inclusion through simplicity", description: "We design intuitive technology accessible to everyone, fostering broad participation and benefit.", icon: "UsersRound" },
-    { title: "Transparency and trust", description: "We operate with openness and ethical considerations, building lasting relationships based on integrity.", icon: "ShieldCheck" },
-    { title: "Resilience and grit", description: "We embrace challenges and persevere, committed to delivering impactful solutions even in complex environments.", icon: "Mountain" },
+const coreValues = [
+    { title: "Innovation with purpose", description: "We constantly push the boundaries of AI to create novel solutions that address real-world needs effectively.", icon: Lightbulb },
+    { title: "Inclusion through simplicity", description: "We design intuitive technology accessible to everyone, fostering broad participation and benefit.", icon: UsersRound },
+    { title: "Transparency and trust", description: "We operate with openness and ethical considerations, building lasting relationships based on integrity.", icon: ShieldCheck },
+    { title: "Resilience and grit", description: "We embrace challenges and persevere, committed to delivering impactful solutions even in complex environments.", icon: Mountain },
 ];
 
 export default async function AboutUsPage() {
   const content = await optimizeContent({ pageType: 'About Us' });
-  
   const breadcrumbs = [{ name: 'About Us' }];
   const pageTitle = content.title;
   const storyContent = content.content;
 
+  const aboutJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://grittrix.com" },
+      { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://grittrix.com/about" }
+    ]
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }} />
       <PageHeader
         title={pageTitle}
         description="Learn about our mission to provide AI solutions for business, our vision, values, and the dedicated team driving process automation in emerging markets."
@@ -79,6 +72,9 @@ export default async function AboutUsPage() {
             <div className="animate-slide-in-up">
               <h2 className="text-3xl font-bold font-headline text-primary mb-6">Our Story & Mission</h2>
               <div className="prose prose-lg prose-invert text-foreground/80 max-w-none space-y-4">
+                 <p className="font-semibold text-primary/90 text-xl leading-relaxed">
+                   Grittrix is a technology company based in Kampala, Uganda, dedicated to creating AI-powered software and digital platforms that solve real-world challenges.
+                 </p>
                  {storyContent.split('\n\n').map((paragraph, index) => (
                     <p key={index}>{paragraph.trim()}</p>
                  ))}
@@ -116,12 +112,12 @@ export default async function AboutUsPage() {
           <h2 className="text-3xl font-bold font-headline text-primary text-center mb-12">Our Core Values</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {coreValues.map((value, index) => {
-              const IconComponent = iconMap[value.icon];
+              const IconComponent = value.icon;
               return (
                 <div key={value.title} className="p-6 bg-card rounded-lg shadow-md text-center hover:shadow-primary/20 transition-shadow animate-slide-in-up" style={{ animationDelay: `${index * 100}ms`}}>
                   <div className="flex justify-center mb-4">
                     <div className="p-3 bg-primary/10 rounded-full">
-                      {IconComponent && <IconComponent className="h-8 w-8 text-primary" />}
+                      <IconComponent className="h-8 w-8 text-primary" />
                     </div>
                   </div>
                   <h3 className="text-xl font-semibold font-headline text-primary mb-2">{value.title}</h3>

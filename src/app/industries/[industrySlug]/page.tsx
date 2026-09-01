@@ -20,23 +20,18 @@ export async function generateMetadata({ params }: IndustryPageProps): Promise<M
 
   if (!industry) {
     return {
-      title: 'Industry Not Found | Grittrix AI Solutions',
-      description: 'This industry page does not exist.',
+      title: 'Industry Not Found | Grittrix Technologies',
     };
   }
 
-  const domainBase = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://grittrix.com';
-  const absoluteImageUrl = industry.image.startsWith('http')
-    ? industry.image
-    : new URL(industry.image, domainBase).toString();
-
   return {
-    title: `${industry.title} | Grittrix AI Solutions`,
+    title: `${industry.title} Solutions | Grittrix Technologies`,
     description: industry.description,
+    alternates: { canonical: `/industries/${industrySlug}` },
     openGraph: {
         title: `${industry.title} | Grittrix AI Solutions`,
         description: industry.description,
-        images: [{ url: absoluteImageUrl, alt: industry.title }],
+        images: [{ url: industry.image, alt: industry.title }],
     },
   };
 }
@@ -60,8 +55,19 @@ export default function IndustryPage({ params }: { params: { industrySlug: strin
     { name: industry.title },
   ];
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://grittrix.com" },
+      { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://grittrix.com/industries" },
+      { "@type": "ListItem", "position": 3, "name": industry.title, "item": `https://grittrix.com/industries/${params.industrySlug}` }
+    ]
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <PageHeader title={industry.title} description={industry.description} breadcrumbs={breadcrumbs} />
 
       <section className="py-16 md:py-24 bg-background">

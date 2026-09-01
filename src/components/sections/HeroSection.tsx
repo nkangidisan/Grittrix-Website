@@ -61,6 +61,7 @@ export function HeroSection() {
                 muted
                 loop
                 playsInline
+                preload="metadata"
                 className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />
