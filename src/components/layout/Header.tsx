@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 const mainNavItems = [
-  { href: '/merch', label: 'Merchandise' },
+  { href: '/design-services', label: 'Design Services' },
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/industries', label: 'Industries' },
@@ -28,7 +28,7 @@ const mainNavItems = [
 const moreNavItems = [
     { href: '/careers', label: 'Careers' },
     { href: '/hosting', label: 'Hosting' },
-    { href: '/design-services', label: 'Design Services' },
+    { href: '/merch', label: 'Merchandise' },
     { href: '/faq', label: 'FAQ' },
 ];
 
